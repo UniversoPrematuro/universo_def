@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:universo_def/app/modules/tasks/tasks_Page.dart';
 import 'package:universo_def/app/modules/tasks/tasks_store.dart';
 import 'package:flutter_modular/flutter_modular.dart';

@@ -18,7 +18,7 @@ class ProjetoPageState extends State<ProjetoPage> {
         title: Text(widget.title),
       ),
       body: Column(
-        children: <Widget>[],
+        children: const <Widget>[],
       ),
     );
   }

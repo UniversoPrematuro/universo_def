@@ -18,7 +18,7 @@ class ProdsPageState extends State<ProdsPage> {
         title: Text(widget.title),
       ),
       body: Column(
-        children: <Widget>[],
+        children: const <Widget>[],
       ),
     );
   }

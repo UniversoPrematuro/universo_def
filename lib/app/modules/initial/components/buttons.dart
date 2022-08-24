@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_modular/flutter_modular.dart';
 
 class GradientButtonFb1 extends StatelessWidget {
   final String text;
@@ -71,7 +70,7 @@ class OutlineButtonFb1 extends StatelessWidget {
                     BorderRadius.all(Radius.circular(borderRadius))))),
         child: Text(
           text,
-          style: TextStyle(
+          style: const TextStyle(
               fontSize: 15, fontWeight: FontWeight.w500, color: primaryColor),
         ),
       ),

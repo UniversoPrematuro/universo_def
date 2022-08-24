@@ -121,7 +121,7 @@ class GraphHolder extends StatelessWidget {
             BoxShadow(
                 color: Colors.black.withOpacity(1),
                 blurRadius: 8,
-                offset: Offset(0, 5))
+                offset: const Offset(0, 5))
           ]),
       width: MediaQuery.of(context).size.width * .9,
       height: MediaQuery.of(context).size.height * .7,

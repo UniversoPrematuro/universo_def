@@ -1,4 +1,5 @@
-// ignore_for_file: prefer_const_constructors
+
+// ignore_for_file: prefer_const_constructors, file_names
 
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:universo_def/app/modules/home/home_content/components/home_components.dart';

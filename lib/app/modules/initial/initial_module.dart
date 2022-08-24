@@ -10,6 +10,6 @@ class InitialModule extends Module {
 
   @override
   final List<ModularRoute> routes = [
-    ChildRoute('/', child: (_, args) => InitialPage()),
+    ChildRoute('/', child: (_, args) => const InitialPage()),
   ];
 }

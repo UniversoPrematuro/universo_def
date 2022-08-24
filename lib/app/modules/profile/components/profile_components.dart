@@ -1,3 +1,5 @@
+// ignore_for_file: must_be_immutable
+
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
@@ -38,12 +40,12 @@ class ProfileCard extends StatelessWidget {
           Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.center,
-            children: [Text('oi'), Text('oi'), Text('oi')],
+            children: const [Text('oi'), Text('oi'), Text('oi')],
             // FIM DADOS CRIANÇA //
           ),
 
           Observer(builder: (_) {
-            return CircleAvatar(
+            return const CircleAvatar(
               radius: 45,
               backgroundColor: Colors.black,
               // backgroundImage: NetworkImage(store.photoURL),
@@ -75,12 +77,12 @@ class GalleryTabs extends StatelessWidget {
             isScrollable: true,
             controller: store.tabController,
             labelColor: Colors.green,
-            indicator: UnderlineTabIndicator(
+            indicator: const UnderlineTabIndicator(
               borderSide: BorderSide(width: 2.5, color: Colors.green),
               insets: EdgeInsets.symmetric(horizontal: 30.0),
             ),
             indicatorColor: Colors.green,
-            tabs: [
+            tabs: const [
               Tab(
                 text: "Fotos",
               ),

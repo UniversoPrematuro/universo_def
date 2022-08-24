@@ -1,3 +1,5 @@
+// ignore_for_file: sized_box_for_whitespace
+
 import 'package:flutter_modular/flutter_modular.dart';
 
 import 'package:flutter/material.dart';
@@ -24,7 +26,7 @@ class AuthPageState extends State<AuthPage> {
         title: Text(widget.title),
       ),
       body: Container(
-        color: Color.fromARGB(255, 255, 193,143),
+        color: const Color.fromARGB(255, 255, 193,143),
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height,
         child: Column(

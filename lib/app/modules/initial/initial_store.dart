@@ -2,6 +2,7 @@ import 'package:mobx/mobx.dart';
 
 part 'initial_store.g.dart';
 
+// ignore: library_private_types_in_public_api
 class InitialStore = _InitialStoreBase with _$InitialStore;
 abstract class _InitialStoreBase with Store {
 

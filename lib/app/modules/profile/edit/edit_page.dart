@@ -18,7 +18,7 @@ class EditPageState extends State<EditPage> {
         title: Text(widget.title),
       ),
       body: Column(
-        children: <Widget>[],
+        children: const <Widget>[],
       ),
     );
   }

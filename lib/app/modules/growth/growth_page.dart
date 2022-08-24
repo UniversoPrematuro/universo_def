@@ -18,7 +18,7 @@ class GrowthPageState extends State<GrowthPage> {
         title: Text(widget.title),
       ),
       body: Column(
-        children: <Widget>[],
+        children: const <Widget>[],
       ),
     );
   }

@@ -1,16 +1,16 @@
-import 'package:flutter_test/flutter_test.dart';
-import 'package:universo_def/app/modules/profile/profile_store.dart';
+// import 'package:flutter_test/flutter_test.dart';
+// import 'package:universo_def/app/modules/profile/profile_store.dart';
  
-void main() {
-  late ProfileStore store;
+// void main() {
+//   late ProfileStore store;
 
-  setUpAll(() {
-    store = ProfileStore();
-  });
+//   setUpAll(() {
+//     store = ProfileStore();
+//   });
 
-  test('increment count', () async {
-    expect(store.value, equals(0));
-    store.increment();
-    expect(store.value, equals(1));
-  });
-}
+//   test('increment count', () async {
+//     expect(store.value, equals(0));
+//     store.increment();
+//     expect(store.value, equals(1));
+//   });
+// }

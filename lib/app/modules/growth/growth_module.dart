@@ -10,6 +10,6 @@ class GrowthModule extends Module {
 
   @override
   final List<ModularRoute> routes = [
-    ChildRoute('/', child: (_, args) => GrowthPage()),
+    ChildRoute('/', child: (_, args) => const GrowthPage()),
   ];
 }

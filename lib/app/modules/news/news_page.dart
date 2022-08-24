@@ -18,7 +18,7 @@ class NewsPageState extends State<NewsPage> {
         title: Text(widget.title),
       ),
       body: Column(
-        children: <Widget>[],
+        children: const <Widget>[],
       ),
     );
   }

@@ -1,3 +1,5 @@
+// ignore_for_file: sized_box_for_whitespace
+
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:universo_def/app/modules/profile/components/profile_components.dart';
 import 'package:universo_def/app/modules/profile/profile_store.dart';

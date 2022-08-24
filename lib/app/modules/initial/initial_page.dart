@@ -22,12 +22,12 @@ class InitialPageState extends State<InitialPage> {
     return Scaffold(
         appBar: AppBar(
           elevation: 0,
-          backgroundColor: Color.fromARGB(255, 255, 193,143),
+          backgroundColor: const Color.fromARGB(255, 255, 193,143),
 
           // title: Text(widget.title),
         ),
         body: Container(
-          color: Color.fromARGB(255, 255, 193,143),
+          color: const Color.fromARGB(255, 255, 193,143),
           width: MediaQuery.of(context).size.width,
           height: MediaQuery.of(context).size.height,
           child: Column(

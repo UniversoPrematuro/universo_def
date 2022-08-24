@@ -1,3 +1,5 @@
+// ignore_for_file: library_private_types_in_public_api, file_names
+
 import 'package:mobx/mobx.dart';
 
 part 'homeContent_store.g.dart';
