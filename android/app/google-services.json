@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "93511732836",
+    "project_id": "universo-prematuro-def",
+    "storage_bucket": "universo-prematuro-def.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:93511732836:android:fbc6f721204b0675855971",
+        "android_client_info": {
+          "package_name": "br.up.universoprematuro.universo_def"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "93511732836-7arppk8p4jgqhhn07e4i3st3tshbsn2o.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD4A7HvURWZ83Swhc1OfcMS3Pzn-kmWLQw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "93511732836-7arppk8p4jgqhhn07e4i3st3tshbsn2o.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
