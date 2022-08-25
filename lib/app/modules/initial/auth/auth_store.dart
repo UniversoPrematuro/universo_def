@@ -38,7 +38,7 @@ abstract class _AuthStoreBase with Store {
 
     auth.createUserWithEmailAndPassword(email: user.email!, password: user.pass!).then((firebaseUser){
       save();
-      Modular.to.pushNamed("/home");
+      Modular.to.pushNamed("/edit/");
 
     }).catchError((e) {
       e = "Erro ao cadastrar usuario.";
