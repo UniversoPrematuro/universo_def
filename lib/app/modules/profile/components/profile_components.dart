@@ -61,6 +61,8 @@ class GalleryTabs extends StatelessWidget {
   GalleryTabs({Key? key}) : super(key: key);
 
   final ProfileStore store = Modular.get();
+  // final Function() onPressed;
+  // GalleryTabs({required this.onPressed})
 
   
 
@@ -69,33 +71,184 @@ class GalleryTabs extends StatelessWidget {
     return  DefaultTabController(
         length: 2,
         child: Padding(
-          padding: const EdgeInsets.only(top: 5),
-          child: TabBar(
-            onTap: (value) {
-              store.selectedIndex += 1;
-            },
-            isScrollable: true,
-            controller: store.tabController,
-            labelColor: Colors.green,
-            indicator: const UnderlineTabIndicator(
-              borderSide: BorderSide(width: 2.5, color: Colors.green),
-              insets: EdgeInsets.symmetric(horizontal: 30.0),
+            padding: const EdgeInsets.only(top: 5),
+            child: Column(
+              children: [
+                TabBar(
+                  
+                  isScrollable: true,
+                  controller: store.tabController,
+                  labelColor: Colors.green,
+                  indicator: const UnderlineTabIndicator(
+                    borderSide: BorderSide(width: 2.5, color: Colors.green),
+                    insets: EdgeInsets.symmetric(horizontal: 30.0),
+                  ),
+                  indicatorColor: Colors.green,
+                  tabs: const [
+                    Tab(
+                      text: "Fotos",
+                    ),
+                    Tab(
+                      text: "Videos",
+                    ),
+                    
+                  ],
+                  
+                ),
+                Container(
+                  height: MediaQuery.of(context).size.height *.543,
+                  child: TabBarView(
+                    children: [
+                      GridView.count(
+                      primary: false,
+                      padding: const EdgeInsets.all(20),
+                      crossAxisSpacing: 10,
+                      mainAxisSpacing: 10,
+                      crossAxisCount: 4,
+                      children: <Widget>[
+                        Container(
+                          padding: const EdgeInsets.all(8),
+                          color: Colors.teal[100],
+                          child: const Text("He'd have you all unravel at the"),
+                        ),
+                        Container(
+                          padding: const EdgeInsets.all(8),
+                          color: Colors.teal[200],
+                          child: const Text('Heed not the rabble'),
+                        ),
+                        Container(
+                          padding: const EdgeInsets.all(8),
+                          color: Colors.teal[300],
+                          child: const Text('Sound of screams but the'),
+                        ),
+                        Container(
+                          padding: const EdgeInsets.all(8),
+                          color: Colors.teal[400],
+                          child: const Text('Who scream'),
+                        ),
+                        Container(
+                          padding: const EdgeInsets.all(8),
+                          color: Colors.teal[500],
+                          child: const Text('Revolution is coming...'),
+                        ),
+                        Container(
+                          padding: const EdgeInsets.all(8),
+                          color: Colors.teal[600],
+                          child: const Text('Revolution, they...'),
+                        ),
+                        Container(
+                          padding: const EdgeInsets.all(8),
+                          color: Colors.teal[600],
+                          child: const Text('Revolution, they...'),
+                        ),
+                        Container(
+                          padding: const EdgeInsets.all(8),
+                          color: Colors.teal[600],
+                          child: const Text('Revolution, they...'),
+                        ),
+                        Container(
+                          padding: const EdgeInsets.all(8),
+                          color: Colors.teal[600],
+                          child: const Text('Revolution, they...'),
+                        ),
+                        Container(
+                          padding: const EdgeInsets.all(8),
+                          color: Colors.teal[600],
+                          child: const Text('Revolution, they...'),
+                        ),
+                        Container(
+                          padding: const EdgeInsets.all(8),
+                          color: Colors.teal[600],
+                          child: const Text('Revolution, they...'),
+                        ),
+                        Container(
+                          padding: const EdgeInsets.all(8),
+                          color: Colors.teal[600],
+                          child: const Text('Revolution, they...'),
+                        ),
+                        Container(
+                          padding: const EdgeInsets.all(8),
+                          color: Colors.teal[600],
+                          child: const Text('Revolution, they...'),
+                        ),
+                        Container(
+                          padding: const EdgeInsets.all(8),
+                          color: Colors.teal[600],
+                          child: const Text('Revolution, they...'),
+                        ),
+                        Container(
+                          padding: const EdgeInsets.all(8),
+                          color: Colors.teal[600],
+                          child: const Text('Revolution, they...'),
+                        ),
+                        Container(
+                          padding: const EdgeInsets.all(8),
+                          color: Colors.teal[600],
+                          child: const Text('Revolution, they...'),
+                        ),
+                        Container(
+                          padding: const EdgeInsets.all(8),
+                          color: Colors.teal[600],
+                          child: const Text('Revolution, they...'),
+                        ),
+                        Container(
+                          padding: const EdgeInsets.all(8),
+                          color: Colors.teal[600],
+                          child: const Text('Revolution, they...'),
+                        ),
+                      ],
+                    ),
+                      GridView.count(
+                      primary: false,
+                      padding: const EdgeInsets.all(20),
+                      crossAxisSpacing: 10,
+                      mainAxisSpacing: 10,
+                      crossAxisCount: 4,
+                      children: <Widget>[
+                        Container(
+                          padding: const EdgeInsets.all(8),
+                          color: Colors.teal[100],
+                          child: const Text("He'd have you all unravel at the"),
+                        ),
+                        Container(
+                          padding: const EdgeInsets.all(8),
+                          color: Colors.teal[200],
+                          child: const Text('Heed not the rabble'),
+                        ),
+                        Container(
+                          padding: const EdgeInsets.all(8),
+                          color: Colors.teal[300],
+                          child: const Text('Sound of screams but the'),
+                        ),
+                        Container(
+                          padding: const EdgeInsets.all(8),
+                          color: Colors.teal[400],
+                          child: const Text('Who scream'),
+                        ),
+                        Container(
+                          padding: const EdgeInsets.all(8),
+                          color: Colors.teal[500],
+                          child: const Text('Revolution is coming...'),
+                        ),
+                        Container(
+                          padding: const EdgeInsets.all(8),
+                          color: Colors.teal[600],
+                          child: const Text('Revolution, they...'),
+                        ),
+                      ],
+                    ),
+                ],
+              ),    
             ),
-            indicatorColor: Colors.green,
-            tabs: const [
-              Tab(
-                text: "Fotos",
-              ),
-              Tab(
-                text: "Videos",
-              ),
-              
-            ],
+              ],
+            ),
             
-          ),
+              
+            )
+            
+            
+            
           
-          
-          
-        ));
+        );
   }
 }
