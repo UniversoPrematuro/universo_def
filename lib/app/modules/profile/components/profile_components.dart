@@ -96,7 +96,7 @@ class GalleryTabs extends StatelessWidget {
                   
                 ),
                 Container(
-                  height: MediaQuery.of(context).size.height *.543,
+                  height: MediaQuery.of(context).size.height  *.8,
                   child: TabBarView(
                     children: [
                       GridView.count(
