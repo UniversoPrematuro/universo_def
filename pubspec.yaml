@@ -104,3 +104,20 @@ scripts:
   mobx: flutter pub run build_runner watch --delete-conflicting-outputs
   clean: flutter clean cache
   get: flutter pub get
+
+# CORES UP
+
+## LARANJA MEIO ESCURO
+  ## R: 239, G: 121, B: 91
+
+## lARANJA ESCURO
+  ## R: 192, G: 60, B: 39
+
+## VERDE CLARO
+  ## R: 101, G: 187, B: 88
+
+## VERDE FLUORESCENTE
+  ## R: 34, G: 206, B: 0
+
+## VERDE ESCURO
+  ## R: 35, G 85, B, 24
