@@ -25,19 +25,19 @@ mixin _$EditStore on _EditStoreBase, Store {
     });
   }
 
-  late final _$controllerBirthAtom =
-      Atom(name: '_EditStoreBase.controllerBirth', context: context);
+  late final _$controllerKidBirthAtom =
+      Atom(name: '_EditStoreBase.controllerKidBirth', context: context);
 
   @override
-  TextEditingController get controllerBirth {
-    _$controllerBirthAtom.reportRead();
-    return super.controllerBirth;
+  TextEditingController get controllerKidBirth {
+    _$controllerKidBirthAtom.reportRead();
+    return super.controllerKidBirth;
   }
 
   @override
-  set controllerBirth(TextEditingController value) {
-    _$controllerBirthAtom.reportWrite(value, super.controllerBirth, () {
-      super.controllerBirth = value;
+  set controllerKidBirth(TextEditingController value) {
+    _$controllerKidBirthAtom.reportWrite(value, super.controllerKidBirth, () {
+      super.controllerKidBirth = value;
     });
   }
 
@@ -57,63 +57,122 @@ mixin _$EditStore on _EditStoreBase, Store {
     });
   }
 
-  late final _$controllerDaysAtom =
-      Atom(name: '_EditStoreBase.controllerDays', context: context);
+  late final _$idLogadoAtom =
+      Atom(name: '_EditStoreBase.idLogado', context: context);
 
   @override
-  TextEditingController get controllerDays {
-    _$controllerDaysAtom.reportRead();
-    return super.controllerDays;
+  String? get idLogado {
+    _$idLogadoAtom.reportRead();
+    return super.idLogado;
   }
 
   @override
-  set controllerDays(TextEditingController value) {
-    _$controllerDaysAtom.reportWrite(value, super.controllerDays, () {
-      super.controllerDays = value;
+  set idLogado(String? value) {
+    _$idLogadoAtom.reportWrite(value, super.idLogado, () {
+      super.idLogado = value;
     });
   }
 
-  late final _$controllerMomNameAtom =
-      Atom(name: '_EditStoreBase.controllerMomName', context: context);
+  late final _$kidPhotoAtom =
+      Atom(name: '_EditStoreBase.kidPhoto', context: context);
 
   @override
-  TextEditingController get controllerMomName {
-    _$controllerMomNameAtom.reportRead();
-    return super.controllerMomName;
+  XFile? get kidPhoto {
+    _$kidPhotoAtom.reportRead();
+    return super.kidPhoto;
   }
 
   @override
-  set controllerMomName(TextEditingController value) {
-    _$controllerMomNameAtom.reportWrite(value, super.controllerMomName, () {
-      super.controllerMomName = value;
+  set kidPhoto(XFile? value) {
+    _$kidPhotoAtom.reportWrite(value, super.kidPhoto, () {
+      super.kidPhoto = value;
     });
   }
 
-  late final _$controllerBirthMomAtom =
-      Atom(name: '_EditStoreBase.controllerBirthMom', context: context);
+  late final _$momPhotoAtom =
+      Atom(name: '_EditStoreBase.momPhoto', context: context);
 
   @override
-  TextEditingController get controllerBirthMom {
-    _$controllerBirthMomAtom.reportRead();
-    return super.controllerBirthMom;
+  XFile? get momPhoto {
+    _$momPhotoAtom.reportRead();
+    return super.momPhoto;
   }
 
   @override
-  set controllerBirthMom(TextEditingController value) {
-    _$controllerBirthMomAtom.reportWrite(value, super.controllerBirthMom, () {
-      super.controllerBirthMom = value;
+  set momPhoto(XFile? value) {
+    _$momPhotoAtom.reportWrite(value, super.momPhoto, () {
+      super.momPhoto = value;
     });
+  }
+
+  late final _$uploadAtom =
+      Atom(name: '_EditStoreBase.upload', context: context);
+
+  @override
+  bool get upload {
+    _$uploadAtom.reportRead();
+    return super.upload;
+  }
+
+  @override
+  set upload(bool value) {
+    _$uploadAtom.reportWrite(value, super.upload, () {
+      super.upload = value;
+    });
+  }
+
+  late final _$photoURLAtom =
+      Atom(name: '_EditStoreBase.photoURL', context: context);
+
+  @override
+  String get photoURL {
+    _$photoURLAtom.reportRead();
+    return super.photoURL;
+  }
+
+  @override
+  set photoURL(String value) {
+    _$photoURLAtom.reportWrite(value, super.photoURL, () {
+      super.photoURL = value;
+    });
+  }
+
+  late final _$momURLAtom =
+      Atom(name: '_EditStoreBase.momURL', context: context);
+
+  @override
+  String get momURL {
+    _$momURLAtom.reportRead();
+    return super.momURL;
+  }
+
+  @override
+  set momURL(String value) {
+    _$momURLAtom.reportWrite(value, super.momURL, () {
+      super.momURL = value;
+    });
+  }
+
+  late final _$saveDataAsyncAction =
+      AsyncAction('_EditStoreBase.saveData', context: context);
+
+  @override
+  Future<dynamic> saveData() {
+    return _$saveDataAsyncAction.run(() => super.saveData());
   }
 
   @override
   String toString() {
     return '''
 controllerKidName: ${controllerKidName},
-controllerBirth: ${controllerBirth},
+controllerKidBirth: ${controllerKidBirth},
 controllerWeeks: ${controllerWeeks},
-controllerDays: ${controllerDays},
-controllerMomName: ${controllerMomName},
-controllerBirthMom: ${controllerBirthMom}
+idLogado: ${idLogado},
+kidPhoto: ${kidPhoto},
+momPhoto: ${momPhoto},
+upload: ${upload},
+photoURL: ${photoURL},
+momURL: ${momURL}
     ''';
   }
 }
