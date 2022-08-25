@@ -6,7 +6,10 @@ import 'package:flutter/material.dart';
 
 import 'package:universo_def/app/modules/home/home_store.dart';
 
+import '../growth/growth_page.dart';
+import '../profile/components/profile_components.dart';
 import '../profile/profile_page.dart';
+import '../tasks/tasks_page.dart';
 import 'home_content/homeContent_page.dart';
 
 
@@ -22,9 +25,8 @@ class HomePageState extends State<HomePage> {
   List widgetOptions =  [
     const HomeContentPage(),
     const ProfilePage(),
-    // const DesenvolvimentoPage(),
-    // const CrescimentoPage()
-
+    const TasksPage(),
+    const GrowthPage(),
   ];
   final HomeStore store = Modular.get();
 
