@@ -5,6 +5,7 @@ import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter/material.dart';
 import 'package:universo_def/app/modules/initial/auth/auth_store.dart';
 
+import '../../models/user_model.dart';
 import '../components/buttons.dart';
 import '../components/fields.dart';
 
@@ -63,7 +64,7 @@ class AuthPageState extends State<AuthPage> {
                               Padding(
                                 padding: const EdgeInsets.all(5.0),
                                 child: OutlineButtonFb1(text: "Cadastrar", onPressed: (){
-                                  Modular.to.pushReplacementNamed("/home/");
+                                  store.register(UserModel());
                                 }),
                         )
                             ]),

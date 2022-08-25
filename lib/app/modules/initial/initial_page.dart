@@ -2,7 +2,9 @@ import 'package:flutter_modular/flutter_modular.dart';
 
 import 'package:flutter/material.dart';
 import 'package:universo_def/app/modules/initial/components/buttons.dart';
+import 'package:universo_def/app/modules/initial/components/fields.dart';
 
+import '../models/user_model.dart';
 import 'initial_store.dart';
 
 
@@ -40,11 +42,22 @@ class InitialPageState extends State<InitialPage> {
                       Center(
                         child: Image.asset('images/logo/LogoMov.gif', width: 350),
                       ),
+                      Padding(
+                        padding: const EdgeInsets.fromLTRB(20, 40, 20, 0),
+                        child: EmailInputFieldFb3(controllerEmail: store.controllerEmail),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.fromLTRB(20, 20, 20, 0),
+                        child: PasswordInput(controllerPass: store.controllerPass, hintText:'Senha'),
+                      ),
+
+                    
+
                       Column(
                         children: [
                           const SizedBox(height: 30),
                           GradientButtonFb1(
-                              onPressed: () {Modular.to.pushNamed('/home/');}, 
+                              onPressed: () {store.signIn(UserModel());}, 
                               text: "Entre Agora!"
                             ),
 
