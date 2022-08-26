@@ -24,7 +24,10 @@ class AuthPageState extends State<AuthPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.title),
+        title: const Text('Cadastre-se'),
+        centerTitle: true,
+        backgroundColor: const Color.fromARGB(255, 255, 193,143),
+        elevation: 0,
       ),
       body: Container(
         color: const Color.fromARGB(255, 255, 193,143),

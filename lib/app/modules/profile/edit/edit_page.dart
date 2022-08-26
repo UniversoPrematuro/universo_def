@@ -18,12 +18,20 @@ class EditPageState extends State<EditPage> {
   final ProfileStore storeP = Modular.get();
 
 
+  @override
+  void initState() {
+    store.recover();
+    super.initState();
+  }
+
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.title),
+        title: const Text('Editar Perfil'),
+        elevation: 0,
+        centerTitle: true,
       ),
       body: Container(
         color: Colors.green,
@@ -70,8 +78,8 @@ class EditPageState extends State<EditPage> {
                   ],
                 ),
 
-                    GradientButtonFb1(text: "Salvar", onPressed: () => store.saveData()),
-                        KidCard(),
+                    KidCard(),
+                    GradientButtonFb1(text: "Salvar", onPressed: () => store.saveData().then((value) => Modular.to.pushReplacementNamed("/home/"))),
                         
                         
                       ],

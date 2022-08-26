@@ -1,5 +1,6 @@
 // ignore_for_file: sized_box_for_whitespace
 
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:universo_def/app/modules/profile/components/profile_components.dart';
@@ -30,6 +31,21 @@ class ProfilePageState extends State<ProfilePage> {
           title: Text('Perfil'),
           centerTitle: true,
           elevation: 0,
+          actions: [
+              Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: ElevatedButton(
+                    onPressed: () {
+                      FirebaseAuth.instance.signOut();
+                    },
+                    style: ButtonStyle(
+                      elevation: MaterialStateProperty.all(0),
+                        backgroundColor: MaterialStateProperty.all(
+                            Colors.green,
+                            )),
+                    child: Icon(Icons.logout_rounded),
+                  ))
+            ],
         ),
         body: Container(
             color: Colors.white,
