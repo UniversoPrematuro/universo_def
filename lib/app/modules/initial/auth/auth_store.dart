@@ -60,7 +60,8 @@ abstract class _AuthStoreBase with Store {
     Map<String, dynamic> data = {
       "mom": user.name,
       "email": user.email,
-      "pass": user.pass
+      "pass": user.pass,
+      "reg": Timestamp.fromDate(DateTime.now())
     };
 
     db.collection("users").doc(idLogado).set(data);

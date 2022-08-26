@@ -9,21 +9,26 @@ class UserModel {
 
   String? pass;
 
+  String? registration;
+
   UserModel({
     this.name,
     this.email,
     this.pass,
+    this.registration
   });
 
   UserModel copyWith({
     String? name,
     String? email,
     String? pass,
+    String? registration
   }) {
     return UserModel(
       name: name ?? this.name,
       email: email ?? this.email,
       pass: pass ?? this.pass,
+      registration: registration ?? this.registration
     );
   }
 
@@ -32,6 +37,7 @@ class UserModel {
       'name': name,
       'email': email,
       'pass': pass,
+      'reg': registration
     };
   }
 
@@ -40,6 +46,7 @@ class UserModel {
       name: map['name'],
       email: map['email'],
       pass: map['pass'],
+      registration: map['reg']
     );
   }
 
@@ -48,7 +55,7 @@ class UserModel {
   factory UserModel.fromJson(String source) => UserModel.fromMap(json.decode(source) as Map<String, dynamic>);
 
   @override
-  String toString() => 'UserModel(name: $name, email: $email, pass: $pass)';
+  String toString() => 'UserModel(name: $name, email: $email, pass: $pass, reg: $registration)';
 
   @override
   bool operator ==(covariant UserModel other) {
@@ -57,9 +64,10 @@ class UserModel {
     return 
       other.name == name &&
       other.email == email &&
-      other.pass == pass;
+      other.pass == pass &&
+      other.registration == registration;
   }
 
   @override
-  int get hashCode => name.hashCode ^ email.hashCode ^ pass.hashCode;
+  int get hashCode => name.hashCode ^ email.hashCode ^ pass.hashCode ^ registration.hashCode;
 }

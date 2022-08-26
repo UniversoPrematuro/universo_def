@@ -42,7 +42,7 @@ class Tip15PageState extends State<Tip15Page> {
                 //height: 250.0,
                 decoration: BoxDecoration(
                     border: Border.all(
-                        color: Color.fromARGB(255, 101, 188, 89),
+                        color: const Color.fromARGB(255, 101, 188, 89),
                         width: 3.0
                     )
                 ),
@@ -54,7 +54,7 @@ class Tip15PageState extends State<Tip15Page> {
                 //height: 250.0,
                 decoration: BoxDecoration(
                     border: Border.all(
-                        color: Color.fromARGB(255, 101, 188, 89),
+                        color: const Color.fromARGB(255, 101, 188, 89),
                         width: 3.0
                     )
                 ),
@@ -62,11 +62,11 @@ class Tip15PageState extends State<Tip15Page> {
               ),
             ],
           ),
-          SizedBox(height: 20.0,),
+          const SizedBox(height: 20.0,),
           Container(
-            margin: EdgeInsets.only(left: 40.0,right: 40.0,bottom: 20.0),
-            padding: EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 35.0),
-            decoration: BoxDecoration(
+            margin: const EdgeInsets.only(left: 40.0,right: 40.0,bottom: 20.0),
+            padding: const EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 35.0),
+            decoration: const BoxDecoration(
               image: DecorationImage(
                 fit: BoxFit.fill,
                 image: AssetImage('images1/ballon9.png')
@@ -81,9 +81,9 @@ class Tip15PageState extends State<Tip15Page> {
                 'perninhas.'),
           ),
           Container(
-            margin: EdgeInsets.only(left: 40.0,right: 40.0,bottom: 20.0),
-            padding: EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 20.0),
-            decoration: BoxDecoration(
+            margin: const EdgeInsets.only(left: 40.0,right: 40.0,bottom: 20.0),
+            padding: const EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 20.0),
+            decoration: const BoxDecoration(
                 image: DecorationImage(
                     fit: BoxFit.fill,
                     image: AssetImage('images1/ballon91.png')
@@ -94,9 +94,9 @@ class Tip15PageState extends State<Tip15Page> {
                 'sempre com , fixando olho no olho.'),
           ),Container(),
           Container(
-            margin: EdgeInsets.only(left: 40.0,right: 40.0,bottom: 20.0),
-            padding: EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 30.0),
-            decoration: BoxDecoration(
+            margin: const EdgeInsets.only(left: 40.0,right: 40.0,bottom: 20.0),
+            padding: const EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 30.0),
+            decoration: const BoxDecoration(
                 image: DecorationImage(
                     fit: BoxFit.fill,
                     image: AssetImage('images1/ballon9.png')
@@ -106,8 +106,8 @@ class Tip15PageState extends State<Tip15Page> {
                 ' sozinho(a) no trocador ou na cama.\n- Respeite a hora do sono, um '
                 'ambiente tranquilo é importante para o seu desenvolvimento.'),
           ),
-          Padding(
-            padding: const EdgeInsets.only(left: 20.0,right:20.0,bottom:10.0,top:30.0),
+          const Padding(
+            padding: EdgeInsets.only(left: 20.0,right:20.0,bottom:10.0,top:30.0),
             child: Text(
               "LEMBRE-SE: a frequência de estímulos é muito importante. Estimule "
                   "sempre que possível",
@@ -134,12 +134,8 @@ class Tip15PageState extends State<Tip15Page> {
             padding: const EdgeInsets.only(left: 20.0,right:20.0,bottom:40.0,top:20.0),
             child: Align(
               alignment: Alignment.bottomRight,
-              child: RaisedButton.icon(
-
-                elevation: 5,
-                color: Color.fromARGB(255, 101, 188, 89),
-                shape: StadiumBorder(),
-                label: Text(
+              child: ElevatedButton.icon(
+                label: const Text(
                   'Seguem as tarefas',
                   style: TextStyle(
                       fontSize: 24.0,
@@ -147,7 +143,7 @@ class Tip15PageState extends State<Tip15Page> {
                       color: Colors.white
                   ),
                 ),
-                icon: Icon(Icons.arrow_forward,color: Colors.white,),
+                icon: const Icon(Icons.arrow_forward,color: Colors.white,),
                 onPressed: (){}
               ),
             ),
@@ -163,7 +159,7 @@ class Tip15PageState extends State<Tip15Page> {
       children: <Widget>[
         Text(
           '$title',
-          style: TextStyle(
+          style: const TextStyle(
             fontSize: 18,
             fontWeight: FontWeight.bold,
             color: Color.fromARGB(255, 193, 61, 39),
@@ -172,7 +168,7 @@ class Tip15PageState extends State<Tip15Page> {
         ),
         Text(
           text,
-          style: TextStyle(
+          style: const TextStyle(
             fontSize: 18,
             fontWeight: FontWeight.normal,
             color: Colors.white,
