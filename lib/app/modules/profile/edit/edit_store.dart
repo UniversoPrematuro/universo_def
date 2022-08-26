@@ -6,9 +6,11 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_modular/flutter_modular.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:mobx/mobx.dart';
 
+import '../../initial/auth/auth_store.dart';
 import '../../models/kid_model.dart';
 
 part 'edit_store.g.dart';
@@ -66,6 +68,20 @@ abstract class _EditStoreBase with Store {
       "semanas": kid.weeks
     };
     db.collection("users").doc(idLogado).set(data, SetOptions(merge: true));
+  }
+
+  recover() async {
+    final AuthStore authStore = Modular.get();
+    User usuarioLogado = auth.currentUser!;
+    idLogado = usuarioLogado.uid;
+
+    DocumentSnapshot snapshot = await db.collection("users").doc(idLogado).get();
+
+    Map? dados = snapshot.data() as Map?;
+    controllerKidName.text = dados!["kid"];
+    controllerKidBirth.text = dados["nasc"];
+    controllerWeeks.text = dados["semanas"];
+    authStore.controllerNameMom.text = dados["mom"];
   }
   
   Future selectPhoto(String origem) async {

@@ -5,54 +5,103 @@ import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:universo_def/app/modules/profile/profile_store.dart';
 
+import '../../initial/auth/auth_store.dart';
 import '../edit/edit_store.dart';
 
 class ProfileCard extends StatelessWidget {
   ProfileCard({Key? key}) : super(key: key);
   final EditStore store = Modular.get();
+  final AuthStore authStore = Modular.get();
+
 
   double borderRadius = 20;
 
+
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: MediaQuery.of(context).size.width,
-      height: MediaQuery.of(context).size.height * .2,
-      decoration: BoxDecoration(
-          boxShadow: [
-            BoxShadow(
-                color: Colors.grey.withOpacity(0.5),
-                spreadRadius: 5,
-                blurRadius: 7,
-                offset: const Offset(0, 5))
+    return Observer(
+      builder: (_){
+      return Container(
+        width: MediaQuery.of(context).size.width,
+        height: MediaQuery.of(context).size.height * .25,
+        decoration: BoxDecoration(
+            boxShadow: [
+              BoxShadow(
+                  color: Colors.grey.withOpacity(0.5),
+                  spreadRadius: 5,
+                  blurRadius: 7,
+                  offset: const Offset(0, 5))
+            ],
+            borderRadius: const BorderRadius.only(
+              bottomLeft: Radius.circular(20),
+              bottomRight: Radius.circular(20),
+            ),
+            color: Colors.green),
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            // DADOS CRIANÇA //
+    
+            Padding(
+              padding: const EdgeInsets.all(12.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children:  [
+                  Observer(builder: (_) {
+                    return Text('Mãe: ${authStore.controllerNameMom.text}', 
+                    textAlign: TextAlign.start,
+                    style: TextStyle(color: Colors.white, fontWeight: FontWeight.w500,)
+                    );
+                    
+                    }), 
+                  const SizedBox(height: 5),
+                  Observer(builder: (_) {
+                    return Text('Criança: ${store.controllerKidName.text}',
+                    textAlign: TextAlign.start,
+                    style: TextStyle(color: Colors.white, fontWeight: FontWeight.w500,)
+                    );
+                    
+                  }), 
+                  const SizedBox(height: 5),
+                  Observer(builder: (_) {
+                    return Text('Aniversário: ${store.controllerKidBirth.text}',
+                    textAlign: TextAlign.start,
+                    style: TextStyle(color: Colors.white, fontWeight: FontWeight.w500,)
+                    );
+                  
+                  }),
+                  const SizedBox(height: 5),
+                  Observer(builder: (_) {
+                    return Text('Idade cronológica: ${store.controllerWeeks.text}',
+                    textAlign: TextAlign.start,
+                    style: TextStyle(color: Colors.white, fontWeight: FontWeight.w500,)
+                    );
+                    
+                  }),
+                  ElevatedButton(onPressed: () => Modular.to.pushNamed("/edit"), child: Text("Editar"))
+                  ],
+                // FIM DADOS CRIANÇA //
+              ),
+            ),
+    
+            Observer(
+              builder: (_) {
+              return Padding(
+                padding: const EdgeInsets.only(right: 8.0),
+                child: CircleAvatar(
+                    radius: 45,
+                    backgroundColor: Colors.black,
+                    backgroundImage: NetworkImage(store.photoURL),
+                  )
+                );},
+            ),
+            
+            
           ],
-          borderRadius: const BorderRadius.only(
-            bottomLeft: Radius.circular(20),
-            bottomRight: Radius.circular(20),
-          ),
-          color: Colors.green),
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          // DADOS CRIANÇA //
-
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: const [Text('oi'), Text('oi'), Text('oi')],
-            // FIM DADOS CRIANÇA //
-          ),
-
-          Observer(builder: (_) {
-            return const CircleAvatar(
-              radius: 45,
-              backgroundColor: Colors.black,
-              // backgroundImage: NetworkImage(store.photoURL),
-            );
-          }),
-        ],
-      ),
+        ),
+      );},
     );
   }
 }

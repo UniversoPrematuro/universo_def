@@ -27,28 +27,30 @@ abstract class _ProfileStoreBase with Store {
   @observable
   int selectedIndex = 0;
 
-  @action
-  recover() async {
-    User usuarioLogado = auth.currentUser!;
-    idLogado = usuarioLogado.uid;
+  
+  // recover()  {
+  //   User usuarioLogado = auth.currentUser!;
+  //   idLogado = usuarioLogado.uid;
 
-    db.collection("users").doc(idLogado).get().then((snp) {
-      if (
-        snp.exists && 
-        snp.data()!["kid"] != null &&
-        snp.data()!["nasc"] != null &&
-        snp.data()!["weeks"] != null
-      ){
-        KidModel kid = KidModel();
-        UserModel user = UserModel();
-        kid.kidName = snp.data()!["kidName"];
-        kid.kidBirth = snp.data()!["kidBirth"];
-        kid.weeks = snp.data()!["semanas"];
-        kid.gender = snp.data()!["gender"];
-        user.name = snp.data()!["mom"];
+  //   db.collection("users").doc(idLogado).get().then((snp) {
+  //     if (
+  //       snp.exists && 
+  //       snp.data()!["kid"] != null &&
+  //       snp.data()!["nasc"] != null &&
+  //       snp.data()!["weeks"] != null
+  //     ){
+  //       KidModel kid = KidModel();
+  //       UserModel user = UserModel();
+  //       kid.kidName = snp.data()!["kidName"];
+  //       kid.kidBirth = snp.data()!["kidBirth"];
+  //       kid.weeks = snp.data()!["semanas"];
+  //       kid.gender = snp.data()!["gender"];
+  //       user.name = snp.data()!["mom"];
         
-      }
-    });
-  }
+  //     }
+  //   });
+  // }
+
+  
   
 }

@@ -5,6 +5,7 @@ import 'package:universo_def/app/modules/initial/components/buttons.dart';
 import 'package:universo_def/app/modules/initial/components/fields.dart';
 
 import '../models/user_model.dart';
+import '../profile/edit/edit_store.dart';
 import 'initial_store.dart';
 
 
@@ -18,6 +19,8 @@ class InitialPage extends StatefulWidget {
 
 class InitialPageState extends State<InitialPage> {
   final InitialStore store = Modular.get();
+
+  final EditStore editStore = Modular.get();
 
   @override
   Widget build(BuildContext context) {
@@ -57,7 +60,10 @@ class InitialPageState extends State<InitialPage> {
                         children: [
                           const SizedBox(height: 30),
                           GradientButtonFb1(
-                              onPressed: () {store.signIn(UserModel());}, 
+                              onPressed: () {
+                                store.signIn(UserModel());
+                                editStore.recover();
+                                }, 
                               text: "Entre Agora!"
                             ),
 

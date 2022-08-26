@@ -1,6 +1,9 @@
+import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:universo_def/app/modules/initial/components/buttons.dart';
 import 'package:universo_def/app/modules/profile/edit/edit_store.dart';
 import 'package:flutter/material.dart';
+import 'package:universo_def/app/modules/profile/profile_store.dart';
 
 import 'components/fields_e.dart';
 
@@ -12,6 +15,9 @@ class EditPage extends StatefulWidget {
 }
 class EditPageState extends State<EditPage> {
   final EditStore store = Modular.get();
+  final ProfileStore storeP = Modular.get();
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -34,10 +40,12 @@ class EditPageState extends State<EditPage> {
                         Padding(
                           padding: const EdgeInsets.only(top: 40, bottom: 5),
                           child: Center(
-                            child: const CircleAvatar(
-                              radius: 70,
-                              backgroundColor: Colors.grey,
-                              
+                            child: Observer(builder: (_) {
+                              return CircleAvatar(
+                                radius: 70,
+                                backgroundColor: Colors.grey,
+                                backgroundImage: NetworkImage(store.photoURL),
+                              );},
                             ),
                           ),
                         ),
@@ -48,20 +56,23 @@ class EditPageState extends State<EditPage> {
                       child: const Text("Câmera",
                           style: TextStyle(color: Colors.white)),
                       onPressed: () {
-                        // store.selectPhoto("camera");
+                        store.selectPhoto("camera");
                       },
                     ),
                     TextButton(
                       child: const Text("Galeria",
                           style: TextStyle(color: Colors.white)),
                       onPressed: () {
-                        // store.selectPhoto("galeria");
+                        store.selectPhoto("galeria");
                       },
                     ),
+
                   ],
                 ),
 
+                    GradientButtonFb1(text: "Salvar", onPressed: () => store.saveData()),
                         KidCard(),
+                        
                         
                       ],
                     ),
