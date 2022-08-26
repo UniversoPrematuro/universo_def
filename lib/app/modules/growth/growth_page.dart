@@ -17,12 +17,8 @@ class GrowthPageState extends State<GrowthPage> {
       appBar: AppBar(
         title: const Text("Crescimento"),
         centerTitle: true,
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back_ios_new),
-          onPressed: (){
-             Modular.to.pushReplacementNamed("/home/");
-          },
-        ),
+        elevation: 0,
+        backgroundColor: const Color.fromARGB(255, 101, 187, 88),
       ),
       body: SingleChildScrollView(
         child: Container(
@@ -50,7 +46,7 @@ class GrowthPageState extends State<GrowthPage> {
                  Center(
                   child: SizedBox(
                     width: 350,
-                    height: MediaQuery.of(context).size.height/1.5,
+                    height: MediaQuery.of(context).size.height * .5,
                     child: Card(
                       shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(20)),
@@ -70,7 +66,7 @@ class GrowthPageState extends State<GrowthPage> {
                                 ' infantil.''O crescimento saudável é alcançado com uma alimentação adequada  '
                                 'principalmente nos dois primeiros anos de vida. Preparamos um material para auxiliá-la nesse processo.',
                                 textAlign: TextAlign.justify,
-                                style: const TextStyle(
+                                style: TextStyle(
                                   fontSize: 16,
                                   fontWeight: FontWeight.w500,
                                   color: Color.fromARGB(255, 35, 85, 24)
@@ -107,7 +103,7 @@ class GrowthPageState extends State<GrowthPage> {
                     
                   ),
                   onPressed: (){
-                    Navigator.pushReplacementNamed(context, '/crescimento/tip');
+                    Navigator.pushReplacementNamed(context, '/tip/');
                   }, 
                   child: const Text(
                     "Navegar até o material!",

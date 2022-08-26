@@ -8,18 +8,37 @@ class TasksPage extends StatefulWidget {
   @override
   TasksPageState createState() => TasksPageState();
 }
+// ## VERDE CLARO
+//   ## R: 101, G: 187, B: 88
 class TasksPageState extends State<TasksPage> {
   final TasksStore store = Modular.get();
-
+// ## LARANJA MEIO ESCURO
+//   ## R: 239, G: 121, B: 91
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.title),
+        title: const Text('Tarefas'),
+        centerTitle: true,
+        elevation: 0,
+        backgroundColor: const Color.fromARGB(255, 239, 121, 91),
       ),
-      body: Column(
-        children: const <Widget>[],
-      ),
+      body: Container(
+        color: const Color.fromARGB(255, 239, 121, 91),
+        width: MediaQuery.of(context).size.width,
+        height: MediaQuery.of(context).size.height,
+        child: Column(
+          children: [
+            Expanded(
+              child: LayoutBuilder(builder: (_, constraintss){
+                return const SingleChildScrollView(
+
+                );
+              }),
+            )
+          ],
+        ),
+      )
     );
   }
 }

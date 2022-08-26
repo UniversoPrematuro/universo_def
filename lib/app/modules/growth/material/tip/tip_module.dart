@@ -1,14 +1,14 @@
 
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:universo/app/modules/crescimento/material/tip/pages/tip15_page.dart';
-import 'package:universo/app/modules/crescimento/material/tip/pages/tip5_page.dart';
-import 'package:universo/app/modules/crescimento/material/tip/pages/tip6_page.dart';
-import 'package:universo/app/modules/crescimento/material/tip/tip_store.dart';
+import 'package:universo_def/app/modules/growth/material/tip/tip_store.dart';
 
+import 'pages/tip15_page.dart';
 import 'pages/tip1_page.dart';
 import 'pages/tip2_page.dart';
 import 'pages/tip3_page.dart';
 import 'pages/tip4_page.dart';
+import 'pages/tip5_page.dart';
+import 'pages/tip6_page.dart';
 import 'pages/tip7_page.dart';
 import 'pages/tip8_page.dart';
 import 'pages/tip9_page.dart';

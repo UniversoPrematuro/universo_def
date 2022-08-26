@@ -2,6 +2,8 @@ import 'package:flutter_modular/flutter_modular.dart';
 
 import 'modules/growth/growth_module.dart';
 import 'modules/growth/growth_store.dart';
+import 'modules/growth/material/tip/tip_module.dart';
+import 'modules/growth/material/tip/tip_store.dart';
 import 'modules/home/home_module.dart';
 import 'modules/home/home_store.dart';
 import 'modules/initial/auth/auth_module.dart';
@@ -23,6 +25,7 @@ class AppModule extends Module {
     Bind.lazySingleton((i) => EditStore()),
     Bind.lazySingleton((i) => TasksStore()),
     Bind.lazySingleton((i) => GrowthStore()),
+    Bind.lazySingleton((i) => TipStore()),
   ];
 
   @override
@@ -34,6 +37,7 @@ class AppModule extends Module {
     ModuleRoute('/edit', module: EditModule()),
     ModuleRoute('/tasks', module: TasksModule()),
     ModuleRoute('/growth', module: GrowthModule()),
+    ModuleRoute('/tip', module: TipModule()),
   ];
 
 }

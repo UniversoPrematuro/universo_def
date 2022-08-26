@@ -11,6 +11,7 @@ class AppWidget extends StatelessWidget {
       theme: ThemeData(primarySwatch: Colors.green), 
       routeInformationParser: Modular.routeInformationParser, 
       routerDelegate: Modular.routerDelegate,
+      debugShowCheckedModeBanner: false,
     );
   }
 }

@@ -7,7 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:universo_def/app/modules/home/home_store.dart';
 
 import '../growth/growth_page.dart';
-import '../profile/components/profile_components.dart';
+import '../profile/edit/edit_store.dart';
 import '../profile/profile_page.dart';
 import '../tasks/tasks_page.dart';
 import 'home_content/homeContent_page.dart';
@@ -21,6 +21,12 @@ class HomePage extends StatefulWidget {
   HomePageState createState() => HomePageState();
 }
 class HomePageState extends State<HomePage> {
+  final EditStore editStore = Modular.get();
+  @override
+  void initState() {
+    editStore.recover();
+    super.initState();
+  }
 
   List widgetOptions =  [
     const HomeContentPage(),

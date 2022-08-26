@@ -1,4 +1,4 @@
-// ignore_for_file: must_be_immutable
+// ignore_for_file: must_be_immutable, sized_box_for_whitespace
 
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
@@ -52,7 +52,7 @@ class ProfileCard extends StatelessWidget {
                   Observer(builder: (_) {
                     return Text('Mãe: ${authStore.controllerNameMom.text}', 
                     textAlign: TextAlign.start,
-                    style: TextStyle(color: Colors.white, fontWeight: FontWeight.w500,)
+                    style: const TextStyle(color: Colors.white, fontWeight: FontWeight.w500,)
                     );
                     
                     }), 
@@ -60,7 +60,7 @@ class ProfileCard extends StatelessWidget {
                   Observer(builder: (_) {
                     return Text('Criança: ${store.controllerKidName.text}',
                     textAlign: TextAlign.start,
-                    style: TextStyle(color: Colors.white, fontWeight: FontWeight.w500,)
+                    style: const TextStyle(color: Colors.white, fontWeight: FontWeight.w500,)
                     );
                     
                   }), 
@@ -68,7 +68,7 @@ class ProfileCard extends StatelessWidget {
                   Observer(builder: (_) {
                     return Text('Aniversário: ${store.controllerKidBirth.text}',
                     textAlign: TextAlign.start,
-                    style: TextStyle(color: Colors.white, fontWeight: FontWeight.w500,)
+                    style: const TextStyle(color: Colors.white, fontWeight: FontWeight.w500,)
                     );
                   
                   }),
@@ -76,11 +76,11 @@ class ProfileCard extends StatelessWidget {
                   Observer(builder: (_) {
                     return Text('Idade cronológica: ${store.controllerWeeks.text}',
                     textAlign: TextAlign.start,
-                    style: TextStyle(color: Colors.white, fontWeight: FontWeight.w500,)
+                    style: const TextStyle(color: Colors.white, fontWeight: FontWeight.w500,)
                     );
                     
                   }),
-                  ElevatedButton(onPressed: () => Modular.to.pushNamed("/edit"), child: Text("Editar"))
+                  ElevatedButton(onPressed: () => Modular.to.pushNamed("/edit"), child: const Text("Editar"))
                   ],
                 // FIM DADOS CRIANÇA //
               ),

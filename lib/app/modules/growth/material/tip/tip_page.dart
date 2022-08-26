@@ -2,6 +2,8 @@ import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter/material.dart';
 import 'package:universo_def/app/modules/growth/material/tip/tip_store.dart';
 
+
+
 class TipPage extends StatefulWidget {
   final String title;
   const TipPage({Key? key, this.title = 'TipPage'}) : super(key: key);
@@ -22,7 +24,7 @@ class TipPageState extends State<TipPage> {
         leading: IconButton(
           icon: const Icon(Icons.arrow_back_ios_new),
           onPressed: (){
-             Modular.to.popAndPushNamed("/crescimento");
+             Modular.to.pushReplacementNamed("/home/");
           },
         ),
       ),

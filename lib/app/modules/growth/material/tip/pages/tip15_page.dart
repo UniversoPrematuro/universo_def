@@ -158,7 +158,7 @@ class Tip15PageState extends State<Tip15Page> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
         Text(
-          '$title',
+          title,
           style: const TextStyle(
             fontSize: 18,
             fontWeight: FontWeight.bold,

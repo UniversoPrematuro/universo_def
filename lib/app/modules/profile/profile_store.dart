@@ -5,8 +5,8 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:mobx/mobx.dart';
 
-import '../models/kid_model.dart';
-import '../models/user_model.dart';
+// import '../models/kid_model.dart';
+// import '../models/user_model.dart';
 
 part 'profile_store.g.dart';
 

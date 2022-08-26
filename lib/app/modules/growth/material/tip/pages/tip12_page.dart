@@ -14,7 +14,7 @@ class Tip12PageState extends State<Tip12Page> {
         title: Text(widget.title),
       ),
       body: Column(
-        children: <Widget>[],
+        children: const <Widget>[],
       ),
     );
   }

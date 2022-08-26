@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:universo/app/modules/crescimento/material/tip/pages/widgets/image_content.dart';
+
+import 'widgets/image_content.dart';
+// import 'package:universo/app/modules/crescimento/material/tip/pages/widgets/image_content.dart';
 
 class Tip1Page extends StatefulWidget {
   final String title;
@@ -19,7 +21,7 @@ class Tip1PageState extends State<Tip1Page> {
         leading: IconButton(
           icon: const Icon(Icons.arrow_back_ios_new),
           onPressed: (){
-             Navigator.pushReplacementNamed(context, '/crescimento/tip');
+             Navigator.pushReplacementNamed(context, '/tip/');
           },
         ),
       ),

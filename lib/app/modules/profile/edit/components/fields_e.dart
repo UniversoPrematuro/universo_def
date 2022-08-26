@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors_in_immutables, unused_local_variable, must_be_immutable
+
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';

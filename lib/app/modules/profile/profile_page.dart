@@ -6,7 +6,6 @@ import 'package:universo_def/app/modules/profile/components/profile_components.d
 import 'package:universo_def/app/modules/profile/profile_store.dart';
 import 'package:flutter/material.dart';
 
-import '../initial/components/buttons.dart';
 import 'edit/edit_store.dart';
 
 class ProfilePage extends StatefulWidget {
@@ -27,6 +26,7 @@ class ProfilePageState extends State<ProfilePage> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
+          // ignore: prefer_const_constructors
           title: Text('Perfil'),
           centerTitle: true,
           elevation: 0,

@@ -18,7 +18,7 @@ class Tip5PageState extends State<Tip5Page> {
         leading: IconButton(
           icon: const Icon(Icons.arrow_back_ios_new),
           onPressed: (){
-             Navigator.pushReplacementNamed(context, '/crescimento/tip');
+             Navigator.pushReplacementNamed(context, '/tip/');
           },
         ),
       ),

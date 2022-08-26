@@ -1,8 +1,11 @@
+// ignore_for_file: must_be_immutable
+
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
 class CustomCarouselFB2 extends StatelessWidget {
-  const CustomCarouselFB2({Key? key}) : super(key: key);
+  CustomCarouselFB2({Key? key}) : super(key: key);
+  var borderRadius = 40;
 
   @override
   Widget build(BuildContext context) {
@@ -17,8 +20,11 @@ class CustomCarouselFB2 extends StatelessWidget {
                   Modular.to.pushNamed("/cartilha/");
                 },
                 style: ButtonStyle(
-                    backgroundColor: MaterialStateProperty.all(Colors.white)),
-                child: SizedBox(
+                  backgroundColor: MaterialStateProperty.all(Colors.white),
+                ),
+                child: Container(
+                  decoration:
+                      BoxDecoration(borderRadius: BorderRadius.circular(150)),
                   width: MediaQuery.of(context).size.width * .3,
                   height: MediaQuery.of(context).size.height * .2,
                   child: Column(children: [
