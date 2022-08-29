@@ -77,7 +77,9 @@ abstract class _EditStoreBase with Store {
 
     DocumentSnapshot snapshot = await db.collection("users").doc(idLogado).get();
 
-    Map? dados = snapshot.data() as Map?;
+    // var kidName = controllerKidName.text; 
+
+    Map? dados = snapshot.data() as Map? ;
     controllerKidName.text = dados!["kid"];
     controllerKidBirth.text = dados["nasc"];
     controllerWeeks.text = dados["semanas"];

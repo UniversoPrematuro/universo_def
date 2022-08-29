@@ -1,8 +1,14 @@
 
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:universo_def/app/modules/growth/material/tip/pages/copinho.dart';
+import 'package:universo_def/app/modules/growth/material/tip/pages/relactacao.dart';
+import 'package:universo_def/app/modules/growth/material/tip/pages/tip17_page.dart';
 import 'package:universo_def/app/modules/growth/material/tip/tip_store.dart';
 
+
+import 'pages/ordenha.dart';
 import 'pages/tip15_page.dart';
+import 'pages/tip16_page.dart';
 import 'pages/tip1_page.dart';
 import 'pages/tip2_page.dart';
 import 'pages/tip3_page.dart';
@@ -44,5 +50,10 @@ class TipModule extends Module {
     ChildRoute('/tip13', child: (_, args) => const Tip13Page()),
     ChildRoute('/tip14', child: (_, args) => const Tip14Page()),
     ChildRoute('/tip15', child: (_, args) => const Tip15Page()),
+    ChildRoute('/tip16', child: (_, args) => const Tip16Page()),
+    ChildRoute('/tip17', child: (_, args) => const Tip17Page()),
+    ChildRoute('/copinho', child: (_, args) =>  Copinho()),
+    ChildRoute('/relactacao', child: (_, args) =>  Relactacao()),
+    ChildRoute('/ordenha', child: (_, args) =>  Ordenha()),
   ];
 }

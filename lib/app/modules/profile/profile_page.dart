@@ -57,7 +57,11 @@ class ProfilePageState extends State<ProfilePage> {
                   child: LayoutBuilder(builder: (_, constraints) {
                     return SingleChildScrollView(
                         child: Column(children: [
-                      Observer(builder:(_) {return ProfileCard();}),
+                      Observer(
+                        builder:(_) {
+                          return ProfileCard();
+                          
+                          }),
                       
                       const SizedBox(height: 20),
                       GalleryTabs(),

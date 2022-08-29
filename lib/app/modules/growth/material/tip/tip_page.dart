@@ -188,16 +188,16 @@ class TipPageState extends State<TipPage> {
                     ),
                     )),
 
-                // ElevatedButton(
-                //   onPressed: (){Modular.to.pushNamed("/tip/tip14");}, 
-                //   child: const Text(
-                //     "Retorno ao trabalho",
-                //     textAlign: TextAlign.center,
-                //     style: TextStyle(
-                //       fontSize: 18,
-                //       fontWeight: FontWeight.w600
-                //     ),
-                //     )),
+                ElevatedButton(
+                  onPressed: (){Modular.to.pushNamed("/tip/tip14");}, 
+                  child: const Text(
+                    "Retorno ao trabalho",
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.w600
+                    ),
+                    )),
 
                 ElevatedButton(
                   onPressed: (){Modular.to.pushNamed("/tip/tip15");}, 
@@ -211,7 +211,7 @@ class TipPageState extends State<TipPage> {
                     )),
 
                 ElevatedButton(
-                  onPressed: (){}, 
+                  onPressed: (){Modular.to.pushNamed("/tip/tip16");}, 
                   child: const Text(
                     "Amamentação/fórmula e a introdução a alimentos",
                     textAlign: TextAlign.center,
@@ -222,9 +222,9 @@ class TipPageState extends State<TipPage> {
                     )),
 
                 ElevatedButton(
-                  onPressed: (){}, 
+                  onPressed: (){Modular.to.pushNamed("/tip/tip17");}, 
                   child: const Text(
-                    "Amamentação/fórmula e a introdução a alimentos",
+                    "Introdução Alimentar",
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       fontSize: 18,
