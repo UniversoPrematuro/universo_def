@@ -2,6 +2,7 @@
 
 import 'dart:io';
 
+import 'package:age_calculator/age_calculator.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
@@ -51,6 +52,40 @@ abstract class _EditStoreBase with Store {
   @observable
   String momURL = ''; 
 
+  @observable
+  int gestation = 40;
+  
+  @observable
+  int? idadeCorrigida;
+
+  @observable
+  DateDuration? age;
+
+
+  
+  
+  @action
+  Future ageCalculator() async {
+    List<String> campos = controllerKidBirth.text.split('/');
+    int dia = int.parse(campos[0]);
+    int mes = int.parse(campos[1]);
+    int ano = int.parse(campos[2]);
+    DateTime nascimento = DateTime(ano, mes, dia);
+
+    var age = AgeCalculator.age(nascimento);
+    print(age);
+  }
+
+  // trueAge() {
+
+  //   var age = controllerWeeks.text;
+  //   List<String> fields = controllerWeeks.text.split('/');
+  //   int weeks = int.parse(fields[0]);
+  //   int days = int.parse(fields[1]);
+  //   idadeCorrigida = weeks  - gestation;
+  //   print(idadeCorrigida);
+  // }
+
   @action
   Future saveData() async {
     User usuarioLogado = auth.currentUser!;
@@ -60,12 +95,15 @@ abstract class _EditStoreBase with Store {
     kid.kidName = controllerKidName.text;
     kid.kidBirth = controllerKidBirth.text;
     kid.weeks = controllerWeeks.text;
+    // kid.age = age;
     // kid.gender = 
 
     Map<String, dynamic> data = {
       "kid": kid.kidName,
       "nasc": kid.kidBirth,
-      "semanas": kid.weeks
+      // "crono": kid.age,
+      "semanas": kid.weeks,
+      "photoURL": photoURL,
     };
     db.collection("users").doc(idLogado).set(data, SetOptions(merge: true));
   }
@@ -84,7 +122,8 @@ abstract class _EditStoreBase with Store {
     controllerKidBirth.text = dados["nasc"];
     controllerWeeks.text = dados["semanas"];
     authStore.controllerNameMom.text = dados["mom"];
-  }
+    photoURL = dados["photo"];
+    }
   
   Future selectPhoto(String origem) async {
     final ImagePicker _picker = ImagePicker();

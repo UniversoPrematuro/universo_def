@@ -153,6 +153,61 @@ mixin _$EditStore on _EditStoreBase, Store {
     });
   }
 
+  late final _$gestationAtom =
+      Atom(name: '_EditStoreBase.gestation', context: context);
+
+  @override
+  int get gestation {
+    _$gestationAtom.reportRead();
+    return super.gestation;
+  }
+
+  @override
+  set gestation(int value) {
+    _$gestationAtom.reportWrite(value, super.gestation, () {
+      super.gestation = value;
+    });
+  }
+
+  late final _$idadeCorrigidaAtom =
+      Atom(name: '_EditStoreBase.idadeCorrigida', context: context);
+
+  @override
+  int? get idadeCorrigida {
+    _$idadeCorrigidaAtom.reportRead();
+    return super.idadeCorrigida;
+  }
+
+  @override
+  set idadeCorrigida(int? value) {
+    _$idadeCorrigidaAtom.reportWrite(value, super.idadeCorrigida, () {
+      super.idadeCorrigida = value;
+    });
+  }
+
+  late final _$ageAtom = Atom(name: '_EditStoreBase.age', context: context);
+
+  @override
+  DateDuration? get age {
+    _$ageAtom.reportRead();
+    return super.age;
+  }
+
+  @override
+  set age(DateDuration? value) {
+    _$ageAtom.reportWrite(value, super.age, () {
+      super.age = value;
+    });
+  }
+
+  late final _$ageCalculatorAsyncAction =
+      AsyncAction('_EditStoreBase.ageCalculator', context: context);
+
+  @override
+  Future<dynamic> ageCalculator() {
+    return _$ageCalculatorAsyncAction.run(() => super.ageCalculator());
+  }
+
   late final _$saveDataAsyncAction =
       AsyncAction('_EditStoreBase.saveData', context: context);
 
@@ -172,7 +227,10 @@ kidPhoto: ${kidPhoto},
 momPhoto: ${momPhoto},
 upload: ${upload},
 photoURL: ${photoURL},
-momURL: ${momURL}
+momURL: ${momURL},
+gestation: ${gestation},
+idadeCorrigida: ${idadeCorrigida},
+age: ${age}
     ''';
   }
 }

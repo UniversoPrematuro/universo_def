@@ -61,7 +61,7 @@ class Tip17PageState extends State<Tip17Page> {
                       ),
                       textAlign: TextAlign.justify,
                     ),
-                    
+                    const SizedBox(height: 50),
                     CustomCarouselFB3()
                     
 

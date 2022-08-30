@@ -2,6 +2,8 @@
 import 'dart:convert';
 import 'dart:core';
 
+import 'package:age_calculator/age_calculator.dart';
+
 class KidModel {
 
   String? kidName;
@@ -11,6 +13,8 @@ class KidModel {
   String? weeks;
 
   String? gender;
+
+  DateDuration? age;
 
 
   changeName(String value) => kidName = value;

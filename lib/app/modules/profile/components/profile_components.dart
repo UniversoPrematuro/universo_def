@@ -16,6 +16,11 @@ class ProfileCard extends StatelessWidget {
 
   double borderRadius = 20;
 
+  @override
+  void initState() { 
+    store.recover();
+    
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -74,7 +79,7 @@ class ProfileCard extends StatelessWidget {
                   }),
                   const SizedBox(height: 5),
                   Observer(builder: (_) {
-                    return Text('Idade cronológica: ${store.controllerWeeks.text}',
+                    return Text('Idade cronológica: ${store.age}',
                     textAlign: TextAlign.start,
                     style: const TextStyle(color: Colors.white, fontWeight: FontWeight.w500,)
                     );
@@ -86,17 +91,18 @@ class ProfileCard extends StatelessWidget {
               ),
             ),
     
-            Observer(
-              builder: (_) {
-              return Padding(
+              Padding(
                 padding: const EdgeInsets.only(right: 8.0),
-                child: CircleAvatar(
-                    radius: 45,
-                    backgroundColor: Colors.black,
-                    backgroundImage: NetworkImage(store.photoURL),
-                  )
-                );},
-            ),
+                child: Observer(
+                  builder: (_) {
+                   return CircleAvatar(
+                      radius: 45,
+                      backgroundColor: Colors.black,
+                      backgroundImage: NetworkImage(store.photoURL),
+                    );
+      })
+                )
+            
             
             
           ],

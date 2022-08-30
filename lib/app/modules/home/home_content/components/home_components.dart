@@ -3,6 +3,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
+import '../../../profile/edit/edit_store.dart';
+
 class CustomCarouselFB2 extends StatelessWidget {
   CustomCarouselFB2({Key? key}) : super(key: key);
   var borderRadius = 40;
@@ -131,6 +133,48 @@ class GraphHolder extends StatelessWidget {
           ]),
       width: MediaQuery.of(context).size.width * .9,
       height: MediaQuery.of(context).size.height * .7,
+      child: Column(
+        children: [
+          MomCard()
+        ],
+      )
     );
   }
+}
+
+
+class MomCard extends StatelessWidget {
+  MomCard ({Key? key}) : super(key:key);
+  final EditStore storeE = Modular.get();
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: MediaQuery.of(context).size.width * .8,
+      height: MediaQuery.of(context).size.height / 4,
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(20)
+      ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Column(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              Text('Filho: ${storeE.controllerKidName.text}'),
+            ],
+          ),
+          CircleAvatar(
+            radius: 45,
+            backgroundColor: Colors.black,
+            // backgroundImage: NetworkImage(store.photoURL),
+          )
+        ],
+      ),
+    );
+  } 
+
+
 }

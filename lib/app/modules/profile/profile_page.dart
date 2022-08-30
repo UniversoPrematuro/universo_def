@@ -19,7 +19,7 @@ class ProfilePage extends StatefulWidget {
 class ProfilePageState extends State<ProfilePage> {
   final ProfileStore store = Modular.get();
   final EditStore editStore = Modular.get();
-  // final GalleryTabs tab = Modular.get();
+
 
 
 
@@ -57,11 +57,11 @@ class ProfilePageState extends State<ProfilePage> {
                   child: LayoutBuilder(builder: (_, constraints) {
                     return SingleChildScrollView(
                         child: Column(children: [
-                      Observer(
-                        builder:(_) {
-                          return ProfileCard();
+
+                          ProfileCard(),
+
                           
-                          }),
+                          
                       
                       const SizedBox(height: 20),
                       GalleryTabs(),

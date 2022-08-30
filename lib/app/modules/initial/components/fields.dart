@@ -136,35 +136,36 @@ class PasswordInputState extends State<PasswordInput> {
       controller: widget.controllerPass,
       obscureText: !pwdVisibility,
       decoration: InputDecoration(
+        filled: true,
         fillColor: Colors.white,
         hintText: widget.hintText,
         enabledBorder: OutlineInputBorder(
           borderSide: const BorderSide(
-            color: Colors.white,
+            color: Colors.green,
             width: 1,
           ),
-          borderRadius: BorderRadius.circular(25.0),
+          borderRadius: BorderRadius.circular(10.0),
         ),
         focusedErrorBorder: OutlineInputBorder(
           borderSide: const BorderSide(
-            color: Colors.red,
+            color: Color.fromARGB(255, 222, 15, 0),
             width: 1,
           ),
-          borderRadius: BorderRadius.circular(25.0),
+          borderRadius: BorderRadius.circular(10.0),
         ),
         errorBorder: OutlineInputBorder(
           borderSide: const BorderSide(
             color: Colors.red,
             width: 1,
           ),
-          borderRadius: BorderRadius.circular(25.0),
+          borderRadius: BorderRadius.circular(10.0),
         ),
         focusedBorder: OutlineInputBorder(
           borderSide: const BorderSide(
-            color: Colors.grey,
+            color: Colors.green,
             width: 1,
           ),
-          borderRadius: BorderRadius.circular(25.0),
+          borderRadius: BorderRadius.circular(10.0),
         ),
         suffixIcon: InkWell(
           onTap: () => setState(
