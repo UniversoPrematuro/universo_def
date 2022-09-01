@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
+import '../../../initial/auth/auth_store.dart';
 import '../../../profile/edit/edit_store.dart';
 
 class CustomCarouselFB2 extends StatelessWidget {
@@ -135,6 +136,7 @@ class GraphHolder extends StatelessWidget {
       height: MediaQuery.of(context).size.height * .7,
       child: Column(
         children: [
+          const SizedBox(height: 40),
           MomCard()
         ],
       )
@@ -146,6 +148,7 @@ class GraphHolder extends StatelessWidget {
 class MomCard extends StatelessWidget {
   MomCard ({Key? key}) : super(key:key);
   final EditStore storeE = Modular.get();
+  final AuthStore storeA = Modular.get();
 
   @override
   Widget build(BuildContext context) {
@@ -153,6 +156,13 @@ class MomCard extends StatelessWidget {
       width: MediaQuery.of(context).size.width * .8,
       height: MediaQuery.of(context).size.height / 4,
       decoration: BoxDecoration(
+        boxShadow:  [
+        BoxShadow(
+            offset: const Offset(0, 5),
+            blurRadius: 50,
+            spreadRadius: 0,
+            color: Colors.black.withOpacity(.6)),
+      ],
         color: Colors.white,
         borderRadius: BorderRadius.circular(20)
       ),
@@ -161,9 +171,11 @@ class MomCard extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Column(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text('Filho: ${storeE.controllerKidName.text}'),
+              Text('Mãe: ${storeA.controllerNameMom.text}', textAlign: TextAlign.start),
+              Align(alignment: Alignment.centerLeft, child: Text('Filho: ${storeE.controllerKidName.text}', textAlign: TextAlign.start)),
             ],
           ),
           CircleAvatar(

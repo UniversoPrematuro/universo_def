@@ -19,6 +19,7 @@ class ProfileCard extends StatelessWidget {
   @override
   void initState() { 
     store.recover();
+    store.ageCalculator();
     
   }
 
@@ -100,7 +101,7 @@ class ProfileCard extends StatelessWidget {
                       backgroundColor: Colors.black,
                       backgroundImage: NetworkImage(store.photoURL),
                     );
-      })
+                  })
                 )
             
             

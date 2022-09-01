@@ -1,12 +1,21 @@
 
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:universo_def/app/modules/growth/material/tip/pages/alimentos_ini.dart';
+import 'package:universo_def/app/modules/growth/material/tip/pages/como_preparar.dart';
+import 'package:universo_def/app/modules/growth/material/tip/pages/congelamento.dart';
 import 'package:universo_def/app/modules/growth/material/tip/pages/copinho.dart';
 import 'package:universo_def/app/modules/growth/material/tip/pages/relactacao.dart';
 import 'package:universo_def/app/modules/growth/material/tip/pages/tip17_page.dart';
+import 'package:universo_def/app/modules/growth/material/tip/pages/tipos_intro.dart';
+import 'package:universo_def/app/modules/growth/material/tip/pages/utensilios.dart';
 import 'package:universo_def/app/modules/growth/material/tip/tip_store.dart';
 
 
+import 'pages/cronograma.dart';
+import 'pages/divisao.dart';
+import 'pages/engasgo.dart';
 import 'pages/ordenha.dart';
+import 'pages/prontidao.dart';
 import 'pages/tip15_page.dart';
 import 'pages/tip16_page.dart';
 import 'pages/tip1_page.dart';
@@ -23,13 +32,22 @@ import 'pages/tip11_page.dart';
 import 'pages/tip12_page.dart';
 import 'pages/tip13_page.dart';
 import 'pages/tip14_page.dart';
+import 'pages/exemplo_pais.dart';
+import 'pages/utensilios.dart';
+import 'pages/tipos_intro.dart';
+import 'pages/como_preparar.dart';
+import 'pages/alimentos_ini.dart';
+import 'pages/congelamento.dart';
+import 'pages/reacoes.dart';
+import 'pages/proibido1.dart';
+import 'pages/proibido2.dart';
 import 'tip_page.dart';
 
 class TipModule extends Module {
   @override
   final List<Bind> binds = [
     Bind.lazySingleton((i) => TipStore()),
-    Bind.singleton((i) => const Tip1Page()),
+
   ];
 
   @override
@@ -55,5 +73,18 @@ class TipModule extends Module {
     ChildRoute('/copinho', child: (_, args) =>  Copinho()),
     ChildRoute('/relactacao', child: (_, args) =>  Relactacao()),
     ChildRoute('/ordenha', child: (_, args) =>  Ordenha()),
+    ChildRoute('/prontidao', child: (_, args) =>   Prontidao()),
+    ChildRoute('/exemplo', child: (_, args) =>  const ExemploPais()),
+    ChildRoute('/utensilios', child: (_, args) =>  Utensilios()),
+    ChildRoute('/tipos', child: (_, args) =>  const TiposIntro()),
+    ChildRoute('/comopreparar', child: (_, args) =>  ComoPreparar()),
+    ChildRoute('/divisao', child: (_, args) =>  Divisao()),
+    ChildRoute('/cronograma', child: (_, args) =>  const Cronograma()),
+    ChildRoute('/engasgo', child: (_, args) =>  const Engasgo()),
+    ChildRoute('/alimentosini', child: (_, args) =>  const AlimentosIni()),
+    ChildRoute('/congelamento', child: (_, args) =>  const Congelamento()),
+    ChildRoute('/reacoes', child: (_, args) =>  Reacoes()),
+    ChildRoute('/proibido1', child: (_, args) =>  Proibido1()),
+    ChildRoute('/proibido2', child: (_, args) =>  Proibido2()),
   ];
 }

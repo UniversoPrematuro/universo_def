@@ -4,6 +4,7 @@ import 'package:flutter_modular/flutter_modular.dart';
 
 // import 'material/tip/pages/copinho.dart';
 import 'material/tip/pages/copinho.dart';
+import 'material/tip/pages/prontidao.dart';
 
 class GrowthModule extends Module {
   @override
@@ -15,5 +16,6 @@ class GrowthModule extends Module {
   final List<ModularRoute> routes = [
     ChildRoute('/', child: (_, args) => const GrowthPage()),
     ChildRoute('/copinho', child: (_, args) => Copinho()),
+    ChildRoute('/prontidao', child: (_, args) => Prontidao()),
   ];
 }

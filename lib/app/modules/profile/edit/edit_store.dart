@@ -72,7 +72,7 @@ abstract class _EditStoreBase with Store {
     int ano = int.parse(campos[2]);
     DateTime nascimento = DateTime(ano, mes, dia);
 
-    var age = AgeCalculator.age(nascimento);
+    age = AgeCalculator.age(nascimento);
     print(age);
   }
 
