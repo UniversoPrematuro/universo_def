@@ -42,7 +42,7 @@ class HomeContentPageState extends State<HomeContentPage> {
                     child: Icon(Icons.logout_rounded),
                   ))
             ],
-            backgroundColor: const Color.fromARGB(255, 255, 193, 143)),
+            backgroundColor: const Color.fromARGB(255, 255, 194, 143)),
         body: Container(
           color: const Color.fromARGB(255, 255, 193, 143),
           width: MediaQuery.of(context).size.width,
