@@ -37,7 +37,7 @@ class HomeContentPageState extends State<HomeContentPage> {
                     style: ButtonStyle(
                       elevation: MaterialStateProperty.all(0),
                         backgroundColor: MaterialStateProperty.all(
-                            const Color.fromARGB(255, 255, 193, 143),
+                            const Color.fromARGB(255, 255, 192, 143),
                             )),
                     child: Icon(Icons.logout_rounded),
                   ))
