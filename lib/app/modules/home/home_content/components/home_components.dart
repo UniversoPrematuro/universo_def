@@ -34,7 +34,7 @@ class CustomCarouselFB2 extends StatelessWidget {
                     const SizedBox(height: 15),
                     Image.asset("images/buttons/BotaoUP.png",
                         width: 100, height: 100),
-                    const SizedBox(height: 15),
+                    const SizedBox(height: 5),
                     const Text(
                       "Cartilha",
                       style: TextStyle(color: Colors.green),
@@ -54,10 +54,10 @@ class CustomCarouselFB2 extends StatelessWidget {
                   width: MediaQuery.of(context).size.width * .3,
                   height: MediaQuery.of(context).size.height * .2,
                   child: Column(children: [
-                    const SizedBox(height: 15),
+                    const SizedBox(height: 5),
                     Image.asset("images/buttons/botaokm.png",
                         width: 100, height: 100),
-                    const SizedBox(height: 15),
+                    const SizedBox(height: 5),
                     const Text(
                       "Noticias",
                       style: TextStyle(color: Colors.green),
@@ -77,10 +77,10 @@ class CustomCarouselFB2 extends StatelessWidget {
                   width: MediaQuery.of(context).size.width * .3,
                   height: MediaQuery.of(context).size.height * .2,
                   child: Column(children: [
-                    const SizedBox(height: 15),
+                    const SizedBox(height: 5),
                     Image.asset("images/buttons/BotaoUP.png",
                         width: 100, height: 100),
-                    const SizedBox(height: 15),
+                    const SizedBox(height: 5),
                     const Text(
                       "O Projeto",
                       style: TextStyle(color: Colors.green),
@@ -100,10 +100,10 @@ class CustomCarouselFB2 extends StatelessWidget {
                   width: MediaQuery.of(context).size.width * .3,
                   height: MediaQuery.of(context).size.height * .2,
                   child: Column(children: [
-                    const SizedBox(height: 15),
+                    const SizedBox(height: 5),
                     Image.asset("images/buttons/botao bate papo.png",
                         width: 100, height: 100),
-                    const SizedBox(height: 15),
+                    const SizedBox(height: 5),
                     const Text(
                       "Produções",
                       style: TextStyle(color: Colors.green),

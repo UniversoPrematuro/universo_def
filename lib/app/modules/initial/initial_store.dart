@@ -22,6 +22,7 @@ abstract class _InitialStoreBase with Store {
 
   @observable
   TextEditingController controllerPass =  TextEditingController();
+  
 
   @observable
   String? idLogado;
@@ -33,7 +34,7 @@ abstract class _InitialStoreBase with Store {
   bool loading = false;
 
   @action
-  Future signIn(UserModel user) async {
+  signIn(UserModel user) async {
     loading = true;
     User usuarioLogado = auth.currentUser!;
     idLogado = usuarioLogado.uid;
@@ -42,7 +43,7 @@ abstract class _InitialStoreBase with Store {
     await Future.delayed(const Duration(seconds: 5)).whenComplete(() async {
       try{
         await auth.signInWithEmailAndPassword(email: user.email!, password: user.pass!).then((firebaseUser)async{
-          if(usuarioLogado != null) loading = false;
+          if(usuarioLogado == auth.currentUser) loading = false;
           await Future.delayed(const Duration(seconds: 3), (){
             Modular.to.pushReplacementNamed("/home/");
           });

@@ -40,9 +40,6 @@ abstract class _AuthStoreBase with Store {
       save();
       Modular.to.pushNamed("/edit/");
 
-    }).catchError((e) {
-      e = "Erro ao cadastrar usuario.";
-      return e;
     });
   }
 

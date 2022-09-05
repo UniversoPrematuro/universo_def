@@ -93,7 +93,7 @@ mixin _$InitialStore on _InitialStoreBase, Store {
       AsyncAction('_InitialStoreBase.signIn', context: context);
 
   @override
-  Future<dynamic> signIn(UserModel user) {
+  Future signIn(UserModel user) {
     return _$signInAsyncAction.run(() => super.signIn(user));
   }
 

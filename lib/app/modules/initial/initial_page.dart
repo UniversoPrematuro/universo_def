@@ -60,8 +60,8 @@ class InitialPageState extends State<InitialPage> {
                         children: [
                           const SizedBox(height: 30),
                           GradientButtonFb1(
-                              onPressed: () {
-                                store.signIn(UserModel());
+                              onPressed: () async {
+                                await store.signIn(UserModel());
                                 editStore.recover();
                                 }, 
                               text: "Entre Agora!"

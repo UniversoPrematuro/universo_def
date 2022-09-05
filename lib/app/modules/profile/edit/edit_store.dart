@@ -110,8 +110,8 @@ abstract class _EditStoreBase with Store {
 
   recover() async {
     final AuthStore authStore = Modular.get();
-    User usuarioLogado = auth.currentUser!;
-    idLogado = usuarioLogado.uid;
+    User? usuarioLogado = auth.currentUser;
+    idLogado = usuarioLogado!.uid;
 
     DocumentSnapshot snapshot = await db.collection("users").doc(idLogado).get();
 

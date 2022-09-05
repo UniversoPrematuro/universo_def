@@ -72,7 +72,7 @@ class AuthPageState extends State<AuthPage> {
                               
                               PasswordInput(
                                   controllerPass: store.controllerPass,
-                                  hintText: 'Insira sua senha'
+                                  hintText: 'Insira sua senha',
                                 ),
 
 
