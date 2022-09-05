@@ -1,31 +1,56 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first, non_constant_identifier_names
-import 'package:universo_def/app/modules/models/user_model.dart';
+// ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'user_model.dart';
 
 abstract class MomModel extends UserModel {
   UserModel({name, email, pass, registration});
 
-  String? phone;
   String? cpf;
+  String? phone;
+  String? city;
+  String? state;
   String? cep;
+  String? address;
+  String? neighborhood;
+  String? country;
+  
   MomModel({
-    this.phone,
     this.cpf,
+    this.phone,
+    this.city,
+    this.state,
     this.cep,
+    this.address,
+    this.neighborhood,
   });
+  
 
   @override
-  String toString() => 'MomModel(phone: $phone, cpf: $cpf, cep: $cep)';
+  String toString() {
+    return 'MomModel(cpf: $cpf, phone: $phone, city: $city, state: $state, cep: $cep, address: $address, neighborhood: $neighborhood)';
+  }
 
   @override
   bool operator ==(covariant MomModel other) {
     if (identical(this, other)) return true;
   
     return 
-      other.phone == phone &&
       other.cpf == cpf &&
-      other.cep == cep;
+      other.phone == phone &&
+      other.city == city &&
+      other.state == state &&
+      other.cep == cep &&
+      other.address == address &&
+      other.neighborhood == neighborhood;
   }
 
   @override
-  int get hashCode => phone.hashCode ^ cpf.hashCode ^ cep.hashCode;
+  int get hashCode {
+    return cpf.hashCode ^
+      phone.hashCode ^
+      city.hashCode ^
+      state.hashCode ^
+      cep.hashCode ^
+      address.hashCode ^
+      neighborhood.hashCode;
+  }
 }

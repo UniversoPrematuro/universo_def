@@ -1,4 +1,6 @@
 // ignore_for_file: library_private_types_in_public_api, no_leading_underscores_for_local_identifiers
+import 'package:via_cep_flutter/via_cep_flutter.dart';
+
 
 import 'dart:io';
 
@@ -71,6 +73,9 @@ abstract class _EditStoreBase with Store {
   String? escolhaUser;
 
   @observable
+  String? street;
+
+  @observable
   DateDuration? age;
 
 
@@ -123,7 +128,8 @@ abstract class _EditStoreBase with Store {
     db.collection("users").doc(idLogado).set(data, SetOptions(merge: true));
   }
 
-  recover() async {
+  @action
+  Future recover() async {
     final AuthStore authStore = Modular.get();
     User? usuarioLogado = auth.currentUser;
     idLogado = usuarioLogado!.uid;
@@ -146,6 +152,7 @@ abstract class _EditStoreBase with Store {
     }
   
   Future selectPhoto(String origem) async {
+
     final ImagePicker _picker = ImagePicker();
     XFile? selectedPhoto;
     if(origem == "camera"){
@@ -163,6 +170,31 @@ abstract class _EditStoreBase with Store {
           upload = true;
       }
     }
+  }
+
+  Future uploadPhoto() async {
+
+    FirebaseAuth auth = FirebaseAuth.instance;
+    User usuarioLogado = auth.currentUser!;
+    idLogado = usuarioLogado.uid;
+    File file = File(kidPhoto!.path);
+    Reference pastaRaiz = storage.ref();
+    Reference arquivo = pastaRaiz.child("perfil").child("kid.jpg");
+    UploadTask task = arquivo.putFile(file);
+    task.snapshotEvents.listen((TaskSnapshot storageEvent) {
+      if(storageEvent.state == TaskState.running){
+        upload = true;
+      } else if (storageEvent.state == TaskState.success){
+        upload = false;
+      }
+     });
+     task.then((TaskSnapshot taskSnapshot) => recoveryPhotoURL(taskSnapshot));
+     await Future.delayed(const Duration(seconds: 2));
+  }
+
+  Future recoveryPhotoURL(TaskSnapshot taskSnapshot) async {
+    String url = await taskSnapshot.ref.getDownloadURL();
+    photoURL = url;
   }
 
   Future selectMomPhoto(String origem) async {
@@ -203,33 +235,21 @@ abstract class _EditStoreBase with Store {
      task.then((TaskSnapshot taskSnapshot) => recoveryMomPhotoURL(taskSnapshot));
      await Future.delayed(const Duration(seconds: 2));
   }
-
-  Future uploadPhoto() async {
-    FirebaseAuth auth = FirebaseAuth.instance;
-    User usuarioLogado = auth.currentUser!;
-    idLogado = usuarioLogado.uid;
-    File file = File(kidPhoto!.path);
-    Reference pastaRaiz = storage.ref();
-    Reference arquivo = pastaRaiz.child("perfil").child("kid.jpg");
-    UploadTask task = arquivo.putFile(file);
-    task.snapshotEvents.listen((TaskSnapshot storageEvent) {
-      if(storageEvent.state == TaskState.running){
-        upload = true;
-      } else if (storageEvent.state == TaskState.success){
-        upload = false;
-      }
-     });
-     task.then((TaskSnapshot taskSnapshot) => recoveryPhotoURL(taskSnapshot));
-     await Future.delayed(const Duration(seconds: 2));
-  }
-
-  Future recoveryPhotoURL(TaskSnapshot taskSnapshot) async {
-    String url = await taskSnapshot.ref.getDownloadURL();
-    photoURL = url;
-  }
+  
   Future recoveryMomPhotoURL(TaskSnapshot taskSnapshot) async {
     String url = await taskSnapshot.ref.getDownloadURL();
     momURL = url;
   }
+
+  Future cepAddress() async {
+    final result = await readAddressByCep('14405357');
+    result['street'] = controllerStreet.text;
+  }
+  
+  
+  
+
+
+
 
 }

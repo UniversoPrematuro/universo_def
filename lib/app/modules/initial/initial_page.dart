@@ -23,6 +23,12 @@ class InitialPageState extends State<InitialPage> {
   final EditStore editStore = Modular.get();
 
   @override
+  void initState() {
+    editStore.recover();
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
@@ -62,7 +68,7 @@ class InitialPageState extends State<InitialPage> {
                           GradientButtonFb1(
                               onPressed: () async {
                                 await store.signIn(UserModel());
-                                editStore.recover();
+                                
                                 }, 
                               text: "Entre Agora!"
                             ),

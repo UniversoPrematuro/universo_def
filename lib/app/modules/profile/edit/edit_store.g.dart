@@ -249,6 +249,22 @@ mixin _$EditStore on _EditStoreBase, Store {
     });
   }
 
+  late final _$streetAtom =
+      Atom(name: '_EditStoreBase.street', context: context);
+
+  @override
+  String? get street {
+    _$streetAtom.reportRead();
+    return super.street;
+  }
+
+  @override
+  set street(String? value) {
+    _$streetAtom.reportWrite(value, super.street, () {
+      super.street = value;
+    });
+  }
+
   late final _$ageAtom = Atom(name: '_EditStoreBase.age', context: context);
 
   @override
@@ -280,6 +296,14 @@ mixin _$EditStore on _EditStoreBase, Store {
     return _$saveDataAsyncAction.run(() => super.saveData());
   }
 
+  late final _$recoverAsyncAction =
+      AsyncAction('_EditStoreBase.recover', context: context);
+
+  @override
+  Future<dynamic> recover() {
+    return _$recoverAsyncAction.run(() => super.recover());
+  }
+
   @override
   String toString() {
     return '''
@@ -298,6 +322,7 @@ controllerCEP: ${controllerCEP},
 controllerStreet: ${controllerStreet},
 controllerBairro: ${controllerBairro},
 escolhaUser: ${escolhaUser},
+street: ${street},
 age: ${age}
     ''';
   }

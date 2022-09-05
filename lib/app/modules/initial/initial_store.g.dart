@@ -97,6 +97,53 @@ mixin _$InitialStore on _InitialStoreBase, Store {
     return _$signInAsyncAction.run(() => super.signIn(user));
   }
 
+  late final _$_InitialStoreBaseActionController =
+      ActionController(name: '_InitialStoreBase', context: context);
+
+  @override
+  dynamic changeEmail(String value) {
+    final _$actionInfo = _$_InitialStoreBaseActionController.startAction(
+        name: '_InitialStoreBase.changeEmail');
+    try {
+      return super.changeEmail(value);
+    } finally {
+      _$_InitialStoreBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
+  dynamic changePass(String value) {
+    final _$actionInfo = _$_InitialStoreBaseActionController.startAction(
+        name: '_InitialStoreBase.changePass');
+    try {
+      return super.changePass(value);
+    } finally {
+      _$_InitialStoreBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
+  dynamic validateEmail() {
+    final _$actionInfo = _$_InitialStoreBaseActionController.startAction(
+        name: '_InitialStoreBase.validateEmail');
+    try {
+      return super.validateEmail();
+    } finally {
+      _$_InitialStoreBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
+  dynamic validatePass() {
+    final _$actionInfo = _$_InitialStoreBaseActionController.startAction(
+        name: '_InitialStoreBase.validatePass');
+    try {
+      return super.validatePass();
+    } finally {
+      _$_InitialStoreBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
   @override
   String toString() {
     return '''

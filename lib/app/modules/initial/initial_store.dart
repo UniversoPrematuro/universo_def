@@ -6,6 +6,7 @@ import 'package:flutter_modular/flutter_modular.dart';
 import 'package:mobx/mobx.dart';
 
 import '../models/user_model.dart';
+import '../profile/edit/edit_store.dart';
 
 part 'initial_store.g.dart';
 
@@ -14,6 +15,8 @@ class InitialStore = _InitialStoreBase with _$InitialStore;
 abstract class _InitialStoreBase with Store {
 
   FirebaseAuth auth = FirebaseAuth.instance;
+
+  EditStore editStore = Modular.get();
 
   // var db = FirebaseFirestore.instance;
 
@@ -34,18 +37,48 @@ abstract class _InitialStoreBase with Store {
   bool loading = false;
 
   @action
+  changeEmail(String value) => controllerEmail.text = value;
+
+  @action
+  changePass(String value) => controllerPass.text = value;
+
+  @action
+  validateEmail() {
+    var user = UserModel();
+    user.email = controllerEmail.text;
+    if (user.email!.isEmpty) {
+      return 'O campo é obrigatorio';
+    } else if (!user.email!.contains("@")) {
+      return 'Insira um e-mail válido!';
+
+    }
+  }
+  @action
+  validatePass() {
+    var user = UserModel();
+    user.pass = controllerPass.text;
+    if (user.pass!.isEmpty) {
+      return 'O campo é obrigatorio';
+    } else if (user.pass!.length < 5) {
+      return 'A senha precisa ter mais de 5 caracteres';
+
+    }
+  }
+
+  @action
   signIn(UserModel user) async {
     loading = true;
     User usuarioLogado = auth.currentUser!;
     idLogado = usuarioLogado.uid;
     user.email = controllerEmail.text;
     user.pass = controllerPass.text;
-    await Future.delayed(const Duration(seconds: 5)).whenComplete(() async {
+    await Future.delayed(const Duration(seconds: 2)).whenComplete(() async {
       try{
         await auth.signInWithEmailAndPassword(email: user.email!, password: user.pass!).then((firebaseUser)async{
           if(usuarioLogado == auth.currentUser) loading = false;
-          await Future.delayed(const Duration(seconds: 3), (){
+          await Future.delayed(const Duration(seconds: 5), (){
             Modular.to.pushReplacementNamed("/home/");
+            editStore.recover();
           });
         } );
       }on FirebaseAuthException catch (e) {

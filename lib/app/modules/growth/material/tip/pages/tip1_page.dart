@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_modular/flutter_modular.dart';
 
+import '../../../../initial/auth/auth_store.dart';
 import 'widgets/image_content.dart';
 // import 'package:universo/app/modules/crescimento/material/tip/pages/widgets/image_content.dart';
 
@@ -10,6 +12,8 @@ class Tip1Page extends StatefulWidget {
   Tip1PageState createState() => Tip1PageState();
 }
 class Tip1PageState extends State<Tip1Page> {
+
+  final AuthStore authStore = Modular.get();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -39,7 +43,7 @@ class Tip1PageState extends State<Tip1Page> {
             textAlign: TextAlign.center,
           ),
           const SizedBox(height: 30.0,),
-          imageContent('images/crescimento/1-4/initial.png',textContent('', '\u27A2Mamãe! '
+          imageContent('images/crescimento/1-4/initial.png',textContent('', '\u27A2${authStore.controllerNameMom.text}! '
               'Escolha um ambiente agradável, tranquilo e calmo. Um ambiente '
               'que você se sinta confortável;\n\n'
               '\u27A2Se você  gostar de música, coloque uma música relaxante, '

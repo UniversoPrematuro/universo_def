@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_modular/flutter_modular.dart';
 
+import '../../../../profile/edit/edit_store.dart';
 import 'widgets/image_content.dart';
 
 class Tip3Page extends StatefulWidget {
@@ -9,6 +11,9 @@ class Tip3Page extends StatefulWidget {
   Tip3PageState createState() => Tip3PageState();
 }
 class Tip3PageState extends State<Tip3Page> {
+  final EditStore editStore = Modular.get();
+  // String name = editStore.controllerKidName.text;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -40,7 +45,7 @@ class Tip3PageState extends State<Tip3Page> {
           const SizedBox(height: 30.0,),
           imageContent('images/crescimento/1-4/initial2.jpg',textContent('', '\u27A2Dê '
               'preferência a roupas confortáveis, fáceis de tirar e que expõe '
-              'todo o seio para criança durante a mamada; Use sutiãs '
+              'todo o seio para ${editStore.controllerKidName.text} durante a mamada; Use sutiãs '
               'confortáveis, que sustentem a mama;')),
           imageContent('images/crescimento/1-4/initial3.jpg',textContent('\u27A2Evite ',
               'passar na mama cremes, pomadas ou bucha vegetal;')),
