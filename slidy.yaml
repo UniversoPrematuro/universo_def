@@ -9,6 +9,8 @@ scripts:
   mobx: flutter pub run build_runner watch --delete-conflicting-outputs
 
   begin: flutter emulators --launch Pixel_2 && flutter run
+
+  get: flutter pub get
     
  
     

@@ -59,6 +59,9 @@ abstract class _EditStoreBase with Store {
   int? idadeCorrigida;
 
   @observable
+  String? escolhaUser;
+
+  @observable
   DateDuration? age;
 
 
@@ -103,6 +106,7 @@ abstract class _EditStoreBase with Store {
       "nasc": kid.kidBirth,
       // "crono": kid.age,
       "semanas": kid.weeks,
+      "gender": escolhaUser,
       "photoURL": photoURL,
     };
     db.collection("users").doc(idLogado).set(data, SetOptions(merge: true));
@@ -122,7 +126,11 @@ abstract class _EditStoreBase with Store {
     controllerKidBirth.text = dados["nasc"];
     controllerWeeks.text = dados["semanas"];
     authStore.controllerNameMom.text = dados["mom"];
-    photoURL = dados["photo"];
+    if(dados["photoURL"] != null){
+      photoURL = dados["photoURL"];
+    }
+
+    
     }
   
   Future selectPhoto(String origem) async {

@@ -80,7 +80,7 @@ class EditPageState extends State<EditPage> {
 
                     KidCard(),
                     GradientButtonFb1(text: "Salvar", onPressed: () => store.saveData().then((value) => Modular.to.pushReplacementNamed("/home/"))),
-                    GradientButtonFb1(text: 'AGE', onPressed: (){store.ageCalculator(); })
+                    // GradientButtonFb1(text: 'AGE', onPressed: (){store.ageCalculator(); })
                         
                         
                       ],
