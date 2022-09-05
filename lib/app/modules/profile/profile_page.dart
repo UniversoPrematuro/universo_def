@@ -43,7 +43,7 @@ class ProfilePageState extends State<ProfilePage> {
                         backgroundColor: MaterialStateProperty.all(
                             Colors.green,
                             )),
-                    child: Icon(Icons.logout_rounded),
+                    child: const Icon(Icons.logout_rounded),
                   ))
             ],
         ),

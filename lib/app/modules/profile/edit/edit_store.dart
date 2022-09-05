@@ -73,7 +73,7 @@ abstract class _EditStoreBase with Store {
     DateTime nascimento = DateTime(ano, mes, dia);
 
     age = AgeCalculator.age(nascimento);
-    print(age);
+    // print(age);
   }
 
   // trueAge() {

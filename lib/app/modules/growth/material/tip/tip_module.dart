@@ -15,7 +15,7 @@ import 'pages/cronograma.dart';
 import 'pages/divisao.dart';
 import 'pages/engasgo.dart';
 import 'pages/ordenha.dart';
-import 'pages/prontidao.dart';
+// import 'pages/prontidao.dart';
 import 'pages/tip15_page.dart';
 import 'pages/tip16_page.dart';
 import 'pages/tip1_page.dart';
@@ -33,11 +33,11 @@ import 'pages/tip12_page.dart';
 import 'pages/tip13_page.dart';
 import 'pages/tip14_page.dart';
 import 'pages/exemplo_pais.dart';
-import 'pages/utensilios.dart';
-import 'pages/tipos_intro.dart';
-import 'pages/como_preparar.dart';
-import 'pages/alimentos_ini.dart';
-import 'pages/congelamento.dart';
+// import 'pages/utensilios.dart';
+// import 'pages/tipos_intro.dart';
+// import 'pages/como_preparar.dart';
+// import 'pages/alimentos_ini.dart';
+// import 'pages/congelamento.dart';
 import 'pages/reacoes.dart';
 import 'pages/proibido1.dart';
 import 'pages/proibido2.dart';
@@ -70,21 +70,21 @@ class TipModule extends Module {
     ChildRoute('/tip15', child: (_, args) => const Tip15Page()),
     ChildRoute('/tip16', child: (_, args) => const Tip16Page()),
     ChildRoute('/tip17', child: (_, args) => const Tip17Page()),
-    ChildRoute('/copinho', child: (_, args) =>  Copinho()),
-    ChildRoute('/relactacao', child: (_, args) =>  Relactacao()),
-    ChildRoute('/ordenha', child: (_, args) =>  Ordenha()),
-    ChildRoute('/prontidao', child: (_, args) =>   Prontidao()),
+    ChildRoute('/copinho', child: (_, args) =>  const Copinho()),
+    ChildRoute('/relactacao', child: (_, args) =>  const Relactacao()),
+    ChildRoute('/ordenha', child: (_, args) =>  const Ordenha()),
+    // ChildRoute('/prontidao', child: (_, args) =>   Prontidao()),
     ChildRoute('/exemplo', child: (_, args) =>  const ExemploPais()),
-    ChildRoute('/utensilios', child: (_, args) =>  Utensilios()),
+    ChildRoute('/utensilios', child: (_, args) =>  const Utensilios()),
     ChildRoute('/tipos', child: (_, args) =>  const TiposIntro()),
-    ChildRoute('/comopreparar', child: (_, args) =>  ComoPreparar()),
-    ChildRoute('/divisao', child: (_, args) =>  Divisao()),
+    ChildRoute('/comopreparar', child: (_, args) =>  const ComoPreparar()),
+    ChildRoute('/divisao', child: (_, args) =>  const Divisao()),
     ChildRoute('/cronograma', child: (_, args) =>  const Cronograma()),
     ChildRoute('/engasgo', child: (_, args) =>  const Engasgo()),
     ChildRoute('/alimentosini', child: (_, args) =>  const AlimentosIni()),
     ChildRoute('/congelamento', child: (_, args) =>  const Congelamento()),
-    ChildRoute('/reacoes', child: (_, args) =>  Reacoes()),
-    ChildRoute('/proibido1', child: (_, args) =>  Proibido1()),
-    ChildRoute('/proibido2', child: (_, args) =>  Proibido2()),
+    ChildRoute('/reacoes', child: (_, args) =>  const Reacoes()),
+    ChildRoute('/proibido1', child: (_, args) =>  const Proibido1()),
+    ChildRoute('/proibido2', child: (_, args) =>  const Proibido2()),
   ];
 }

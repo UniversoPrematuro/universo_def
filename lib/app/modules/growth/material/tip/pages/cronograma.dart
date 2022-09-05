@@ -16,12 +16,12 @@ class Cronograma extends StatelessWidget {
       appBar: AppBar(
         actions: <Widget>[
           Image.asset("images1/LogoTop.png"),
-          SizedBox(
+          const SizedBox(
             width: 10.0,
           )
         ],
         centerTitle: true,
-        title: Text(
+        title: const Text(
           'Crescimento',
           style: TextStyle(
               fontSize: 24.0, fontWeight: FontWeight.bold, color: Colors.white),
@@ -29,11 +29,11 @@ class Cronograma extends StatelessWidget {
         elevation: 1.5,
       ),
       body: ListView(
-        padding: EdgeInsets.all(20.0),
+        padding: const EdgeInsets.all(20.0),
         children: [
-          SizedBox(height: 20.0,),
-          Padding(
-            padding: const EdgeInsets.only(left: 20.0,right: 20.0),
+          const SizedBox(height: 20.0,),
+          const Padding(
+            padding: EdgeInsets.only(left: 20.0,right: 20.0),
             child: Text(
               'PARTE 7 – CRONOGAMA DE INTRODUÇÃO DE ALIMENTOS',
               style: TextStyle(
@@ -44,9 +44,9 @@ class Cronograma extends StatelessWidget {
               textAlign: TextAlign.center,
             ),
           ),
-          SizedBox(height: 40.0,),
+          const SizedBox(height: 40.0,),
 
-          Text(
+          const Text(
             "Baseado na Sociedade Brasileira de Pediatria devemos seguir o seguinte cronograma para a introdução alimentar:  ",
             style: TextStyle(
               fontSize: 18,
@@ -55,10 +55,10 @@ class Cronograma extends StatelessWidget {
             ),
             textAlign: TextAlign.justify,
           ),
-          SizedBox(height: 20.0,),
+          const SizedBox(height: 20.0,),
           Table(
             //defaultColumnWidth: FixedColumnWidth(150.0),
-            border: TableBorder(
+            border: const TableBorder(
               horizontalInside: BorderSide(
                 color: Color.fromARGB(255, 101, 188, 89),
                 style: BorderStyle.solid,
@@ -77,8 +77,8 @@ class Cronograma extends StatelessWidget {
               _criarLinhaTable("7º ao 8º mês*Segunda papa principal de misturas multiplas"),
             ],
           ),
-          SizedBox(height: 40.0,),
-          Text(
+          const SizedBox(height: 40.0,),
+          const Text(
             "Para um melhor entendimento podemos separar por período! Aos 6 meses (considerar idade corrigida) a cada 5 a 7 dias iniciamos uma nova fase, começamos pela fruta uma vez ao dia, em seguida passamos para dois períodos com frutas e após 15 dias iniciamos a refeição salgada. A partir dos 7 meses iniciamos com a segunda refeição salgada, completando assim as 4 refeições diárias.",
             style: TextStyle(
               fontSize: 18,
@@ -87,10 +87,10 @@ class Cronograma extends StatelessWidget {
             ),
             textAlign: TextAlign.justify,
           ),
-          SizedBox(height: 20.0,),
+          const SizedBox(height: 20.0,),
           Table(
             //defaultColumnWidth: FixedColumnWidth(150.0),
-            border: TableBorder(
+            border: const TableBorder(
               horizontalInside: BorderSide(
                 color: Color.fromARGB(255, 101, 188, 89),
                 style: BorderStyle.solid,
@@ -118,11 +118,11 @@ class Cronograma extends StatelessWidget {
     return TableRow(
       children: listaNomes.split('*').map((name) {
         return Container(
+          padding: const EdgeInsets.all(5.0),
           child: Text(
             name,
-            style: TextStyle(fontSize: 20.0),
+            style: const TextStyle(fontSize: 20.0),
           ),
-          padding: EdgeInsets.all(5.0),
         );
       }).toList(),
     );

@@ -15,12 +15,12 @@ class AlimentosIni extends StatelessWidget {
       appBar: AppBar(
         actions: <Widget>[
           Image.asset("images1/LogoTop.png"),
-          SizedBox(
+          const SizedBox(
             width: 10.0,
           )
         ],
         centerTitle: true,
-        title: Text(
+        title: const Text(
           'Crescimento',
           style: TextStyle(
               fontSize: 24.0, fontWeight: FontWeight.bold, color: Colors.white),
@@ -28,11 +28,11 @@ class AlimentosIni extends StatelessWidget {
         elevation: 1.5,
       ),
       body: ListView(
-        padding: EdgeInsets.all(20.0),
-        children: [
+        padding: const EdgeInsets.all(20.0),
+        children: const [
           SizedBox(height: 20.0,),
           Padding(
-            padding: const EdgeInsets.only(left: 20.0,right: 20.0),
+            padding: EdgeInsets.only(left: 20.0,right: 20.0),
             child: Text(
               'PARTE 9 –	ALIMENTOS PARA SER INICIADOS',
               style: TextStyle(

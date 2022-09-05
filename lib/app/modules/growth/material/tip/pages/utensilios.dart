@@ -1,8 +1,12 @@
 
+// ignore_for_file: non_constant_identifier_names
+
 import 'package:flutter/material.dart';
 
 
 class Utensilios extends StatelessWidget {
+  const Utensilios({super.key});
+
 
 
 
@@ -15,12 +19,12 @@ class Utensilios extends StatelessWidget {
       appBar: AppBar(
         actions: <Widget>[
           Image.asset("images1/LogoTop.png"),
-          SizedBox(
+          const SizedBox(
             width: 10.0,
           )
         ],
         centerTitle: true,
-        title: Text(
+        title: const Text(
           'Crescimento',
           style: TextStyle(
               fontSize: 24.0, fontWeight: FontWeight.bold, color: Colors.white),
@@ -28,11 +32,11 @@ class Utensilios extends StatelessWidget {
         elevation: 1.5,
       ),
       body: ListView(
-        padding: EdgeInsets.all(20.0),
+        padding: const EdgeInsets.all(20.0),
         children: [
-          SizedBox(height: 20.0,),
-          Padding(
-            padding: const EdgeInsets.only(left: 20.0,right: 20.0),
+          const SizedBox(height: 20.0,),
+          const Padding(
+            padding: EdgeInsets.only(left: 20.0,right: 20.0),
             child: Text(
               'PARTE 3 – UTENSÍLIOS – SUGESTÃO ',
               style: TextStyle(
@@ -43,7 +47,7 @@ class Utensilios extends StatelessWidget {
               textAlign: TextAlign.center,
             ),
           ),
-          SizedBox(height: 40.0,),
+          const SizedBox(height: 40.0,),
 
           GCARD('Cadeirão',context,1),
           GCARD('Colheres',context,2),
@@ -81,12 +85,12 @@ class Utensilios extends StatelessWidget {
         elevation: 2.0,
         //margin: EdgeInsets.all(20.0),
         child: Container(
-          color: Color.fromARGB(20, 101, 188, 89),
+          color: const Color.fromARGB(20, 101, 188, 89),
           alignment: Alignment.center,
-          padding: EdgeInsets.all(20.0),
+          padding: const EdgeInsets.all(20.0),
           child: Text(
             title,
-            style: TextStyle(
+            style: const TextStyle(
                 fontSize: 16.0,
                 fontWeight: FontWeight.w500
             ),
@@ -104,12 +108,12 @@ class Utensilios extends StatelessWidget {
       appBar: AppBar(
         actions: <Widget>[
           Image.asset("images1/LogoTop.png"),
-          SizedBox(
+          const SizedBox(
             width: 10.0,
           )
         ],
         centerTitle: true,
-        title: Text(
+        title: const Text(
           'Crescimento',
           style: TextStyle(
               fontSize: 24.0, fontWeight: FontWeight.bold, color: Colors.white),

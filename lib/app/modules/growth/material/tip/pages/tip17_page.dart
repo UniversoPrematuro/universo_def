@@ -1,7 +1,7 @@
+// ignore_for_file: sized_box_for_whitespace
+
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:universo_def/app/modules/growth/material/tip/pages/widgets/card.dart';
-import 'package:universo_def/app/modules/home/home_content/components/home_components.dart';
 
 class Tip17Page extends StatefulWidget {
   final String title;
@@ -15,14 +15,14 @@ class Tip17PageState extends State<Tip17Page> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          actions: <Widget>[
+          actions: const <Widget>[
             // Image.asset("images/logo/LogoTop.png"),
             SizedBox(
               width: 10.0,
             )
           ],
           centerTitle: true,
-          title: Text(
+          title: const Text(
             'Crescimento',
             style: TextStyle(
                 fontSize: 24.0,
@@ -64,8 +64,8 @@ class Tip17PageState extends State<Tip17Page> {
                       const SizedBox(height: 50),
                       GridView(
                         shrinkWrap: true,
-                        physics: NeverScrollableScrollPhysics(),
-                        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                        physics: const NeverScrollableScrollPhysics(),
+                        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                             crossAxisCount: 2
                           ),
                         children: [
@@ -85,10 +85,10 @@ class Tip17PageState extends State<Tip17Page> {
                                   width: MediaQuery.of(context).size.width * .3,
                                   height:
                                       MediaQuery.of(context).size.height * .2,
-                                  child: Column(children: [
-                                    const SizedBox(height: 35),
+                                  child: Column(children: const [
+                                    SizedBox(height: 35),
                                     Center(
-                                      child: const Text(
+                                      child: Text(
                                         "SINAIS DE PRONTIDÃO",
                                         textAlign: TextAlign.center,
                                         style: TextStyle(color: Colors.white),
@@ -110,10 +110,10 @@ class Tip17PageState extends State<Tip17Page> {
                                   width: MediaQuery.of(context).size.width * .3,
                                   height:
                                       MediaQuery.of(context).size.height * .2,
-                                  child: Column(children: [
-                                    const SizedBox(height: 35),
+                                  child: Column(children: const [
+                                    SizedBox(height: 35),
                                     Center(
-                                      child: const Text(
+                                      child: Text(
                                         "EXEMPLO DOS PAIS - ALIMENTO E AMBIENTE - DICAS",
                                         textAlign: TextAlign.center,
                                         style: TextStyle(color: Colors.white),
@@ -135,10 +135,10 @@ class Tip17PageState extends State<Tip17Page> {
                                   width: MediaQuery.of(context).size.width * .3,
                                   height:
                                       MediaQuery.of(context).size.height * .2,
-                                  child: Column(children: [
-                                    const SizedBox(height: 35),
+                                  child: Column(children: const [
+                                    SizedBox(height: 35),
                                     Center(
-                                      child: const Text(
+                                      child: Text(
                                         "UTENSÍLIOS - SUGESTÃO",
                                         textAlign: TextAlign.center,
                                         style: TextStyle(color: Colors.white),
@@ -160,10 +160,10 @@ class Tip17PageState extends State<Tip17Page> {
                                   width: MediaQuery.of(context).size.width * .3,
                                   height:
                                       MediaQuery.of(context).size.height * .2,
-                                  child: Column(children: [
-                                    const SizedBox(height: 35),
+                                  child: Column(children: const [
+                                    SizedBox(height: 35),
                                     Center(
-                                      child: const Text(
+                                      child: Text(
                                         "TIPOS DE INTRODUÇÃO ALIMENTAR",
                                         textAlign: TextAlign.center,
                                         style: TextStyle(color: Colors.white),
@@ -185,10 +185,10 @@ class Tip17PageState extends State<Tip17Page> {
                                   width: MediaQuery.of(context).size.width * .3,
                                   height:
                                       MediaQuery.of(context).size.height * .2,
-                                  child: Column(children: [
-                                    const SizedBox(height: 35),
+                                  child: Column(children: const [
+                                    SizedBox(height: 35),
                                     Center(
-                                      child: const Text(
+                                      child: Text(
                                         "COMO PREPARAR – BLW OU PAPINHA – VAPOR E CONSISTÊNCIA",
                                         textAlign: TextAlign.center,
                                         style: TextStyle(color: Colors.white),
@@ -210,10 +210,10 @@ class Tip17PageState extends State<Tip17Page> {
                                   width: MediaQuery.of(context).size.width * .3,
                                   height:
                                       MediaQuery.of(context).size.height * .2,
-                                  child: Column(children: [
-                                    const SizedBox(height: 35),
+                                  child: Column(children: const [
+                                    SizedBox(height: 35),
                                     Center(
-                                      child: const Text(
+                                      child: Text(
                                         "DIVISÃO DO PRATO E GRUPOS ALIMENTAR",
                                         textAlign: TextAlign.center,
                                         style: TextStyle(color: Colors.white),
@@ -235,10 +235,10 @@ class Tip17PageState extends State<Tip17Page> {
                                   width: MediaQuery.of(context).size.width * .3,
                                   height:
                                       MediaQuery.of(context).size.height * .2,
-                                  child: Column(children: [
-                                    const SizedBox(height: 35),
+                                  child: Column(children: const [
+                                    SizedBox(height: 35),
                                     Center(
-                                      child: const Text(
+                                      child: Text(
                                         "CRONOGAMA DE INTRODUÇÃO DE ALIMENTOS",
                                         textAlign: TextAlign.center,
                                         style: TextStyle(color: Colors.white),
@@ -260,10 +260,10 @@ class Tip17PageState extends State<Tip17Page> {
                                   width: MediaQuery.of(context).size.width * .3,
                                   height:
                                       MediaQuery.of(context).size.height * .2,
-                                  child: Column(children: [
-                                    const SizedBox(height: 35),
+                                  child: Column(children: const [
+                                    SizedBox(height: 35),
                                     Center(
-                                      child: const Text(
+                                      child: Text(
                                         "ENGASGO E REFLEXO DE GAG",
                                         textAlign: TextAlign.center,
                                         style: TextStyle(color: Colors.white),
@@ -285,10 +285,10 @@ class Tip17PageState extends State<Tip17Page> {
                                   width: MediaQuery.of(context).size.width * .3,
                                   height:
                                       MediaQuery.of(context).size.height * .2,
-                                  child: Column(children: [
-                                    const SizedBox(height: 35),
+                                  child: Column(children: const [
+                                    SizedBox(height: 35),
                                     Center(
-                                      child: const Text(
+                                      child: Text(
                                         "ALIMENTOS PARA SER INICIADOS",
                                         textAlign: TextAlign.center,
                                         style: TextStyle(color: Colors.white),
@@ -310,10 +310,10 @@ class Tip17PageState extends State<Tip17Page> {
                                   width: MediaQuery.of(context).size.width * .3,
                                   height:
                                       MediaQuery.of(context).size.height * .2,
-                                  child: Column(children: [
-                                    const SizedBox(height: 35),
+                                  child: Column(children: const [
+                                    SizedBox(height: 35),
                                     Center(
-                                      child: const Text(
+                                      child: Text(
                                         "CONGELAMENTO E DESCONGELAMENTO DO ALIMENTO",
                                         textAlign: TextAlign.center,
                                         style: TextStyle(color: Colors.white),
@@ -335,10 +335,10 @@ class Tip17PageState extends State<Tip17Page> {
                                   width: MediaQuery.of(context).size.width * .3,
                                   height:
                                       MediaQuery.of(context).size.height * .2,
-                                  child: Column(children: [
-                                    const SizedBox(height: 35),
+                                  child: Column(children: const [
+                                    SizedBox(height: 35),
                                     Center(
-                                      child: const Text(
+                                      child: Text(
                                         "REAÇÕES ALÉRGICAS",
                                         textAlign: TextAlign.center,
                                         style: TextStyle(color: Colors.white),
@@ -360,10 +360,10 @@ class Tip17PageState extends State<Tip17Page> {
                                   width: MediaQuery.of(context).size.width * .3,
                                   height:
                                       MediaQuery.of(context).size.height * .2,
-                                  child: Column(children: [
-                                    const SizedBox(height: 35),
+                                  child: Column(children: const [
+                                    SizedBox(height: 35),
                                     Center(
-                                      child: const Text(
+                                      child: Text(
                                         "ALIMENTOS PROIBIDOS ATÉ 1 ANO",
                                         textAlign: TextAlign.center,
                                         style: TextStyle(color: Colors.white),
@@ -385,10 +385,10 @@ class Tip17PageState extends State<Tip17Page> {
                                   width: MediaQuery.of(context).size.width * .3,
                                   height:
                                       MediaQuery.of(context).size.height * .2,
-                                  child: Column(children: [
-                                    const SizedBox(height: 35),
+                                  child: Column(children: const [
+                                    SizedBox(height: 35),
                                     Center(
-                                      child: const Text(
+                                      child: Text(
                                         "ALIMENTOS PROIBIDOS ATÉ 2 ANOS",
                                         textAlign: TextAlign.center,
                                         style: TextStyle(color: Colors.white),

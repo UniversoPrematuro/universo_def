@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 
 
 class Proibido2 extends StatelessWidget {
+  const Proibido2({super.key});
+
 
 
 
@@ -14,12 +16,12 @@ class Proibido2 extends StatelessWidget {
         appBar: AppBar(
           actions: <Widget>[
             Image.asset("images1/LogoTop.png"),
-            SizedBox(
+            const SizedBox(
               width: 10.0,
             )
           ],
           centerTitle: true,
-          title: Text(
+          title: const Text(
             'Crescimento',
             style: TextStyle(
                 fontSize: 24.0, fontWeight: FontWeight.bold, color: Colors.white),
@@ -27,11 +29,11 @@ class Proibido2 extends StatelessWidget {
           elevation: 1.5,
         ),
         body: ListView(
-          padding: EdgeInsets.all(20.0),
+          padding: const EdgeInsets.all(20.0),
           children: [
-            SizedBox(height: 20.0,),
-            Padding(
-              padding: const EdgeInsets.only(left: 20.0,right: 20.0),
+            const SizedBox(height: 20.0,),
+            const Padding(
+              padding: EdgeInsets.only(left: 20.0,right: 20.0),
               child: Text(
                 'PARTE 13 – ALIMENTOS PROIBIDOS ATÉ 2 ANOS',
                 style: TextStyle(
@@ -42,11 +44,11 @@ class Proibido2 extends StatelessWidget {
                 textAlign: TextAlign.center,
               ),
             ),
-            SizedBox(height: 40.0,),
+            const SizedBox(height: 40.0,),
 
             RichText(
                 textAlign: TextAlign.justify,
-                text: TextSpan(
+                text: const TextSpan(
                   text: "Alimentos ",
                   style: TextStyle(
                     fontSize: 18,
@@ -59,10 +61,10 @@ class Proibido2 extends StatelessWidget {
                   ],
                 )
             ),
-            SizedBox(height: 20.0,),
+            const SizedBox(height: 20.0,),
             RichText(
                 textAlign: TextAlign.justify,
-                text: TextSpan(
+                text: const TextSpan(
                   style: TextStyle(
                     fontSize: 18,
                     fontWeight: FontWeight.normal,

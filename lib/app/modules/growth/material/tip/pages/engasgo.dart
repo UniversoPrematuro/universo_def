@@ -16,12 +16,12 @@ class Engasgo extends StatelessWidget {
       appBar: AppBar(
         actions: <Widget>[
           Image.asset("images1/LogoTop.png"),
-          SizedBox(
+          const SizedBox(
             width: 10.0,
           )
         ],
         centerTitle: true,
-        title: Text(
+        title: const Text(
           'Crescimento',
           style: TextStyle(
               fontSize: 24.0, fontWeight: FontWeight.bold, color: Colors.white),
@@ -29,11 +29,11 @@ class Engasgo extends StatelessWidget {
         elevation: 1.5,
       ),
       body: ListView(
-        padding: EdgeInsets.all(20.0),
+        padding: const EdgeInsets.all(20.0),
         children: [
-          SizedBox(height: 20.0,),
-          Padding(
-            padding: const EdgeInsets.only(left: 20.0,right: 20.0),
+          const SizedBox(height: 20.0,),
+          const Padding(
+            padding: EdgeInsets.only(left: 20.0,right: 20.0),
             child: Text(
               'PARTE 8 – ENGASGO E REFLEXO DE GAG',
               style: TextStyle(
@@ -44,9 +44,9 @@ class Engasgo extends StatelessWidget {
               textAlign: TextAlign.center,
             ),
           ),
-          SizedBox(height: 40.0,),
+          const SizedBox(height: 40.0,),
 
-          Text(
+          const Text(
             '     Ao iniciamos a introdução alimentar devemos aprender sobre os engasgos e o reflexo de Gag, que podem vir acontecer no processo da alimentação, e para isso precisamos saber como lidar para que assim contornemos essa situação.\n'
                 '\n     Os engasgos podem acontecer com qualquer consistência da alimentação, um exemplo, é quando nós adultos engasgamos com a saliva, uma coisa simples e boba, mas que por alguns segundos nos oferece um susto e desconforto!\n'
                 '\n\nPor isso a imagem a seguir nos mostra como devemos fazer quando um engasgo ocorre. No caso siga os passos:',
@@ -60,7 +60,7 @@ class Engasgo extends StatelessWidget {
 
           RichText(
               textAlign: TextAlign.justify,
-              text: TextSpan(
+              text: const TextSpan(
                 style: TextStyle(
                   fontSize: 18,
                   fontWeight: FontWeight.normal,
@@ -84,7 +84,7 @@ class Engasgo extends StatelessWidget {
           ),
           Image.asset('images1/figg1012-25.jpeg'),
 
-          Text(
+          const Text(
             '     O reflexo de gag é o inicio de um engasgo, ou seja, o alimento segue para a garganta porem o próprio organismo entende que foi um engano e faz com que o alimento volte espontaneamente para a boca, assim o bebe ira engolir da forma correta ou ira jogar fora.',
             textAlign: TextAlign.justify,
             style: TextStyle(

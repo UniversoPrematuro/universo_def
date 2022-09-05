@@ -1,7 +1,8 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class Relactacao extends StatelessWidget {
+  const Relactacao({super.key});
+
 
 
   @override
@@ -11,12 +12,12 @@ class Relactacao extends StatelessWidget {
       appBar: AppBar(
         actions: <Widget>[
           Image.asset("images1/LogoTop.png"),
-          SizedBox(
+          const SizedBox(
             width: 10.0,
           )
         ],
         centerTitle: true,
-        title: Text(
+        title: const Text(
           'Crescimento',
           style: TextStyle(
               fontSize: 24.0, fontWeight: FontWeight.bold, color: Colors.white),
@@ -24,10 +25,10 @@ class Relactacao extends StatelessWidget {
         elevation: 1.5,
       ),
       body: ListView(
-        padding: EdgeInsets.all(20.0),
+        padding: const EdgeInsets.all(20.0),
         children: <Widget>[
-          SizedBox(height: 30.0,),
-          Text(
+          const SizedBox(height: 30.0,),
+          const Text(
             'Oferecer o leite por meio de uma sondinha (tubo pequeno para passagem do leite)',
             style: TextStyle(
                 fontSize: 22.0,
@@ -36,22 +37,22 @@ class Relactacao extends StatelessWidget {
             ),
             textAlign: TextAlign.center,
           ),
-          SizedBox(height: 30.0,),
+          const SizedBox(height: 30.0,),
           Container(
-            margin: EdgeInsets.symmetric(vertical: 10.0,horizontal: 10.0),
+            margin: const EdgeInsets.symmetric(vertical: 10.0,horizontal: 10.0),
             width: 250.0,
             //height: 250.0,
             decoration: BoxDecoration(
                 border: Border.all(
-                    color: Color.fromARGB(255, 101, 188, 89),
+                    color: const Color.fromARGB(255, 101, 188, 89),
                     width: 3.0
                 )
             ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: <Widget>[
-                SizedBox(height: 10.0,),
-                Text(
+                const SizedBox(height: 10.0,),
+                const Text(
                   'Esse procedimento pode receber o nome de: ',
                   style: TextStyle(
                     fontSize: 20,
@@ -60,8 +61,8 @@ class Relactacao extends StatelessWidget {
                   ),
                   textAlign: TextAlign.center,
                 ),
-                Padding(
-                  padding: const EdgeInsets.all(10.0),
+                const Padding(
+                  padding: EdgeInsets.all(10.0),
                   child: Text(
                       '\u27A2Translactação (Oferece apenas o leite materno)'
                           '\n\u27A2Relactação (Oferece outro tipo de leite, '
@@ -93,12 +94,12 @@ class Relactacao extends StatelessWidget {
                   'produção adequada do leite materno.'
           ),
           Container(
-            margin: EdgeInsets.symmetric(vertical: 10.0,horizontal: 10.0),
+            margin: const EdgeInsets.symmetric(vertical: 10.0,horizontal: 10.0),
             width: 250.0,
             //height: 250.0,
             decoration: BoxDecoration(
                 border: Border.all(
-                    color: Color.fromARGB(255, 101, 188, 89),
+                    color: const Color.fromARGB(255, 101, 188, 89),
                     width: 3.0
                 )
             ),
@@ -106,9 +107,9 @@ class Relactacao extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: <Widget>[
                 Container(
-                  color: Color.fromARGB(255, 101, 188, 89),
-                  child: Padding(
-                    padding: const EdgeInsets.all(8.0),
+                  color: const Color.fromARGB(255, 101, 188, 89),
+                  child: const Padding(
+                    padding: EdgeInsets.all(8.0),
                     child: Text(
                       'Como Fazer:',
                       textAlign: TextAlign.center,
@@ -121,8 +122,8 @@ class Relactacao extends StatelessWidget {
                   ),
                 ),
                 Image.asset('images1/figura 03.jpg'),
-                Padding(
-                  padding: const EdgeInsets.all(10.0),
+                const Padding(
+                  padding: EdgeInsets.all(10.0),
                   child: Text(
                       '\u27A2Use um recipiente para armazenar o leite, que pode'
                           ' ser uma mamadeira pequena, seringa ou uma garrafinha'
@@ -162,8 +163,8 @@ class Relactacao extends StatelessWidget {
                       )
                   ),
                 ),
-                SizedBox(height: 10.0,),
-                Text(
+                const SizedBox(height: 10.0,),
+                const Text(
                   'Utilizando um frasco com conector para sonda:',
                   style: TextStyle(
                     fontSize: 18,
@@ -173,8 +174,8 @@ class Relactacao extends StatelessWidget {
                   textAlign: TextAlign.center,
                 ),
                 Image.asset('images1/figura 05.jpg'),
-                SizedBox(height: 10.0,),
-                Text(
+                const SizedBox(height: 10.0,),
+                const Text(
                   'Utilizando um frasco com abertura voltado para cima:',
                   style: TextStyle(
                     fontSize: 18,
@@ -197,9 +198,9 @@ class Relactacao extends StatelessWidget {
                 '\u27A2É mais higiênico do que usar mamadeira;',
           ),
 
-          SizedBox(height: 30.0,),
+          const SizedBox(height: 30.0,),
           // redDoubt(context,UID),
-          SizedBox(height: 30.0,),
+          const SizedBox(height: 30.0,),
         ],
       ),
     );
@@ -207,10 +208,10 @@ class Relactacao extends StatelessWidget {
 
   Widget content(String title, String image, String text){
     return Container(
-      margin: EdgeInsets.symmetric(vertical: 10.0,horizontal: 10.0),
+      margin: const EdgeInsets.symmetric(vertical: 10.0,horizontal: 10.0),
       decoration: BoxDecoration(
           border: Border.all(
-              color: Color.fromARGB(255, 101, 188, 89),
+              color: const Color.fromARGB(255, 101, 188, 89),
               width: 3.0
           )
       ),
@@ -218,13 +219,13 @@ class Relactacao extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: <Widget>[
           Container(
-            color: Color.fromARGB(255, 101, 188, 89),
+            color: const Color.fromARGB(255, 101, 188, 89),
             child: Padding(
-              padding: EdgeInsets.all(8.0),
+              padding: const EdgeInsets.all(8.0),
               child: Text(
                 title,
                 textAlign: TextAlign.center,
-                style: TextStyle(
+                style: const TextStyle(
                     fontSize: 20.0,
                     fontWeight: FontWeight.bold,
                     color: Colors.white
@@ -238,7 +239,7 @@ class Relactacao extends StatelessWidget {
             child: Text(
                 text,
                 textAlign: TextAlign.justify,
-                style: TextStyle(
+                style: const TextStyle(
                   fontSize: 18,
                   fontWeight: FontWeight.normal,
                   color: Colors.black,

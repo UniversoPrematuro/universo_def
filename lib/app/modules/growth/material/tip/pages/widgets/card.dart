@@ -1,3 +1,5 @@
+// ignore_for_file: must_be_immutable
+
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
@@ -26,10 +28,10 @@ class CustomCarouselFB3 extends StatelessWidget {
                       BoxDecoration(borderRadius: BorderRadius.circular(150)),
                   width: MediaQuery.of(context).size.width * .3,
                   height: MediaQuery.of(context).size.height * .2,
-                  child: Column(children: [
-                    const SizedBox(height: 35),
+                  child: Column(children: const [
+                    SizedBox(height: 35),
                     Center(
-                      child: const Text(
+                      child: Text(
                         "SINAIS DE PRONTIDÃO",textAlign: TextAlign.center,
                         style: TextStyle(color: Colors.white),
                       ),
@@ -48,10 +50,10 @@ class CustomCarouselFB3 extends StatelessWidget {
                 child: SizedBox(
                   width: MediaQuery.of(context).size.width * .3,
                   height: MediaQuery.of(context).size.height * .2,
-                  child: Column(children: [
-                    const SizedBox(height: 35),
+                  child: Column(children: const [
+                    SizedBox(height: 35),
                     Center(
-                      child: const Text(
+                      child: Text(
                         "EXEMPLO DOS PAIS - ALIMENTO E AMBIENTE - DICAS",textAlign: TextAlign.center,
                         style: TextStyle(color: Colors.white),
                       ),
@@ -70,10 +72,10 @@ class CustomCarouselFB3 extends StatelessWidget {
                 child: SizedBox(
                   width: MediaQuery.of(context).size.width * .3,
                   height: MediaQuery.of(context).size.height * .2,
-                  child: Column(children: [
-                    const SizedBox(height: 35),
+                  child: Column(children: const [
+                    SizedBox(height: 35),
                     Center(
-                      child: const Text(
+                      child: Text(
                         "UTENSÍLIOS - SUGESTÃO",textAlign: TextAlign.center,
                         style: TextStyle(color: Colors.white),
                       ),
@@ -92,10 +94,10 @@ class CustomCarouselFB3 extends StatelessWidget {
                 child: SizedBox(
                   width: MediaQuery.of(context).size.width * .3,
                   height: MediaQuery.of(context).size.height * .2,
-                  child: Column(children: [
-                    const SizedBox(height: 35),
+                  child: Column(children: const [
+                    SizedBox(height: 35),
                     Center(
-                      child: const Text(
+                      child: Text(
                         "TIPOS DE INTRODUÇÃO ALIMENTAR",textAlign: TextAlign.center,
                         style: TextStyle(color: Colors.white),
                       ),
@@ -114,10 +116,10 @@ class CustomCarouselFB3 extends StatelessWidget {
                 child: SizedBox(
                   width: MediaQuery.of(context).size.width * .3,
                   height: MediaQuery.of(context).size.height * .2,
-                  child: Column(children: [
-                    const SizedBox(height: 35),
+                  child: Column(children: const [
+                    SizedBox(height: 35),
                     Center(
-                      child: const Text(
+                      child: Text(
                         "COMO PREPARAR – BLW OU PAPINHA – VAPOR E CONSISTÊNCIA",textAlign: TextAlign.center,
                         style: TextStyle(color: Colors.white),
                       ),
@@ -136,10 +138,10 @@ class CustomCarouselFB3 extends StatelessWidget {
                 child: SizedBox(
                   width: MediaQuery.of(context).size.width * .3,
                   height: MediaQuery.of(context).size.height * .2,
-                  child: Column(children: [
-                    const SizedBox(height: 35),
+                  child: Column(children: const [
+                    SizedBox(height: 35),
                     Center(
-                      child: const Text(
+                      child: Text(
                         "DIVISÃO DO PRATO E GRUPOS ALIMENTAR",textAlign: TextAlign.center,
                         style: TextStyle(color: Colors.white),
                       ),
@@ -158,10 +160,10 @@ class CustomCarouselFB3 extends StatelessWidget {
                 child: SizedBox(
                   width: MediaQuery.of(context).size.width * .3,
                   height: MediaQuery.of(context).size.height * .2,
-                  child: Column(children: [
-                    const SizedBox(height: 35),
+                  child: Column(children: const [
+                    SizedBox(height: 35),
                     Center(
-                      child: const Text(
+                      child: Text(
                         "CRONOGAMA DE INTRODUÇÃO DE ALIMENTOS",textAlign: TextAlign.center,
                         style: TextStyle(color: Colors.white),
                       ),
@@ -180,10 +182,10 @@ class CustomCarouselFB3 extends StatelessWidget {
                 child: SizedBox(
                   width: MediaQuery.of(context).size.width * .3,
                   height: MediaQuery.of(context).size.height * .2,
-                  child: Column(children: [
-                    const SizedBox(height: 35),
+                  child: Column(children: const [
+                    SizedBox(height: 35),
                     Center(
-                      child: const Text(
+                      child: Text(
                         "ENGASGO E REFLEXO DE GAG",textAlign: TextAlign.center,
                         style: TextStyle(color: Colors.white),
                       ),
@@ -202,10 +204,10 @@ class CustomCarouselFB3 extends StatelessWidget {
                 child: SizedBox(
                   width: MediaQuery.of(context).size.width * .3,
                   height: MediaQuery.of(context).size.height * .2,
-                  child: Column(children: [
-                    const SizedBox(height: 35),
+                  child: Column(children: const [
+                    SizedBox(height: 35),
                     Center(
-                      child: const Text(
+                      child: Text(
                         "ALIMENTOS PARA SER INICIADOS",textAlign: TextAlign.center,
                         style: TextStyle(color: Colors.white),
                       ),
@@ -224,10 +226,10 @@ class CustomCarouselFB3 extends StatelessWidget {
                 child: SizedBox(
                   width: MediaQuery.of(context).size.width * .3,
                   height: MediaQuery.of(context).size.height * .2,
-                  child: Column(children: [
-                    const SizedBox(height: 35),
+                  child: Column(children: const [
+                    SizedBox(height: 35),
                     Center(
-                      child: const Text(
+                      child: Text(
                         "CONGELAMENTO E DESCONGELAMENTO DO ALIMENTO",textAlign: TextAlign.center,
                         style: TextStyle(color: Colors.white),
                       ),
@@ -246,10 +248,10 @@ class CustomCarouselFB3 extends StatelessWidget {
                 child: SizedBox(
                   width: MediaQuery.of(context).size.width * .3,
                   height: MediaQuery.of(context).size.height * .2,
-                  child: Column(children: [
-                    const SizedBox(height: 35),
+                  child: Column(children: const [
+                    SizedBox(height: 35),
                     Center(
-                      child: const Text(
+                      child: Text(
                         "REAÇÕES ALÉRGICAS",textAlign: TextAlign.center,
                         style: TextStyle(color: Colors.white),
                       ),
@@ -268,10 +270,10 @@ class CustomCarouselFB3 extends StatelessWidget {
                 child: SizedBox(
                   width: MediaQuery.of(context).size.width * .3,
                   height: MediaQuery.of(context).size.height * .2,
-                  child: Column(children: [
-                    const SizedBox(height: 35),
+                  child: Column(children: const [
+                    SizedBox(height: 35),
                     Center(
-                      child: const Text(
+                      child: Text(
                         "ALIMENTOS PROIBIDOS ATÉ 1 ANO", textAlign: TextAlign.center,
                         style: TextStyle(color: Colors.white),
                       ),
@@ -290,10 +292,10 @@ class CustomCarouselFB3 extends StatelessWidget {
                 child: SizedBox(
                   width: MediaQuery.of(context).size.width * .3,
                   height: MediaQuery.of(context).size.height * .2,
-                  child: Column(children: [
-                    const SizedBox(height: 35),
+                  child: Column(children: const [
+                    SizedBox(height: 35),
                     Center(
-                      child: const Text(
+                      child: Text(
                         "ALIMENTOS PROIBIDOS ATÉ 2 ANOS", textAlign: TextAlign.center,
                         style: TextStyle(color: Colors.white),
                       ),

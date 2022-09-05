@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 class Copinho extends StatelessWidget {
+  const Copinho({super.key});
+
 
 
 
@@ -11,12 +13,12 @@ class Copinho extends StatelessWidget {
       appBar: AppBar(
         actions: <Widget>[
           Image.asset("images1/LogoTop.png"),
-          SizedBox(
+          const SizedBox(
             width: 10.0,
           )
         ],
         centerTitle: true,
-        title: Text(
+        title: const Text(
           'Crescimento',
           style: TextStyle(
               fontSize: 24.0, fontWeight: FontWeight.bold, color: Colors.white),
@@ -24,10 +26,10 @@ class Copinho extends StatelessWidget {
         elevation: 1.5,
       ),
       body: ListView(
-        padding: EdgeInsets.all(20.0),
+        padding: const EdgeInsets.all(20.0),
         children: <Widget>[
-          SizedBox(height: 30.0,),
-          Text(
+          const SizedBox(height: 30.0,),
+          const Text(
             'Alimentação por copinho',
             style: TextStyle(
                 fontSize: 22.0,
@@ -36,7 +38,7 @@ class Copinho extends StatelessWidget {
             ),
             textAlign: TextAlign.center,
           ),
-          SizedBox(height: 30.0,),
+          const SizedBox(height: 30.0,),
           content(
               'Quando utilizar:',
               'images1/figura 01.jpg',
@@ -99,9 +101,9 @@ class Copinho extends StatelessWidget {
                 '\u27A2Não causa problemas dentários na criança.',
           ),
 
-          SizedBox(height: 30.0,),
+          const SizedBox(height: 30.0,),
           // redDoubt(context,UID),
-          SizedBox(height: 30.0,),
+          const SizedBox(height: 30.0,),
         ],
       ),
     );
@@ -109,10 +111,10 @@ class Copinho extends StatelessWidget {
 
   Widget content(String title, String image, String text){
     return Container(
-      margin: EdgeInsets.symmetric(vertical: 10.0,horizontal: 10.0),
+      margin: const EdgeInsets.symmetric(vertical: 10.0,horizontal: 10.0),
       decoration: BoxDecoration(
           border: Border.all(
-              color: Color.fromARGB(255, 101, 188, 89),
+              color: const Color.fromARGB(255, 101, 188, 89),
               width: 3.0
           )
       ),
@@ -120,13 +122,13 @@ class Copinho extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: <Widget>[
           Container(
-            color: Color.fromARGB(255, 101, 188, 89),
+            color: const Color.fromARGB(255, 101, 188, 89),
             child: Padding(
-              padding: EdgeInsets.all(8.0),
+              padding: const EdgeInsets.all(8.0),
               child: Text(
                 title,
                 textAlign: TextAlign.center,
-                style: TextStyle(
+                style: const TextStyle(
                     fontSize: 20.0,
                     fontWeight: FontWeight.bold,
                     color: Colors.white
@@ -140,7 +142,7 @@ class Copinho extends StatelessWidget {
             child: Text(
                 text,
                 textAlign: TextAlign.justify,
-                style: TextStyle(
+                style: const TextStyle(
                   fontSize: 18,
                   fontWeight: FontWeight.normal,
                   color: Colors.black,

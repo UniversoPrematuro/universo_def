@@ -1,7 +1,11 @@
+// ignore_for_file: non_constant_identifier_names, body_might_complete_normally_nullable
+
 import 'package:flutter/material.dart';
 
 
 class Divisao extends StatelessWidget {
+  const Divisao({super.key});
+
 
 
 
@@ -15,12 +19,12 @@ class Divisao extends StatelessWidget {
       appBar: AppBar(
         actions: <Widget>[
           Image.asset("images1/LogoTop.png"),
-          SizedBox(
+          const SizedBox(
             width: 10.0,
           )
         ],
         centerTitle: true,
-        title: Text(
+        title: const Text(
           'Crescimento',
           style: TextStyle(
               fontSize: 24.0, fontWeight: FontWeight.bold, color: Colors.white),
@@ -28,11 +32,11 @@ class Divisao extends StatelessWidget {
         elevation: 1.5,
       ),
       body: ListView(
-        padding: EdgeInsets.all(20.0),
+        padding: const EdgeInsets.all(20.0),
         children: [
-          SizedBox(height: 20.0,),
-          Padding(
-            padding: const EdgeInsets.only(left: 20.0,right: 20.0),
+          const SizedBox(height: 20.0,),
+          const Padding(
+            padding: EdgeInsets.only(left: 20.0,right: 20.0),
             child: Text(
               'PARTE 6 – DIVISÃO DO PRATO E GRUPOS ALIMENTAR',
               style: TextStyle(
@@ -43,15 +47,15 @@ class Divisao extends StatelessWidget {
               textAlign: TextAlign.center,
             ),
           ),
-          SizedBox(height: 40.0,),
+          const SizedBox(height: 40.0,),
 
           GCARD('Carboidrato',context,1),
           GCARD('Leguminosas',context,2),
           GCARD('Carnes e ovos',context,3),
           GCARD('Legumes',context,4),
 
-          SizedBox(height: 40.0,),
-          Text(
+          const SizedBox(height: 40.0,),
+          const Text(
             '     As verduras iremos oferecer após bebe possuir alguma intimidade com o alimento, como: deglutindo melhor, mastigando, apresentando maior facilidade de movimentação nas refeições e mesmo assim devemos iniciar ofertando as verduras cozidas, reduzindo o risco de pequenos pedaços das folhas crus ficarem incomodando a garganta e dificultando o auxílio de uma ajuda.\n'
                 '\n     Importante: É preciso verificar o local da compra e a higienização (imagem abaixo) das verduras. Para evitar infeções do sistema digestório. \n',
             textAlign: TextAlign.justify,
@@ -90,12 +94,12 @@ class Divisao extends StatelessWidget {
         elevation: 2.0,
         //margin: EdgeInsets.all(20.0),
         child: Container(
-          color: Color.fromARGB(20, 101, 188, 89),
+          color: const Color.fromARGB(20, 101, 188, 89),
           alignment: Alignment.center,
-          padding: EdgeInsets.all(20.0),
+          padding: const EdgeInsets.all(20.0),
           child: Text(
             title,
-            style: TextStyle(
+            style: const TextStyle(
                 fontSize: 16.0,
                 fontWeight: FontWeight.w500
             ),
@@ -111,12 +115,12 @@ class Divisao extends StatelessWidget {
       appBar: AppBar(
         actions: <Widget>[
           Image.asset("images1/LogoTop.png"),
-          SizedBox(
+          const SizedBox(
             width: 10.0,
           )
         ],
         centerTitle: true,
-        title: Text(
+        title: const Text(
           'Crescimento',
           style: TextStyle(
               fontSize: 24.0, fontWeight: FontWeight.bold, color: Colors.white),
@@ -140,7 +144,7 @@ class Divisao extends StatelessWidget {
             ],
           ),
         );
-        break;
+        // break;
       case 2:
         return Image.asset('images1/figg1012-4.jpeg');
 
@@ -155,10 +159,10 @@ class Divisao extends StatelessWidget {
               ],
             ),
           );
-          break;
+          // break;
       case 4:
         return Image.asset('images1/figg1012-26.jpeg');
-        break;
+        // break;
 
 
     }

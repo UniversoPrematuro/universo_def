@@ -178,7 +178,7 @@ class MomCard extends StatelessWidget {
               Align(alignment: Alignment.centerLeft, child: Text('Filho: ${storeE.controllerKidName.text}', textAlign: TextAlign.start)),
             ],
           ),
-          CircleAvatar(
+          const CircleAvatar(
             radius: 45,
             backgroundColor: Colors.black,
             // backgroundImage: NetworkImage(store.photoURL),

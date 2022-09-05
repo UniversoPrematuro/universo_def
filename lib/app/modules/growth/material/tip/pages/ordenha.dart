@@ -1,8 +1,9 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 
 class Ordenha extends StatelessWidget {
+  const Ordenha({super.key});
+
 
 
 
@@ -13,12 +14,12 @@ class Ordenha extends StatelessWidget {
       appBar: AppBar(
         actions: <Widget>[
           Image.asset("images1/LogoTop.png"),
-          SizedBox(
+          const SizedBox(
             width: 10.0,
           )
         ],
         centerTitle: true,
-        title: Text(
+        title: const Text(
           'Crescimento',
           style: TextStyle(
               fontSize: 24.0, fontWeight: FontWeight.bold, color: Colors.white),
@@ -26,10 +27,10 @@ class Ordenha extends StatelessWidget {
         elevation: 1.5,
       ),
       body: ListView(
-        padding: EdgeInsets.all(20.0),
+        padding: const EdgeInsets.all(20.0),
         children: <Widget>[
-          SizedBox(height: 30.0,),
-          Text(
+          const SizedBox(height: 30.0,),
+          const Text(
             'Como retirar o leite manualmente (Ordenha)',
             style: TextStyle(
                 fontSize: 22.0,
@@ -38,14 +39,14 @@ class Ordenha extends StatelessWidget {
             ),
             textAlign: TextAlign.center,
           ),
-          SizedBox(height: 30.0,),
+          const SizedBox(height: 30.0,),
           Container(
-            margin: EdgeInsets.symmetric(vertical: 10.0,horizontal: 10.0),
+            margin: const EdgeInsets.symmetric(vertical: 10.0,horizontal: 10.0),
             width: 250.0,
             //height: 250.0,
             decoration: BoxDecoration(
                 border: Border.all(
-                    color: Color.fromARGB(255, 101, 188, 89),
+                    color: const Color.fromARGB(255, 101, 188, 89),
                     width: 3.0
                 )
             ),
@@ -53,9 +54,9 @@ class Ordenha extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: <Widget>[
                 Image.asset('images1/Gif-2.gif'),
-                SizedBox(height: 10.0,),
-                Padding(
-                  padding: const EdgeInsets.all(10.0),
+                const SizedBox(height: 10.0,),
+                const Padding(
+                  padding: EdgeInsets.all(10.0),
                   child: Text(
                       'Evite o uso de bombinhas, dê preferência para que a '
                           'ordenha seja manual (com as mãos). A bombinha pode '
@@ -167,9 +168,9 @@ class Ordenha extends StatelessWidget {
                   'estar morno e não quente.'
           ),
 
-          SizedBox(height: 30.0,),
+          const SizedBox(height: 30.0,),
           // redDoubt(context,UID),
-          SizedBox(height: 30.0,),
+          const SizedBox(height: 30.0,),
         ],
       ),
     );
@@ -177,10 +178,10 @@ class Ordenha extends StatelessWidget {
 
   Widget content(String title, String image, String text){
     return Container(
-      margin: EdgeInsets.symmetric(vertical: 10.0,horizontal: 10.0),
+      margin: const EdgeInsets.symmetric(vertical: 10.0,horizontal: 10.0),
       decoration: BoxDecoration(
           border: Border.all(
-              color: Color.fromARGB(255, 101, 188, 89),
+              color: const Color.fromARGB(255, 101, 188, 89),
               width: 3.0
           )
       ),
@@ -188,13 +189,13 @@ class Ordenha extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: <Widget>[
           Container(
-            color: Color.fromARGB(255, 101, 188, 89),
+            color: const Color.fromARGB(255, 101, 188, 89),
             child: Padding(
-              padding: EdgeInsets.all(8.0),
+              padding: const EdgeInsets.all(8.0),
               child: Text(
                 title,
                 textAlign: TextAlign.center,
-                style: TextStyle(
+                style: const TextStyle(
                     fontSize: 20.0,
                     fontWeight: FontWeight.bold,
                     color: Colors.white
@@ -208,7 +209,7 @@ class Ordenha extends StatelessWidget {
             child: Text(
                 text,
                 textAlign: TextAlign.justify,
-                style: TextStyle(
+                style: const TextStyle(
                   fontSize: 18,
                   fontWeight: FontWeight.normal,
                   color: Colors.black,

@@ -2,6 +2,8 @@
 import 'package:flutter/material.dart';
 
 class Reacoes extends StatelessWidget {
+  const Reacoes({super.key});
+
 
 
 
@@ -13,12 +15,12 @@ class Reacoes extends StatelessWidget {
       appBar: AppBar(
         actions: <Widget>[
           Image.asset("images1/LogoTop.png"),
-          SizedBox(
+          const SizedBox(
             width: 10.0,
           )
         ],
         centerTitle: true,
-        title: Text(
+        title: const Text(
           'Crescimento',
           style: TextStyle(
               fontSize: 24.0, fontWeight: FontWeight.bold, color: Colors.white),
@@ -26,11 +28,11 @@ class Reacoes extends StatelessWidget {
         elevation: 1.5,
       ),
       body: ListView(
-        padding: EdgeInsets.all(20.0),
+        padding: const EdgeInsets.all(20.0),
         children: [
-          SizedBox(height: 20.0,),
-          Padding(
-            padding: const EdgeInsets.only(left: 20.0,right: 20.0),
+          const SizedBox(height: 20.0,),
+          const Padding(
+            padding: EdgeInsets.only(left: 20.0,right: 20.0),
             child: Text(
               'PARTE 11 – REAÇOES ALERGICAS',
               style: TextStyle(
@@ -41,9 +43,9 @@ class Reacoes extends StatelessWidget {
               textAlign: TextAlign.center,
             ),
           ),
-          SizedBox(height: 40.0,),
+          const SizedBox(height: 40.0,),
 
-          Text(
+          const Text(
             '     Você sabia que existe alimentos que podem desencadear alergias ao bebe? Por isso, devemos oferecer estes alimentos, mas com um certo cuidado! Nesta fase peça orientação para o profissional de saúde que acompanha a introdução alimentar do bebe.'
                 '\n     Será importante dar início a oferta destes alimentos com uma pequena quantidade e ir aumentando aos poucos.',
             style: TextStyle(
@@ -55,7 +57,7 @@ class Reacoes extends StatelessWidget {
 
           RichText(
               textAlign: TextAlign.justify,
-              text: TextSpan(
+              text: const TextSpan(
                 text: 'Segue os alimentos com maior risco alérgico:',
                 style: TextStyle(
                   fontSize: 18,

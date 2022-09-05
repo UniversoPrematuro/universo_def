@@ -16,7 +16,6 @@ class ProfileCard extends StatelessWidget {
 
   double borderRadius = 20;
 
-  @override
   void initState() { 
     store.recover();
     store.ageCalculator();
