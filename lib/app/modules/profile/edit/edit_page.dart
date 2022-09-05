@@ -79,6 +79,41 @@ class EditPageState extends State<EditPage> {
                 ),
 
                     KidCard(),
+
+                    Padding(
+                          padding: const EdgeInsets.only(top: 40, bottom: 5),
+                          child: Center(
+                            child: Observer(builder: (_) {
+                              return CircleAvatar(
+                                radius: 70,
+                                backgroundColor: Colors.grey,
+                                backgroundImage: NetworkImage(store.momURL),
+                              );},
+                            ),
+                          ),
+                        ),
+                        Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    TextButton(
+                      child: const Text("Câmera",
+                          style: TextStyle(color: Colors.white)),
+                      onPressed: () {
+                        store.selectMomPhoto("camera");
+                      },
+                    ),
+                    TextButton(
+                      child: const Text("Galeria",
+                          style: TextStyle(color: Colors.white)),
+                      onPressed: () {
+                        store.selectMomPhoto("galeria");
+                      },
+                    ),
+
+                  ],
+                ),
+
+                    MomCard(),
                     GradientButtonFb1(text: "Salvar", onPressed: () => store.saveData().then((value) => Modular.to.pushReplacementNamed("/home/"))),
                     // GradientButtonFb1(text: 'AGE', onPressed: (){store.ageCalculator(); })
                         

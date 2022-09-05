@@ -121,6 +121,22 @@ mixin _$EditStore on _EditStoreBase, Store {
     });
   }
 
+  late final _$uploadMomAtom =
+      Atom(name: '_EditStoreBase.uploadMom', context: context);
+
+  @override
+  bool get uploadMom {
+    _$uploadMomAtom.reportRead();
+    return super.uploadMom;
+  }
+
+  @override
+  set uploadMom(bool value) {
+    _$uploadMomAtom.reportWrite(value, super.uploadMom, () {
+      super.uploadMom = value;
+    });
+  }
+
   late final _$photoURLAtom =
       Atom(name: '_EditStoreBase.photoURL', context: context);
 
@@ -153,35 +169,83 @@ mixin _$EditStore on _EditStoreBase, Store {
     });
   }
 
-  late final _$gestationAtom =
-      Atom(name: '_EditStoreBase.gestation', context: context);
+  late final _$controllerPhoneAtom =
+      Atom(name: '_EditStoreBase.controllerPhone', context: context);
 
   @override
-  int get gestation {
-    _$gestationAtom.reportRead();
-    return super.gestation;
+  TextEditingController get controllerPhone {
+    _$controllerPhoneAtom.reportRead();
+    return super.controllerPhone;
   }
 
   @override
-  set gestation(int value) {
-    _$gestationAtom.reportWrite(value, super.gestation, () {
-      super.gestation = value;
+  set controllerPhone(TextEditingController value) {
+    _$controllerPhoneAtom.reportWrite(value, super.controllerPhone, () {
+      super.controllerPhone = value;
     });
   }
 
-  late final _$idadeCorrigidaAtom =
-      Atom(name: '_EditStoreBase.idadeCorrigida', context: context);
+  late final _$controllerCEPAtom =
+      Atom(name: '_EditStoreBase.controllerCEP', context: context);
 
   @override
-  int? get idadeCorrigida {
-    _$idadeCorrigidaAtom.reportRead();
-    return super.idadeCorrigida;
+  TextEditingController get controllerCEP {
+    _$controllerCEPAtom.reportRead();
+    return super.controllerCEP;
   }
 
   @override
-  set idadeCorrigida(int? value) {
-    _$idadeCorrigidaAtom.reportWrite(value, super.idadeCorrigida, () {
-      super.idadeCorrigida = value;
+  set controllerCEP(TextEditingController value) {
+    _$controllerCEPAtom.reportWrite(value, super.controllerCEP, () {
+      super.controllerCEP = value;
+    });
+  }
+
+  late final _$controllerStreetAtom =
+      Atom(name: '_EditStoreBase.controllerStreet', context: context);
+
+  @override
+  TextEditingController get controllerStreet {
+    _$controllerStreetAtom.reportRead();
+    return super.controllerStreet;
+  }
+
+  @override
+  set controllerStreet(TextEditingController value) {
+    _$controllerStreetAtom.reportWrite(value, super.controllerStreet, () {
+      super.controllerStreet = value;
+    });
+  }
+
+  late final _$controllerBairroAtom =
+      Atom(name: '_EditStoreBase.controllerBairro', context: context);
+
+  @override
+  TextEditingController get controllerBairro {
+    _$controllerBairroAtom.reportRead();
+    return super.controllerBairro;
+  }
+
+  @override
+  set controllerBairro(TextEditingController value) {
+    _$controllerBairroAtom.reportWrite(value, super.controllerBairro, () {
+      super.controllerBairro = value;
+    });
+  }
+
+  late final _$escolhaUserAtom =
+      Atom(name: '_EditStoreBase.escolhaUser', context: context);
+
+  @override
+  String? get escolhaUser {
+    _$escolhaUserAtom.reportRead();
+    return super.escolhaUser;
+  }
+
+  @override
+  set escolhaUser(String? value) {
+    _$escolhaUserAtom.reportWrite(value, super.escolhaUser, () {
+      super.escolhaUser = value;
     });
   }
 
@@ -226,10 +290,14 @@ idLogado: ${idLogado},
 kidPhoto: ${kidPhoto},
 momPhoto: ${momPhoto},
 upload: ${upload},
+uploadMom: ${uploadMom},
 photoURL: ${photoURL},
 momURL: ${momURL},
-gestation: ${gestation},
-idadeCorrigida: ${idadeCorrigida},
+controllerPhone: ${controllerPhone},
+controllerCEP: ${controllerCEP},
+controllerStreet: ${controllerStreet},
+controllerBairro: ${controllerBairro},
+escolhaUser: ${escolhaUser},
 age: ${age}
     ''';
   }

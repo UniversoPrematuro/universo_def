@@ -1,11 +1,15 @@
 // ignore_for_file: prefer_typing_uninitialized_variables
 
 import 'package:flutter/material.dart';
+import 'package:flutter_modular/flutter_modular.dart';
+import 'package:universo_def/app/modules/initial/initial_store.dart';
 
 class EmailInputFieldFb3 extends StatelessWidget {
   final TextEditingController controllerEmail;
-  const EmailInputFieldFb3({Key? key, required this.controllerEmail})
+  EmailInputFieldFb3({Key? key, required this.controllerEmail})
       : super(key: key);
+
+  final InitialStore initialStore = Modular.get();
 
   @override
   Widget build(BuildContext context) {
@@ -22,19 +26,18 @@ class EmailInputFieldFb3 extends StatelessWidget {
       ]),
       child: TextField(
         controller: controllerEmail,
-        onChanged: (value) {
-          //Do something wi
-        },
+        onChanged: (value) => initialStore.changeEmail,
         keyboardType: TextInputType.emailAddress,
         style: const TextStyle(fontSize: 14, color: Colors.black),
         decoration: InputDecoration(
           fillColor: Colors.white,
+          errorText: initialStore.validateEmail(),
           prefixIcon: const Icon(Icons.email, color: Colors.green,),
           filled: true,
           hintText: 'Insira seu e-mail',
           hintStyle: TextStyle(color: Colors.grey.withOpacity(.75)),
           contentPadding:
-              const EdgeInsets.symmetric(vertical: 0.0, horizontal: 20.0),
+              const EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
           border: const OutlineInputBorder(
             borderSide: BorderSide(color: Colors.green, width: 1.0),
             borderRadius: BorderRadius.all(Radius.circular(10.0)),
@@ -129,13 +132,18 @@ class PasswordInput extends StatefulWidget {
 }
 
 class PasswordInputState extends State<PasswordInput> {
+
+  final InitialStore initialStore = Modular.get();
+
   bool pwdVisibility = false;
   @override
   Widget build(BuildContext context) {
     return TextFormField(
       controller: widget.controllerPass,
       obscureText: !pwdVisibility,
+      onChanged: (value) => initialStore.changePass,
       decoration: InputDecoration(
+        errorText: initialStore.validatePass(),
         filled: true,
         fillColor: Colors.white,
         hintText: widget.hintText,

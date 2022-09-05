@@ -35,11 +35,11 @@ class _KidCardState extends State<KidCard> {
       child: Padding(
         padding: const EdgeInsets.fromLTRB(35, 10, 35, 10),
         child: Column(children: [
-          NameInputFb2(controllerKidName: store.controllerKidName),
+          NameInputFb2(controller: store.controllerKidName),
           // const SizedBox(height: 8),
-          BirthInputFb2(controllerKidBirth: store.controllerKidBirth),
+          BirthInputFb2(controller: store.controllerKidBirth),
           // const SizedBox(height: 8),
-          WeekInputFb2(controllerWeeks: store.controllerWeeks),
+          WeekInputFb2(controller: store.controllerWeeks),
 
           Center(
             child: Row(
@@ -85,44 +85,63 @@ class _KidCardState extends State<KidCard> {
             ),
           )
 
-          // Observer(
-          //   builder: (_) {
-          //     return Radio(
-          //       value: "Masculino",
-          //       toggleable: true,
-          //       groupValue: store.escolhaUser,
-          //       onChanged: (String? escolha){
-          //         store.escolhaUser = escolha;
-          //       },
-          //     );
-          //   }
-
-          //   ),
-
-          // Observer(
-          //   builder: (_) {
-          //     return Radio(
-          //       value: "Feminino",
-          //       toggleable: true,
-          //       groupValue: store.escolhaUser,
-          //       onChanged: (String? escolha){
-          //         store.escolhaUser = escolha;
-          //       },
-          //     );
-          //   }
-
-          //   ),
+          
         ]),
       ),
     );
   }
 }
 
+
+class MomCard extends StatefulWidget {
+  const MomCard({super.key});
+
+  @override
+  State<MomCard> createState() => _MomCardState();
+}
+
+class _MomCardState extends State<MomCard> {
+  final EditStore store = Modular.get();
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: MediaQuery.of(context).size.width * .90,
+      height: MediaQuery.of(context).size.height * .4,
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(30),
+        boxShadow: [
+          BoxShadow(
+              offset: const Offset(0, 10),
+              blurRadius: 8,
+              spreadRadius: 1.5,
+              color: Colors.black.withOpacity(.3))
+        ],
+      ),
+      child: Padding(
+        padding: const EdgeInsets.fromLTRB(35, 10, 35, 10),
+        child: Column(children: [
+          NameInputFb2(controller: store.controllerCEP),
+          // const SizedBox(height: 8),
+          BirthInputFb2(controller: store.controllerKidBirth),
+          // const SizedBox(height: 8),
+          WeekInputFb2(controller: store.controllerWeeks),
+
+          
+
+          
+        ]),
+      ),
+    );
+  }
+}
+
+
 class NameInputFb2 extends StatelessWidget {
   final EditStore store = Modular.get();
 
-  final TextEditingController controllerKidName;
-  NameInputFb2({Key? key, required this.controllerKidName}) : super(key: key);
+  final TextEditingController controller;
+  NameInputFb2({Key? key, required this.controller}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -203,8 +222,8 @@ class BirthInputFb2 extends StatelessWidget {
 
   final EditStore store = Modular.get();
 
-  final TextEditingController controllerKidBirth;
-  BirthInputFb2({Key? key, required this.controllerKidBirth}) : super(key: key);
+  final TextEditingController controller;
+  BirthInputFb2({Key? key, required this.controller}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -281,8 +300,8 @@ class BirthInputFb2 extends StatelessWidget {
 class WeekInputFb2 extends StatelessWidget {
   final EditStore store = Modular.get();
 
-  final TextEditingController controllerWeeks;
-  WeekInputFb2({Key? key, required this.controllerWeeks}) : super(key: key);
+  final TextEditingController controller;
+  WeekInputFb2({Key? key, required this.controller}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

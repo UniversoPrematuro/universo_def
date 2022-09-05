@@ -47,16 +47,25 @@ abstract class _EditStoreBase with Store {
   bool upload = false;
 
   @observable
+  bool uploadMom = false;
+
+  @observable
   String photoURL = '';
 
   @observable
   String momURL = ''; 
 
   @observable
-  int gestation = 40;
+  TextEditingController controllerPhone = TextEditingController();
+
+  @observable
+  TextEditingController controllerCEP = TextEditingController();
   
   @observable
-  int? idadeCorrigida;
+  TextEditingController controllerStreet = TextEditingController();
+  
+  @observable
+  TextEditingController controllerBairro = TextEditingController();
 
   @observable
   String? escolhaUser;
@@ -108,6 +117,8 @@ abstract class _EditStoreBase with Store {
       "semanas": kid.weeks,
       "gender": escolhaUser,
       "photoURL": photoURL,
+      "momURL": momURL,
+      // "cep": controllerCEP.text,
     };
     db.collection("users").doc(idLogado).set(data, SetOptions(merge: true));
   }
@@ -126,8 +137,9 @@ abstract class _EditStoreBase with Store {
     controllerKidBirth.text = dados["nasc"];
     controllerWeeks.text = dados["semanas"];
     authStore.controllerNameMom.text = dados["mom"];
-    if(dados["photoURL"] != null){
+    if(dados["photoURL"] != null && dados["momURL"] != null){
       photoURL = dados["photoURL"];
+      momURL = dados["momURL"];
     }
 
     
@@ -161,14 +173,14 @@ abstract class _EditStoreBase with Store {
       momPhoto = selectedPhoto;
       if(momPhoto != null){
         uploadMomPhoto();
-        upload = true;
+        uploadMom = true;
       }
     } else if (origem == "galeria"){
         selectedPhoto = await _picker.pickImage(source: ImageSource.gallery);
         momPhoto = selectedPhoto;
         if(momPhoto != null){
           uploadMomPhoto();
-          upload = true;
+          uploadMom = true;
       }
     }
   }
@@ -177,7 +189,7 @@ abstract class _EditStoreBase with Store {
     FirebaseAuth auth = FirebaseAuth.instance;
     User usuarioLogado = auth.currentUser!;
     idLogado = usuarioLogado.uid;
-    File file = File(kidPhoto!.path);
+    File file = File(momPhoto!.path);
     Reference pastaRaiz = storage.ref();
     Reference arquivo = pastaRaiz.child("perfil").child("$idLogado.jpg");
     UploadTask task = arquivo.putFile(file);
@@ -188,7 +200,7 @@ abstract class _EditStoreBase with Store {
         upload = false;
       }
      });
-     task.then((TaskSnapshot taskSnapshot) => recoveryPhotoURL(taskSnapshot));
+     task.then((TaskSnapshot taskSnapshot) => recoveryMomPhotoURL(taskSnapshot));
      await Future.delayed(const Duration(seconds: 2));
   }
 
