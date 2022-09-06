@@ -18,8 +18,6 @@ class ProfileCard extends StatelessWidget {
 
   void initState() { 
     store.recover();
-    store.ageCalculator();
-    
   }
 
   @override
@@ -79,7 +77,7 @@ class ProfileCard extends StatelessWidget {
                   }),
                   const SizedBox(height: 5),
                   Observer(builder: (_) {
-                    return Text('Idade cronológica: ${store.age}',
+                    return Text('Idade cronológica: ${store.crono}',
                     textAlign: TextAlign.start,
                     style: const TextStyle(color: Colors.white, fontWeight: FontWeight.w500,)
                     );

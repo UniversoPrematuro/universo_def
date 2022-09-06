@@ -24,9 +24,9 @@ class AppModule extends Module {
   @override
   final List<Bind> binds = [
     Bind.lazySingleton((i) => AuthStore()),
-    Bind.lazySingleton((i) => HomeStore()),
+    Bind.singleton((i) => HomeStore()),
     Bind.lazySingleton((i) => ProfileStore()),
-    Bind.lazySingleton((i) => EditStore()),
+    Bind.singleton((i) => EditStore()),
     Bind.lazySingleton((i) => TasksStore()),
     Bind.lazySingleton((i) => GrowthStore()),
     Bind.lazySingleton((i) => TipStore()),

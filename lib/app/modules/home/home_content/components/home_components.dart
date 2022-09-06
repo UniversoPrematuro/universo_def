@@ -1,6 +1,7 @@
 // ignore_for_file: must_be_immutable
 
 import 'package:flutter/material.dart';
+import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
 import '../../../initial/auth/auth_store.dart';
@@ -123,30 +124,25 @@ class GraphHolder extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: BoxDecoration(
-          color: Colors.green,
-          borderRadius: BorderRadius.circular(20),
-          boxShadow: [
-            BoxShadow(
-                color: Colors.black.withOpacity(1),
-                blurRadius: 8,
-                offset: const Offset(0, 5))
-          ]),
-      width: MediaQuery.of(context).size.width * .9,
-      height: MediaQuery.of(context).size.height * .7,
-      child: Column(
-        children: [
-          const SizedBox(height: 40),
-          MomCard()
-        ],
-      )
-    );
+        decoration: BoxDecoration(
+            color: Colors.green,
+            borderRadius: BorderRadius.circular(20),
+            boxShadow: [
+              BoxShadow(
+                  color: Colors.black.withOpacity(1),
+                  blurRadius: 8,
+                  offset: const Offset(0, 5))
+            ]),
+        width: MediaQuery.of(context).size.width * .9,
+        height: MediaQuery.of(context).size.height * .7,
+        child: Column(
+          children: [const SizedBox(height: 40), MomCard()],
+        ));
   }
 }
 
-
 class MomCard extends StatelessWidget {
-  MomCard ({Key? key}) : super(key:key);
+  MomCard({Key? key}) : super(key: key);
   final EditStore storeE = Modular.get();
   final AuthStore storeA = Modular.get();
 
@@ -155,17 +151,13 @@ class MomCard extends StatelessWidget {
     return Container(
       width: MediaQuery.of(context).size.width * .8,
       height: MediaQuery.of(context).size.height / 4,
-      decoration: BoxDecoration(
-        boxShadow:  [
+      decoration: BoxDecoration(boxShadow: [
         BoxShadow(
             offset: const Offset(0, 5),
             blurRadius: 50,
             spreadRadius: 0,
             color: Colors.black.withOpacity(.6)),
-      ],
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(20)
-      ),
+      ], color: Colors.white, borderRadius: BorderRadius.circular(20)),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         crossAxisAlignment: CrossAxisAlignment.center,
@@ -174,19 +166,23 @@ class MomCard extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text('Mãe: ${storeA.controllerNameMom.text}', textAlign: TextAlign.start),
-              Align(alignment: Alignment.centerLeft, child: Text('Filho: ${storeE.controllerKidName.text}', textAlign: TextAlign.start)),
+              Text('Mãe: ${storeA.controllerNameMom.text}',
+                  textAlign: TextAlign.start),
+              Align(
+                  alignment: Alignment.centerLeft,
+                  child: Text('Filho: ${storeE.controllerKidName.text}',
+                      textAlign: TextAlign.start)),
             ],
           ),
-          const CircleAvatar(
-            radius: 45,
-            backgroundColor: Colors.black,
-            // backgroundImage: NetworkImage(store.photoURL),
-          )
+          Observer(builder: (_) {
+            return CircleAvatar(
+              radius: 45,
+              backgroundColor: Colors.black,
+              backgroundImage: NetworkImage(storeE.momURL),
+            );
+          })
         ],
       ),
     );
-  } 
-
-
+  }
 }

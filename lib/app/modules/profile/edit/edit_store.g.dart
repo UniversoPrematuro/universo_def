@@ -105,70 +105,6 @@ mixin _$EditStore on _EditStoreBase, Store {
     });
   }
 
-  late final _$kidPhotoAtom =
-      Atom(name: '_EditStoreBase.kidPhoto', context: context);
-
-  @override
-  XFile? get kidPhoto {
-    _$kidPhotoAtom.reportRead();
-    return super.kidPhoto;
-  }
-
-  @override
-  set kidPhoto(XFile? value) {
-    _$kidPhotoAtom.reportWrite(value, super.kidPhoto, () {
-      super.kidPhoto = value;
-    });
-  }
-
-  late final _$momPhotoAtom =
-      Atom(name: '_EditStoreBase.momPhoto', context: context);
-
-  @override
-  XFile? get momPhoto {
-    _$momPhotoAtom.reportRead();
-    return super.momPhoto;
-  }
-
-  @override
-  set momPhoto(XFile? value) {
-    _$momPhotoAtom.reportWrite(value, super.momPhoto, () {
-      super.momPhoto = value;
-    });
-  }
-
-  late final _$uploadAtom =
-      Atom(name: '_EditStoreBase.upload', context: context);
-
-  @override
-  bool get upload {
-    _$uploadAtom.reportRead();
-    return super.upload;
-  }
-
-  @override
-  set upload(bool value) {
-    _$uploadAtom.reportWrite(value, super.upload, () {
-      super.upload = value;
-    });
-  }
-
-  late final _$uploadMomAtom =
-      Atom(name: '_EditStoreBase.uploadMom', context: context);
-
-  @override
-  bool get uploadMom {
-    _$uploadMomAtom.reportRead();
-    return super.uploadMom;
-  }
-
-  @override
-  set uploadMom(bool value) {
-    _$uploadMomAtom.reportWrite(value, super.uploadMom, () {
-      super.uploadMom = value;
-    });
-  }
-
   late final _$photoURLAtom =
       Atom(name: '_EditStoreBase.photoURL', context: context);
 
@@ -249,6 +185,69 @@ mixin _$EditStore on _EditStoreBase, Store {
     });
   }
 
+  late final _$dataNascAtom =
+      Atom(name: '_EditStoreBase.dataNasc', context: context);
+
+  @override
+  String get dataNasc {
+    _$dataNascAtom.reportRead();
+    return super.dataNasc;
+  }
+
+  @override
+  set dataNasc(String value) {
+    _$dataNascAtom.reportWrite(value, super.dataNasc, () {
+      super.dataNasc = value;
+    });
+  }
+
+  late final _$cronoAtom = Atom(name: '_EditStoreBase.crono', context: context);
+
+  @override
+  int get crono {
+    _$cronoAtom.reportRead();
+    return super.crono;
+  }
+
+  @override
+  set crono(int value) {
+    _$cronoAtom.reportWrite(value, super.crono, () {
+      super.crono = value;
+    });
+  }
+
+  late final _$uploadAtom =
+      Atom(name: '_EditStoreBase.upload', context: context);
+
+  @override
+  bool get upload {
+    _$uploadAtom.reportRead();
+    return super.upload;
+  }
+
+  @override
+  set upload(bool value) {
+    _$uploadAtom.reportWrite(value, super.upload, () {
+      super.upload = value;
+    });
+  }
+
+  late final _$uploadMomAtom =
+      Atom(name: '_EditStoreBase.uploadMom', context: context);
+
+  @override
+  bool get uploadMom {
+    _$uploadMomAtom.reportRead();
+    return super.uploadMom;
+  }
+
+  @override
+  set uploadMom(bool value) {
+    _$uploadMomAtom.reportWrite(value, super.uploadMom, () {
+      super.uploadMom = value;
+    });
+  }
+
   late final _$loadingAtom =
       Atom(name: '_EditStoreBase.loading', context: context);
 
@@ -281,27 +280,52 @@ mixin _$EditStore on _EditStoreBase, Store {
     });
   }
 
-  late final _$ageAtom = Atom(name: '_EditStoreBase.age', context: context);
+  late final _$kidPhotoAtom =
+      Atom(name: '_EditStoreBase.kidPhoto', context: context);
 
   @override
-  DateDuration? get age {
-    _$ageAtom.reportRead();
-    return super.age;
+  XFile? get kidPhoto {
+    _$kidPhotoAtom.reportRead();
+    return super.kidPhoto;
   }
 
   @override
-  set age(DateDuration? value) {
-    _$ageAtom.reportWrite(value, super.age, () {
-      super.age = value;
+  set kidPhoto(XFile? value) {
+    _$kidPhotoAtom.reportWrite(value, super.kidPhoto, () {
+      super.kidPhoto = value;
     });
   }
 
-  late final _$ageCalculatorAsyncAction =
-      AsyncAction('_EditStoreBase.ageCalculator', context: context);
+  late final _$momPhotoAtom =
+      Atom(name: '_EditStoreBase.momPhoto', context: context);
 
   @override
-  Future<dynamic> ageCalculator() {
-    return _$ageCalculatorAsyncAction.run(() => super.ageCalculator());
+  XFile? get momPhoto {
+    _$momPhotoAtom.reportRead();
+    return super.momPhoto;
+  }
+
+  @override
+  set momPhoto(XFile? value) {
+    _$momPhotoAtom.reportWrite(value, super.momPhoto, () {
+      super.momPhoto = value;
+    });
+  }
+
+  late final _$durationAtom =
+      Atom(name: '_EditStoreBase.duration', context: context);
+
+  @override
+  DateDuration? get duration {
+    _$durationAtom.reportRead();
+    return super.duration;
+  }
+
+  @override
+  set duration(DateDuration? value) {
+    _$durationAtom.reportWrite(value, super.duration, () {
+      super.duration = value;
+    });
   }
 
   late final _$saveDataAsyncAction =
@@ -329,18 +353,20 @@ controllerWeeks: ${controllerWeeks},
 controllerCEP: ${controllerCEP},
 controllerPhone: ${controllerPhone},
 idLogado: ${idLogado},
-kidPhoto: ${kidPhoto},
-momPhoto: ${momPhoto},
-upload: ${upload},
-uploadMom: ${uploadMom},
 photoURL: ${photoURL},
 momURL: ${momURL},
 nameKid: ${nameKid},
 escolhaUser: ${escolhaUser},
 result: ${result},
+dataNasc: ${dataNasc},
+crono: ${crono},
+upload: ${upload},
+uploadMom: ${uploadMom},
 loading: ${loading},
 enableField: ${enableField},
-age: ${age}
+kidPhoto: ${kidPhoto},
+momPhoto: ${momPhoto},
+duration: ${duration}
     ''';
   }
 }

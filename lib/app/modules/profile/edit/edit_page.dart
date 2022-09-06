@@ -116,8 +116,9 @@ class EditPageState extends State<EditPage> {
                     const MomCard(),
                     GradientButtonFb1(text: "Salvar", onPressed: () {
                       store.saveData();
+                      store.ageCal();
                       // store.searchCep();
-                      Modular.to.pushReplacementNamed("/home");
+                      Modular.to.pushReplacementNamed("/home/");
                     },
                     // GradientButtonFb1(text: 'AGE', onPressed: (){store.ageCalculator(); })
                         

@@ -50,25 +50,10 @@ abstract class _EditStoreBase with Store {
   String? idLogado;
 
   @observable
-  XFile? kidPhoto;
-
-  @observable
-  XFile? momPhoto;
-
-  @observable
-  bool upload = false;
-
-  @observable
-  bool uploadMom = false;
-
-  @observable
   String photoURL = '';
 
   @observable
   String momURL = ''; 
-
-
-
   
   @observable
   String? nameKid;
@@ -80,43 +65,90 @@ abstract class _EditStoreBase with Store {
   String? result;
 
   @observable
+  String dataNasc = '';
+
+  @observable
+  late int crono;
+
+  @observable
+  bool upload = false;
+
+  @observable
+  bool uploadMom = false;
+
+  @observable
   bool loading = false;
 
   @observable
   bool enableField = true;
 
-
-
-
-
+  @observable
+  XFile? kidPhoto;
 
   @observable
-  DateDuration? age;
+  XFile? momPhoto;
+
+  @observable
+  DateDuration? duration;
+
+  // idadeCrono(){
+  //   dataNasc = controllerKidBirth.text;
+  //   List<String> fields = dataNasc!.split("/");
+  //   int dia = int.parse(fields[0]);
+  //   int mes = int.parse(fields[1]);
+  //   int ano = int.parse(fields[2]);
+  //   DateTime nasc = DateTime(dia,mes,ano);
+  //   DateTime hj = DateTime.now();
+  //   crono = hj.year - nasc.year;
+  //   if(hj.month < nasc.month) {
+  //     crono--;
+  //   } 
+  //   else if (hj.month == nasc.month){
+  //     if(hj.day < nasc.day) {
+  //       crono--;
+  //     }
+  //   }
+  //   print(crono);
+  // }
 
 
-  
-  
-  @action
-  Future ageCalculator() async {
-    List<String> campos = controllerKidBirth.text.split('/');
-    int dia = int.parse(campos[0]);
-    int mes = int.parse(campos[1]);
-    int ano = int.parse(campos[2]);
-    DateTime nascimento = DateTime(ano, mes, dia);
+  // @action
+  // idadeCrono({int? crono}) {
+  //   dataNasc = controllerKidBirth.text;
+  //   List<String> fields = dataNasc.split("/");
+  //   int dia = int.parse(fields[0]);
+  //   int mes = int.parse(fields[1]);
+  //   int ano = int.parse(fields[2]);
+  //   DateTime nasc = DateTime(dia,mes,ano);
+  //   DateTime hj = DateTime.now();
+  //   crono = hj.year - nasc.year;
+  //   if(hj.month < nasc.month) {
+  //     crono--;
+  //   } else if (hj.month == nasc.month){
+  //     if (hj.day < nasc.day) {
+  //       crono--;
+  //     }
+  //   }
+    
+  //   print(hj.difference(nasc).inDays~/365);
 
-    age = AgeCalculator.age(nascimento);
-    // print(age);
+
+
+  // }
+
+  ageCal(){
+    dataNasc = controllerKidBirth.text;
+    List<String> fields = dataNasc.split("/");
+    int dia = int.parse(fields[0]);
+    int mes = int.parse(fields[1]);
+    int ano = int.parse(fields[2]);
+    DateTime nasc = DateTime(dia, mes, ano);
+    DateTime hj = DateTime(2022, 09, 06);
+    duration = AgeCalculator.dateDifference(fromDate: nasc, toDate: hj);
+    print(duration);
+
   }
 
-  // trueAge() {
-
-  //   var age = controllerWeeks.text;
-  //   List<String> fields = controllerWeeks.text.split('/');
-  //   int weeks = int.parse(fields[0]);
-  //   int days = int.parse(fields[1]);
-  //   idadeCorrigida = weeks  - gestation;
-  //   print(idadeCorrigida);
-  // }
 
   @action
   Future saveData() async {
@@ -129,20 +161,18 @@ abstract class _EditStoreBase with Store {
     kid.kidName = controllerKidName.text;
     kid.kidBirth = controllerKidBirth.text;
     kid.weeks = controllerWeeks.text;
-    // mom.ibge = ibg/e.
-
-    searchCep();
-
+    
     Map<String, dynamic> data = {
       "kid": kid.kidName,
       "nasc": kid.kidBirth,
       "semanas": kid.weeks,
       "gender": escolhaUser,
       "photoURL": photoURL,
-      // "momURL": momURL,
-      // "cep": controllerCEP.text,
+      "momURL": momURL,
+      "cep": controllerCEP.text,
+      "phone": controllerPhone.text,
     };
-    db.collection("users").doc(idLogado).collection("kid").doc(nameKid).set(data, SetOptions(merge: true));
+    db.collection("users").doc(idLogado).set(data, SetOptions(merge: true));
   }
 //.set(data, SetOptions(merge: true));
   @action
@@ -151,7 +181,7 @@ abstract class _EditStoreBase with Store {
     User? usuarioLogado = auth.currentUser;
     idLogado = usuarioLogado!.uid;
 
-    DocumentSnapshot snapshot = await db.collection("users").doc(idLogado).collection("kid").doc(nameKid).get();
+    DocumentSnapshot snapshot = await db.collection("users").doc(idLogado).get();
 
     // var kidName = controllerKidName.text; 
 
@@ -160,6 +190,9 @@ abstract class _EditStoreBase with Store {
     controllerKidBirth.text = dados["nasc"];
     controllerWeeks.text = dados["semanas"];
     authStore.controllerNameMom.text = dados["mom"];
+    escolhaUser = dados["gender"];
+    controllerCEP.text = dados["cep"];
+    controllerPhone.text = dados["phone"];
     if(dados["photoURL"] != null && dados["momURL"] != null){
       photoURL = dados["photoURL"];
       momURL = dados["momURL"];
