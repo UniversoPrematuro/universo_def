@@ -57,6 +57,38 @@ mixin _$EditStore on _EditStoreBase, Store {
     });
   }
 
+  late final _$controllerCEPAtom =
+      Atom(name: '_EditStoreBase.controllerCEP', context: context);
+
+  @override
+  TextEditingController get controllerCEP {
+    _$controllerCEPAtom.reportRead();
+    return super.controllerCEP;
+  }
+
+  @override
+  set controllerCEP(TextEditingController value) {
+    _$controllerCEPAtom.reportWrite(value, super.controllerCEP, () {
+      super.controllerCEP = value;
+    });
+  }
+
+  late final _$controllerPhoneAtom =
+      Atom(name: '_EditStoreBase.controllerPhone', context: context);
+
+  @override
+  TextEditingController get controllerPhone {
+    _$controllerPhoneAtom.reportRead();
+    return super.controllerPhone;
+  }
+
+  @override
+  set controllerPhone(TextEditingController value) {
+    _$controllerPhoneAtom.reportWrite(value, super.controllerPhone, () {
+      super.controllerPhone = value;
+    });
+  }
+
   late final _$idLogadoAtom =
       Atom(name: '_EditStoreBase.idLogado', context: context);
 
@@ -169,67 +201,19 @@ mixin _$EditStore on _EditStoreBase, Store {
     });
   }
 
-  late final _$controllerPhoneAtom =
-      Atom(name: '_EditStoreBase.controllerPhone', context: context);
+  late final _$nameKidAtom =
+      Atom(name: '_EditStoreBase.nameKid', context: context);
 
   @override
-  TextEditingController get controllerPhone {
-    _$controllerPhoneAtom.reportRead();
-    return super.controllerPhone;
+  String? get nameKid {
+    _$nameKidAtom.reportRead();
+    return super.nameKid;
   }
 
   @override
-  set controllerPhone(TextEditingController value) {
-    _$controllerPhoneAtom.reportWrite(value, super.controllerPhone, () {
-      super.controllerPhone = value;
-    });
-  }
-
-  late final _$controllerCEPAtom =
-      Atom(name: '_EditStoreBase.controllerCEP', context: context);
-
-  @override
-  TextEditingController get controllerCEP {
-    _$controllerCEPAtom.reportRead();
-    return super.controllerCEP;
-  }
-
-  @override
-  set controllerCEP(TextEditingController value) {
-    _$controllerCEPAtom.reportWrite(value, super.controllerCEP, () {
-      super.controllerCEP = value;
-    });
-  }
-
-  late final _$controllerStreetAtom =
-      Atom(name: '_EditStoreBase.controllerStreet', context: context);
-
-  @override
-  TextEditingController get controllerStreet {
-    _$controllerStreetAtom.reportRead();
-    return super.controllerStreet;
-  }
-
-  @override
-  set controllerStreet(TextEditingController value) {
-    _$controllerStreetAtom.reportWrite(value, super.controllerStreet, () {
-      super.controllerStreet = value;
-    });
-  }
-
-  late final _$controllerBairroAtom =
-      Atom(name: '_EditStoreBase.controllerBairro', context: context);
-
-  @override
-  TextEditingController get controllerBairro {
-    _$controllerBairroAtom.reportRead();
-    return super.controllerBairro;
-  }
-
-  @override
-  set controllerBairro(TextEditingController value) {
-    _$controllerBairroAtom.reportWrite(value, super.controllerBairro, () {
-      super.controllerBairro = value;
+  set nameKid(String? value) {
+    _$nameKidAtom.reportWrite(value, super.nameKid, () {
+      super.nameKid = value;
     });
   }
 
@@ -249,19 +233,51 @@ mixin _$EditStore on _EditStoreBase, Store {
     });
   }
 
-  late final _$streetAtom =
-      Atom(name: '_EditStoreBase.street', context: context);
+  late final _$resultAtom =
+      Atom(name: '_EditStoreBase.result', context: context);
 
   @override
-  String? get street {
-    _$streetAtom.reportRead();
-    return super.street;
+  String? get result {
+    _$resultAtom.reportRead();
+    return super.result;
   }
 
   @override
-  set street(String? value) {
-    _$streetAtom.reportWrite(value, super.street, () {
-      super.street = value;
+  set result(String? value) {
+    _$resultAtom.reportWrite(value, super.result, () {
+      super.result = value;
+    });
+  }
+
+  late final _$loadingAtom =
+      Atom(name: '_EditStoreBase.loading', context: context);
+
+  @override
+  bool get loading {
+    _$loadingAtom.reportRead();
+    return super.loading;
+  }
+
+  @override
+  set loading(bool value) {
+    _$loadingAtom.reportWrite(value, super.loading, () {
+      super.loading = value;
+    });
+  }
+
+  late final _$enableFieldAtom =
+      Atom(name: '_EditStoreBase.enableField', context: context);
+
+  @override
+  bool get enableField {
+    _$enableFieldAtom.reportRead();
+    return super.enableField;
+  }
+
+  @override
+  set enableField(bool value) {
+    _$enableFieldAtom.reportWrite(value, super.enableField, () {
+      super.enableField = value;
     });
   }
 
@@ -310,6 +326,8 @@ mixin _$EditStore on _EditStoreBase, Store {
 controllerKidName: ${controllerKidName},
 controllerKidBirth: ${controllerKidBirth},
 controllerWeeks: ${controllerWeeks},
+controllerCEP: ${controllerCEP},
+controllerPhone: ${controllerPhone},
 idLogado: ${idLogado},
 kidPhoto: ${kidPhoto},
 momPhoto: ${momPhoto},
@@ -317,12 +335,11 @@ upload: ${upload},
 uploadMom: ${uploadMom},
 photoURL: ${photoURL},
 momURL: ${momURL},
-controllerPhone: ${controllerPhone},
-controllerCEP: ${controllerCEP},
-controllerStreet: ${controllerStreet},
-controllerBairro: ${controllerBairro},
+nameKid: ${nameKid},
 escolhaUser: ${escolhaUser},
-street: ${street},
+result: ${result},
+loading: ${loading},
+enableField: ${enableField},
 age: ${age}
     ''';
   }

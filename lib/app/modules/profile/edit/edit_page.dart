@@ -113,12 +113,16 @@ class EditPageState extends State<EditPage> {
                   ],
                 ),
 
-                    MomCard(),
-                    GradientButtonFb1(text: "Salvar", onPressed: () => store.saveData().then((value) => Modular.to.pushReplacementNamed("/home/"))),
+                    const MomCard(),
+                    GradientButtonFb1(text: "Salvar", onPressed: () {
+                      store.saveData();
+                      // store.searchCep();
+                      Modular.to.pushReplacementNamed("/home");
+                    },
                     // GradientButtonFb1(text: 'AGE', onPressed: (){store.ageCalculator(); })
                         
                         
-                      ],
+                    )],
                     ),
                   );
                 }

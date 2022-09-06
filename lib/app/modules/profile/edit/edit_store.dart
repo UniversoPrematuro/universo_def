@@ -1,4 +1,6 @@
 // ignore_for_file: library_private_types_in_public_api, no_leading_underscores_for_local_identifiers
+import 'package:universo_def/app/modules/models/result_cep.dart';
+import 'package:universo_def/app/modules/services/via_cep_service.dart';
 import 'package:via_cep_flutter/via_cep_flutter.dart';
 
 
@@ -15,6 +17,7 @@ import 'package:mobx/mobx.dart';
 
 import '../../initial/auth/auth_store.dart';
 import '../../models/kid_model.dart';
+import '../../models/mom_model.dart';
 
 part 'edit_store.g.dart';
 
@@ -37,6 +40,13 @@ abstract class _EditStoreBase with Store {
   TextEditingController controllerWeeks = TextEditingController();
 
   @observable
+  TextEditingController controllerCEP = TextEditingController();
+
+  @observable
+  TextEditingController controllerPhone = TextEditingController();
+
+
+  @observable
   String? idLogado;
 
   @observable
@@ -57,23 +67,28 @@ abstract class _EditStoreBase with Store {
   @observable
   String momURL = ''; 
 
-  @observable
-  TextEditingController controllerPhone = TextEditingController();
 
-  @observable
-  TextEditingController controllerCEP = TextEditingController();
+
   
   @observable
-  TextEditingController controllerStreet = TextEditingController();
-  
-  @observable
-  TextEditingController controllerBairro = TextEditingController();
+  String? nameKid;
 
   @observable
   String? escolhaUser;
 
   @observable
-  String? street;
+  String? result;
+
+  @observable
+  bool loading = false;
+
+  @observable
+  bool enableField = true;
+
+
+
+
+
 
   @observable
   DateDuration? age;
@@ -107,34 +122,36 @@ abstract class _EditStoreBase with Store {
   Future saveData() async {
     User usuarioLogado = auth.currentUser!;
     idLogado = usuarioLogado.uid;
+    nameKid = controllerKidName.text;
     KidModel kid = KidModel();
+    
 
     kid.kidName = controllerKidName.text;
     kid.kidBirth = controllerKidBirth.text;
     kid.weeks = controllerWeeks.text;
-    // kid.age = age;
-    // kid.gender = 
+    // mom.ibge = ibg/e.
+
+    searchCep();
 
     Map<String, dynamic> data = {
       "kid": kid.kidName,
       "nasc": kid.kidBirth,
-      // "crono": kid.age,
       "semanas": kid.weeks,
       "gender": escolhaUser,
       "photoURL": photoURL,
-      "momURL": momURL,
+      // "momURL": momURL,
       // "cep": controllerCEP.text,
     };
-    db.collection("users").doc(idLogado).set(data, SetOptions(merge: true));
+    db.collection("users").doc(idLogado).collection("kid").doc(nameKid).set(data, SetOptions(merge: true));
   }
-
+//.set(data, SetOptions(merge: true));
   @action
   Future recover() async {
     final AuthStore authStore = Modular.get();
     User? usuarioLogado = auth.currentUser;
     idLogado = usuarioLogado!.uid;
 
-    DocumentSnapshot snapshot = await db.collection("users").doc(idLogado).get();
+    DocumentSnapshot snapshot = await db.collection("users").doc(idLogado).collection("kid").doc(nameKid).get();
 
     // var kidName = controllerKidName.text; 
 
@@ -241,10 +258,38 @@ abstract class _EditStoreBase with Store {
     momURL = url;
   }
 
-  Future cepAddress() async {
-    final result = await readAddressByCep('14405357');
-    result['street'] = controllerStreet.text;
+  void searching(bool enable) {
+    result = enable ? '' : result;
   }
+
+  Future searchCep() async {
+    searching(true);
+
+    // final cep = controllerCEP.text;
+
+
+    final resultCep = await ViaCepService.fetchCep(cep: controllerCEP.text);
+    MomModel mom = MomModel();
+    mom.city = resultCep.localidade;
+    mom.street = resultCep.logradouro;
+    mom.state = resultCep.uf;
+    mom.neighborhood = resultCep.bairro;
+    mom.ibge = resultCep.ibge;
+
+    Map<String, dynamic> data = {
+      "city" : resultCep.localidade,
+      "address": resultCep.logradouro,
+      "neighborhood": resultCep.bairro,
+      "state": resultCep.uf,
+      "ibge": resultCep.ibge,
+    };
+
+    db.collection("users").doc(idLogado).set(data, SetOptions(merge: true));
+    result = resultCep.toJson();
+  }
+
+
+
   
   
   
