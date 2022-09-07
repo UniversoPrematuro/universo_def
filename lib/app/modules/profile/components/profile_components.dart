@@ -77,7 +77,7 @@ class ProfileCard extends StatelessWidget {
                   }),
                   const SizedBox(height: 5),
                   Observer(builder: (_) {
-                    return Text('Idade cronológica: ${store.crono}',
+                    return Text('Idade cronológica: ${store.id}',
                     textAlign: TextAlign.start,
                     style: const TextStyle(color: Colors.white, fontWeight: FontWeight.w500,)
                     );

@@ -1,12 +1,12 @@
 // ignore_for_file: library_private_types_in_public_api, no_leading_underscores_for_local_identifiers
-import 'package:universo_def/app/modules/models/result_cep.dart';
+// import 'package:universo_def/app/modules/models/result_cep.dart';
 import 'package:universo_def/app/modules/services/via_cep_service.dart';
-import 'package:via_cep_flutter/via_cep_flutter.dart';
+// import 'package:via_cep_flutter/via_cep_flutter.dart';
 
 
 import 'dart:io';
 
-import 'package:age_calculator/age_calculator.dart';
+// import 'package:age_calculator/age_calculator.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
@@ -30,11 +30,55 @@ abstract class _EditStoreBase with Store {
   
   var db = FirebaseFirestore.instance;
 
+  KidModel kid = KidModel();
+
   @observable
   TextEditingController controllerKidName = TextEditingController();
 
+  @action
+  changeKidName(String value) => controllerKidName.text = value;
+
+  @action
+  validateKidName() {
+    kid.kidName = controllerKidName.text;
+    if(kid.kidName!.isEmpty || kid.kidName!.length < 3){
+      return 'Insira nome e sobrenome';
+    }
+  }
+  
+
   @observable
   TextEditingController controllerKidBirth = TextEditingController();
+
+  @action
+  changeKidBirth(String value) => controllerKidBirth.text = value;
+
+  @action
+  validateKidBirth() {
+    kid.kidBirth = controllerKidBirth.text;
+    /**d, m, a = input('Data (dd/mm/aaaa): ').split('/')
+#.split('/') separa a string baseado com o caracter dentro das aspas.
+
+d, m, a = int(d), int(m), int(a) #converto a string para inteiros
+
+val = True # val é a veriável que indica se a data é válida ou não (flag)
+
+if a <= 0 or m < 1 or m > 12 or d < 1 or d > 31:
+    val = False
+elif (m == 4 or m == 6 or m == 9 or m == 11) and d > 30:
+    val = False
+elif m == 2:
+    if a % 4 == 0: # ano bissexto (múltiplo de 4)
+        if d > 29:
+            val = False
+    elif d > 28: # ano não bissexto
+        val = False
+
+if val:
+    print('\nVÁLIDA!!!')
+else:
+    print('\nINVÁLIDA!!!') */
+  }
 
   @observable
   TextEditingController controllerWeeks = TextEditingController();
@@ -44,6 +88,8 @@ abstract class _EditStoreBase with Store {
 
   @observable
   TextEditingController controllerPhone = TextEditingController();
+
+
 
 
   @observable
@@ -88,64 +134,35 @@ abstract class _EditStoreBase with Store {
   @observable
   XFile? momPhoto;
 
+
+
+
   @observable
-  DateDuration? duration;
+  int? da;
+  @observable
+  int? ma;
+  @observable
+  int? aa;
 
-  // idadeCrono(){
-  //   dataNasc = controllerKidBirth.text;
-  //   List<String> fields = dataNasc!.split("/");
-  //   int dia = int.parse(fields[0]);
-  //   int mes = int.parse(fields[1]);
-  //   int ano = int.parse(fields[2]);
-  //   DateTime nasc = DateTime(dia,mes,ano);
-  //   DateTime hj = DateTime.now();
-  //   crono = hj.year - nasc.year;
-  //   if(hj.month < nasc.month) {
-  //     crono--;
-  //   } 
-  //   else if (hj.month == nasc.month){
-  //     if(hj.day < nasc.day) {
-  //       crono--;
-  //     }
-  //   }
-  //   print(crono);
-  // }
-
-
-  // @action
-  // idadeCrono({int? crono}) {
-  //   dataNasc = controllerKidBirth.text;
-  //   List<String> fields = dataNasc.split("/");
-  //   int dia = int.parse(fields[0]);
-  //   int mes = int.parse(fields[1]);
-  //   int ano = int.parse(fields[2]);
-  //   DateTime nasc = DateTime(dia,mes,ano);
-  //   DateTime hj = DateTime.now();
-  //   crono = hj.year - nasc.year;
-  //   if(hj.month < nasc.month) {
-  //     crono--;
-  //   } else if (hj.month == nasc.month){
-  //     if (hj.day < nasc.day) {
-  //       crono--;
-  //     }
-  //   }
-    
-  //   print(hj.difference(nasc).inDays~/365);
-
-
-
-  // }
+  @observable
+  int? id;
 
   ageCal(){
+
+    var dataAtual = DateTime.now();
+    da = dataAtual.day;
+    ma = dataAtual.month;
+    aa =  dataAtual.year;
+
     dataNasc = controllerKidBirth.text;
     List<String> fields = dataNasc.split("/");
     int dia = int.parse(fields[0]);
     int mes = int.parse(fields[1]);
     int ano = int.parse(fields[2]);
-    DateTime nasc = DateTime(dia, mes, ano);
-    DateTime hj = DateTime(2022, 09, 06);
-    duration = AgeCalculator.dateDifference(fromDate: nasc, toDate: hj);
-    print(duration);
+    id = aa! - ano;
+    if(mes > ma! ||( mes == ma && dia > da!)){
+      id = (id! - 1);
+    }
 
   }
 

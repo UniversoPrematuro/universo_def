@@ -312,19 +312,63 @@ mixin _$EditStore on _EditStoreBase, Store {
     });
   }
 
-  late final _$durationAtom =
-      Atom(name: '_EditStoreBase.duration', context: context);
+  late final _$daAtom = Atom(name: '_EditStoreBase.da', context: context);
 
   @override
-  DateDuration? get duration {
-    _$durationAtom.reportRead();
-    return super.duration;
+  int? get da {
+    _$daAtom.reportRead();
+    return super.da;
   }
 
   @override
-  set duration(DateDuration? value) {
-    _$durationAtom.reportWrite(value, super.duration, () {
-      super.duration = value;
+  set da(int? value) {
+    _$daAtom.reportWrite(value, super.da, () {
+      super.da = value;
+    });
+  }
+
+  late final _$maAtom = Atom(name: '_EditStoreBase.ma', context: context);
+
+  @override
+  int? get ma {
+    _$maAtom.reportRead();
+    return super.ma;
+  }
+
+  @override
+  set ma(int? value) {
+    _$maAtom.reportWrite(value, super.ma, () {
+      super.ma = value;
+    });
+  }
+
+  late final _$aaAtom = Atom(name: '_EditStoreBase.aa', context: context);
+
+  @override
+  int? get aa {
+    _$aaAtom.reportRead();
+    return super.aa;
+  }
+
+  @override
+  set aa(int? value) {
+    _$aaAtom.reportWrite(value, super.aa, () {
+      super.aa = value;
+    });
+  }
+
+  late final _$idAtom = Atom(name: '_EditStoreBase.id', context: context);
+
+  @override
+  int? get id {
+    _$idAtom.reportRead();
+    return super.id;
+  }
+
+  @override
+  set id(int? value) {
+    _$idAtom.reportWrite(value, super.id, () {
+      super.id = value;
     });
   }
 
@@ -342,6 +386,53 @@ mixin _$EditStore on _EditStoreBase, Store {
   @override
   Future<dynamic> recover() {
     return _$recoverAsyncAction.run(() => super.recover());
+  }
+
+  late final _$_EditStoreBaseActionController =
+      ActionController(name: '_EditStoreBase', context: context);
+
+  @override
+  dynamic changeKidName(String value) {
+    final _$actionInfo = _$_EditStoreBaseActionController.startAction(
+        name: '_EditStoreBase.changeKidName');
+    try {
+      return super.changeKidName(value);
+    } finally {
+      _$_EditStoreBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
+  dynamic validateKidName() {
+    final _$actionInfo = _$_EditStoreBaseActionController.startAction(
+        name: '_EditStoreBase.validateKidName');
+    try {
+      return super.validateKidName();
+    } finally {
+      _$_EditStoreBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
+  dynamic changeKidBirth(String value) {
+    final _$actionInfo = _$_EditStoreBaseActionController.startAction(
+        name: '_EditStoreBase.changeKidBirth');
+    try {
+      return super.changeKidBirth(value);
+    } finally {
+      _$_EditStoreBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
+  dynamic validateKidBirth() {
+    final _$actionInfo = _$_EditStoreBaseActionController.startAction(
+        name: '_EditStoreBase.validateKidBirth');
+    try {
+      return super.validateKidBirth();
+    } finally {
+      _$_EditStoreBaseActionController.endAction(_$actionInfo);
+    }
   }
 
   @override
@@ -366,7 +457,10 @@ loading: ${loading},
 enableField: ${enableField},
 kidPhoto: ${kidPhoto},
 momPhoto: ${momPhoto},
-duration: ${duration}
+da: ${da},
+ma: ${ma},
+aa: ${aa},
+id: ${id}
     ''';
   }
 }
