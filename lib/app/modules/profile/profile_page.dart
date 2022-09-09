@@ -20,6 +20,12 @@ class ProfilePage extends StatefulWidget {
 class ProfilePageState extends State<ProfilePage> {
   final ProfileStore store = Modular.get();
   final EditStore editStore = Modular.get();
+  @override
+  void initState() {
+    editStore.calculoIdadeCrono();
+    // editStore.recover();
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {

@@ -11,6 +11,8 @@ scripts:
   begin: flutter emulators --launch Pixel_2 && flutter run
 
   get: flutter pub get
+
+  launch: flutter emulators --launch Pixel_2
     
  
     

@@ -201,21 +201,6 @@ mixin _$EditStore on _EditStoreBase, Store {
     });
   }
 
-  late final _$cronoAtom = Atom(name: '_EditStoreBase.crono', context: context);
-
-  @override
-  int get crono {
-    _$cronoAtom.reportRead();
-    return super.crono;
-  }
-
-  @override
-  set crono(int value) {
-    _$cronoAtom.reportWrite(value, super.crono, () {
-      super.crono = value;
-    });
-  }
-
   late final _$uploadAtom =
       Atom(name: '_EditStoreBase.upload', context: context);
 
@@ -450,7 +435,6 @@ nameKid: ${nameKid},
 escolhaUser: ${escolhaUser},
 result: ${result},
 dataNasc: ${dataNasc},
-crono: ${crono},
 upload: ${upload},
 uploadMom: ${uploadMom},
 loading: ${loading},
