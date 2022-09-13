@@ -41,6 +41,22 @@ mixin _$EditStore on _EditStoreBase, Store {
     });
   }
 
+  late final _$dataNascAtom =
+      Atom(name: '_EditStoreBase.dataNasc', context: context);
+
+  @override
+  String get dataNasc {
+    _$dataNascAtom.reportRead();
+    return super.dataNasc;
+  }
+
+  @override
+  set dataNasc(String value) {
+    _$dataNascAtom.reportWrite(value, super.dataNasc, () {
+      super.dataNasc = value;
+    });
+  }
+
   late final _$controllerWeeksAtom =
       Atom(name: '_EditStoreBase.controllerWeeks', context: context);
 
@@ -54,6 +70,52 @@ mixin _$EditStore on _EditStoreBase, Store {
   set controllerWeeks(TextEditingController value) {
     _$controllerWeeksAtom.reportWrite(value, super.controllerWeeks, () {
       super.controllerWeeks = value;
+    });
+  }
+
+  late final _$weeksAtom = Atom(name: '_EditStoreBase.weeks', context: context);
+
+  @override
+  String get weeks {
+    _$weeksAtom.reportRead();
+    return super.weeks;
+  }
+
+  @override
+  set weeks(String value) {
+    _$weeksAtom.reportWrite(value, super.weeks, () {
+      super.weeks = value;
+    });
+  }
+
+  late final _$idadeCorrigidaAtom =
+      Atom(name: '_EditStoreBase.idadeCorrigida', context: context);
+
+  @override
+  int? get idadeCorrigida {
+    _$idadeCorrigidaAtom.reportRead();
+    return super.idadeCorrigida;
+  }
+
+  @override
+  set idadeCorrigida(int? value) {
+    _$idadeCorrigidaAtom.reportWrite(value, super.idadeCorrigida, () {
+      super.idadeCorrigida = value;
+    });
+  }
+
+  late final _$gestAtom = Atom(name: '_EditStoreBase.gest', context: context);
+
+  @override
+  int get gest {
+    _$gestAtom.reportRead();
+    return super.gest;
+  }
+
+  @override
+  set gest(int value) {
+    _$gestAtom.reportWrite(value, super.gest, () {
+      super.gest = value;
     });
   }
 
@@ -182,22 +244,6 @@ mixin _$EditStore on _EditStoreBase, Store {
   set result(String? value) {
     _$resultAtom.reportWrite(value, super.result, () {
       super.result = value;
-    });
-  }
-
-  late final _$dataNascAtom =
-      Atom(name: '_EditStoreBase.dataNasc', context: context);
-
-  @override
-  String get dataNasc {
-    _$dataNascAtom.reportRead();
-    return super.dataNasc;
-  }
-
-  @override
-  set dataNasc(String value) {
-    _$dataNascAtom.reportWrite(value, super.dataNasc, () {
-      super.dataNasc = value;
     });
   }
 
@@ -357,6 +403,36 @@ mixin _$EditStore on _EditStoreBase, Store {
     });
   }
 
+  late final _$monthAtom = Atom(name: '_EditStoreBase.month', context: context);
+
+  @override
+  int? get month {
+    _$monthAtom.reportRead();
+    return super.month;
+  }
+
+  @override
+  set month(int? value) {
+    _$monthAtom.reportWrite(value, super.month, () {
+      super.month = value;
+    });
+  }
+
+  late final _$dayAtom = Atom(name: '_EditStoreBase.day', context: context);
+
+  @override
+  int? get day {
+    _$dayAtom.reportRead();
+    return super.day;
+  }
+
+  @override
+  set day(int? value) {
+    _$dayAtom.reportWrite(value, super.day, () {
+      super.day = value;
+    });
+  }
+
   late final _$saveDataAsyncAction =
       AsyncAction('_EditStoreBase.saveData', context: context);
 
@@ -421,11 +497,48 @@ mixin _$EditStore on _EditStoreBase, Store {
   }
 
   @override
+  dynamic changeKidWeek(String value) {
+    final _$actionInfo = _$_EditStoreBaseActionController.startAction(
+        name: '_EditStoreBase.changeKidWeek');
+    try {
+      return super.changeKidWeek(value);
+    } finally {
+      _$_EditStoreBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
+  dynamic validateKidWeek() {
+    final _$actionInfo = _$_EditStoreBaseActionController.startAction(
+        name: '_EditStoreBase.validateKidWeek');
+    try {
+      return super.validateKidWeek();
+    } finally {
+      _$_EditStoreBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
+  dynamic calcIdadeCorrigida() {
+    final _$actionInfo = _$_EditStoreBaseActionController.startAction(
+        name: '_EditStoreBase.calcIdadeCorrigida');
+    try {
+      return super.calcIdadeCorrigida();
+    } finally {
+      _$_EditStoreBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
   String toString() {
     return '''
 controllerKidName: ${controllerKidName},
 controllerKidBirth: ${controllerKidBirth},
+dataNasc: ${dataNasc},
 controllerWeeks: ${controllerWeeks},
+weeks: ${weeks},
+idadeCorrigida: ${idadeCorrigida},
+gest: ${gest},
 controllerCEP: ${controllerCEP},
 controllerPhone: ${controllerPhone},
 idLogado: ${idLogado},
@@ -434,7 +547,6 @@ momURL: ${momURL},
 nameKid: ${nameKid},
 escolhaUser: ${escolhaUser},
 result: ${result},
-dataNasc: ${dataNasc},
 upload: ${upload},
 uploadMom: ${uploadMom},
 loading: ${loading},
@@ -444,7 +556,9 @@ momPhoto: ${momPhoto},
 da: ${da},
 ma: ${ma},
 aa: ${aa},
-id: ${id}
+id: ${id},
+month: ${month},
+day: ${day}
     ''';
   }
 }

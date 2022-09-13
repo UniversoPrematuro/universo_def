@@ -1,3 +1,4 @@
+import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
 import 'package:flutter/material.dart';
@@ -25,8 +26,12 @@ class InitialPageState extends State<InitialPage> {
   @override
   void initState() {
     editStore.recover();
+    store.initReactions();
     super.initState();
   }
+
+  // TODO TRANSFROMAR EM DIAS
+  
 
   @override
   Widget build(BuildContext context) {
@@ -51,9 +56,13 @@ class InitialPageState extends State<InitialPage> {
                       Center(
                         child: Image.asset('images/logo/LogoMov.gif', width: 350),
                       ),
-                      Padding(
-                        padding: const EdgeInsets.fromLTRB(20, 40, 20, 0),
-                        child: EmailInputFieldFb3(controllerEmail: store.controllerEmail),
+                      Observer(
+                        builder: (_) {
+                          return Padding(
+                            padding: const EdgeInsets.fromLTRB(20, 40, 20, 0),
+                            child: EmailInputFieldFb3(controllerEmail: store.controllerEmail),
+                          );
+                        }
                       ),
                       Padding(
                         padding: const EdgeInsets.fromLTRB(20, 20, 20, 0),
@@ -67,7 +76,7 @@ class InitialPageState extends State<InitialPage> {
                           const SizedBox(height: 30),
                           GradientButtonFb1(
                               onPressed: () async {
-                                await store.signIn(UserModel());
+                                store.signIn(UserModel());
                                 
                                 }, 
                               text: "Entre Agora!"

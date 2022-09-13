@@ -5,6 +5,7 @@ import 'package:flutter_mobx/flutter_mobx.dart';
 // import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:universo_def/app/modules/profile/components/profile_components.dart';
+import 'package:universo_def/app/modules/profile/photo_album/photoAlbum_store.dart';
 import 'package:universo_def/app/modules/profile/profile_store.dart';
 import 'package:flutter/material.dart';
 
@@ -20,6 +21,7 @@ class ProfilePage extends StatefulWidget {
 class ProfilePageState extends State<ProfilePage> {
   final ProfileStore store = Modular.get();
   final EditStore editStore = Modular.get();
+  final PhotoAlbumStore phStore = Modular.get();
   @override
   void initState() {
     editStore.calculoIdadeCrono();
@@ -72,6 +74,11 @@ class ProfilePageState extends State<ProfilePage> {
           ],
         ),
       ),
+      floatingActionButton: FloatingActionButton(
+          onPressed: () {
+            phStore.selectFileToUpload() ;
+          },
+          child: const Icon(Icons.camera_alt_outlined)),
     );
   }
 }

@@ -54,37 +54,95 @@ abstract class _EditStoreBase with Store {
   @observable
   TextEditingController controllerKidBirth = TextEditingController();
 
+  @observable
+  String dataNasc = '';
+
   @action
   changeKidBirth(String value) => controllerKidBirth.text = value;
 
   @action
   validateKidBirth() {
     dataNasc = controllerKidBirth.text;
+    // String erro;
     List<String> fields = dataNasc.split('/');
     int dia = int.parse(fields[0]);
     int mes = int.parse(fields[1]);
     int ano = int.parse(fields[2]);
     bool valFlag = true;
-    if (ano <= 0 || mes < 1  || mes > 12 || dia < 1 || dia > 31){
+    if(dataNasc.isEmpty){
+      return 'Campo obrigatorio';
+    } else {
       valFlag = false;
-    } else if ((mes == 4 || mes == 6 || mes == 9 || mes == 11) && dia > 30){
-      valFlag = false;
-    } else if (mes == 2) { //ano bissexto
-      if (ano % 4 == 0){
-        if (dia > 29) {
-          valFlag = false;
-        }
-      } else if (dia > 28){
-        valFlag = false;
       }
-    }
+    // if (ano <= 0 || mes < 1  || mes > 12 || dia < 1 || dia > 31){
+    //   valFlag = false;
+    //   if (valFlag == true){
+    //     return erro = 'Insira uma data válida';
+    //   }
+    // } else if ((mes == 4 || mes == 6 || mes == 9 || mes == 11) && dia > 30){
+    //   valFlag = false;
+    // } else if (mes == 2) { //ano bissexto
+    //   if (ano % 4 == 0){
+    //     if (dia > 29) {
+    //       valFlag = false;
+    //     }
+    //   } else if (dia > 28){
+    //     valFlag = false;
+    //   } else{
+    //     valFlag = true;
+    //     return 'Insira uma data valida';
+    //   }
+    // }
     
   } 
 
   @observable
   TextEditingController controllerWeeks = TextEditingController();
 
-  // @action
+  @observable
+  String weeks = '';
+
+  @action
+  changeKidWeek(String value) => controllerWeeks.text = value;
+
+  @action
+  validateKidWeek() {
+    weeks = controllerWeeks.text;
+    List<String> fields = weeks.split('/');
+    int week = int.parse(fields[0]);
+    int day = int.parse(fields[1]);
+    // bool valFlag = true;
+    if(weeks.length == 0){
+      return 'Campo obrigatorio';
+    }
+    
+  }
+
+  @observable
+  int? idadeCorrigida;
+
+  @observable
+  int gest = 9;
+
+  @action
+  calcIdadeCorrigida(){
+    dataNasc = controllerKidBirth.text;
+    weeks = controllerWeeks.text;
+    List<String> fields = dataNasc.split('/');
+    int dia = int.parse(fields[0]);
+    int mes = int.parse(fields[1]);
+    int ano = int.parse(fields[2]);
+    // List<String> field = weeks.split('');
+    // int string = int.parse(field[0]);
+    // int weekss = int.parse(field[1]); 
+    // int week = int.parse(field[9]); 
+    
+    // idadeCorrigida =  week - gest;
+    // if(week < gest) {
+    //   idadeCorrigida = (idadeCorrigida! - 1);
+    // }
+    
+  }
 
 
   @observable
@@ -100,8 +158,8 @@ abstract class _EditStoreBase with Store {
   String? idLogado;
 
   @observable
-  String photoURL = '';
-
+  String photoURL = ''; 
+  
   @observable
   String momURL = ''; 
   
@@ -114,8 +172,7 @@ abstract class _EditStoreBase with Store {
   @observable
   String? result;
 
-  @observable
-  String dataNasc = '';
+  
 
   @observable
   bool upload = false;
@@ -147,6 +204,12 @@ abstract class _EditStoreBase with Store {
   @observable
   int? id;
 
+  @observable
+  int? month;
+
+  @observable
+  int? day;
+
   calculoIdadeCrono(){
 
     var dataAtual = DateTime.now();
@@ -160,9 +223,18 @@ abstract class _EditStoreBase with Store {
     int mes = int.parse(fields[1]);
     int ano = int.parse(fields[2]);
     id = aa! - ano;
+    month = ma! - mes;
+    // day = da! - dia + day!;
+    // month = mes;
+    // day = dia! - mes;
     if(mes > ma! ||( mes == ma && dia > da!)){
       id = (id! - 1);
-    }
+      month = (ma! - 1);
+      // day = dia + 1;
+
+    } 
+    
+    // day = (day! - 1);
 
   }
 
@@ -185,15 +257,19 @@ abstract class _EditStoreBase with Store {
       "nasc": kid.kidBirth,
       "semanas": kid.weeks,
       "crono": id,
+      "month": month,
       "gender": escolhaUser,
       "photoURL": photoURL,
       "momURL": momURL,
       "cep": controllerCEP.text,
       "phone": controllerPhone.text,
+
     };
     db.collection("users").doc(idLogado).set(data, SetOptions(merge: true));
   }
 //.set(data, SetOptions(merge: true));
+
+  
   @action
   Future recover() async {
     final AuthStore authStore = Modular.get();
@@ -211,6 +287,7 @@ abstract class _EditStoreBase with Store {
     authStore.controllerNameMom.text = dados["mom"];
     escolhaUser = dados["gender"];
     id = dados["crono"];
+    month = dados["month"];
     controllerCEP.text = dados["cep"];
     controllerPhone.text = dados["phone"];
     if(dados["photoURL"] != null && dados["momURL"] != null){

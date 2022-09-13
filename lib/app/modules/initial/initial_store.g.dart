@@ -89,6 +89,54 @@ mixin _$InitialStore on _InitialStoreBase, Store {
     });
   }
 
+  late final _$emailAtom =
+      Atom(name: '_InitialStoreBase.email', context: context);
+
+  @override
+  String? get email {
+    _$emailAtom.reportRead();
+    return super.email;
+  }
+
+  @override
+  set email(String? value) {
+    _$emailAtom.reportWrite(value, super.email, () {
+      super.email = value;
+    });
+  }
+
+  late final _$passAtom =
+      Atom(name: '_InitialStoreBase.pass', context: context);
+
+  @override
+  String? get pass {
+    _$passAtom.reportRead();
+    return super.pass;
+  }
+
+  @override
+  set pass(String? value) {
+    _$passAtom.reportWrite(value, super.pass, () {
+      super.pass = value;
+    });
+  }
+
+  late final _$delayAtom =
+      Atom(name: '_InitialStoreBase.delay', context: context);
+
+  @override
+  int get delay {
+    _$delayAtom.reportRead();
+    return super.delay;
+  }
+
+  @override
+  set delay(int value) {
+    _$delayAtom.reportWrite(value, super.delay, () {
+      super.delay = value;
+    });
+  }
+
   late final _$signInAsyncAction =
       AsyncAction('_InitialStoreBase.signIn', context: context);
 
@@ -101,40 +149,40 @@ mixin _$InitialStore on _InitialStoreBase, Store {
       ActionController(name: '_InitialStoreBase', context: context);
 
   @override
-  dynamic changeEmail(String value) {
+  dynamic changeEmail(String email) {
     final _$actionInfo = _$_InitialStoreBaseActionController.startAction(
         name: '_InitialStoreBase.changeEmail');
     try {
-      return super.changeEmail(value);
+      return super.changeEmail(email);
     } finally {
       _$_InitialStoreBaseActionController.endAction(_$actionInfo);
     }
   }
 
   @override
-  dynamic changePass(String value) {
+  dynamic changePass(String pass) {
     final _$actionInfo = _$_InitialStoreBaseActionController.startAction(
         name: '_InitialStoreBase.changePass');
     try {
-      return super.changePass(value);
+      return super.changePass(pass);
     } finally {
       _$_InitialStoreBaseActionController.endAction(_$actionInfo);
     }
   }
 
   @override
-  dynamic validateEmail() {
+  String? validateEmail(String email) {
     final _$actionInfo = _$_InitialStoreBaseActionController.startAction(
         name: '_InitialStoreBase.validateEmail');
     try {
-      return super.validateEmail();
+      return super.validateEmail(email);
     } finally {
       _$_InitialStoreBaseActionController.endAction(_$actionInfo);
     }
   }
 
   @override
-  dynamic validatePass() {
+  String? validatePass() {
     final _$actionInfo = _$_InitialStoreBaseActionController.startAction(
         name: '_InitialStoreBase.validatePass');
     try {
@@ -151,7 +199,10 @@ controllerEmail: ${controllerEmail},
 controllerPass: ${controllerPass},
 idLogado: ${idLogado},
 erro: ${erro},
-loading: ${loading}
+loading: ${loading},
+email: ${email},
+pass: ${pass},
+delay: ${delay}
     ''';
   }
 }

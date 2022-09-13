@@ -1,4 +1,4 @@
-// ignore_for_file: avoid_print, unnecessary_null_comparison
+// ignore_for_file: avoid_print, unnecessary_null_comparison, avoid_function_literals_in_foreach_calls
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
@@ -7,6 +7,7 @@ import 'package:mobx/mobx.dart';
 
 import '../models/user_model.dart';
 import '../profile/edit/edit_store.dart';
+import 'error_store.dart';
 
 part 'initial_store.g.dart';
 
@@ -18,7 +19,6 @@ abstract class _InitialStoreBase with Store {
 
   EditStore editStore = Modular.get();
 
-  // var db = FirebaseFirestore.instance;
 
   @observable
   TextEditingController controllerEmail = TextEditingController();
@@ -36,26 +36,85 @@ abstract class _InitialStoreBase with Store {
   @observable
   bool loading = false;
 
-  @action
-  changeEmail(String value) => controllerEmail.text = value;
+  @observable
+  String? email;
+
+  @observable
+  String? pass;
 
   @action
-  changePass(String value) => controllerPass.text = value;
+  changeEmail(String email) => controllerEmail.text = email;
 
   @action
-  validateEmail() {
-    var user = UserModel();
-    user.email = controllerEmail.text;
-    if (user.email!.isEmpty) {
+  changePass(String pass) => controllerPass.text = pass;
+
+  UserModel user = UserModel();
+
+  @observable
+  int delay = 650;
+  
+  
+
+  @action
+  String? validateEmail(String email) {
+    
+    email = controllerEmail.text.toString();
+    if (email.isEmpty) {
       return 'O campo é obrigatorio';
-    } else if (!user.email!.contains("@")) {
+    } else if (!email.contains("@")) {
       return 'Insira um e-mail válido!';
+    }
+    return null;
+  }
 
+  ErrorStore errorStore = Modular.get();
+  late List<ReactionDisposer> _disposers;
+
+  void initReactions() {
+    _disposers = [
+      reaction((_) => email,
+            (email) => errorStore.setEmailError(validateEmail(email as String)!),
+            delay: delay),
+      reaction((_) => pass, (pass) => errorStore.setPassError(validatePass()!))
+    ];
+  }
+
+  void disposeReactions() => _disposers.forEach((dispose) => dispose());
+
+
+  void submit(void Function() submitCallback) {
+    // errorStore.setNameError(validateName(name));
+    errorStore.setEmailError(validateEmail(email as String)!);
+    errorStore.setPassError(validatePass()!);
+    
+
+    if (!errorStore.hasErrors) {
+      submitCallback();
     }
   }
+  // void initReactions() {
+
+  //     reaction(
+  //         (_) => email, (email) => errorStore.setNameError(validateName(name)),
+  //         delay: delay);
+  //     reaction((_) => email,
+  //         (email) => errorStore.setEmailError(validateEmail(email)),
+  //         delay: delay),
+  //     reaction((_) => password, passwordReaction, delay: delay),
+  //     reaction(
+  //         (_) => confirmedPassword,
+  //         (confirmedPassword) => errorStore.setConfirmedPasswordError(
+  //             validateConfirmedPassword(confirmedPassword)),
+  //         delay: delay)
+
+  // }
+
+
+  
+
   @action
-  validatePass() {
-    var user = UserModel();
+  String? validatePass() {
+    // var user = UserModel();
     user.pass = controllerPass.text;
     if (user.pass!.isEmpty) {
       return 'O campo é obrigatorio';
@@ -63,6 +122,7 @@ abstract class _InitialStoreBase with Store {
       return 'A senha precisa ter mais de 5 caracteres';
 
     }
+    return null;
   }
 
   @action
@@ -112,3 +172,4 @@ abstract class _InitialStoreBase with Store {
 
 
 }
+

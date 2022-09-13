@@ -8,8 +8,11 @@ class EmailInputFieldFb3 extends StatelessWidget {
   final TextEditingController controllerEmail;
   EmailInputFieldFb3({Key? key, required this.controllerEmail})
       : super(key: key);
+    
 
   final InitialStore initialStore = Modular.get();
+
+  
 
   @override
   Widget build(BuildContext context) {
@@ -26,12 +29,13 @@ class EmailInputFieldFb3 extends StatelessWidget {
       ]),
       child: TextField(
         controller: controllerEmail,
-        onChanged: (value) => initialStore.changeEmail,
+        onChanged: (value) => initialStore.changeEmail.toString(),  
+        
         keyboardType: TextInputType.emailAddress,
         style: const TextStyle(fontSize: 14, color: Colors.black),
         decoration: InputDecoration(
           fillColor: Colors.white,
-          errorText: initialStore.validateEmail(),
+          errorText: initialStore.errorStore.email,
           prefixIcon: const Icon(Icons.email, color: Colors.green,),
           filled: true,
           hintText: 'Insira seu e-mail',

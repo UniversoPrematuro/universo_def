@@ -9,11 +9,14 @@ import 'modules/home/home_module.dart';
 import 'modules/home/home_store.dart';
 import 'modules/initial/auth/auth_module.dart';
 import 'modules/initial/auth/auth_store.dart';
+import 'modules/initial/error_store.dart';
 import 'modules/initial/initial_module.dart';
 import 'modules/noticias/noticias_module.dart';
 import 'modules/producoes/producoes_module.dart';
 import 'modules/profile/edit/edit_module.dart';
 import 'modules/profile/edit/edit_store.dart';
+import 'modules/profile/photo_album/photoAlbum_module.dart';
+import 'modules/profile/photo_album/photoAlbum_store.dart';
 import 'modules/profile/profile_module.dart';
 import 'modules/profile/profile_store.dart';
 import 'modules/projeto/projeto_module.dart';
@@ -30,6 +33,8 @@ class AppModule extends Module {
     Bind.lazySingleton((i) => TasksStore()),
     Bind.lazySingleton((i) => GrowthStore()),
     Bind.lazySingleton((i) => TipStore()),
+    Bind.singleton((i) => ErrorStore()),
+    Bind.singleton((i) => PhotoAlbumStore()),
   ];
 
   @override
@@ -46,6 +51,7 @@ class AppModule extends Module {
     ModuleRoute('/noticias', module: NoticiasModule()),
     ModuleRoute('/projeto', module: ProjetoModule()),
     ModuleRoute('/producoes', module: ProducoesModule()),
+    ModuleRoute('/photo', module: PhotoAlbumModule()),
   ];
 
 }

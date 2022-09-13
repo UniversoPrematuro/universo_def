@@ -26,6 +26,10 @@ class EditPageState extends State<EditPage> {
   }
 
 
+  // TODO TRANSFROMAR EM DIAS
+  
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -118,7 +122,7 @@ class EditPageState extends State<EditPage> {
                     GradientButtonFb1(text: "Salvar", onPressed: () {
                       store.saveData();
                       store.calculoIdadeCrono();
-                      // store.searchCep();
+                      store.searchCep();
                       Modular.to.pushReplacementNamed("/home/");
                     },
                     // GradientButtonFb1(text: 'AGE', onPressed: (){store.ageCalculator(); })
