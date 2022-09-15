@@ -42,8 +42,9 @@ class _KidCardState extends State<KidCard> {
             builder: (_){
             
              return nameField(
-              controller: store.controllerKidName, onChanged: store.changeKidName,
-              errorText: store.validateKidName(),
+              controller: store.controllerKidName,
+              //  onChanged: store.changeKidName,
+              // errorText: store.validateKidName(),
               labelText: 'Nome da criança'
             
             );}
