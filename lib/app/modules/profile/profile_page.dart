@@ -24,8 +24,9 @@ class ProfilePageState extends State<ProfilePage> {
   final PhotoAlbumStore phStore = Modular.get();
   @override
   void initState() {
-    editStore.calculoIdadeCrono();
-    // editStore.recover();
+    // editStore.calculoIdadeCrono();
+    editStore.recover();
+    // editStore.recoverKid();
     super.initState();
   }
 
@@ -63,11 +64,13 @@ class ProfilePageState extends State<ProfilePage> {
               child: LayoutBuilder(builder: (_, constraints) {
                 return SingleChildScrollView(
                     child: Column(children: [
-                  Observer(builder: (_) {
-                    return ProfileCard();
-                  }),
+
+                    ProfileCard(),
+
                   const SizedBox(height: 20),
-                  GalleryTabs(),
+
+                    GalleryTabs()
+
                 ]));
               }),
             )
@@ -76,7 +79,7 @@ class ProfilePageState extends State<ProfilePage> {
       ),
       floatingActionButton: FloatingActionButton(
           onPressed: () {
-            phStore.selectFileToUpload() ;
+            phStore.selectFileToUpload();
           },
           child: const Icon(Icons.camera_alt_outlined)),
     );

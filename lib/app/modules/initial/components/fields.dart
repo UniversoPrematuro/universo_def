@@ -29,13 +29,13 @@ class EmailInputFieldFb3 extends StatelessWidget {
       ]),
       child: TextField(
         controller: controllerEmail,
-        onChanged: (value) => initialStore.changeEmail.toString(),  
+        // onChanged: (value) => initialStore.changeEmail.toString(),  
         
         keyboardType: TextInputType.emailAddress,
         style: const TextStyle(fontSize: 14, color: Colors.black),
         decoration: InputDecoration(
           fillColor: Colors.white,
-          errorText: initialStore.errorStore.email,
+          // errorText: initialStore.errorStore.email,
           prefixIcon: const Icon(Icons.email, color: Colors.green,),
           filled: true,
           hintText: 'Insira seu e-mail',
@@ -145,9 +145,9 @@ class PasswordInputState extends State<PasswordInput> {
     return TextFormField(
       controller: widget.controllerPass,
       obscureText: !pwdVisibility,
-      onChanged: (value) => initialStore.changePass,
+      // onChanged: (value) => initialStore.changePass,
       decoration: InputDecoration(
-        errorText: initialStore.validatePass(),
+        // errorText: initialStore.validatePass(),
         filled: true,
         fillColor: Colors.white,
         hintText: widget.hintText,

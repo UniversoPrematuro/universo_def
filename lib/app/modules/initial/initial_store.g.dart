@@ -121,75 +121,12 @@ mixin _$InitialStore on _InitialStoreBase, Store {
     });
   }
 
-  late final _$delayAtom =
-      Atom(name: '_InitialStoreBase.delay', context: context);
-
-  @override
-  int get delay {
-    _$delayAtom.reportRead();
-    return super.delay;
-  }
-
-  @override
-  set delay(int value) {
-    _$delayAtom.reportWrite(value, super.delay, () {
-      super.delay = value;
-    });
-  }
-
   late final _$signInAsyncAction =
       AsyncAction('_InitialStoreBase.signIn', context: context);
 
   @override
-  Future signIn(UserModel user) {
+  Future<void> signIn(UserModel user) {
     return _$signInAsyncAction.run(() => super.signIn(user));
-  }
-
-  late final _$_InitialStoreBaseActionController =
-      ActionController(name: '_InitialStoreBase', context: context);
-
-  @override
-  dynamic changeEmail(String email) {
-    final _$actionInfo = _$_InitialStoreBaseActionController.startAction(
-        name: '_InitialStoreBase.changeEmail');
-    try {
-      return super.changeEmail(email);
-    } finally {
-      _$_InitialStoreBaseActionController.endAction(_$actionInfo);
-    }
-  }
-
-  @override
-  dynamic changePass(String pass) {
-    final _$actionInfo = _$_InitialStoreBaseActionController.startAction(
-        name: '_InitialStoreBase.changePass');
-    try {
-      return super.changePass(pass);
-    } finally {
-      _$_InitialStoreBaseActionController.endAction(_$actionInfo);
-    }
-  }
-
-  @override
-  String? validateEmail(String email) {
-    final _$actionInfo = _$_InitialStoreBaseActionController.startAction(
-        name: '_InitialStoreBase.validateEmail');
-    try {
-      return super.validateEmail(email);
-    } finally {
-      _$_InitialStoreBaseActionController.endAction(_$actionInfo);
-    }
-  }
-
-  @override
-  String? validatePass() {
-    final _$actionInfo = _$_InitialStoreBaseActionController.startAction(
-        name: '_InitialStoreBase.validatePass');
-    try {
-      return super.validatePass();
-    } finally {
-      _$_InitialStoreBaseActionController.endAction(_$actionInfo);
-    }
   }
 
   @override
@@ -201,8 +138,7 @@ idLogado: ${idLogado},
 erro: ${erro},
 loading: ${loading},
 email: ${email},
-pass: ${pass},
-delay: ${delay}
+pass: ${pass}
     ''';
   }
 }

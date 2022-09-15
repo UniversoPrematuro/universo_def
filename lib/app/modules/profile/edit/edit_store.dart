@@ -251,7 +251,7 @@ abstract class _EditStoreBase with Store {
     kid.kidBirth = controllerKidBirth.text;
     kid.weeks = controllerWeeks.text;
     
-    
+    calculoIdadeCrono();
     Map<String, dynamic> data = {
       "kid": kid.kidName,
       "nasc": kid.kidBirth,
@@ -277,9 +277,6 @@ abstract class _EditStoreBase with Store {
     idLogado = usuarioLogado!.uid;
 
     DocumentSnapshot snapshot = await db.collection("users").doc(idLogado).get();
-
-    // var kidName = controllerKidName.text; 
-
     Map? dados = snapshot.data() as Map? ;
     controllerKidName.text = dados!["kid"];
     controllerKidBirth.text = dados["nasc"];
@@ -293,10 +290,8 @@ abstract class _EditStoreBase with Store {
     if(dados["photoURL"] != null && dados["momURL"] != null){
       photoURL = dados["photoURL"];
       momURL = dados["momURL"];
-    }
-
-    
-    }
+    }  
+  }
   
   Future selectPhoto(String origem) async {
 

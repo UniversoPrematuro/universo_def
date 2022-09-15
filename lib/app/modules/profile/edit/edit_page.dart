@@ -21,7 +21,6 @@ class EditPageState extends State<EditPage> {
   @override
   void initState() {
     store.recover();
-    // store.ageCal();
     super.initState();
   }
 
@@ -119,15 +118,18 @@ class EditPageState extends State<EditPage> {
                 ),
 
                     const MomCard(),
-                    GradientButtonFb1(text: "Salvar", onPressed: () {
-                      store.saveData();
-                      store.calculoIdadeCrono();
-                      store.searchCep();
-                      Modular.to.pushReplacementNamed("/home/");
-                    },
-                    // GradientButtonFb1(text: 'AGE', onPressed: (){store.ageCalculator(); })
-                        
-                        
+                    Padding(
+                      padding: const EdgeInsets.all(15.0),
+                      child: GradientButtonFb1(text: "Salvar", onPressed: () {
+                        store.saveData();
+                        store.calculoIdadeCrono();
+                        store.searchCep();
+                        Modular.to.pushReplacementNamed("/home/");
+                      },
+                      // GradientButtonFb1(text: 'AGE', onPressed: (){store.ageCalculator(); })
+                          
+                          
+                        ),
                     )],
                     ),
                   );

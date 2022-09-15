@@ -20,8 +20,17 @@ import 'modules/profile/photo_album/photoAlbum_store.dart';
 import 'modules/profile/profile_module.dart';
 import 'modules/profile/profile_store.dart';
 import 'modules/projeto/projeto_module.dart';
+import 'modules/tasks/conteudo/conteudo_module.dart';
+import 'modules/tasks/conteudo/primeiro/primeiro_store.dart';
+import 'modules/tasks/conteudo/quarto/quarto_module.dart';
+import 'modules/tasks/conteudo/quarto/quarto_store.dart';
+import 'modules/tasks/conteudo/segundo/segundo_module.dart';
+import 'modules/tasks/conteudo/segundo/segundo_store.dart';
+import 'modules/tasks/conteudo/terceiro/terceiro_module.dart';
+import 'modules/tasks/conteudo/terceiro/terceiro_store.dart';
 import 'modules/tasks/tasks_module.dart';
 import 'modules/tasks/tasks_store.dart';
+import 'modules/tasks/conteudo/primeiro/primeiro_module.dart';
 
 class AppModule extends Module {
   @override
@@ -34,6 +43,10 @@ class AppModule extends Module {
     Bind.lazySingleton((i) => GrowthStore()),
     Bind.lazySingleton((i) => TipStore()),
     Bind.singleton((i) => ErrorStore()),
+    Bind.lazySingleton((i) => PrimeiroStore()),
+    Bind.lazySingleton((i) => SegundoStore()),
+    Bind.lazySingleton((i) => TerceiroStore()),
+    Bind.lazySingleton((i) => QuartoStore()),
     Bind.singleton((i) => PhotoAlbumStore()),
   ];
 
@@ -51,6 +64,11 @@ class AppModule extends Module {
     ModuleRoute('/noticias', module: NoticiasModule()),
     ModuleRoute('/projeto', module: ProjetoModule()),
     ModuleRoute('/producoes', module: ProducoesModule()),
+    ModuleRoute('/conteudo', module: ConteudoModule()),
+    ModuleRoute('/primero', module: PrimeiroModule()),
+    ModuleRoute('/segundo', module: SegundoModule()),
+    ModuleRoute('/terceiro', module: TerceiroModule()),
+    ModuleRoute('/quarto', module: QuartoModule()),
     ModuleRoute('/photo', module: PhotoAlbumModule()),
   ];
 

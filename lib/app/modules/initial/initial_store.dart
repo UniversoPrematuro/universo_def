@@ -42,91 +42,94 @@ abstract class _InitialStoreBase with Store {
   @observable
   String? pass;
 
-  @action
-  changeEmail(String email) => controllerEmail.text = email;
+  // @action
+  // changeEmail(String email) => controllerEmail.text = email;
 
-  @action
-  changePass(String pass) => controllerPass.text = pass;
+  // @action
+  // changePass(String pass) => controllerPass.text = pass;
 
-  UserModel user = UserModel();
+  // UserModel user = UserModel();
 
-  @observable
-  int delay = 650;
+  // @observable
+  // int delay = 650;
   
   
 
-  @action
-  String? validateEmail(String email) {
+  // @action
+  // String? validateEmail(String email) {
     
-    email = controllerEmail.text.toString();
-    if (email.isEmpty) {
-      return 'O campo é obrigatorio';
-    } else if (!email.contains("@")) {
-      return 'Insira um e-mail válido!';
-    }
-    return null;
-  }
+  //   email = controllerEmail.text.toString();
+  //   if (email.isEmpty) {
+  //     return 'O campo é obrigatorio';
+  //   } else if (!email.contains("@")) {
+  //     return 'Insira um e-mail válido!';
+  //   }
+  //   return null;
+  // }
 
-  ErrorStore errorStore = Modular.get();
-  late List<ReactionDisposer> _disposers;
+  // ErrorStore errorStore = Modular.get();
+  // late List<ReactionDisposer> _disposers;
 
-  void initReactions() {
-    _disposers = [
-      reaction((_) => email,
-            (email) => errorStore.setEmailError(validateEmail(email as String)!),
-            delay: delay),
-      reaction((_) => pass, (pass) => errorStore.setPassError(validatePass()!))
-    ];
-  }
-
-  void disposeReactions() => _disposers.forEach((dispose) => dispose());
-
-
-  void submit(void Function() submitCallback) {
-    // errorStore.setNameError(validateName(name));
-    errorStore.setEmailError(validateEmail(email as String)!);
-    errorStore.setPassError(validatePass()!);
-    
-
-    if (!errorStore.hasErrors) {
-      submitCallback();
-    }
-  }
   // void initReactions() {
-
-  //     reaction(
-  //         (_) => email, (email) => errorStore.setNameError(validateName(name)),
-  //         delay: delay);
+  //   _disposers = [
   //     reaction((_) => email,
-  //         (email) => errorStore.setEmailError(validateEmail(email)),
-  //         delay: delay),
-  //     reaction((_) => password, passwordReaction, delay: delay),
-  //     reaction(
-  //         (_) => confirmedPassword,
-  //         (confirmedPassword) => errorStore.setConfirmedPasswordError(
-  //             validateConfirmedPassword(confirmedPassword)),
-  //         delay: delay)
+  //           (email) => errorStore.setEmailError(validateEmail(email as String)!),
+  //           delay: delay),
+  //     reaction((_) => pass, (pass) => errorStore.setPassError(validatePass()!))
+  //   ];
+  // }
 
+  // void disposeReactions() => _disposers.forEach((dispose) => dispose());
+
+
+  // void submit(void Function() submitCallback) {
+  //   // errorStore.setNameError(validateName(name));
+  //   errorStore.setEmailError(validateEmail(email as String)!);
+  //   errorStore.setPassError(validatePass()!);
+    
+
+  //   if (!errorStore.hasErrors) {
+  //     submitCallback();
+  //   }
+  // }
+  // // void initReactions() {
+
+  // //     reaction(
+  // //         (_) => email, (email) => errorStore.setNameError(validateName(name)),
+  // //         delay: delay);
+  // //     reaction((_) => email,
+  // //         (email) => errorStore.setEmailError(validateEmail(email)),
+  // //         delay: delay),
+  // //     reaction((_) => password, passwordReaction, delay: delay),
+  // //     reaction(
+  // //         (_) => confirmedPassword,
+  // //         (confirmedPassword) => errorStore.setConfirmedPasswordError(
+  // //             validateConfirmedPassword(confirmedPassword)),
+  // //         delay: delay)
+
+  // // }
+
+
+  
+
+  // @action
+  // String? validatePass() {
+  //   // var user = UserModel();
+  //   user.pass = controllerPass.text;
+  //   if (user.pass!.isEmpty) {
+  //     return 'O campo é obrigatorio';
+  //   } else if (user.pass!.length < 5) {
+  //     return 'A senha precisa ter mais de 5 caracteres';
+
+  //   }
+  //   return null;
   // }
 
 
   
 
   @action
-  String? validatePass() {
-    // var user = UserModel();
-    user.pass = controllerPass.text;
-    if (user.pass!.isEmpty) {
-      return 'O campo é obrigatorio';
-    } else if (user.pass!.length < 5) {
-      return 'A senha precisa ter mais de 5 caracteres';
-
-    }
-    return null;
-  }
-
-  @action
-  signIn(UserModel user) async {
+  Future<void> signIn(UserModel user) async {
     loading = true;
     User usuarioLogado = auth.currentUser!;
     idLogado = usuarioLogado.uid;
@@ -136,7 +139,7 @@ abstract class _InitialStoreBase with Store {
       try{
         await auth.signInWithEmailAndPassword(email: user.email!, password: user.pass!).then((firebaseUser)async{
           if(usuarioLogado == auth.currentUser) loading = false;
-          await Future.delayed(const Duration(seconds: 5), (){
+          await Future.delayed(const Duration(seconds: 3), (){
             Modular.to.pushReplacementNamed("/home/");
             editStore.recover();
           });
@@ -165,7 +168,7 @@ abstract class _InitialStoreBase with Store {
           default:
             erro = "An undefined Error happened.";
         }
-        print(erro);
+        
       }
     });
   }

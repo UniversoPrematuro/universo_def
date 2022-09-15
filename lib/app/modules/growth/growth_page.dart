@@ -11,7 +11,7 @@ class GrowthPage extends StatefulWidget {
 class GrowthPageState extends State<GrowthPage> {
   final GrowthStore store = Modular.get();
 
-    @override
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
