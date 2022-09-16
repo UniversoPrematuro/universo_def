@@ -24,13 +24,19 @@ class CustomCarouselFB2 extends StatelessWidget {
                   Modular.to.pushNamed("/cartilha/");
                 },
                 style: ButtonStyle(
+                  shadowColor: MaterialStateProperty.all(Colors.black),
                   backgroundColor: MaterialStateProperty.all(Colors.white),
                 ),
                 child: Container(
                   decoration:
-                      BoxDecoration(borderRadius: BorderRadius.circular(150)),
+                      BoxDecoration(
+                        borderRadius: BorderRadius.circular(150),
+                        
+                        
+                        ),
                   width: MediaQuery.of(context).size.width * .3,
                   height: MediaQuery.of(context).size.height * .2,
+                  
                   child: Column(children: [
                     const SizedBox(height: 15),
                     Image.asset("images/buttons/BotaoUP.png",
@@ -51,9 +57,10 @@ class CustomCarouselFB2 extends StatelessWidget {
                 },
                 style: ButtonStyle(
                     backgroundColor: MaterialStateProperty.all(Colors.white)),
-                child: SizedBox(
+                child: Container(
                   width: MediaQuery.of(context).size.width * .3,
                   height: MediaQuery.of(context).size.height * .2,
+                  
                   child: Column(children: [
                     const SizedBox(height: 5),
                     Image.asset("images/buttons/botaokm.png",
@@ -153,34 +160,41 @@ class MomCard extends StatelessWidget {
       height: MediaQuery.of(context).size.height / 4,
       decoration: BoxDecoration(boxShadow: [
         BoxShadow(
-            offset: const Offset(0, 5),
-            blurRadius: 50,
+            offset: const Offset(05, 7),
+            blurRadius: 8,
             spreadRadius: 0,
-            color: Colors.black.withOpacity(.6)),
+            color: Colors.black.withOpacity(.3)),
       ], color: Colors.white, borderRadius: BorderRadius.circular(20)),
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Column(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text('Mãe: ${storeA.controllerNameMom.text}',
-                  textAlign: TextAlign.start),
-              Align(
-                  alignment: Alignment.centerLeft,
-                  child: Text('Filho: ${storeE.controllerKidName.text}',
-                      textAlign: TextAlign.start)),
+              Padding(
+                padding: const EdgeInsets.all(5.0),
+                child: Text('Mãe: ${storeA.controllerNameMom.text}',
+                    textAlign: TextAlign.start),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(5.0),
+                child: Text('Filho: ${storeE.controllerKidName.text}',
+                    textAlign: TextAlign.start),
+              ),
             ],
           ),
-          Observer(builder: (_) {
-            return CircleAvatar(
-              radius: 45,
-              backgroundColor: Colors.black,
-              backgroundImage: NetworkImage(storeE.momURL),
-            );
-          })
+          Padding(
+            padding: const EdgeInsets.all(5.0),
+            child: Observer(builder: (_) {
+              return CircleAvatar(
+                radius: 45,
+                backgroundColor: Colors.black,
+                backgroundImage: NetworkImage(storeE.momURL),
+              );
+            }),
+          )
         ],
       ),
     );

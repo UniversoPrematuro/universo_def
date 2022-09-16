@@ -18,7 +18,7 @@ class TasksPageState extends State<TasksPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Crescimento"),
+        title: const Text("Desenvolvimento"),
         centerTitle: true,
         elevation: 0,
         backgroundColor: const Color.fromARGB(255, 101, 187, 88),
@@ -49,7 +49,7 @@ class TasksPageState extends State<TasksPage> {
                  Center(
                   child: SizedBox(
                     width: 350,
-                    height: MediaQuery.of(context).size.height * .5,
+                    height: MediaQuery.of(context).size.height * .6,
                     child: Card(
                       shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(20)),

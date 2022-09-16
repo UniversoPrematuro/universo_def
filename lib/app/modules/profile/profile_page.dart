@@ -5,11 +5,11 @@ import 'package:flutter_mobx/flutter_mobx.dart';
 // import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:universo_def/app/modules/profile/components/profile_components.dart';
-import 'package:universo_def/app/modules/profile/photo_album/photoAlbum_store.dart';
 import 'package:universo_def/app/modules/profile/profile_store.dart';
 import 'package:flutter/material.dart';
 
 import 'edit/edit_store.dart';
+import 'photoAlbum/photoAlbum_store.dart';
 
 class ProfilePage extends StatefulWidget {
   final String title;
@@ -79,7 +79,7 @@ class ProfilePageState extends State<ProfilePage> {
       ),
       floatingActionButton: FloatingActionButton(
           onPressed: () {
-            phStore.selectFileToUpload();
+            phStore.selectFile();
           },
           child: const Icon(Icons.camera_alt_outlined)),
     );

@@ -3,12 +3,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:universo_def/app/modules/home/home_content/homeContent_page.dart';
-import 'package:universo_def/app/modules/profile/photo_album/photoAlbum_page.dart';
+
 import 'package:universo_def/app/modules/profile/profile_store.dart';
 
 import '../../initial/auth/auth_store.dart';
 import '../edit/edit_store.dart';
+import '../photoAlbum/photoAlbum_page.dart';
 
 class ProfileCard extends StatelessWidget {
   ProfileCard({Key? key}) : super(key: key);
@@ -155,7 +155,10 @@ class GalleryTabs extends StatelessWidget {
                 child: TabBarView(
                   controller: store.tabController,
                   children: [
-                    PhotoAlbumPage(),
+                    Observer(
+                      builder: (_) => PhotoAlbumPage()
+                    ),
+                    
                     // GridView.count(
                     //   primary: false,
                     //   padding: const EdgeInsets.all(20),
