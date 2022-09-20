@@ -100,7 +100,7 @@ class PrimeiroPageState extends State<PrimeiroPage> {
                     ),
                     )),
                 ElevatedButton(
-                  onPressed: (){Modular.to.pushNamed("conteudo/t6");}, 
+                  onPressed: (){Modular.to.pushNamed("/conteudo/t6");}, 
                   child: const Text(
                     "Tarefa 6",
                     textAlign: TextAlign.center,
@@ -110,7 +110,7 @@ class PrimeiroPageState extends State<PrimeiroPage> {
                     ),
                     )),
                 ElevatedButton(
-                  onPressed: (){Modular.to.pushNamed('/tip/tip7');}, 
+                  onPressed: (){Modular.to.pushNamed("/conteudo/t7");}, 
                   child: const Text(
                     "Tarefa 7",
                     textAlign: TextAlign.center,
@@ -120,7 +120,7 @@ class PrimeiroPageState extends State<PrimeiroPage> {
                     ),
                     )),
                 ElevatedButton(
-                  onPressed: (){Modular.to.pushNamed('/tip/tip8');}, 
+                  onPressed: (){Modular.to.pushNamed('/conteudo/t8');}, 
                   child: const Text(
                     "Tarefa 8 ",
                     textAlign: TextAlign.center,
@@ -131,7 +131,7 @@ class PrimeiroPageState extends State<PrimeiroPage> {
                     )),
 
                 ElevatedButton(
-                  onPressed: (){Modular.to.pushNamed("/tip/tip9");}, 
+                  onPressed: (){Modular.to.pushNamed("/conteudo/t9");}, 
                   child: const Text(
                     "Tarefa 9",
                     textAlign: TextAlign.center,
