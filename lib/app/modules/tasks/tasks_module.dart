@@ -35,6 +35,6 @@ class TasksModule extends Module {
     ChildRoute('/segundo', child: (_, args) => SegundoPage()),
     ChildRoute('/terceiro', child: (_, args) => TerceiroPage()),
     ChildRoute('/quarto', child: (_, args) => QuartoPage()),
-    ChildRoute('/t1', child: (_, args) => Tarefa1Page()),
+    // ChildRoute('/t1', child: (_, args) => Tarefa1Page()),
   ];
 }
