@@ -11,13 +11,14 @@ class Tarefa12Page extends StatefulWidget {
   @override
   Tarefa12PageState createState() => Tarefa12PageState();
 }
+
 class Tarefa12PageState extends State<Tarefa12Page> {
   final EditStore store = Modular.get();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text("Tarefa 1"),
+          title: Text("Tarefa 12"),
           centerTitle: true,
           elevation: 0,
         ),
@@ -43,7 +44,7 @@ class Tarefa12PageState extends State<Tarefa12Page> {
                                 child: Container(
                                   width: MediaQuery.of(context).size.width * .9,
                                   height:
-                                      MediaQuery.of(context).size.height * .9,
+                                      MediaQuery.of(context).size.height * 1,
                                   decoration: BoxDecoration(
                                     color: Colors.white,
                                     borderRadius: BorderRadius.circular(20),
@@ -57,68 +58,54 @@ class Tarefa12PageState extends State<Tarefa12Page> {
                                               fontSize: 20,
                                               fontWeight: FontWeight.bold)),
                                     ),
-                                    CarouselSlider(
-                                      options: CarouselOptions(
-                                        height: 285.0,
-                                        reverse: false,
-                                        autoPlay: false,
-                                        enlargeCenterPage: true,
-                                        enableInfiniteScroll: false,
+                                    Container(
+                                      margin: EdgeInsets.symmetric(
+                                        vertical: 20.0,
                                       ),
-                                      items: <Widget>[
-                                        Container(
-                                          //margin: EdgeInsets.symmetric(vertical: 10.0),
-                                          //width: 350.0,
-                                          //height: 250.0,
-                                          decoration: BoxDecoration(
-                                              // R: 239, G: 121, B: 91
-                                              borderRadius:
-                                                  BorderRadius.circular(10),
-                                              border: Border.all(
-                                                color: Color.fromARGB(
-                                                    255, 101, 188, 89),
-                                                width: 3.0,
-                                              )),
-                                          child: Image.asset(
-                                              'images1/static1.png'),
-                                        ),
-                                        Container(
-                                          decoration: BoxDecoration(
-                                              borderRadius:
-                                                  BorderRadius.circular(10),
-                                              border: Border.all(
-                                                  color: const Color.fromARGB(
-                                                      255, 101, 188, 89),
-                                                  width: 3.0)),
-                                          child: Image.asset(
-                                              'images1/static3.png'),
-                                        ),
-                                      ],
+                                      width: 250.0,
+                                      //height: 250.0,
+                                      decoration: BoxDecoration(
+                                          border: Border.all(
+                                              color: Color.fromARGB(
+                                                  255, 101, 188, 89),
+                                              width: 3.0)),
+                                      child: Image.asset(
+                                          'images1/46 IMAGEM 2A.jpeg'),
                                     ),
-                                    Padding(
-                                      padding: const EdgeInsets.all(12.0),
+                                    Container(
+                                      margin: EdgeInsets.only(
+                                          left: 20.0,
+                                          right: 20.0,
+                                          bottom: 20.0),
+                                      padding: EdgeInsets.fromLTRB(
+                                          20.0, 10.0, 20.0, 40.0),
+                                      decoration: BoxDecoration(
+                                        image: DecorationImage(
+                                            fit: BoxFit.fill,
+                                            image: AssetImage(
+                                                'images1/ballon9.png')),
+                                      ),
                                       child: regText(
-                                          'Movimento',
-                                          '${store.controllerKidName.text} deverá experimentar '
-                                              'diferentes posições corporais para desenvolver-se melhor.\n- Não'
-                                              ' deixe ${store.controllerKidName.text} por um período maior de que uma hora em cada posição.'
-                                              '\n- Na hora do sono da noite deixe ${store.controllerKidName.text} dormir na posição '
-                                              'lateral com um apoio nas costas.\n- Manter uma inclinação na '
-                                              'cabeceira do berço. A cabecinha deverá ficar um pouco acima das '
-                                              'perninhas.'),
+                                          '\u25CF Movimento',
+                                          'A posição de sentado deverá ser '
+                                              'trabalhada com redução do apoio corporal. Os ganhos dos '
+                                              'movimentos são gradativos e progressivos, então vamos estimular.'
+                                              ' Lembre que cada posição no início tem a necessidade de ajuda e '
+                                              'apoio e no momento da conquista os movimentos se tornam de forma'
+                                              ' independente.'),
                                     ),
                                     Padding(
                                       padding: const EdgeInsets.all(8.0),
                                       child: Text(
-                                              "LEMBRE-SE: Todo cuidado com ${store.controllerKidName.text} é muito importante.",
-                                              style: const TextStyle(
-                                                  color: Color.fromARGB(255, 212, 32, 0),
-                                                  fontSize: 18,
-                                                  fontWeight: FontWeight.w500,
-                                                  fontStyle: FontStyle.italic
-                                              ),  
-                                              // textAlign: TextAlign.center,
-                                            ),
+                                        "LEMBRE-SE: Todo cuidado com ${store.controllerKidName.text} é muito importante.",
+                                        style: const TextStyle(
+                                            color:
+                                                Color.fromARGB(255, 212, 32, 0),
+                                            fontSize: 18,
+                                            fontWeight: FontWeight.w500,
+                                            fontStyle: FontStyle.italic),
+                                        // textAlign: TextAlign.center,
+                                      ),
                                     ),
                                   ]),
                                 ),
@@ -128,7 +115,7 @@ class Tarefa12PageState extends State<Tarefa12Page> {
                                 child: Container(
                                   width: MediaQuery.of(context).size.width * .9,
                                   height:
-                                      MediaQuery.of(context).size.height * 1.1,
+                                      MediaQuery.of(context).size.height * 1.4,
                                   decoration: BoxDecoration(
                                     color: Colors.white,
                                     borderRadius: BorderRadius.circular(20),
@@ -184,11 +171,25 @@ class Tarefa12PageState extends State<Tarefa12Page> {
                                       padding: const EdgeInsets.all(12.0),
                                       child: Column(
                                         children: [
-                                          regText(
-                                              '\u25CF Som',
-                                              '- Converse com ${store.controllerKidName.text} sempre que estiver '
-                                                  'em alerta. Mostre brinquedos coloridos e com som. Comunique-se '
-                                                  'sempre com ${store.controllerKidName.text}, fixando olho no olho.'),
+                                          Container(
+                                            margin: EdgeInsets.only(
+                                                left: 20.0,
+                                                right: 20.0,
+                                                bottom: 20.0),
+                                            padding: EdgeInsets.fromLTRB(
+                                                20.0, 10.0, 20.0, 20.0),
+                                            decoration: BoxDecoration(
+                                              image: DecorationImage(
+                                                  fit: BoxFit.fill,
+                                                  image: AssetImage(
+                                                      'images1/ballon91.png')),
+                                            ),
+                                            child: regText(
+                                                '\u25CF Som',
+                                                'A cada som percebido colocar o nome '
+                                                    'para a identificação. O som percebido seguido da verbalização '
+                                                    '“A porta bateu”.'),
+                                          ),
                                           const Padding(
                                             padding: EdgeInsets.all(8.0),
                                             child: Text("ATENÇÃO!",
@@ -204,24 +205,61 @@ class Tarefa12PageState extends State<Tarefa12Page> {
                                               '- Cuidado com queda: não deixe ${store.controllerKidName.text}'
                                                   ' sozinho(a) no trocador ou na cama.\n- Respeite a hora do sono, um '
                                                   'ambiente tranquilo é importante para o seu desenvolvimento.'),
+                                          Container(
+                                            margin: EdgeInsets.only(
+                                                left: 20.0,
+                                                right: 20.0,
+                                                bottom: 20.0),
+                                            padding: EdgeInsets.fromLTRB(
+                                                20.0, 10.0, 20.0, 20.0),
+                                            decoration: BoxDecoration(
+                                              image: DecorationImage(
+                                                  fit: BoxFit.fill,
+                                                  image: AssetImage(
+                                                      'images1/ballon9.png')),
+                                            ),
+                                            child: regText(
+                                                '\u25CF Atenção!',
+                                                'A criança precisa do carinho, da '
+                                                    'alegria e do estímulo para o seu melhor desenvolvimento. '
+                                                    'Aproveite para oferecer!'),
+                                          ),
                                           const SizedBox(height: 30),
                                           const Text(
                                               "LEMBRE-SE: a frequência de estímulos é muito importante. Estimule "
                                               "sempre que possível",
                                               style: TextStyle(
-                                                  color: Color.fromARGB(255, 212, 32, 0),
+                                                  color: Color.fromARGB(
+                                                      255, 212, 32, 0),
                                                   fontSize: 18,
                                                   fontWeight: FontWeight.w500,
                                                   fontStyle: FontStyle.italic)),
                                           const SizedBox(height: 30),
-                                          TextButton.icon(
-                                            onPressed: (){}, 
-                                            label: Text("SEGUEM AS TAREFAS"), 
-                                            icon: Icon(Icons.arrow_circle_right_outlined), 
-                                            
-                                            
-                                          )
-                                          
+                                          Padding(
+                                            padding: const EdgeInsets.only(
+                                                left: 20.0,
+                                                right: 20.0,
+                                                bottom: 40.0,
+                                                top: 20.0),
+                                            child: Align(
+                                              alignment: Alignment.bottomRight,
+                                              child: ElevatedButton.icon(
+                                                label: Text(
+                                                  'Seguem as tarefas',
+                                                  style: TextStyle(
+                                                      fontSize: 24.0,
+                                                      fontWeight:
+                                                          FontWeight.w500,
+                                                      color: Colors.white),
+                                                ),
+                                                icon: Icon(
+                                                  Icons.arrow_forward,
+                                                  color: Colors.white,
+                                                ),
+                                                onPressed: () {},
+                                              ),
+                                            ),
+                                          ),
                                         ],
                                       ),
                                     ),

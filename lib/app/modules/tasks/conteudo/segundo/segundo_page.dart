@@ -45,7 +45,7 @@ class SegundoPageState extends State<SegundoPage> {
               children: [
                 ElevatedButton(
                   onPressed: (){
-                    Modular.to.pushNamed("/conteudo/t10");
+                    Modular.to.pushNamed('/conteudo/t10');
                   }, 
                   child: const Text(
                     "Tarefa 10",
