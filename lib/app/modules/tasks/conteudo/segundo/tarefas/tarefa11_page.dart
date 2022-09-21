@@ -1,4 +1,3 @@
-import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
@@ -18,7 +17,7 @@ class Tarefa11PageState extends State<Tarefa11Page> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text("Tarefa 1"),
+          title: const Text("Tarefa 11"),
           centerTitle: true,
           elevation: 0,
         ),
@@ -33,7 +32,7 @@ class Tarefa11PageState extends State<Tarefa11Page> {
                       builder: (_, constraints) => SingleChildScrollView(
                             child: Column(children: [
                               const Text(
-                                "SIGA A 1ª TAREFA EM CASA",
+                                "SIGA A 11ª TAREFA EM CASA",
                                 style: TextStyle(
                                     color: Colors.white,
                                     fontWeight: FontWeight.bold,
@@ -59,14 +58,14 @@ class Tarefa11PageState extends State<Tarefa11Page> {
                                               fontWeight: FontWeight.bold)),
                                     ),
                                     Container(
-                                      margin: EdgeInsets.symmetric(
+                                      margin: const EdgeInsets.symmetric(
                                         vertical: 20.0,
                                       ),
                                       width: 250.0,
                                       //height: 250.0,
                                       decoration: BoxDecoration(
                                           border: Border.all(
-                                              color: Color.fromARGB(
+                                              color: const Color.fromARGB(
                                                   255, 101, 188, 89),
                                               width: 3.0)),
                                       child: Image.asset(
@@ -177,8 +176,8 @@ class Tarefa11PageState extends State<Tarefa11Page> {
                                           const SizedBox(height: 30),
                                           TextButton.icon(
                                             onPressed: () {},
-                                            label: Text("SEGUEM AS TAREFAS"),
-                                            icon: Icon(Icons
+                                            label: const Text("SEGUEM AS TAREFAS"),
+                                            icon: const Icon(Icons
                                                 .arrow_circle_right_outlined),
                                           )
                                         ],

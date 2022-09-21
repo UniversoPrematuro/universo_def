@@ -18,7 +18,7 @@ class Tarefa10PageState extends State<Tarefa10Page> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text("Tarefa 10"),
+          title: const Text("Tarefa 10"),
           centerTitle: true,
           elevation: 0,
         ),
@@ -70,7 +70,7 @@ class Tarefa10PageState extends State<Tarefa10Page> {
                                           decoration: BoxDecoration(
                                               color: Colors.white,
                                               border: Border.all(
-                                                  color: Color.fromARGB(
+                                                  color: const Color.fromARGB(
                                                       255, 101, 188, 89),
                                                   width: 3.0)),
                                           child: Image.asset(
@@ -80,7 +80,7 @@ class Tarefa10PageState extends State<Tarefa10Page> {
                                           decoration: BoxDecoration(
                                               color: Colors.white,
                                               border: Border.all(
-                                                  color: Color.fromARGB(
+                                                  color: const Color.fromARGB(
                                                       255, 101, 188, 89),
                                                   width: 3.0)),
                                           child: Image.asset(
@@ -91,13 +91,13 @@ class Tarefa10PageState extends State<Tarefa10Page> {
                                     Padding(
                                         padding: const EdgeInsets.all(12.0),
                                         child: Container(
-                                          margin: EdgeInsets.only(
+                                          margin: const EdgeInsets.only(
                                               left: 40.0,
                                               right: 40.0,
                                               bottom: 20.0),
-                                          padding: EdgeInsets.fromLTRB(
+                                          padding: const EdgeInsets.fromLTRB(
                                               20.0, 10.0, 20.0, 35.0),
-                                          decoration: BoxDecoration(
+                                          decoration: const BoxDecoration(
                                             image: DecorationImage(
                                                 fit: BoxFit.fill,
                                                 image: AssetImage(
@@ -153,13 +153,13 @@ class Tarefa10PageState extends State<Tarefa10Page> {
                                       child: Column(
                                         children: [
                                           Container(
-                                            margin: EdgeInsets.only(
+                                            margin: const EdgeInsets.only(
                                                 left: 40.0,
                                                 right: 40.0,
                                                 bottom: 20.0),
-                                            padding: EdgeInsets.fromLTRB(
+                                            padding: const EdgeInsets.fromLTRB(
                                                 20.0, 10.0, 20.0, 20.0),
-                                            decoration: BoxDecoration(
+                                            decoration: const BoxDecoration(
                                               image: DecorationImage(
                                                   fit: BoxFit.fill,
                                                   image: AssetImage(
@@ -181,13 +181,13 @@ class Tarefa10PageState extends State<Tarefa10Page> {
                                                         FontWeight.bold)),
                                           ),
                                           Container(
-                                            margin: EdgeInsets.only(
+                                            margin: const EdgeInsets.only(
                                                 left: 40.0,
                                                 right: 40.0,
                                                 bottom: 20.0),
-                                            padding: EdgeInsets.fromLTRB(
+                                            padding: const EdgeInsets.fromLTRB(
                                                 20.0, 10.0, 20.0, 30.0),
-                                            decoration: BoxDecoration(
+                                            decoration: const BoxDecoration(
                                               image: DecorationImage(
                                                   fit: BoxFit.fill,
                                                   image: AssetImage(
@@ -219,7 +219,7 @@ class Tarefa10PageState extends State<Tarefa10Page> {
                                             child: Align(
                                               alignment: Alignment.bottomRight,
                                               child: ElevatedButton.icon(
-                                                label: Text(
+                                                label: const Text(
                                                   'Seguem as tarefas',
                                                   style: TextStyle(
                                                       fontSize: 24.0,
@@ -227,7 +227,7 @@ class Tarefa10PageState extends State<Tarefa10Page> {
                                                           FontWeight.w500,
                                                       color: Colors.white),
                                                 ),
-                                                icon: Icon(
+                                                icon: const Icon(
                                                   Icons.arrow_forward,
                                                   color: Colors.white,
                                                 ),

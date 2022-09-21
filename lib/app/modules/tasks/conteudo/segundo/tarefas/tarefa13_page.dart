@@ -18,7 +18,7 @@ class Tarefa13PageState extends State<Tarefa13Page> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text("Tarefa 1"),
+          title: const Text("Tarefa 13"),
           centerTitle: true,
           elevation: 0,
         ),
@@ -33,7 +33,7 @@ class Tarefa13PageState extends State<Tarefa13Page> {
                       builder: (_, constraints) => SingleChildScrollView(
                             child: Column(children: [
                               const Text(
-                                "SIGA A 1ª TAREFA EM CASA",
+                                "SIGA A 13ª TAREFA EM CASA",
                                 style: TextStyle(
                                     color: Colors.white,
                                     fontWeight: FontWeight.bold,
@@ -70,7 +70,7 @@ class Tarefa13PageState extends State<Tarefa13Page> {
                                           decoration: BoxDecoration(
                                               color: Colors.white,
                                               border: Border.all(
-                                                  color: Color.fromARGB(
+                                                  color: const Color.fromARGB(
                                                       255, 101, 188, 89),
                                                   width: 3.0)),
                                           child: Image.asset(
@@ -80,7 +80,7 @@ class Tarefa13PageState extends State<Tarefa13Page> {
                                           decoration: BoxDecoration(
                                               color: Colors.white,
                                               border: Border.all(
-                                                  color: Color.fromARGB(
+                                                  color: const Color.fromARGB(
                                                       255, 101, 188, 89),
                                                   width: 3.0)),
                                           child: Image.asset(
@@ -93,13 +93,13 @@ class Tarefa13PageState extends State<Tarefa13Page> {
                                     Padding(
                                         padding: const EdgeInsets.all(12.0),
                                         child: Container(
-                                          margin: EdgeInsets.only(
+                                          margin: const EdgeInsets.only(
                                               left: 40.0,
                                               right: 40.0,
                                               bottom: 20.0),
-                                          padding: EdgeInsets.fromLTRB(
+                                          padding: const EdgeInsets.fromLTRB(
                                               20.0, 10.0, 20.0, 35.0),
-                                          decoration: BoxDecoration(
+                                          decoration: const BoxDecoration(
                                             image: DecorationImage(
                                                 fit: BoxFit.fill,
                                                 image: AssetImage(
@@ -164,7 +164,7 @@ class Tarefa13PageState extends State<Tarefa13Page> {
                                               borderRadius:
                                                   BorderRadius.circular(10),
                                               border: Border.all(
-                                                color: Color.fromARGB(
+                                                color: const Color.fromARGB(
                                                     255, 101, 188, 89),
                                                 width: 3.0,
                                               )),
@@ -189,13 +189,13 @@ class Tarefa13PageState extends State<Tarefa13Page> {
                                       child: Column(
                                         children: [
                                           Container(
-                                            margin: EdgeInsets.only(
+                                            margin: const EdgeInsets.only(
                                                 left: 40.0,
                                                 right: 40.0,
                                                 bottom: 20.0),
-                                            padding: EdgeInsets.fromLTRB(
+                                            padding: const EdgeInsets.fromLTRB(
                                                 20.0, 10.0, 20.0, 20.0),
-                                            decoration: BoxDecoration(
+                                            decoration: const BoxDecoration(
                                               image: DecorationImage(
                                                   fit: BoxFit.fill,
                                                   image: AssetImage(
@@ -222,13 +222,13 @@ class Tarefa13PageState extends State<Tarefa13Page> {
                                                   ' sozinho(a) no trocador ou na cama.\n- Respeite a hora do sono, um '
                                                   'ambiente tranquilo é importante para o seu desenvolvimento.'),
                                           Container(
-                                            margin: EdgeInsets.only(
+                                            margin: const EdgeInsets.only(
                                                 left: 40.0,
                                                 right: 40.0,
                                                 bottom: 20.0),
-                                            padding: EdgeInsets.fromLTRB(
+                                            padding: const EdgeInsets.fromLTRB(
                                                 20.0, 10.0, 20.0, 30.0),
-                                            decoration: BoxDecoration(
+                                            decoration: const BoxDecoration(
                                               image: DecorationImage(
                                                   fit: BoxFit.fill,
                                                   image: AssetImage(
@@ -259,7 +259,7 @@ class Tarefa13PageState extends State<Tarefa13Page> {
                                             child: Align(
                                               alignment: Alignment.bottomRight,
                                               child: ElevatedButton.icon(
-                                                label: Text(
+                                                label: const Text(
                                                   'Seguem as tarefas',
                                                   style: TextStyle(
                                                       fontSize: 24.0,
@@ -267,7 +267,7 @@ class Tarefa13PageState extends State<Tarefa13Page> {
                                                           FontWeight.w500,
                                                       color: Colors.white),
                                                 ),
-                                                icon: Icon(
+                                                icon: const Icon(
                                                   Icons.arrow_forward,
                                                   color: Colors.white,
                                                 ),

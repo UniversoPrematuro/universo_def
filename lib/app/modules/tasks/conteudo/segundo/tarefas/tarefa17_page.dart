@@ -18,7 +18,7 @@ class Tarefa17PageState extends State<Tarefa17Page> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text("Tarefa 1"),
+          title: const Text("Tarefa 17"),
           centerTitle: true,
           elevation: 0,
         ),
@@ -33,7 +33,7 @@ class Tarefa17PageState extends State<Tarefa17Page> {
                       builder: (_, constraints) => SingleChildScrollView(
                             child: Column(children: [
                               const Text(
-                                "SIGA A 1ª TAREFA EM CASA",
+                                "SIGA A 17ª TAREFA EM CASA",
                                 style: TextStyle(
                                     color: Colors.white,
                                     fontWeight: FontWeight.bold,
@@ -70,7 +70,7 @@ class Tarefa17PageState extends State<Tarefa17Page> {
                                           decoration: BoxDecoration(
                                               color: Colors.white,
                                               border: Border.all(
-                                                  color: Color.fromARGB(
+                                                  color: const Color.fromARGB(
                                                       255, 101, 188, 89),
                                                   width: 3.0)),
                                           child: Image.asset(
@@ -80,7 +80,7 @@ class Tarefa17PageState extends State<Tarefa17Page> {
                                           decoration: BoxDecoration(
                                               color: Colors.white,
                                               border: Border.all(
-                                                  color: Color.fromARGB(
+                                                  color: const Color.fromARGB(
                                                       255, 101, 188, 89),
                                                   width: 3.0)),
                                           child: Image.asset(
@@ -93,13 +93,13 @@ class Tarefa17PageState extends State<Tarefa17Page> {
                                     Padding(
                                       padding: const EdgeInsets.all(12.0),
                                       child: Container(
-                                        margin: EdgeInsets.only(
+                                        margin: const EdgeInsets.only(
                                             left: 40.0,
                                             right: 40.0,
                                             bottom: 20.0),
-                                        padding: EdgeInsets.fromLTRB(
+                                        padding: const EdgeInsets.fromLTRB(
                                             20.0, 10.0, 20.0, 35.0),
-                                        decoration: BoxDecoration(
+                                        decoration: const BoxDecoration(
                                           image: DecorationImage(
                                               fit: BoxFit.fill,
                                               image: AssetImage(
@@ -166,7 +166,7 @@ class Tarefa17PageState extends State<Tarefa17Page> {
                                               borderRadius:
                                                   BorderRadius.circular(10),
                                               border: Border.all(
-                                                color: Color.fromARGB(
+                                                color: const Color.fromARGB(
                                                     255, 101, 188, 89),
                                                 width: 3.0,
                                               )),
@@ -191,13 +191,13 @@ class Tarefa17PageState extends State<Tarefa17Page> {
                                       child: Column(
                                         children: [
                                           Container(
-                                            margin: EdgeInsets.only(
+                                            margin: const EdgeInsets.only(
                                                 left: 40.0,
                                                 right: 40.0,
                                                 bottom: 20.0),
-                                            padding: EdgeInsets.fromLTRB(
+                                            padding: const EdgeInsets.fromLTRB(
                                                 20.0, 10.0, 20.0, 20.0),
-                                            decoration: BoxDecoration(
+                                            decoration: const BoxDecoration(
                                               image: DecorationImage(
                                                   fit: BoxFit.fill,
                                                   image: AssetImage(
@@ -251,8 +251,8 @@ class Tarefa17PageState extends State<Tarefa17Page> {
                                           const SizedBox(height: 30),
                                           TextButton.icon(
                                             onPressed: () {},
-                                            label: Text("SEGUEM AS TAREFAS"),
-                                            icon: Icon(Icons
+                                            label: const Text("SEGUEM AS TAREFAS"),
+                                            icon: const Icon(Icons
                                                 .arrow_circle_right_outlined),
                                           )
                                         ],
