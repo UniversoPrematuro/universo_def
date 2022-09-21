@@ -7,7 +7,6 @@ import 'package:flutter_modular/flutter_modular.dart';
 import 'conteudo/conteudo_page.dart';
 import 'conteudo/primeiro/primeiro_page.dart';
 import 'conteudo/primeiro/primeiro_store.dart';
-import 'conteudo/primeiro/tarefas/tarefa1_page.dart';
 import 'conteudo/quarto/quarto_page.dart';
 import 'conteudo/quarto/quarto_store.dart';
 import 'conteudo/segundo/segundo_page.dart';

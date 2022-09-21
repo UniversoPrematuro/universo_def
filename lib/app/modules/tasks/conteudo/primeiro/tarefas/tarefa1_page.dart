@@ -19,7 +19,7 @@ class Tarefa1PageState extends State<Tarefa1Page> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text("Tarefa 1"),
+          title: const Text("Tarefa 1"),
           centerTitle: true,
           elevation: 0,
         ),
@@ -77,7 +77,7 @@ class Tarefa1PageState extends State<Tarefa1Page> {
                                               borderRadius:
                                                   BorderRadius.circular(10),
                                               border: Border.all(
-                                                color: Color.fromARGB(
+                                                color: const Color.fromARGB(
                                                     255, 101, 188, 89),
                                                 width: 3.0,
                                               )),
@@ -162,7 +162,7 @@ class Tarefa1PageState extends State<Tarefa1Page> {
                                               borderRadius:
                                                   BorderRadius.circular(10),
                                               border: Border.all(
-                                                color: Color.fromARGB(
+                                                color: const Color.fromARGB(
                                                     255, 101, 188, 89),
                                                 width: 3.0,
                                               )),
@@ -218,8 +218,8 @@ class Tarefa1PageState extends State<Tarefa1Page> {
                                           const SizedBox(height: 30),
                                           TextButton.icon(
                                             onPressed: (){}, 
-                                            label: Text("SEGUEM AS TAREFAS"), 
-                                            icon: Icon(Icons.arrow_circle_right_outlined), 
+                                            label: const Text("SEGUEM AS TAREFAS"), 
+                                            icon: const Icon(Icons.arrow_circle_right_outlined), 
                                             
                                             
                                           )

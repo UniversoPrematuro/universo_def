@@ -18,7 +18,7 @@ class Tarefa5PageState extends State<Tarefa5Page> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text("Tarefa 5"),
+          title: const Text("Tarefa 5"),
           centerTitle: true,
           elevation: 0,
         ),
@@ -69,7 +69,7 @@ class Tarefa5PageState extends State<Tarefa5Page> {
                                         Container(
                                           decoration: BoxDecoration(
                                               border: Border.all(
-                                                  color: Color.fromARGB(
+                                                  color: const Color.fromARGB(
                                                       255, 101, 188, 89),
                                                   width: 3.0)),
                                           child:
@@ -78,7 +78,7 @@ class Tarefa5PageState extends State<Tarefa5Page> {
                                         Container(
                                           decoration: BoxDecoration(
                                               border: Border.all(
-                                                  color: Color.fromARGB(
+                                                  color: const Color.fromARGB(
                                                       255, 101, 188, 89),
                                                   width: 3.0)),
                                           child:
@@ -88,13 +88,13 @@ class Tarefa5PageState extends State<Tarefa5Page> {
                                     ),
                                     const SizedBox(height: 20),
                                     Container(
-                                      margin: EdgeInsets.only(
+                                      margin: const EdgeInsets.only(
                                           left: 40.0,
                                           right: 40.0,
                                           bottom: 20.0),
-                                      padding: EdgeInsets.fromLTRB(
+                                      padding: const EdgeInsets.fromLTRB(
                                           20.0, 10.0, 20.0, 25.0),
-                                      decoration: BoxDecoration(
+                                      decoration: const BoxDecoration(
                                         image: DecorationImage(
                                             fit: BoxFit.fill,
                                             image: AssetImage(
@@ -142,13 +142,13 @@ class Tarefa5PageState extends State<Tarefa5Page> {
                                               fontWeight: FontWeight.bold)),
                                     ),
                                     Container(
-                                      margin: EdgeInsets.only(
+                                      margin: const EdgeInsets.only(
                                           left: 40.0,
                                           right: 40.0,
                                           bottom: 20.0),
-                                      padding: EdgeInsets.fromLTRB(
+                                      padding: const EdgeInsets.fromLTRB(
                                           20.0, 10.0, 20.0, 20.0),
-                                      decoration: BoxDecoration(
+                                      decoration: const BoxDecoration(
                                         image: DecorationImage(
                                             fit: BoxFit.fill,
                                             image: AssetImage(
@@ -218,7 +218,7 @@ class Tarefa5PageState extends State<Tarefa5Page> {
                                             child: Align(
                                               alignment: Alignment.bottomRight,
                                               child: ElevatedButton.icon(
-                                                label: Text(
+                                                label: const Text(
                                                   'Seguem as tarefas',
                                                   style: TextStyle(
                                                       fontSize: 24.0,
@@ -226,7 +226,7 @@ class Tarefa5PageState extends State<Tarefa5Page> {
                                                           FontWeight.w500,
                                                       color: Colors.white),
                                                 ),
-                                                icon: Icon(
+                                                icon: const Icon(
                                                   Icons.arrow_forward,
                                                   color: Colors.white,
                                                 ),

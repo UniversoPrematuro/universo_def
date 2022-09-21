@@ -17,7 +17,7 @@ class Tarefa7PageState extends State<Tarefa7Page> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text("Tarefa 7"),
+          title: const Text("Tarefa 7"),
           centerTitle: true,
           elevation: 0,
         ),
@@ -59,12 +59,12 @@ class Tarefa7PageState extends State<Tarefa7Page> {
                                     ),
                                     Container(
                                       margin:
-                                          EdgeInsets.symmetric(vertical: 10.0),
+                                          const EdgeInsets.symmetric(vertical: 10.0),
                                       width: 250.0,
                                       //height: 250.0,
                                       decoration: BoxDecoration(
                                           border: Border.all(
-                                              color: Color.fromARGB(
+                                              color: const Color.fromARGB(
                                                   255, 101, 188, 89),
                                               width: 3.0)),
                                       child: Image.asset('images1/Gif4.gif'),
@@ -73,13 +73,13 @@ class Tarefa7PageState extends State<Tarefa7Page> {
                                       height: 20.0,
                                     ),
                                     Container(
-                                      margin: EdgeInsets.only(
+                                      margin: const EdgeInsets.only(
                                           left: 20.0,
                                           right: 20.0,
                                           bottom: 20.0),
-                                      padding: EdgeInsets.fromLTRB(
+                                      padding: const EdgeInsets.fromLTRB(
                                           20.0, 10.0, 20.0, 25.0),
-                                      decoration: BoxDecoration(
+                                      decoration: const BoxDecoration(
                                         image: DecorationImage(
                                             fit: BoxFit.fill,
                                             image: AssetImage(
@@ -128,13 +128,13 @@ class Tarefa7PageState extends State<Tarefa7Page> {
                                               fontWeight: FontWeight.bold)),
                                     ),
                                     Container(
-                                      margin: EdgeInsets.only(
+                                      margin: const EdgeInsets.only(
                                           left: 20.0,
                                           right: 20.0,
                                           bottom: 20.0),
-                                      padding: EdgeInsets.fromLTRB(
+                                      padding: const EdgeInsets.fromLTRB(
                                           20.0, 10.0, 20.0, 25.0),
-                                      decoration: BoxDecoration(
+                                      decoration: const BoxDecoration(
                                         image: DecorationImage(
                                             fit: BoxFit.fill,
                                             image: AssetImage(
@@ -146,13 +146,13 @@ class Tarefa7PageState extends State<Tarefa7Page> {
                                               'infantil, as sílabas deverão ser apresentadas: ex: mama, papa........'),
                                     ),
                                     Container(
-                                      margin: EdgeInsets.only(
+                                      margin: const EdgeInsets.only(
                                           left: 20.0,
                                           right: 20.0,
                                           bottom: 20.0),
-                                      padding: EdgeInsets.fromLTRB(
+                                      padding: const EdgeInsets.fromLTRB(
                                           20.0, 10.0, 20.0, 30.0),
-                                      decoration: BoxDecoration(
+                                      decoration: const BoxDecoration(
                                         image: DecorationImage(
                                             fit: BoxFit.fill,
                                             image: AssetImage(
@@ -201,7 +201,7 @@ class Tarefa7PageState extends State<Tarefa7Page> {
                                             child: Align(
                                               alignment: Alignment.bottomRight,
                                               child: ElevatedButton.icon(
-                                                label: Text(
+                                                label: const Text(
                                                   'Seguem as tarefas',
                                                   style: TextStyle(
                                                       fontSize: 24.0,
@@ -209,7 +209,7 @@ class Tarefa7PageState extends State<Tarefa7Page> {
                                                           FontWeight.w500,
                                                       color: Colors.white),
                                                 ),
-                                                icon: Icon(
+                                                icon: const Icon(
                                                   Icons.arrow_forward,
                                                   color: Colors.white,
                                                 ),

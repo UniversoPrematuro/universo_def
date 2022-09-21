@@ -17,7 +17,7 @@ class Tarefa9PageState extends State<Tarefa9Page> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text("Tarefa 9"),
+          title: const Text("Tarefa 9"),
           centerTitle: true,
           elevation: 0,
         ),
@@ -65,7 +65,7 @@ class Tarefa9PageState extends State<Tarefa9Page> {
                                           //height: 100,
                                           decoration: BoxDecoration(
                                               border: Border.all(
-                                                  color: Color.fromARGB(
+                                                  color: const Color.fromARGB(
                                                       255, 101, 188, 89),
                                                   width: 1.0)),
                                           child: Image.asset(
@@ -75,7 +75,7 @@ class Tarefa9PageState extends State<Tarefa9Page> {
                                           //height: 100,
                                           decoration: BoxDecoration(
                                               border: Border.all(
-                                                  color: Color.fromARGB(
+                                                  color: const Color.fromARGB(
                                                       255, 101, 188, 89),
                                                   width: 1.0)),
                                           child: Image.asset(
@@ -85,7 +85,7 @@ class Tarefa9PageState extends State<Tarefa9Page> {
                                           //height: 100,
                                           decoration: BoxDecoration(
                                               border: Border.all(
-                                                  color: Color.fromARGB(
+                                                  color: const Color.fromARGB(
                                                       255, 101, 188, 89),
                                                   width: 1.0)),
                                           child: Image.asset(
@@ -95,7 +95,7 @@ class Tarefa9PageState extends State<Tarefa9Page> {
                                           //height: 100,
                                           decoration: BoxDecoration(
                                               border: Border.all(
-                                                  color: Color.fromARGB(
+                                                  color: const Color.fromARGB(
                                                       255, 101, 188, 89),
                                                   width: 1.0)),
                                           child:
@@ -105,7 +105,7 @@ class Tarefa9PageState extends State<Tarefa9Page> {
                                           //height: 100,
                                           decoration: BoxDecoration(
                                               border: Border.all(
-                                                  color: Color.fromARGB(
+                                                  color: const Color.fromARGB(
                                                       255, 101, 188, 89),
                                                   width: 1.0)),
                                           child:
@@ -115,7 +115,7 @@ class Tarefa9PageState extends State<Tarefa9Page> {
                                           //height: 100,
                                           decoration: BoxDecoration(
                                               border: Border.all(
-                                                  color: Color.fromARGB(
+                                                  color: const Color.fromARGB(
                                                       255, 101, 188, 89),
                                                   width: 1.0)),
                                           child:
@@ -125,7 +125,7 @@ class Tarefa9PageState extends State<Tarefa9Page> {
                                           //height: 100,
                                           decoration: BoxDecoration(
                                               border: Border.all(
-                                                  color: Color.fromARGB(
+                                                  color: const Color.fromARGB(
                                                       255, 101, 188, 89),
                                                   width: 1.0)),
                                           child:
@@ -135,7 +135,7 @@ class Tarefa9PageState extends State<Tarefa9Page> {
                                           //height: 100,
                                           decoration: BoxDecoration(
                                               border: Border.all(
-                                                  color: Color.fromARGB(
+                                                  color: const Color.fromARGB(
                                                       255, 101, 188, 89),
                                                   width: 1.0)),
                                           child:
@@ -145,7 +145,7 @@ class Tarefa9PageState extends State<Tarefa9Page> {
                                           //height: 100,
                                           decoration: BoxDecoration(
                                               border: Border.all(
-                                                  color: Color.fromARGB(
+                                                  color: const Color.fromARGB(
                                                       255, 101, 188, 89),
                                                   width: 1.0)),
                                           child:
@@ -201,7 +201,7 @@ class Tarefa9PageState extends State<Tarefa9Page> {
                                             child: Align(
                                               alignment: Alignment.bottomRight,
                                               child: ElevatedButton.icon(
-                                                label: Text(
+                                                label: const Text(
                                                   'Seguem as tarefas',
                                                   style: TextStyle(
                                                       fontSize: 24.0,
@@ -209,7 +209,7 @@ class Tarefa9PageState extends State<Tarefa9Page> {
                                                           FontWeight.w500,
                                                       color: Colors.white),
                                                 ),
-                                                icon: Icon(
+                                                icon: const Icon(
                                                   Icons.arrow_forward,
                                                   color: Colors.white,
                                                 ),

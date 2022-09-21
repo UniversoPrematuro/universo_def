@@ -45,6 +45,30 @@ class QuartoPageState extends State<QuartoPage> {
               children: [
                 ElevatedButton(
                   onPressed: (){
+                    Modular.to.pushNamed("/conteudo/t28");
+                  }, 
+                  child: const Text(
+                    "Tarefa 28",
+                    textAlign: TextAlign.center, 
+                    style: TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.w600
+                    ),
+                    )),
+                ElevatedButton(
+                  onPressed: (){
+                    Modular.to.pushNamed("/conteudo/t29");
+                  }, 
+                  child: const Text(
+                    "Tarefa 29",
+                    textAlign: TextAlign.center, 
+                    style: TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.w600
+                    ),
+                    )),
+                ElevatedButton(
+                  onPressed: (){
                     Modular.to.pushNamed("/conteudo/t30");
                   }, 
                   child: const Text(

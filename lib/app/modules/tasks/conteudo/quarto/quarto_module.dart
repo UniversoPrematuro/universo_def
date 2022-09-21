@@ -19,7 +19,7 @@ class QuartoModule extends Module {
 
   @override
   final List<ModularRoute> routes = [
-    ChildRoute('/', child: (_, args) => QuartoPage()),
+    ChildRoute('/', child: (_, args) => const QuartoPage()),
     ChildRoute('/t28', child: (_, args) => const Tarefa28Page()),
     ChildRoute('/t29', child: (_, args) => const Tarefa29Page()),
     ChildRoute('/t30', child: (_, args) => const Tarefa30Page()),

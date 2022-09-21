@@ -18,7 +18,7 @@ class Tarefa2PageState extends State<Tarefa2Page> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text("Tarefa 2"),
+          title: const Text("Tarefa 2"),
           centerTitle: true,
           elevation: 0,
         ),
@@ -76,7 +76,7 @@ class Tarefa2PageState extends State<Tarefa2Page> {
                                               borderRadius:
                                                   BorderRadius.circular(10),
                                               border: Border.all(
-                                                color: Color.fromARGB(
+                                                color: const Color.fromARGB(
                                                     255, 101, 188, 89),
                                                 width: 3.0,
                                               )),
@@ -217,7 +217,7 @@ class Tarefa2PageState extends State<Tarefa2Page> {
                                             child: Align(
                                               alignment: Alignment.bottomRight,
                                               child: ElevatedButton.icon(
-                                                label: Text(
+                                                label: const Text(
                                                   'Seguem as tarefas',
                                                   style: TextStyle(
                                                       fontSize: 24.0,
@@ -225,7 +225,7 @@ class Tarefa2PageState extends State<Tarefa2Page> {
                                                           FontWeight.w500,
                                                       color: Colors.white),
                                                 ),
-                                                icon: Icon(
+                                                icon: const Icon(
                                                   Icons.arrow_forward,
                                                   color: Colors.white,
                                                 ),

@@ -18,7 +18,7 @@ class Tarefa4PageState extends State<Tarefa4Page> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text("Tarefa 4"),
+          title: const Text("Tarefa 4"),
           centerTitle: true,
           elevation: 0,
         ),
@@ -73,7 +73,7 @@ class Tarefa4PageState extends State<Tarefa4Page> {
                                           //height: 250.0,
                                           decoration: BoxDecoration(
                                               border: Border.all(
-                                                  color: Color.fromARGB(
+                                                  color: const Color.fromARGB(
                                                       255, 101, 188, 89),
                                                   width: 3.0)),
                                           child:
@@ -85,7 +85,7 @@ class Tarefa4PageState extends State<Tarefa4Page> {
                                           //height: 250.0,
                                           decoration: BoxDecoration(
                                               border: Border.all(
-                                                  color: Color.fromARGB(
+                                                  color: const Color.fromARGB(
                                                       255, 101, 188, 89),
                                                   width: 3.0)),
                                           child:
@@ -234,7 +234,7 @@ class Tarefa4PageState extends State<Tarefa4Page> {
                                             child: Align(
                                               alignment: Alignment.bottomRight,
                                               child: ElevatedButton.icon(
-                                                label: Text(
+                                                label: const Text(
                                                   'Seguem as tarefas',
                                                   style: TextStyle(
                                                       fontSize: 24.0,
@@ -242,7 +242,7 @@ class Tarefa4PageState extends State<Tarefa4Page> {
                                                           FontWeight.w500,
                                                       color: Colors.white),
                                                 ),
-                                                icon: Icon(
+                                                icon: const Icon(
                                                   Icons.arrow_forward,
                                                   color: Colors.white,
                                                 ),
