@@ -10,6 +10,6 @@ class PhotoAlbumModule extends Module {
 
   @override
   final List<ModularRoute> routes = [
-    ChildRoute('/', child: (_, args) => PhotoAlbumPage()),
+    ChildRoute('/', child: (_, args) => const PhotoAlbumPage()),
   ];
 }

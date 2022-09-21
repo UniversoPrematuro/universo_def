@@ -112,7 +112,7 @@ abstract class _EditStoreBase with Store {
     int week = int.parse(fields[0]);
     int day = int.parse(fields[1]);
     // bool valFlag = true;
-    if(weeks.length == 0){
+    if(weeks.isEmpty){
       return 'Campo obrigatorio';
     }
     

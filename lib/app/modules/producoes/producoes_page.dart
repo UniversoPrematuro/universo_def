@@ -18,7 +18,7 @@ class ProducoesPageState extends State<ProducoesPage> {
         title: Text(widget.title),
       ),
       body: Column(
-        children: <Widget>[Placeholder()],
+        children: const <Widget>[Placeholder()],
       ),
     );
   }

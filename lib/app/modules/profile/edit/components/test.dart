@@ -1,3 +1,4 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first, must_be_immutable
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
@@ -15,7 +16,7 @@ class NameInputFb2 extends StatelessWidget {
     const primaryColor = Color.fromARGB(255, 35, 85, 24);
     const secondaryColor = Color.fromARGB(255, 101, 206, 88);
     const accentColor = Color(0xffffffff);
-    const backgroundColor = Color(0xffffffff);
+    // const backgroundColor = Color(0xffffffff);
     const errorColor = Color.fromARGB(255, 232, 0, 0);
 
     return Column(
@@ -91,7 +92,6 @@ class CepInputFb2 extends StatelessWidget {
     const primaryColor = Color.fromARGB(255, 35, 85, 24);
     const secondaryColor = Color.fromARGB(255, 101, 206, 88);
     const accentColor = Color(0xffffffff);
-    const backgroundColor = Color(0xffffffff);
     const errorColor = Color.fromARGB(255, 232, 0, 0);
 
     return Column(
@@ -167,14 +167,16 @@ class PhoneInputFb2 extends StatelessWidget {
   final EditStore store = Modular.get();
 
   final TextEditingController controller;
-  PhoneInputFb2({Key? key, required this.controller}) : super(key: key);
+  PhoneInputFb2({
+    Key? key,
+    required this.controller,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     const primaryColor = Color.fromARGB(255, 35, 85, 24);
     const secondaryColor = Color.fromARGB(255, 101, 206, 88);
     const accentColor = Color(0xffffffff);
-    const backgroundColor = Color(0xffffffff);
     const errorColor = Color.fromARGB(255, 232, 0, 0);
 
     return Column(
@@ -257,7 +259,6 @@ class BirthInputFb2 extends StatelessWidget {
     const primaryColor = Color.fromARGB(255, 35, 85, 24);
     const secondaryColor = Color.fromARGB(255, 101, 206, 88);
     const accentColor = Color(0xffffffff);
-    const backgroundColor = Color(0xffffffff);
     const errorColor = Color.fromARGB(255, 232, 0, 0);
 
     return Column(
@@ -335,7 +336,6 @@ class WeekInputFb2 extends StatelessWidget {
     const primaryColor = Color.fromARGB(255, 35, 85, 24);
     const secondaryColor = Color.fromARGB(255, 101, 206, 88);
     const accentColor = Color(0xffffffff);
-    const backgroundColor = Color(0xffffffff);
     const errorColor = Color.fromARGB(255, 232, 0, 0);
 
     var maskGage = MaskTextInputFormatter(

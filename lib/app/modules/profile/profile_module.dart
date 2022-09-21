@@ -17,6 +17,6 @@ class ProfileModule extends Module {
   @override
   final List<ModularRoute> routes = [
     ChildRoute('/', child: (_, args) => const ProfilePage()),
-    ChildRoute('/photo', child: (_, args) => PhotoAlbumPage()),
+    ChildRoute('/photo', child: (_, args) => const PhotoAlbumPage()),
   ];
 }

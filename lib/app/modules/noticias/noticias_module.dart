@@ -10,6 +10,6 @@ class NoticiasModule extends Module {
 
   @override
   final List<ModularRoute> routes = [
-    ChildRoute('/', child: (_, args) => NoticiasPage()),
+    ChildRoute('/', child: (_, args) => const NoticiasPage()),
   ];
 }

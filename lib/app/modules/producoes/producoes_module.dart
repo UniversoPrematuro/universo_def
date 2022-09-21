@@ -10,6 +10,6 @@ class ProducoesModule extends Module {
 
   @override
   final List<ModularRoute> routes = [
-    ChildRoute('/', child: (_, args) => ProducoesPage()),
+    ChildRoute('/', child: (_, args) => const ProducoesPage()),
   ];
 }

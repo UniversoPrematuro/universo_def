@@ -57,7 +57,7 @@ class CustomCarouselFB2 extends StatelessWidget {
                 },
                 style: ButtonStyle(
                     backgroundColor: MaterialStateProperty.all(Colors.white)),
-                child: Container(
+                child: SizedBox(
                   width: MediaQuery.of(context).size.width * .3,
                   height: MediaQuery.of(context).size.height * .2,
                   

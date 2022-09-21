@@ -7,7 +7,6 @@ import 'package:mobx/mobx.dart';
 
 import '../models/user_model.dart';
 import '../profile/edit/edit_store.dart';
-import 'error_store.dart';
 
 part 'initial_store.g.dart';
 

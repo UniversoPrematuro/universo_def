@@ -156,7 +156,7 @@ class GalleryTabs extends StatelessWidget {
                   controller: store.tabController,
                   children: [
                     Observer(
-                      builder: (_) => PhotoAlbumPage()
+                      builder: (_) => const PhotoAlbumPage()
                     ),
                     
                     // GridView.count(

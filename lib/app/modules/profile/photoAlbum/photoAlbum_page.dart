@@ -28,7 +28,7 @@ class PhotoAlbumPageState extends State<PhotoAlbumPage> {
                 stream: db.collection("users").doc(store.idLogado).collection("images").snapshots(),
                 builder: (context, snapshots) {
                   return snapshots.hasError
-                      ? Center(child: Text("error"))
+                      ? const Center(child: Text("error"))
                       : snapshots.hasData
                           ? GridView.count(
                               crossAxisCount: 4,

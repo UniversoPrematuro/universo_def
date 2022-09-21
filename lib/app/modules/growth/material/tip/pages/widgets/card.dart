@@ -1,7 +1,7 @@
 // ignore_for_file: must_be_immutable
 
 import 'package:flutter/material.dart';
-import 'package:flutter_modular/flutter_modular.dart';
+// import 'package:flutter_modular/flutter_modular.dart';
 
 class CustomCarouselFB3 extends StatelessWidget {
   CustomCarouselFB3({Key? key}) : super(key: key);
