@@ -71,7 +71,7 @@ class Tarefa33PageState extends State<Tarefa33Page> {
                                           decoration: BoxDecoration(
                                               color: Colors.white,
                                               border: Border.all(
-                                                  color: Color.fromARGB(
+                                                  color: const Color.fromARGB(
                                                       255, 101, 188, 89),
                                                   width: 3.0)),
                                           child: Image.asset(
@@ -81,7 +81,7 @@ class Tarefa33PageState extends State<Tarefa33Page> {
                                           decoration: BoxDecoration(
                                               color: Colors.white,
                                               border: Border.all(
-                                                  color: Color.fromARGB(
+                                                  color: const Color.fromARGB(
                                                       255, 101, 188, 89),
                                                   width: 3.0)),
                                           child: Image.asset(

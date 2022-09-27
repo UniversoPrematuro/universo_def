@@ -3,8 +3,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:universo_def/app/modules/tasks/components/components.dart';
 
-import '../../../../models/kid_model.dart';
+// import '../../../../models/kid_model.dart';
+import '../../../../models/task_model.dart';
 import '../../../../profile/edit/edit_store.dart';
+import '../../../components/radin.dart';
+import '../../../tasks_store.dart';
+
+// TODO: PERGUNTAS ESPECIFICAS PARA AS MAES 
 
 class Tarefa1Page extends StatefulWidget {
   final String title;
@@ -112,15 +117,15 @@ class Tarefa1PageState extends State<Tarefa1Page> {
                                     Padding(
                                       padding: const EdgeInsets.all(8.0),
                                       child: Text(
-                                              "LEMBRE-SE: Todo cuidado com ${store.controllerKidName.text} é muito importante.",
-                                              style: const TextStyle(
-                                                  color: Color.fromARGB(255, 212, 32, 0),
-                                                  fontSize: 18,
-                                                  fontWeight: FontWeight.w500,
-                                                  fontStyle: FontStyle.italic
-                                              ),  
-                                              // textAlign: TextAlign.center,
-                                            ),
+                                        "LEMBRE-SE: Todo cuidado com ${store.controllerKidName.text} é muito importante.",
+                                        style: const TextStyle(
+                                            color:
+                                                Color.fromARGB(255, 212, 32, 0),
+                                            fontSize: 18,
+                                            fontWeight: FontWeight.w500,
+                                            fontStyle: FontStyle.italic),
+                                        // textAlign: TextAlign.center,
+                                      ),
                                     ),
                                   ]),
                                 ),
@@ -130,7 +135,7 @@ class Tarefa1PageState extends State<Tarefa1Page> {
                                 child: Container(
                                   width: MediaQuery.of(context).size.width * .9,
                                   height:
-                                      MediaQuery.of(context).size.height * 1.1,
+                                      MediaQuery.of(context).size.height * 1.15,
                                   decoration: BoxDecoration(
                                     color: Colors.white,
                                     borderRadius: BorderRadius.circular(20),
@@ -211,19 +216,42 @@ class Tarefa1PageState extends State<Tarefa1Page> {
                                               "LEMBRE-SE: a frequência de estímulos é muito importante. Estimule "
                                               "sempre que possível",
                                               style: TextStyle(
-                                                  color: Color.fromARGB(255, 212, 32, 0),
+                                                  color: Color.fromARGB(
+                                                      255, 212, 32, 0),
                                                   fontSize: 18,
                                                   fontWeight: FontWeight.w500,
                                                   fontStyle: FontStyle.italic)),
                                           const SizedBox(height: 30),
-                                          TextButton.icon(
-                                            onPressed: (){}, 
-                                            label: const Text("SEGUEM AS TAREFAS"), 
-                                            icon: const Icon(Icons.arrow_circle_right_outlined), 
-                                            
-                                            
-                                          )
-                                          
+                                          Padding(
+                                            padding: const EdgeInsets.only(
+                                                left: 20.0,
+                                                right: 20.0,
+                                                bottom: 40.0,
+                                                top: 20.0),
+                                            child: Align(
+                                              alignment: Alignment.bottomRight,
+                                              child: ElevatedButton.icon(
+                                                label: const Text(
+                                                  'Seguem as tarefas',
+                                                  style: TextStyle(
+                                                      fontSize: 24.0,
+                                                      fontWeight:
+                                                          FontWeight.w500,
+                                                      color: Colors.white),
+                                                ),
+                                                icon: const Icon(
+                                                  Icons.arrow_forward,
+                                                  color: Colors.white,
+                                                ),
+                                                onPressed: () {
+                                                  Navigator.of(context).push(
+                                                      MaterialPageRoute(
+                                                          builder: ((context) =>
+                                                              const TaskOne())));
+                                                },
+                                              ),
+                                            ),
+                                          ),
                                         ],
                                       ),
                                     ),
@@ -235,5 +263,199 @@ class Tarefa1PageState extends State<Tarefa1Page> {
             ],
           ),
         ));
+  }
+}
+
+enum SingingCharacter { sim, nao, parcial }
+
+class TaskOne extends StatefulWidget {
+  const TaskOne({super.key});
+
+  @override
+  State<TaskOne> createState() => _TaskOneState();
+}
+
+class _TaskOneState extends State<TaskOne> {
+  final EditStore store = Modular.get();
+  final TasksStore tStore = Modular.get();
+  @override
+  
+  Widget build(BuildContext context) {
+    // if(tStore.task.isEmpty){
+    //         for(int i=1;i<6;i++){
+    //           Task t = Task();
+    //           t.user = tStore.uid;
+    //           t.task = 'TASK$i';
+    //           t.group = 'DEV1';
+    //           t.status = 'I';
+    //           t.date = DateTime.now().toString();
+
+    //           // taskH.saveTask(t).then((_){});
+    //         }
+    //       }
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text("Tarefa 1"),
+        centerTitle: true,
+        elevation: 0,
+      ),
+      body: Container(
+        color: Colors.green,
+        width: MediaQuery.of(context).size.width,
+        height: MediaQuery.of(context).size.height,
+        child: Column(children: [
+          Expanded(
+            child: LayoutBuilder(
+              builder: (_, constraints) => SingleChildScrollView(
+                  child: Container(
+                width: MediaQuery.of(context).size.width * .9,
+                height: MediaQuery.of(context).size.height * 3,
+                decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(30),
+                    boxShadow: [
+                      BoxShadow(
+                          color: Colors.black.withOpacity(1),
+                          blurRadius: 8,
+                          offset: const Offset(0, 5))
+                    ]),
+                child: Padding(
+                  padding: const EdgeInsets.all(15.0),
+                  child: Column(
+                    children: [
+                      Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: <Widget>[
+                          Column(
+                            children: <Widget>[
+                              Container(
+                                height: 70.0,
+                                color: Colors.red,
+                              ),
+                              SizedBox(
+                                width: 100.0,
+                                child: Image.asset("images1/Personagemai.png"),
+                              ),
+                            ],
+                          ),
+                          Expanded(
+                            child: Container(
+                              //margin: EdgeInsets.only(left: 20.0,right: 20.0,bottom: 20.0),
+                              padding:
+                                  const EdgeInsets.fromLTRB(20.0, 10.0, 0.0, 20.0),
+                              decoration: const BoxDecoration(
+                                image: DecorationImage(
+                                    fit: BoxFit.fill,
+                                    image: AssetImage('images1/ballon9.png')),
+                              ),
+                              child: const Text(
+                                "Seja bem vinda!\nVamos seguir juntas as tarefas a cada dois"
+                                " dias, nestes primeiros meses.\nVamos Começar?",
+                                style: TextStyle(fontSize: 16),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                      const SizedBox(
+                        height: 40.0,
+                      ),
+                      textCTRST(
+                        stg1:
+                            '\u2055 Hoje vamos estimular ${store.controllerKidName.text} na ',
+                        stg2: 'posição de barriguinha para baixo',
+                        stg3: ', período da manhã e da tarde.',
+                      ),
+                      textCTRST(
+                          stg1:
+                              '\u2055 Manter a higiene: trocas de fraldas periódicas com'
+                              ' limpeza na área e só depois colocar a fralda limpa.'),
+                      const SizedBox(
+                        height: 15.0,
+                      ),
+                      textCTRST(
+                        stg1: '\u2055 Converse ',
+                        stg2: 'olhando nos olhos',
+                        stg3:
+                            ', de ${store.controllerKidName.text} demonstrando tranquilidade, sua voz será logo reconhecida.',
+                      ),
+                      textCTRST(
+                          stg1: '\u2055 Manter o horário do sono tranquilo.'),
+                      const SizedBox(
+                        height: 10.0,
+                      ),
+                      // Radin(UID: store.idLogado, task: "DEV1"),
+                      textCTRST(
+                        stg1:
+                            '\u2055 Hoje é dia de brincadeiras na posição de ',
+                        stg2: 'barriguinha para cima',
+                        stg3: ', período da manhã e da tarde. ',
+                      ),
+                      textCTRST(
+                          stg1:
+                              '\u2055 À noite, deixe ${store.controllerKidName.text} dormir de barriguinha para cima.'),
+                      const SizedBox(
+                        height: 15.0,
+                      ),
+                      textCTRST(
+                        stg1:
+                            '\u2055 Vamos aproveitar o momento de barriguinha para cima e'
+                            ' conversar com ${store.controllerKidName.text} suavemente, sempre com olhares fixos deixando'
+                            ' ${store.controllerKidName.text} ouvir sua voz para que se sinta seguro(a)',
+                      ),
+                      textCTRST(
+                          stg1:
+                              '\u2055  ${store.controllerKidName.text} não deve dormir em camas com o adulto.'),
+                      const SizedBox(
+                        height: 10.0,
+                      ),
+                      const SizedBox(height: 60.0,),
+          textCTRST(
+            stg1: '\u2055 Vamos mostrar brinquedos macios e coloridos e brincar'
+                ' um pouco na posição de ',
+            stg2: 'barriguinha para baixo',
+            stg3: ', para começar a levantar a cabeça',
+          ),
+          textCTRST(stg1: '\u2055 Manter sempre um ambiente seco, sem mofo. '
+              'Evitar cortinas, tapetes e brinquedo de pelúcia no quarto.'),
+          const SizedBox(height: 15.0,),
+          textCTRST(
+            stg1: '\u2055 Um ambiente tranquilo e horários certos para as '
+                'tarefas, é importante para o desenvolvimento.',
+          ),
+          textCTRST(stg1: '\u2055 O ambiente tranquilo e com horários certos '
+              'é importante para o desenvolvimento.'),
+          const SizedBox(height: 10.0,),
+          Radin(),
+
+
+          const SizedBox(height: 60.0,),
+          textCTRST(
+            stg1: '\u2055 Na ',
+            stg2: 'posição de barriguinha para cima',
+            stg3: ' vamos mostrar brinquedos macios e coloridos e estimular '
+                '${store.controllerKidName.text} a pegar os brinquedos.',
+          ),
+          textCTRST(stg1: '\u2055 Na hora do choro, procure oferecer um aconchego.'),
+          const SizedBox(height: 15.0,),
+          textCTRST(
+            stg1: '\u2055 Nesses momentos converse, sorria e comemore qualquer '
+                'interação. A verbalização deve ser realizada frequentemente.',
+          ),
+          textCTRST(stg1: '\u2055 O banho deve ser no horário tranquilo. '
+              'Ofereça a hora do banho para ${store.controllerKidName.text} relaxar.'),
+          const SizedBox(height: 10.0,),
+          Radin(),
+
+                      // Radin(),
+                    ],
+                  ),
+                ),
+              )),
+            ),
+          ),
+        ]),
+      ),
+    );
   }
 }

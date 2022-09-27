@@ -230,7 +230,13 @@ class Tarefa5PageState extends State<Tarefa5Page> {
                                                   Icons.arrow_forward,
                                                   color: Colors.white,
                                                 ),
-                                                onPressed: () {},
+                                                onPressed: () {
+                                                  Navigator.of(context).push(
+                                                    MaterialPageRoute(
+                                                      builder: ((context) => const TaskFive())
+                                                    )
+                                                  );
+                                                },
                                               ),
                                             ),
                                           ),
@@ -245,5 +251,187 @@ class Tarefa5PageState extends State<Tarefa5Page> {
             ],
           ),
         ));
+  }
+}
+
+class TaskFive extends StatefulWidget {
+  const TaskFive({super.key});
+
+  @override
+  State<TaskFive> createState() => _TaskFiveState();
+}
+// Container>Column[Expanded>LayoutBuilder>SingleChildScrollView>Container>Padding>Column]
+
+class _TaskFiveState extends State<TaskFive> {
+  final EditStore store = Modular.get();
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text("Tarefa 5"),
+        centerTitle: true,
+        elevation: 0,
+      ),
+      body: Container(
+        color: Colors.green,
+        width: MediaQuery.of(context).size.width,
+        height: MediaQuery.of(context).size.height,
+        child: Column(
+          children: <Widget>[
+            Expanded(
+              child: LayoutBuilder(
+                builder: (_, constraints) => SingleChildScrollView(
+                  child: Container(
+                    width: MediaQuery.of(context).size.width * .9,
+                    height: MediaQuery.of(context).size.height * 3,
+                    decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(30),
+                        boxShadow: [
+                          BoxShadow(
+                              color: Colors.black.withOpacity(1),
+                              blurRadius: 8,
+                              offset: const Offset(0, 5))
+                        ]),
+                    child: Padding(
+                      padding: const EdgeInsets.all(15.0),
+                      child: Column(
+                        children: [
+                        speechPerson(),
+                        const SizedBox(
+                          height: 40.0,
+                        ),
+                        textCTRST(
+                          stg1:
+                              '\u2055 As brincadeiras devem continuar com brinquedos ou '
+                              'situações que estimulem ${store.controllerKidName.text} a ',
+                          stg2: 'mudar de posição corporal',
+                          stg3:
+                              '. Lateral para barriga para cima e lateral barriga para baixo.',
+                        ),
+                        textCTRST(
+                            stg1:
+                                '\u2055 O local de permanência de ${store.controllerKidName.text} deverá ser '
+                                'seguro, com claridade e boa ventilação.'),
+                        const SizedBox(
+                          height: 15.0,
+                        ),
+                        textCTRST(
+                          stg1:
+                              '\u2055  Vamos nomear os objetos e brinquedos, sempre '
+                              'disponibilizando a imagem do movimento da boca na formação '
+                              'da palavra.',
+                        ),
+                        textCTRST(
+                            stg1: '\u2055 Os períodos de tranquilidade deverão '
+                                'intercalar com o próprio movimento e rotina da casa.'),
+                        const SizedBox(
+                          height: 10.0,
+                        ),
+                        // Radin(UID,'DEV5TASK1'),
+
+                        const SizedBox(
+                          height: 60.0,
+                        ),
+                        textCTRST(
+                          stg1: '\u2055 A ',
+                          stg2: 'posição sentada',
+                          stg3:
+                              ' deve ser estimulada e mostrar brinquedos com deslocamento '
+                              'de um lado para o outro também, assim ${store.controllerKidName.text} será estimulado(a) a girar'
+                              ' a cabeça com o olhar de um lado para o outro.',
+                        ),
+                        textCTRST(
+                            stg1:
+                                '\u2055 Escolha uma roupinha que facilita a troca e'
+                                ' gera proteção evitando lesões na pele (alfinetes).'),
+                        // SizedBox(height: group=='EST'?15.0:0.0,),
+                        textCTRST(
+                            stg1:
+                                "Construa pequenas frases sempre disponibilizando a imagem e "
+                                "a articulação da boca na formação da palavra."),
+                        const SizedBox(
+                          height: 10.0,
+                        ),
+                        // Radin(UID,'DEV5TASK2'),
+
+                        const SizedBox(
+                          height: 60.0,
+                        ),
+                        textCTRST(
+                          stg1:
+                              '\u2055 O momento do relaxamento e estímulo sensorial do tato '
+                              'deverá continuar antes do banho. Brinque de beijar, de passar a'
+                              ' mão nos pezinhos. Adoram!',
+                        ),
+                        textCTRST(
+                            stg1:
+                                '\u2055 Observe sempre o ambiente, cuidado com os '
+                                'insetos e bichos peçonhentos! ${store.controllerKidName.text} deve ser sempre observado por'
+                                ' um adulto.'),
+                        const SizedBox(
+                          height: 10.0,
+                        ),
+                        // Radin(UID,'DEV5TASK3'),
+
+                        const SizedBox(
+                          height: 60.0,
+                        ),
+                        textCTRST(
+                          stg1: '\u2055 Com ${store.controllerKidName.text} deitado ',
+                          stg2: 'de barriga para cima',
+                          stg3:
+                              ' você poderá movimentar o brinquedo de um lado para outro, '
+                              'estimulando ${store.controllerKidName.text} a girar a cabeça da lateral para o '
+                              'centro do corpo e depois do centro para a outra lateral.',
+                        ),
+                        textCTRST(
+                            stg1:
+                                '\u2055 O período do sono e acordado com o tempo '
+                                'irá modificando, passará um período maior acordado.'),
+                        const SizedBox(
+                          height: 10.0,
+                        ),
+                        // Radin(UID,'DEV5TASK4'),
+
+                        const SizedBox(
+                          height: 60.0,
+                        ),
+                        textCTRST(
+                          stg1:
+                              '\u2055 Explorar todas as posições corporais e estimular o '
+                              'girar da cabeça do centro para a lateral nas posições deitada '
+                              'e sentada. ',
+                        ),
+                        textCTRST(
+                            stg1:
+                                '\u2055 O cuidado deverá ser observado com crianças'
+                                ' próximas de ${store.controllerKidName.text}. A vontade é de brincar, mas pode oferecer '
+                                'riscos.'),
+                        const SizedBox(
+                          height: 15.0,
+                        ),
+                        textCTRST(
+                          stg1:
+                              '\u2055 Durante esses momentos aproveite para brincar e '
+                              'cantar para o ${store.controllerKidName.text}.  Use a imaginação e a criatividade.',
+                        ),
+                        textCTRST(
+                            stg1:
+                                '\u2055 O desenvolvimento está acontecendo, vamos '
+                                'em frente.'),
+                        const SizedBox(
+                          height: 10.0,
+                        ),
+          ]),
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
   }
 }

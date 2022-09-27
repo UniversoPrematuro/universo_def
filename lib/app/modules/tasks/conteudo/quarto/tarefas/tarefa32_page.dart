@@ -71,7 +71,7 @@ class Tarefa32PageState extends State<Tarefa32Page> {
                                           decoration: BoxDecoration(
                                               color: Colors.white,
                                               border: Border.all(
-                                                  color: Color.fromARGB(
+                                                  color: const Color.fromARGB(
                                                       255, 101, 188, 89),
                                                   width: 3.0)),
                                           child: Image.asset(
@@ -82,7 +82,7 @@ class Tarefa32PageState extends State<Tarefa32Page> {
                                           decoration: BoxDecoration(
                                               color: Colors.white,
                                               border: Border.all(
-                                                  color: Color.fromARGB(
+                                                  color: const Color.fromARGB(
                                                       255, 101, 188, 89),
                                                   width: 3.0)),
                                           child: Image.asset(
@@ -90,7 +90,7 @@ class Tarefa32PageState extends State<Tarefa32Page> {
                                         ),
                                       ],
                                     ),
-                                    SizedBox(
+                                    const SizedBox(
                                       height: 20.0,
                                     ),
                                     Container(

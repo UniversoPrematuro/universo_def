@@ -1,4 +1,3 @@
-import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
@@ -62,17 +61,17 @@ class Tarefa36PageState extends State<Tarefa36Page> {
                                       child:
                                           Image.asset('images1/fig1012-1.jpeg'),
                                     ),
-                                    SizedBox(
+                                    const SizedBox(
                                       height: 20.0,
                                     ),
                                     Container(
-                                      margin: EdgeInsets.only(
+                                      margin: const EdgeInsets.only(
                                           left: 40.0,
                                           right: 40.0,
                                           bottom: 20.0),
-                                      padding: EdgeInsets.fromLTRB(
+                                      padding: const EdgeInsets.fromLTRB(
                                           20.0, 10.0, 20.0, 35.0),
-                                      decoration: BoxDecoration(
+                                      decoration: const BoxDecoration(
                                         image: DecorationImage(
                                             fit: BoxFit.fill,
                                             image: AssetImage(
@@ -117,13 +116,13 @@ class Tarefa36PageState extends State<Tarefa36Page> {
                                               fontWeight: FontWeight.bold)),
                                     ),
                                     Container(
-                                      margin: EdgeInsets.only(
+                                      margin: const EdgeInsets.only(
                                           left: 40.0,
                                           right: 40.0,
                                           bottom: 20.0),
-                                      padding: EdgeInsets.fromLTRB(
+                                      padding: const EdgeInsets.fromLTRB(
                                           20.0, 10.0, 20.0, 35.0),
-                                      decoration: BoxDecoration(
+                                      decoration: const BoxDecoration(
                                         image: DecorationImage(
                                             fit: BoxFit.fill,
                                             image: AssetImage(

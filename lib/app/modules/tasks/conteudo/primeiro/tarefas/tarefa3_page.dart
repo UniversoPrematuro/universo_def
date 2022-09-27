@@ -208,13 +208,12 @@ class Tarefa3PageState extends State<Tarefa3Page> {
                                             ),
                                             child: regText(
                                                 '\u25CF Cuidado!',
-                                                
-                                                     'A hora do banho é um ótimo momento'
-                                                        ' para estimular os movimentos, mas cuidado para ${store.controllerKidName.text} não '
-                                                        'escorregar.'
-                                                     '- As cólicas são um incômodo normal para ${store.controllerKidName.text}, faz'
-                                                        ' parte. Então, siga as orientações médicas, não oferecer nada '
-                                                        'fora da prescrição de ${store.controllerKidName.text}.'),
+                                                'A hora do banho é um ótimo momento'
+                                                    ' para estimular os movimentos, mas cuidado para ${store.controllerKidName.text} não '
+                                                    'escorregar.'
+                                                    '- As cólicas são um incômodo normal para ${store.controllerKidName.text}, faz'
+                                                    ' parte. Então, siga as orientações médicas, não oferecer nada '
+                                                    'fora da prescrição de ${store.controllerKidName.text}.'),
                                           ),
                                           const Padding(
                                             padding: EdgeInsets.all(8.0),
@@ -263,7 +262,13 @@ class Tarefa3PageState extends State<Tarefa3Page> {
                                                   Icons.arrow_forward,
                                                   color: Colors.white,
                                                 ),
-                                                onPressed: () {},
+                                                onPressed: () {
+                                                  Navigator.of(context).push(
+                                                    MaterialPageRoute(
+                                                      builder: ((context) => const TaskThree())
+                                                    )
+                                                  );
+                                                },
                                               ),
                                             ),
                                           ),
@@ -278,5 +283,258 @@ class Tarefa3PageState extends State<Tarefa3Page> {
             ],
           ),
         ));
+  }
+}
+
+class TaskThree extends StatefulWidget {
+  const TaskThree({super.key});
+
+  @override
+  State<TaskThree> createState() => _TaskThreeState();
+}
+
+class _TaskThreeState extends State<TaskThree> {
+  final EditStore store = Modular.get();
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text("Tarefa 3"),
+        centerTitle: true,
+        elevation: 0,
+      ),
+      body: Container(
+        color: Colors.green,
+        width: MediaQuery.of(context).size.width,
+        height: MediaQuery.of(context).size.height,
+        child: Column(
+          children: <Widget>[
+            Expanded(
+              child: LayoutBuilder(
+                builder: (_, constraints) => SingleChildScrollView(
+                  child: Container(
+                    width: MediaQuery.of(context).size.width * .9,
+                    height: MediaQuery.of(context).size.height * 3.3,
+                    decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(30),
+                        boxShadow: [
+                          BoxShadow(
+                              color: Colors.black.withOpacity(1),
+                              blurRadius: 8,
+                              offset: const Offset(0, 5))
+                        ]),
+                    child: Padding(
+                      padding: const EdgeInsets.all(15.0),
+                      child: Column(
+                        children: <Widget>[
+                          Row(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: <Widget>[
+                              Column(
+                                children: <Widget>[
+                                  Container(
+                                    height: 70.0,
+                                    color: Colors.red,
+                                  ),
+                                  SizedBox(
+                                    width: 100.0,
+                                    child:
+                                        Image.asset("images1/Personagemai.png"),
+                                  ),
+                                ],
+                              ),
+                              Expanded(
+                                child: Container(
+                                  //margin: EdgeInsets.only(left: 20.0,right: 20.0,bottom: 20.0),
+                                  padding: const EdgeInsets.fromLTRB(
+                                      20.0, 10.0, 0.0, 20.0),
+                                  decoration: const BoxDecoration(
+                                    image: DecorationImage(
+                                        fit: BoxFit.fill,
+                                        image:
+                                            AssetImage('images1/ballon9.png')),
+                                  ),
+                                  child: const Text(
+                                    "Seja bem vinda!\nVamos seguir juntas as tarefas a cada dois"
+                                    " dias, nestes primeiros meses.\nVamos Começar?",
+                                    style: TextStyle(fontSize: 16),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                          textCTRST(
+                            stg1: '\u2055 ${store.controllerKidName.text} deverá ',
+                            stg2: 'movimentar a cabeça',
+                            stg3:
+                                ' de forma voluntária de um lado para o outro. Estimule ${store.controllerKidName.text}'
+                                ' mostrando um brinquedo colorido e com som, movimentando de um'
+                                ' lado para o outro. Intercale a brincadeira nas diferentes '
+                                'posições corporais.',
+                          ),
+                          textCTRST(
+                              stg1:
+                                  '\u2055 Para melhorar as cólicas de barriga, pode '
+                                  'fazer massagem circular na barriguinha, dobrar as perninhas.'),
+                          const SizedBox(
+                            height: 15.0,
+                          ),
+                          textCTRST(
+                            stg1:
+                                '\u2055 O tom de voz, os gestos e as expressões faciais '
+                                'suaves e bem articuladas da fala do adulto ajudará no '
+                                'alcance de sensações e percepções para o desenvolvimento de '
+                                '${store.controllerKidName.text}. Esses momentos são importantes.',
+                          ),
+                          textCTRST(
+                              stg1:
+                                  '\u2055 Não deixar ${store.controllerKidName.text} perto, ou com visitas, que '
+                                  'apresentem resfriado ou qualquer doença que ofereça risco '
+                                  'por transmissão.'),
+                          const SizedBox(
+                            height: 10.0,
+                          ),
+                          // Radin(UID,'DEV3TASK1'),
+
+                          const SizedBox(
+                            height: 60.0,
+                          ),
+                          textCTRST(
+                            stg1: '\u2055 Nas ',
+                            stg2: 'diferentes posições corporais',
+                            stg3:
+                                ', deixar ${store.controllerKidName.text} alcançar e pegar o brinquedo. Oferecer objetos'
+                                ' macios, leves e seguros.',
+                          ),
+                          textCTRST(
+                              stg1:
+                                  '\u2055 Manter o ambiente tranquilo principalmente '
+                                  'na hora do sono.'),
+                          const SizedBox(
+                            height: 15.0,
+                          ),
+                          textCTRST(
+                            stg1:
+                                '\u2055 Manter atenção ao tom de voz e as expressões faciais '
+                                'para interagir com ${store.controllerKidName.text}. ',
+                          ),
+                          textCTRST(
+                              stg1:
+                                  '\u2055 Manter atenção para as novas conquistas de ${store.controllerKidName.text}.'),
+                          const SizedBox(
+                            height: 10.0,
+                          ),
+                          // Radin(UID,'DEV3TASK2'),
+
+                          const SizedBox(
+                            height: 60.0,
+                          ),
+                          textCTRST(
+                            stg1:
+                                '\u2055 Os movimentos corporais podem ser estimulados também '
+                                'por meio da pele. Antes ou depois do banho uma massagem com '
+                                'óleo específico para criança, provocara o relaxamento e '
+                                'estímulo sensorial.',
+                          ),
+                          textCTRST(
+                              stg1:
+                                  '\u2055 No banho utilizar sabonete hipoalergênico. '
+                                  'A temperatura da água da banheira deverá estar quentinha, mas '
+                                  'confortável.'),
+                          const SizedBox(
+                            height: 15.0,
+                          ),
+                          textCTRST(
+                            stg1:
+                                '\u2055 Cante músicas calmas e agradáveis que ajudem no '
+                                'relaxamento, principalmente na hora do soninho. ',
+                          ),
+                          textCTRST(
+                              stg1:
+                                  '\u2055 Evitar ambientes movimentados e com '
+                                  'barulhos, pois podem estressar ${store.controllerKidName.text}.'),
+                          const SizedBox(
+                            height: 10.0,
+                          ),
+                          // Radin(UID,'DEV3TASK3'),
+
+                          const SizedBox(
+                            height: 60.0,
+                          ),
+                          textCTRST(
+                            stg1: '\u2055 Estimular o movimento da ',
+                            stg2:
+                                'posição lateral para a posição de barriguinha para baixo',
+                            stg3:
+                                ', sempre com o acompanhamento. A posição sentada para as '
+                                'brincadeiras com as mãos e pernas.',
+                          ),
+                          textCTRST(
+                              stg1:
+                                  '\u2055 A posição que mantém a cabeça de ${store.controllerKidName.text} '
+                                  'sempre mais elevada, do que o resto do corpo, pode evitar o refluxo.'),
+                          const SizedBox(
+                            height: 15.0,
+                          ),
+                          textCTRST(
+                            stg1:
+                                '\u2055 No momento do banho aproveite para transmitir o toque'
+                                ' da água juntamente com conversas e músicas infantis passando'
+                                ' estímulos de tranquilidade e de afeto',
+                          ),
+                          textCTRST(
+                              stg1:
+                                  '\u2055 Temos que trabalhar os vínculos de ${store.controllerKidName.text} com'
+                                  ' a família, devemos fortalecer com o convívio tranquilo e saudável.'),
+                          const SizedBox(
+                            height: 10.0,
+                          ),
+                          // Radin(UID,'DEV3TASK4'),
+
+                          const SizedBox(
+                            height: 60.0,
+                          ),
+                          textCTRST(
+                            stg1: '\u2055 Agora vamos ver a ',
+                            stg2: 'movimentação em todas as posições corporais',
+                            stg3:
+                                ', você poderá estimular de forma voluntária. Registre!',
+                          ),
+                          textCTRST(
+                              stg1:
+                                  '\u2055 Registre! As mudanças e as conquistas de '
+                                  '${store.controllerKidName.text} devem ser marcadas para as lembranças.'),
+                          const SizedBox(
+                            height: 15.0,
+                          ),
+                          textCTRST(
+                            stg1:
+                                '\u2055 Comemore cada conquista dos novos movimentos corporais.',
+                          ),
+                          textCTRST(
+                              stg1:
+                                  '\u2055 Comemore cada conquista dos novos movimentos'
+                                  ' corporais.'),
+                          const SizedBox(
+                            height: 10.0,
+                          ),
+                          // Radin(UID,'DEV3TASK5'),
+
+                          const SizedBox(
+                            height: 60.0,
+                          ),
+                          // redDoubt(context,UID),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
   }
 }

@@ -167,15 +167,14 @@ class Tarefa4PageState extends State<Tarefa4Page> {
                                               ' sons para ${store.controllerKidName.text}.'),
                                     ),
                                     const Padding(
-                                            padding: EdgeInsets.all(8.0),
-                                            child: Text("CUIDADO!",
-                                                style: TextStyle(
-                                                    color: Color.fromARGB(
-                                                        255, 214, 14, 0),
-                                                    fontSize: 20,
-                                                    fontWeight:
-                                                        FontWeight.bold)),
-                                          ),
+                                      padding: EdgeInsets.all(8.0),
+                                      child: Text("CUIDADO!",
+                                          style: TextStyle(
+                                              color: Color.fromARGB(
+                                                  255, 214, 14, 0),
+                                              fontSize: 20,
+                                              fontWeight: FontWeight.bold)),
+                                    ),
                                     Container(
                                       margin: const EdgeInsets.only(
                                           left: 40.0,
@@ -246,7 +245,9 @@ class Tarefa4PageState extends State<Tarefa4Page> {
                                                   Icons.arrow_forward,
                                                   color: Colors.white,
                                                 ),
-                                                onPressed: () {},
+                                                onPressed: () {
+                                                  Navigator.of(context).push(MaterialPageRoute(builder: ((context) => const TaskFour())));
+                                                },
                                               ),
                                             ),
                                           ),
@@ -261,5 +262,205 @@ class Tarefa4PageState extends State<Tarefa4Page> {
             ],
           ),
         ));
+  }
+}
+
+class TaskFour extends StatefulWidget {
+  const TaskFour({super.key});
+
+  @override
+  State<TaskFour> createState() => _TaskFourState();
+}
+
+class _TaskFourState extends State<TaskFour> {
+  final EditStore store = Modular.get();
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text("Tarefa 1"),
+        centerTitle: true,
+        elevation: 0,
+      ),
+      body: Container(
+        color: Colors.green,
+        width: MediaQuery.of(context).size.width,
+        height: MediaQuery.of(context).size.height,
+        child: Column(
+          children: <Widget>[
+            Expanded(
+              child: LayoutBuilder(
+                builder: (_, constraints) => SingleChildScrollView(
+                  child: Container(
+                    width: MediaQuery.of(context).size.width * .9,
+                    height: MediaQuery.of(context).size.height * 3.3,
+                    decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(30),
+                        boxShadow: [
+                          BoxShadow(
+                              color: Colors.black.withOpacity(1),
+                              blurRadius: 8,
+                              offset: const Offset(0, 5))
+                        ]),
+                    child: Padding(
+                      padding: const EdgeInsets.all(15.0),
+                      child: Column(
+                        children: <Widget>[
+                          
+                          speechPerson(),
+                          const SizedBox(
+                            height: 40.0,
+                          ),
+                          
+                               textCTRST(
+                                  stg1:
+                                      '\u2055 Vamos começar com movimentos para preparar ${store.controllerKidName.text} para o '
+                                      'rolar. Para as brincadeiras devem ser utilizados brinquedos ou situações'
+                                      ' que estimulem ${store.controllerKidName.text} a mudar de posição corporal. Vamos iniciar'
+                                      ' de lateral para barriga para cima.',
+                                )
+                              , textCTRST(
+                                  stg1:
+                                      '\u2055 As brincadeiras devem ser sempre em lugares'
+                                      ' seguros, que não ofereçam riscos.'),
+                          const SizedBox(
+                            height: 15.0,
+                          ),
+                          
+                               textCTRST(
+                                  stg1:
+                                      '\u2055  Todas as brincadeiras e movimentos executados devem'
+                                      ' ser comemorados com palavras de incentivo e alegria. ',
+                                )
+                              , textCTRST(
+                                  stg1:
+                                      '\u2055 As orientações que você aprendeu com os '
+                                      'profissionais de saúde, até agora, são importantes para colocar '
+                                      'em prática os cuidados. É mais seguro para ${store.controllerKidName.text}.'),
+                          const SizedBox(
+                            height: 10.0,
+                          ),
+                          // Radin(UID, 'DEV4TASK1'),
+                          const SizedBox(
+                            height: 60.0,
+                          ),
+                          
+                               textCTRST(
+                                  stg1:
+                                      '\u2055 Vamos estimular “o sentar” com apoio para o melhor ',
+                                  stg2: 'controle da cabeça',
+                                  stg3:
+                                      '. Tirar as costas do apoio e trazer o corpo um pouco para'
+                                      ' frente (pequeno deslocamento) e retornar em seguida, como uma'
+                                      ' brincadeira conhecida como Serra-serra. ',
+                                )
+                              , textCTRST(
+                                  stg1:
+                                      '\u2055 As brincadeiras com ${store.controllerKidName.text} e seus familiares '
+                                      'são divertidas. Aproveitem!'),
+                          const SizedBox(
+                            height: 15.0,
+                          ),
+                          
+                               textCTRST(
+                                  stg1:
+                                      '\u2055 Sorria e estimule ${store.controllerKidName.text} a sorrir. Cante com movimento '
+                                      'labiais bem claros e visíveis, para que ${store.controllerKidName.text} possa visualizar os '
+                                      'movimentos e perceber o som.',
+                                )
+                              , textCTRST(
+                                  stg1:
+                                      '\u2055 A rotina de cuidados com ${store.controllerKidName.text} depende do '
+                                      'ritmo dele com o seu cuidador. Tudo está entrando na rotina da casa.'),
+                          const SizedBox(
+                            height: 10.0,
+                          ),
+                          // Radin(UID, 'DEV4TASK2'),
+                          const SizedBox(
+                            height: 60.0,
+                          ),
+                          
+                               textCTRST(
+                                  stg1:
+                                      '\u2055 Os movimentos corporais podem ser estimulados também '
+                                      'por meio da pele. Antes ou depois do banho passe uma escova '
+                                      'bem macia nos braços, pernas, barriga e nas costas da criança, '
+                                      'para o estímulo sensorial.',
+                                )
+                              , textCTRST(
+                                  stg1:
+                                      '\u2055 O corte das pequenas unhas de ${store.controllerKidName.text} deve ser'
+                                      ' feito de forma delicada, aproveite o período do sono, quando '
+                                      '${store.controllerKidName.text} estiver relaxado (a), para cortar. As unhas grandes podem '
+                                      'facilitar o arranhar e também mantém sujeiras.'),
+                          const SizedBox(
+                            height: 10.0,
+                          ),
+                          // Radin(UID, 'DEV4TASK3'),
+                          const SizedBox(
+                            height: 60.0,
+                          ),
+                          
+                               textCTRST(
+                                  stg1: '\u2055 Deixar de ',
+                                  stg2: 'barriguinha para baixo',
+                                  stg3:
+                                      'com alguns brinquedos próprios para a idade ao alcance dos '
+                                      'olhos de ${store.controllerKidName.text}. É momento de perceber os objetos, espaços e os sons do '
+                                      'local, sem a interferência de adultos. Todas as ações e '
+                                      'tentativas de novos movimentos ajudarão na busca de novas conquistas.',
+                                )
+                              , textCTRST(
+                                  stg1:
+                                      '\u2055 As crianças expressam o movimento e suas '
+                                      'mudanças vão acontecendo muito rápido. Essa evolução faz parte '
+                                      'para o desenvolvimento. Registre os movimentos apresentados.'),
+                          const SizedBox(
+                            height: 10.0,
+                          ),
+                          // Radin(UID, 'DEV4TASK4'),
+
+                          const SizedBox(
+                            height: 60.0,
+                          ),
+                          
+                               textCTRST(
+                                  stg1: '\u2055 Permanecer um tempo em ',
+                                  stg2: 'todas as posições corporais',
+                                  stg3: ', com exploração do espaço.',
+                                )
+                              , textCTRST(
+                                  stg1:
+                                      '\u2055 A exploração do espaço começa a fazer parte'
+                                      ' da rotina. Conviver com os familiares colabora para o desenvolvimento.'),
+                          const SizedBox(
+                            height: 15.0,
+                          ),
+                          
+                               textCTRST(
+                                  stg1:
+                                      '\u2055 Apresentar sempre objetos diferentes (cores, sons e formas).',
+                                )
+                              , textCTRST(
+                                  stg1:
+                                      '\u2055 A observação cuidadosa faz com que novas '
+                                      'situações possam ser percebidas em seus movimentos, expressões '
+                                      'sonoras e nas expressões do rosto.'),
+                          const SizedBox(
+                            height: 10.0,
+                          ),
+                          // Radin(UID, 'DEV4TASK5'),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
   }
 }

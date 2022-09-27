@@ -213,7 +213,13 @@ class Tarefa7PageState extends State<Tarefa7Page> {
                                                   Icons.arrow_forward,
                                                   color: Colors.white,
                                                 ),
-                                                onPressed: () {},
+                                                onPressed: () {
+                                                  Navigator.of(context).push(
+                                                    MaterialPageRoute(
+                                                      builder: ((context) => const TaskSevens())
+                                                    )
+                                                  );
+                                                },
                                               ),
                                             ),
                                           ),
@@ -228,5 +234,137 @@ class Tarefa7PageState extends State<Tarefa7Page> {
             ],
           ),
         ));
+  }
+}
+
+class TaskSevens extends StatefulWidget {
+  const TaskSevens({super.key});
+
+  @override
+  State<TaskSevens> createState() => _TaskSevensState();
+}
+
+class _TaskSevensState extends State<TaskSevens> {
+  final EditStore store = Modular.get();
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+     appBar: AppBar(
+        title: const Text("Tarefa 6"),
+        centerTitle: true,
+        elevation: 0,
+      ), 
+      body: Container(
+        color: Colors.green,
+        width: MediaQuery.of(context).size.width,
+        height: MediaQuery.of(context).size.height,
+        child: Column(children: [
+          Expanded(
+            child: LayoutBuilder(
+              builder: (_, constraints) => SingleChildScrollView(
+                  child: Container(
+                width: MediaQuery.of(context).size.width * .9,
+                height: MediaQuery.of(context).size.height * 3,
+                decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(30),
+                    boxShadow: [
+                      BoxShadow(
+                          color: Colors.black.withOpacity(1),
+                          blurRadius: 8,
+                          offset: const Offset(0, 5))
+                    ]),
+                child: Padding(
+                  padding: const EdgeInsets.all(15.0),
+                  child: Column(
+                    children: [
+                       speechPerson(),
+          const SizedBox(height: 40.0,),
+          textCTRST(
+            stg1: '\u2055 Na ',
+            stg2: 'posição sentada',
+            stg3: ' com o apoio das costas oferecer um brinquedo leve, deixe '
+                '${store.controllerKidName.text} pegar, vamos girar a cabeça de um lado para o outro na '
+                'busca de visualizar o brinquedo e, ao final, deixe pegar e '
+                'explorar o brinquedo com as mãozinhas. ',
+          ),textCTRST(stg1: '\u2055 ${store.controllerKidName.text} está conseguindo avançar nas '
+              'conquistas, aproveite: Parabéns!'),
+          
+          textCTRST(
+            stg1: '\u2055 Estimule a independência e dê parabéns, faça festa a '
+                'cada avanço que perceber.  Em todas essas ações verbalize de '
+                'forma que cada conquista seja marcada por uma expressão de '
+                'alegria e um som.',
+          ),
+          const SizedBox(height: 10.0,),
+          // Radin(UID,'DEV7TASK1'),
+
+
+          const SizedBox(height: 60.0,),
+          textCTRST(
+            stg1: '\u2055 Vamos brincar com a nossa face, mandar beijo, fazer '
+                'caminhãozinho, fazer caretinha, emitir sons específicos de '
+                'modo prolongado, como “aaaaaaa” ou “gugugu”. Brinque de '
+                'alternar expressões faciais.',
+          ),textCTRST(stg1: '\u2055 Toda atenção e cuidado são necessários '
+              'nessa fase com ${store.controllerKidName.text}. Observar sempre as expressões de ${store.controllerKidName.text}, '
+              'neste período é a sua forma de comunicação.'),
+          const SizedBox(height: 10.0,),
+          // Radin(UID,'DEV7TASK2'),
+
+
+          const SizedBox(height: 60.0,),
+          textCTRST(
+            stg1: '\u2055 É hora de brincar com a mãozinha, bate palminha e '
+                'depois com os pezinhos na posição de barriguinha para cima. ',
+          ),textCTRST(stg1: '\u2055  ${store.controllerKidName.text} adquire a percepção de afeto a partir'
+              ' da interação familiar. É importante o convívio de ${store.controllerKidName.text} com '
+              'todos os membros da casa. O ambiente tranquilo ajuda para o'
+              ' desenvolvimento. '),
+          const SizedBox(height: 10.0,),
+          // Radin(UID,'DEV7TASK3'),
+
+
+          const SizedBox(height: 60.0,),
+          textCTRST(
+            stg1: '\u2055 Na hora da bagunça vamos brincar de gargalhada, de '
+                'falar “muito bem”, “parabéns” “viva”. Vamos movimentar: de '
+                'barriguinha para cima vamos ajudar a virar de lateral e depois'
+                ' barriguinha para baixo. ',
+          ),textCTRST(stg1: '\u2055 As atividades interativas de ${store.controllerKidName.text} devem ser'
+              ' prazerosas e alegres, mas não exagere provocando a '
+              'irritabilidade em ${store.controllerKidName.text}. '),
+          // SizedBox(height: group=='EST'?15.0:0.0,),
+          textCTRST(
+            stg1: '\u2055 Brincadeiras de esconder o rosto com as mãos também '
+                'são boas opções para estimular a verbalização. (ex: cadê, '
+                'achou etc..)',
+          ),
+          const SizedBox(height: 10.0,),
+          // Radin(UID,'DEV7TASK4'),
+
+
+          const SizedBox(height: 60.0,),
+          textCTRST(
+            stg1: '\u2055 Vamos deixar uma luz fraca, somente um pontinho de '
+                'claridade, pois é hora de descansar. O silêncio ajuda. Acalme com '
+                'palavras serenas e de afeto. Ao acordar repita palavras de '
+                'carinho.',
+          ),textCTRST(stg1: '\u2055 Verificar o tempo de permanência e '
+              'quantidade de visitas para ${store.controllerKidName.text}. O excesso pode gerar reação de '
+              'estresse. Todas as atividades oferecidas para ${store.controllerKidName.text} colaboram '
+              'para o seu desenvolvimento, observe sua expressão para verificar'
+              ' a tolerância. Se a expressão facial estiver tranquila significa'
+              ' que está bem. '),
+          const SizedBox(height: 10.0,),
+                    ],
+                  ),
+                ),
+              )),
+            ),
+          ),
+        ]),
+      ),
+    );
   }
 }

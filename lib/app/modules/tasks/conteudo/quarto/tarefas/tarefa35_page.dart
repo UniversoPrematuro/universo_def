@@ -71,7 +71,7 @@ class Tarefa35PageState extends State<Tarefa35Page> {
                                           decoration: BoxDecoration(
                                               color: Colors.white,
                                               border: Border.all(
-                                                  color: Color.fromARGB(
+                                                  color: const Color.fromARGB(
                                                       255, 101, 188, 89),
                                                   width: 3.0)),
                                           child: Image.asset(
@@ -81,7 +81,7 @@ class Tarefa35PageState extends State<Tarefa35Page> {
                                           decoration: BoxDecoration(
                                               color: Colors.white,
                                               border: Border.all(
-                                                  color: Color.fromARGB(
+                                                  color: const Color.fromARGB(
                                                       255, 101, 188, 89),
                                                   width: 3.0)),
                                           child: Image.asset(
@@ -90,17 +90,17 @@ class Tarefa35PageState extends State<Tarefa35Page> {
                                         ),
                                       ],
                                     ),
-                                    SizedBox(
+                                    const SizedBox(
                                       height: 20.0,
                                     ),
                                     Container(
-                                      margin: EdgeInsets.only(
+                                      margin: const EdgeInsets.only(
                                           left: 40.0,
                                           right: 40.0,
                                           bottom: 20.0),
-                                      padding: EdgeInsets.fromLTRB(
+                                      padding: const EdgeInsets.fromLTRB(
                                           20.0, 10.0, 20.0, 35.0),
-                                      decoration: BoxDecoration(
+                                      decoration: const BoxDecoration(
                                         image: DecorationImage(
                                             fit: BoxFit.fill,
                                             image: AssetImage(
@@ -145,13 +145,13 @@ class Tarefa35PageState extends State<Tarefa35Page> {
                                               fontWeight: FontWeight.bold)),
                                     ),
                                     Container(
-                                      margin: EdgeInsets.only(
+                                      margin: const EdgeInsets.only(
                                           left: 40.0,
                                           right: 40.0,
                                           bottom: 20.0),
-                                      padding: EdgeInsets.fromLTRB(
+                                      padding: const EdgeInsets.fromLTRB(
                                           20.0, 10.0, 20.0, 35.0),
-                                      decoration: BoxDecoration(
+                                      decoration: const BoxDecoration(
                                         image: DecorationImage(
                                             fit: BoxFit.fill,
                                             image: AssetImage(
@@ -170,13 +170,13 @@ class Tarefa35PageState extends State<Tarefa35Page> {
                                               fontWeight: FontWeight.bold)),
                                     ),
                                     Container(
-                                      margin: EdgeInsets.only(
+                                      margin: const EdgeInsets.only(
                                           left: 40.0,
                                           right: 40.0,
                                           bottom: 20.0),
-                                      padding: EdgeInsets.fromLTRB(
+                                      padding: const EdgeInsets.fromLTRB(
                                           20.0, 10.0, 20.0, 35.0),
-                                      decoration: BoxDecoration(
+                                      decoration: const BoxDecoration(
                                         image: DecorationImage(
                                             fit: BoxFit.fill,
                                             image: AssetImage(

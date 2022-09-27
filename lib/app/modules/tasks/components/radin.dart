@@ -1,84 +1,91 @@
-import 'package:collection/collection.dart';
-import 'package:flutter/material.dart';
+// ignore_for_file: public_member_api_docs, sort_constructors_first, unnecessary_null_comparison
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-
-
+// import 'package:collection/collection.dart';
+import 'package:collection/collection.dart';
 
 // import '../../models/task_model.dart';
 import '../../models/task_model.dart';
 import '../tasks_store.dart';
 
-Widget regText(String title, String text){
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: <Widget>[
-        Text(
-          text,
-          style: const TextStyle(
-            fontSize: 15,
-            fontWeight: FontWeight.normal,
-            color: Colors.black,
-            
-          ),
-          textAlign: TextAlign.justify,
-        )
-      ],
-    );
-}
-
-// import 'package:flutter/material.dart';
-
-Widget speechPerson() {
-  return Row(
-    crossAxisAlignment: CrossAxisAlignment.start,
-    children: <Widget>[
-      Column(
-        children: <Widget>[
-          Container(height: 50.0,color: Colors.red,),
-          Container(
-            width: 100.0,
-            child: Image.asset("images1/Personagemai.png"),
-          ),
-        ],
-      ),
-      Expanded(
-        child: Container(
-          //margin: EdgeInsets.only(left: 20.0,right: 20.0,bottom: 20.0),
-          padding: const EdgeInsets.fromLTRB(20.0, 10.0, 0.0, 20.0),
-          decoration: const BoxDecoration(
-            image: DecorationImage(
-                fit: BoxFit.fill,
-                image: AssetImage('images1/ballon9.png')
-            ),
-          ),
-          child: const Text(
-            "Vamos para a próxima etapa, um bom trabalho para as próximas tarefas",
-            style: TextStyle(
-                fontSize: 16
-            ),
-          ),
-        ),
-      )
-    ],
-  );
-}
-
-// ignore_for_file: public_member_api_docs, sort_constructors_first
-
-
 // enum SingingCharacter { sim, nao, parcial }
+class Radin extends StatefulWidget {
+  @override
+  _RadinState createState() => _RadinState();
+}
+
+class _RadinState extends State<Radin> {
+  final TasksStore store = Modular.get();
+  @override
+  Widget build(BuildContext context) {
+    return Row(children: [
+      Row(
+        children: [
+          const Text("Sim",
+                    style: TextStyle(
+                        fontWeight: FontWeight.w500,
+                        fontSize: 16,
+                        color: Color.fromARGB(255, 101, 187, 88))),
+          Observer(builder: (_) {
+            return Radio(
+              value: "Sim",
+              toggleable: true,
+              groupValue: store.escolhaU,
+              onChanged: (String? escolha) {
+                store.escolhaU = escolha;
+              },
+              // groupValue: '',
+            );
+          }),
+          const Text("Não",
+              style: TextStyle(
+                  fontWeight: FontWeight.w500,
+                  fontSize: 16,
+                  color: Color.fromARGB(255, 255, 193, 143))),
+          Observer(builder: (_) {
+            return Radio(
+              value: "nao",
+              toggleable: true,
+              groupValue: store.escolhaU,
+              onChanged: (String? escolha) {
+                store.escolhaU = escolha!;
+              },
+              // groupValue: '',
+            );
+          }),
+          const Text("Parcial",
+              style: TextStyle(
+                  fontWeight: FontWeight.w500,
+                  fontSize: 16,
+                  color: Color.fromARGB(255, 255, 193, 143))),
+          Observer(builder: (_) {
+            return Radio(
+              value: "parcial",
+              toggleable: true,
+              groupValue: store.escolhaU,
+              onChanged: (String? escolha) {
+                store.escolhaU = escolha!;
+              },
+              // groupValue: '',
+            );
+          })
+        ],
+      )
+    ]);
+  }
+}
+
+
+
 
 // class Radin extends StatefulWidget {
-//   final String? task;
-//   final String? UID;
-//   const Radin({
+//   String? task;
+//   Radin({
 //     Key? key,
 //     this.task,
-//     this.UID,
 //   }) : super(key: key);
 
 //   @override
@@ -86,7 +93,7 @@ Widget speechPerson() {
 // }
 
 // class _RadinState extends State<Radin> {
-//   // SingingCharacter? _character;
+//   SingingCharacter? _character;
 //   String? group;
 //   String? task;
 //   final FirebaseFirestore db = FirebaseFirestore.instance;
@@ -114,11 +121,11 @@ Widget speechPerson() {
 //   @override
 //   Widget build(BuildContext context) {
 //     return StreamBuilder<List<Task>>(
-//       stream: store.taskController.stream,
+//       stream: store.outTask,
 //       builder: (context, snapshot) {
 
-//         late List<Task> tsk;
-//           Task? fst = Task();
+//         List<Task> tsk;
+//           Task fst = Task();
 //           bool x = false;
 
 //           if(snapshot.hasData&&snapshot.data!.isNotEmpty){
@@ -127,9 +134,9 @@ Widget speechPerson() {
 //             tsk.sort((a,b)=>int.parse(a.task!.substring(4))
 //                 .compareTo(int.parse(b.task!.substring(4))));
 
-//             fst = tsk.firstWhereOrNull((item)=>item.status=="I");
+//             fst = tsk.firstWhereOrNull((item)=>item.status=="I")!;
 
-//               if(fst!.task==task){
+//               if(fst.task==task){
 //                 x = true;
 //               } else x = false;
 
@@ -167,10 +174,10 @@ Widget speechPerson() {
 //                     value: SingingCharacter.sim,
 //                     onChanged: x? 
 //                     (SingingCharacter? value) async { 
-//                       fst!.status = 'S';
+//                       await store.uploadTaskToFirebase();
+//                       fst.status = 'S';
 //                       store.character = value;
-//                       store.uploadTaskToFirebase();
-//                       // store.getTasksFromFirebase(store.uid!, group!);
+//                       // store.getTasksFromFirebase(store.uid, group!);
  
 //                       }:null,
 //                     title: Text('Sim',style: TextStyle(color: Colors.black),)
@@ -180,9 +187,9 @@ Widget speechPerson() {
 //                     value: SingingCharacter.nao,
 //                     onChanged: x? 
 //                     (SingingCharacter? value) async { 
-//                       fst!.status = 'N';
+//                       await store.uploadTaskToFirebase();
+//                       fst.status = 'N';
 //                       store.character = value;
-//                       store.uploadTaskToFirebase();
  
 //                       }:null,
 //                     title: Text('Não',style: TextStyle(color: Colors.black),)
@@ -192,9 +199,9 @@ Widget speechPerson() {
 //                     value: SingingCharacter.parcial,
 //                     onChanged: x? 
 //                     (SingingCharacter? value) async { 
-//                       fst!.status = 'P';
+//                       await store.uploadTaskToFirebase();
+//                       fst.status = 'P';
 //                       store.character = value;
-//                       store.uploadTaskToFirebase();
  
 //                       }:null,
 //                     title: Text('Parcial',style: TextStyle(color: Colors.black),)
@@ -205,33 +212,9 @@ Widget speechPerson() {
 
 
         
-//       } else{
-//         Radin();
-//         store.getTasksFromFirebase(store.uid!, store.group);
-//         return Container();
-//       }
+//       } else return CircularProgressIndicator();
 //   } 
   
 //   );
 //   }
 // }
-
-
-Widget textCTRST ({String? stg1,String? stg2,String? stg3}) {
-  return RichText(
-    textAlign: TextAlign.justify,
-    text: TextSpan(
-      text: stg1,
-      style: const TextStyle(
-        fontSize: 18,
-        fontWeight: FontWeight.normal,
-        color: Colors.black,
-
-      ),
-      children: <TextSpan>[
-        TextSpan(text: stg2, style: const TextStyle(fontWeight: FontWeight.bold)),
-        TextSpan(text: stg3),
-      ],
-    ),
-  );
-}

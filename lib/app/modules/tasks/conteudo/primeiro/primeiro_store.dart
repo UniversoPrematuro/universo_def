@@ -7,11 +7,6 @@ part 'primeiro_store.g.dart';
 class PrimeiroStore = _PrimeiroStoreBase with _$PrimeiroStore;
 abstract class _PrimeiroStoreBase with Store {
 
-  @observable
-  int value = 0;
-
-  @action
-  void increment() {
-    value++;
-  } 
+  // @observable
+  //  String? 
 }

@@ -185,9 +185,9 @@ class Tarefa8PageState extends State<Tarefa8Page> {
                                       child: regText(
                                           '\u25CF Cuidado!',
                                           '- O movimento corporal começa a '
-                                                  'ficar de forma mais independente. É importante maior atenção aos '
-                                                  'cuidados com queda e com brinquedos pequenos que possam ser '
-                                                  'levados à boca.'
+                                              'ficar de forma mais independente. É importante maior atenção aos '
+                                              'cuidados com queda e com brinquedos pequenos que possam ser '
+                                              'levados à boca.'
                                               '- Cuidados com quedas e brinquedos pequenos na boca.'),
                                     ),
                                     Padding(
@@ -236,7 +236,13 @@ class Tarefa8PageState extends State<Tarefa8Page> {
                                                   Icons.arrow_forward,
                                                   color: Colors.white,
                                                 ),
-                                                onPressed: () {},
+                                                onPressed: () {
+                                                  Navigator.of(context).push(
+                                                    MaterialPageRoute(
+                                                      builder: ((context) => const TaskEights())
+                                                    )
+                                                  );
+                                                },
                                               ),
                                             ),
                                           ),
@@ -251,5 +257,182 @@ class Tarefa8PageState extends State<Tarefa8Page> {
             ],
           ),
         ));
+  }
+}
+
+class TaskEights extends StatefulWidget {
+  const TaskEights({super.key});
+
+  @override
+  State<TaskEights> createState() => _TaskEightsState();
+}
+
+class _TaskEightsState extends State<TaskEights> {
+  final EditStore store = Modular.get();
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text("Tarefa 6"),
+        centerTitle: true,
+        elevation: 0,
+      ),
+      body: Container(
+        color: Colors.green,
+        width: MediaQuery.of(context).size.width,
+        height: MediaQuery.of(context).size.height,
+        child: Column(children: [
+          Expanded(
+            child: LayoutBuilder(
+              builder: (_, constraints) => SingleChildScrollView(
+                  child: Container(
+                width: MediaQuery.of(context).size.width * .9,
+                height: MediaQuery.of(context).size.height * 3,
+                decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(30),
+                    boxShadow: [
+                      BoxShadow(
+                          color: Colors.black.withOpacity(1),
+                          blurRadius: 8,
+                          offset: const Offset(0, 5))
+                    ]),
+                child: Padding(
+                  padding: const EdgeInsets.all(15.0),
+                  child: Column(
+                    children: [
+                      speechPerson(),
+                      const SizedBox(
+                        height: 40.0,
+                      ),
+                      textCTRST(
+                        stg1: '\u2055 De ',
+                        stg2: 'barriguinha para baixo',
+                        stg3:
+                            ' em um lugar plano e baixo o adulto deverá mostrar com '
+                            'movimento e som um brinquedo para estimular o pegar e/ou '
+                            'movimentação dos braços e pernas.',
+                      ),
+                      textCTRST(
+                          stg1:
+                              '\u2055 Deixe a casa bem arejada para um ambiente agradável.'),
+                      // SizedBox(height: group=='EST'?15.0:0.0,),
+                      textCTRST(
+                        stg1:
+                            '\u2055 Em todas as atividades diárias associe com movimentos'
+                            ' e verbalizações de repetição para a memorização. “Cadê!”',
+                      ),
+                      const SizedBox(
+                        height: 10.0,
+                      ),
+                      // Radin(UID,'DEV8TASK1'),
+
+                      const SizedBox(
+                        height: 60.0,
+                      ),
+                      textCTRST(
+                        stg1: '\u2055 Na ',
+                        stg2: 'posição sentada',
+                        stg3:
+                            ' mostrar o brinquedo com uma distância e estimular ${store.controllerKidName.text} a '
+                            'pegar e/ou movimentar as mãos e pernas. Após isso, deixe alcançar o'
+                            ' brinquedo e explorar.',
+                      ),
+                      textCTRST(
+                          stg1:
+                              '\u2055 Não permita que pessoas fumem no ambiente '
+                              'em que ${store.controllerKidName.text} está. Mantenha a boa qualidade do ar para proteger '
+                              'as vias respiratórias e a saúde.'),
+                      // SizedBox(height: group=='EST'?15.0:0.0,),
+                      textCTRST(
+                        stg1:
+                            '\u2055 Aponte o objeto (brinquedo) antes do alcance, nomeia '
+                            'o objeto depois pegue-o e deixe ${store.controllerKidName.text} pegar.',
+                      ),
+                      const SizedBox(
+                        height: 10.0,
+                      ),
+                      // Radin(UID,'DEV8TASK2'),
+
+                      const SizedBox(
+                        height: 60.0,
+                      ),
+                      textCTRST(
+                        stg1:
+                            '\u2055 Oferecer brinquedos com diferentes texturas e formas '
+                            '(macio, áspero, liso, redondo, fino, flexível). ',
+                      ),
+                      textCTRST(
+                          stg1:
+                              '\u2055 Os cuidados diários com ${store.controllerKidName.text} (banho, troca,'
+                              ' alimentação) podem ser momentos de estreitar laços familiares.'
+                              ' Aproveite!  '),
+                      const SizedBox(
+                        height: 10.0,
+                      ),
+                      // Radin(UID,'DEV8TASK3'),
+
+                      const SizedBox(
+                        height: 60.0,
+                      ),
+                      textCTRST(
+                        stg1:
+                            '\u2055 Brincar de girar o corpo no próprio eixo, ',
+                        stg2:
+                            'barriguinha para cima em direção da lateral direita e depois'
+                            ' volta para barriga para cima e vira para a lateral esquerda.',
+                      ),
+                      textCTRST(
+                          stg1:
+                              '\u2055 A higienização das mãos é necessária sempre'
+                              ' que manipular ${store.controllerKidName.text}. Principalmente de visitantes. O sistema de'
+                              ' defesa de ${store.controllerKidName.text} está sendo construído, então, vamos tomar '
+                              'cuidado com materiais pessoais e tudo que terá contato com ${store.controllerKidName.text}.'
+                              ' Com o crescimento a defesa do organismo vai ficando mais forte.'),
+                      // SizedBox(height: group=='EST'?15.0:0.0,),
+                      textCTRST(
+                        stg1:
+                            '\u2055 Aproveite para estimular a imitação dos sons das palavras.',
+                      ),
+                      const SizedBox(
+                        height: 10.0,
+                      ),
+                      // Radin(UID,'DEV8TASK4'),
+
+                      const SizedBox(
+                        height: 60.0,
+                      ),
+                      textCTRST(
+                        stg1:
+                            '\u2055 Vamos associar o movimento sentado com o apoio nas '
+                            'costas e o movimento do olho em busca do objeto de estimulo '
+                            'para o lado direito e esquerdo, deixe ${store.controllerKidName.text} perceber que poderá'
+                            ' buscar o giro do corpo, que há uma possibilidade. Sentir que '
+                            'as conquistas de novos movimentos estarão por vir.',
+                      ),
+                      textCTRST(
+                          stg1:
+                              '\u2055 O cuidado com ${store.controllerKidName.text} é importante para sua '
+                              'saúde e bem-estar, mas não esqueça dos cuidados de quem cuida de'
+                              ' ${store.controllerKidName.text}, pois o descanso, a alimentação e também o estabelecer uma'
+                              ' rotina, é valioso neste momento. '),
+                      // SizedBox(height: group=='EST'?15.0:0.0,),
+                      textCTRST(
+                        stg1:
+                            '\u2055 Oferecer mais de um brinquedo e deixe ${store.controllerKidName.text} manifestar'
+                            ' se há um preferido. ',
+                      ),
+                      const SizedBox(
+                        height: 10.0,
+                      ),
+                    ],
+                  ),
+                ),
+              )),
+            ),
+          ),
+        ]),
+      ),
+    );
   }
 }
