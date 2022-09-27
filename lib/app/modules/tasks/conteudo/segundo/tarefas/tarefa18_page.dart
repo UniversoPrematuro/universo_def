@@ -270,3 +270,186 @@ class Tarefa18PageState extends State<Tarefa18Page> {
         ));
   }
 }
+
+class TaskEighte extends StatefulWidget {
+  const TaskEighte({super.key});
+
+  @override
+  State<TaskEighte> createState() => _TaskEighteState();
+}
+
+class _TaskEighteState extends State<TaskEighte> {
+  final EditStore store = Modular.get();
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text("Tarefa 18"),
+        centerTitle: true,
+        elevation: 0,
+      ),
+      body: Container(
+        color: Colors.green,
+        width: MediaQuery.of(context).size.width,
+        height: MediaQuery.of(context).size.height,
+        child: Column(children: [
+          Expanded(
+            child: LayoutBuilder(
+              builder: (_, constraints) => SingleChildScrollView(
+                  child: Container(
+                width: MediaQuery.of(context).size.width * .9,
+                height: MediaQuery.of(context).size.height * 3,
+                decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(30),
+                    boxShadow: [
+                      BoxShadow(
+                          color: Colors.black.withOpacity(1),
+                          blurRadius: 8,
+                          offset: const Offset(0, 5))
+                    ]),
+                child: Padding(
+                  padding: const EdgeInsets.all(15.0),
+                  child: Column(
+                    children: [
+                      speechPerson(),
+                      const SizedBox(
+                        height: 40.0,
+                      ),
+                      SizedBox(
+                        height: 60.0,
+                      ),
+                      SizedBox(
+                        height: 60.0,
+                      ),
+                      textCTRST(
+                        stg1:
+                            '\u2055 Guarde os brinquedos todos os dias para evitar '
+                            'esconderijos de animais peçonhentos (aranhas, escorpião). ',
+                      ),
+                      textCTRST(
+                          stg1:
+                              '\u2055 Elogie sempre que ${store.controllerKidName.text} responder com algo'
+                              ' que você solicitou. Reforço positivo é muito essencial para o'
+                              ' desenvolvimento.'),
+                      SizedBox(
+                        height: 15.0,
+                      ),
+                      textCTRST(
+                          stg1:
+                              '\u2055 Reforço positivo com frases motivadoras é muito '
+                              'essencial para o desenvolvimento.'
+                              '\nEntão vamos incentivar todas as tarefas que ${store.controllerKidName.text} executar.'),
+                      SizedBox(
+                        height: 15.0,
+                      ),
+                      textCTRST(
+                          stg1:
+                              '\u2055 Explorar as posições corporais (sentado, barriga '
+                              'para baixo e rolar) é importante para finalizar essa etapa.'),
+                      SizedBox(
+                        height: 10.0,
+                      ),
+                      // Radin(UID,'DEV18TASK1'),
+
+                      SizedBox(
+                        height: 60.0,
+                      ),
+                      textCTRST(
+                        stg1:
+                            '\u2055 ${store.controllerKidName.text} sentado com apoio, brinque de “escondeu-achou”. '
+                            'Coloque suas mãos sobre seu rosto, simulando o “esconde”, e '
+                            'retire as mãos “achou”. Durante a brincadeira, fale bastante, '
+                            'alternando o volume da voz. Essa brincadeira irá estimular o '
+                            'desenvolvimento da coordenação motora e linguagem. Vamos '
+                            'incentivar a imitação!',
+                      ),
+                      textCTRST(
+                          stg1: '\u2055 Você já instalou uma rotina de sono, '
+                              'alimentação, brincadeira e banhos em ${store.controllerKidName.text}? Se não, ainda é hora '
+                              'de estabelecer. A rotina domiciliar ajuda para o bom '
+                              'desenvolvimento.'),
+                      SizedBox(
+                        height: 15.0,
+                      ),
+                      textCTRST(
+                          stg1:
+                              '\u2055 Durante as tarefas, certifique-se que ${store.controllerKidName.text} está bem '
+                              'posicionado e com objetos ao redor que não oferece riscos. '),
+                      SizedBox(
+                        height: 10.0,
+                      ),
+                      // Radin(UID,'DEV18TASK2'),
+
+                      SizedBox(
+                        height: 60.0,
+                      ),
+                      textCTRST(
+                        stg1: '\u2055 Com ${store.controllerKidName.text} na ',
+                        stg2: 'posição sentada',
+                        stg3:
+                            ', coloque três caixas pequenas à sua frente, embaixo de uma'
+                            ' das caixas coloque um brinquedo dele (a), escondendo-o. '
+                            'Incentive ${store.controllerKidName.text} a achar o brinquedo e a escondê-lo em outra '
+                            'caixa.',
+                      ),
+                      textCTRST(
+                          stg1: '\u2055 O tempo do nascimento dos dentes varia '
+                              'muito para cada criança. Fique atenta(o) a qualquer sinal que '
+                              '${store.controllerKidName.text} demonstre, como levar muitos objetos e dedos a boca. Neste '
+                              'momento, redobre os cuidados de higiene com a lavagem e '
+                              'higienização dos brinquedos.'),
+                      SizedBox(
+                        height: 15.0,
+                      ),
+                      textCTRST(
+                          stg1:
+                              '\u2055 Nesse momento, vamos estimular a independência de seus'
+                              ' movimentos. Deixe ${store.controllerKidName.text} livre para levantar cada caixa e pegar'
+                              ' o brinquedo. Mantenha sempre sons e interações verbais com '
+                              '${store.controllerKidName.text}, durante as tarefas.'),
+                      SizedBox(
+                        height: 10.0,
+                      ),
+                      // Radin(UID,'DEV18TASK3'),
+
+                      SizedBox(
+                        height: 60.0,
+                      ),
+                      textCTRST(
+                        stg1:
+                            '\u2055 Vamos cantar! Com ${store.controllerKidName.text} ',
+                        stg2: 'na posição sentada',
+                        stg3:
+                            ', coloque uma música (própria para a idade) e estimule a '
+                            'dança. Você pode fazer movimentos no ritmo da música, como '
+                            'bater as mãos e dar passos para as laterais, incentivando ${store.controllerKidName.text}'
+                            ' a se movimentar também. Estamos indo muito bem com a estimulação.',
+                      ),
+                      textCTRST(
+                          stg1:
+                              '\u2055 Cada dia, ${store.controllerKidName.text} adquire novas conquistas. '
+                              'Orgulhe-se de ${store.controllerKidName.text} e de todo o suporte e cuidado que vocês estão'
+                              ' dedicando.'),
+                      SizedBox(
+                        height: 15.0,
+                      ),
+                      Container(),
+                      textCTRST(
+                          stg1: '\u2055 Vamos entrar em outra'
+                              ' fase. Está caminhando tudo bem!'),
+                      SizedBox(
+                        height: 10.0,
+                      ),
+                      // Radin(UID,'DEV18TASK4'),
+                    ],
+                  ),
+                ),
+              )),
+            ),
+          ),
+        ]),
+      ),
+    );
+  }
+}

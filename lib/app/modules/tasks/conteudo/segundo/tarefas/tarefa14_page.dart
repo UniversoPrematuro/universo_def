@@ -290,3 +290,195 @@ class Tarefa14PageState extends State<Tarefa14Page> {
         ));
   }
 }
+class TaskFourt extends StatefulWidget {
+  const TaskFourt({super.key});
+
+  @override
+  State<TaskFourt> createState() => _TaskFourtState();
+}
+
+class _TaskFourtState extends State<TaskFourt> {
+  final EditStore store = Modular.get();
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text("Tarefa 9"),
+        centerTitle: true,
+        elevation: 0,
+      ),
+      body: Container(
+        color: Colors.green,
+        width: MediaQuery.of(context).size.width,
+        height: MediaQuery.of(context).size.height,
+        child: Column(children: [
+          Expanded(
+            child: LayoutBuilder(
+              builder: (_, constraints) => SingleChildScrollView(
+                  child: Container(
+                width: MediaQuery.of(context).size.width * .9,
+                height: MediaQuery.of(context).size.height * 3,
+                decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(30),
+                    boxShadow: [
+                      BoxShadow(
+                          color: Colors.black.withOpacity(1),
+                          blurRadius: 8,
+                          offset: const Offset(0, 5))
+                    ]),
+                child: Padding(
+                  padding: const EdgeInsets.all(15.0),
+                  child: Column(
+                    children: [
+                      speechPerson(),
+                      const SizedBox(
+                        height: 40.0,
+                      ),
+
+                      SizedBox(height: 60.0,),
+          textCTRST(
+            stg1: '\u2055 Estimule ${store.controllerKidName.text} a bater palminha, coloque ${store.controllerKidName.text} na '
+                'posição sentada com apoio e de frente para você canta uma '
+                'música, uma sugestão é a música dos parabéns.',
+          ),textCTRST(stg1: '\u2055 Um relacionamento estável e seguro, com '
+              'carinho e amor, é a melhor forma de desenvolver uma criança na '
+              'infância. Sempre demonstre carinho para bebê. '),
+          SizedBox(height: 15.0,),
+          textCTRST(
+            stg1: '\u2055 Ainda na posição sentada ofereça um brinquedo para '
+                '${store.controllerKidName.text} alcançar, de imediato coloque o brinquedo no campo visual'
+                ' de ${store.controllerKidName.text}, mas com uma distância, estimule o deslocamento do'
+                ' tronco para a busca do brinquedo. Fique atenta para as quedas '
+                'na lateral.',
+          ),textCTRST(stg1: '\u2055 As crianças podem desenvolver alergias, o '
+              'que mais estimula são cortinas, tapetes, cobertores, brinquedos '
+              'de pelúcia, mofo de parece e umidade. Vamos manter o local bem '
+              'ventilado!'),
+          SizedBox(height: 15.0,),
+          textCTRST(
+            stg1: '\u2055 Manter na posição sentada e oferecer o brinquedo ou '
+                'algum estímulo na lateral para que ${store.controllerKidName.text} execute o girar da '
+                'cabeça com um deslocamento suave do tronco. Estimule do lado '
+                'direito e esquerdo para manter a resposta do movimento para os'
+                ' dois lados.',
+          ),
+          SizedBox(height: 10.0,),
+          // Radin(UID,'DEV14TASK1'),
+
+
+          SizedBox(height: 60.0,),
+          textCTRST(
+            stg1: '\u2055 É momento de conversar com ${store.controllerKidName.text}! Faça barulhos com a '
+                'boca e incentive ${store.controllerKidName.text} a repetir (“aaaa”, “angu”, “oi”). Faça '
+                'os barulhos com movimentos bem marcados da boca, sempre ensine'
+                ' bebê como fazer os movimentos da boca para que ${store.controllerKidName.text} o imite.',
+          ),textCTRST(stg1: '\u2055 Seu trabalho é apresentar bebê ao mundo e o'
+              ' mundo a ele(a). Você será sua companhia e guia, por isso é '
+              'importante dar à ${store.controllerKidName.text} a confiança necessária para testar sua '
+              'curiosidade e, ao mesmo, assegurar sua proteção.'),
+          SizedBox(height: 15.0,),
+          textCTRST(
+            stg1: '\u2055 Uma música calma no ambiente ajuda nos intervalos dos'
+                ' estímulos direcionados (tarefas) e proporciona tranquilidade '
+                'para ${store.controllerKidName.text} se movimentar livremente sem ajuda. Explorar o '
+                'ambiente de forma independente colabora para o ganho do '
+                'desenvolvimento.',
+          ),
+          SizedBox(height: 10.0,),
+          // Radin(UID,'DEV14TASK2'),
+
+          SizedBox(height: 60.0,),
+          textCTRST(
+            stg1: '\u2055 Incentive ${store.controllerKidName.text} ao movimento do sentar! De ',
+            stg2: 'barriguinha para cima',
+            stg3: ', ofereça seus dedos para ${store.controllerKidName.text} segurar com as mãos e dê o '
+                'apoio para que ele (a) levante o tronco da superfície, '
+                'utilizando os músculos do tronco para ganhar força e preparar '
+                'para novos ganhos motores.',
+          ),textCTRST(stg1: '\u2055 Vamos cuidar da saúde bucal de ${store.controllerKidName.text}, é '
+              'importante manter a limpeza da gengiva e boquinha. Não deixe '
+              'para depois, vamos fazer este cuidado como uma rotina diária.'),
+          SizedBox(height: 15.0,),
+          textCTRST(
+            stg1: '\u2055 Agora é a hora de brincar de barriguinha para baixo, '
+                'colocar brinquedos ao redor de ${store.controllerKidName.text}, alguns próximos e outro'
+                ' de interesse um pouco mais distantes, deixe livremente a '
+                'busca dos objetos. Mantenha uma observação a distância, '
+                'somente para manter o cuidado e proteção contra riscos.'
+          ),textCTRST(stg1: '\u2055 Mantenha rigorosamente a limpeza dos '
+              'objetos que ${store.controllerKidName.text} coloca na boca.'),
+          SizedBox(height: 15.0,),
+          textCTRST(
+              stg1: '\u2055 Converse com ${store.controllerKidName.text}, mas evite falar infantilizando,'
+                  ' fale com sua tonalidade normal.'
+          ),
+          SizedBox(height: 10.0,),
+          // Radin(UID,'DEV14TASK3'),
+
+
+          SizedBox(height: 60.0,),
+          textCTRST(
+            stg1: '\u2055 Com ${store.controllerKidName.text} deitado ',
+            stg2: 'de barriga para cima',
+            stg3: ' você poderá movimentar o brinquedo de um lado para '
+                'outro, ${store.controllerKidName.text} deverá ser estimulado/a girar a cabeça do centro '
+                'para a lateral, fazendo com que eventualmente ${store.controllerKidName.text} role para a'
+                ' posição lateral.',
+          ),textCTRST(stg1: '\u2055 Se atente a caderneta de vacinação. As '
+              'vacinas de bebê estão em dia?'),
+          SizedBox(height: 15.0,),
+          textCTRST(
+            stg1: '\u2055 Apoiar em baixo dos bracinhos de ${store.controllerKidName.text} e de frente para'
+                ' você, deixa acontecer o apoio dos pezinhos na superfície, mas'
+                ' não deixa ficar e permanecer todo o peso corporal, brinca de'
+                ' pula, pula sempre com o apoio.'
+          ),textCTRST(stg1: '\u2055 Não deixa ${store.controllerKidName.text} sem supervisão de um adulto,'
+              ' pode observar mesmo em curtas distâncias.'),
+          SizedBox(height: 15.0,),
+          textCTRST(
+              stg1: '\u2055 Durante os movimentos você deverá conversar com '
+                  '${store.controllerKidName.text} para incentiva a execução e repetição do movimento.'
+          ),
+          SizedBox(height: 10.0,),
+          // Radin(UID,'DEV14TASK4'),
+
+
+          SizedBox(height: 60.0,),
+          textCTRST(
+            stg1: '\u2055 Vamos deixar ${store.controllerKidName.text} com movimentos livres! Explorar '
+                'todas as posições corporais e deixar ele brincar com seus '
+                'pezinhos e mãozinhas. Em alguns momentos deixar ${store.controllerKidName.text} na '
+                'posição de barriguinha para baixo, depois barriguinha para cima.',
+          ),textCTRST(stg1: '\u2055 Nunca dê medicamentos a bebê sem a '
+              'recomendação de um médico. É importante que sempre seguir as '
+              'recomendações dadas pelo(a) pediatra. '),
+          SizedBox(height: 15.0,),
+          textCTRST(
+            stg1: '\u2055 Para o momento de tranquilidade você poderá deitar de'
+                ' lateral e colocar ${store.controllerKidName.text} também de lateral virado para você, '
+                'face a face. É hora de conversar baixinho, cantar, fazer '
+                'caretinha (expressões faciais) e quem sabe pegar no soninho.'
+          ),textCTRST(stg1: '\u2055 Verifique sempre a temperatura do ambiente '
+              'para escolher a roupa ideal para aquele período. As mãozinhas e'
+              ' pezinhos deverão sempre estar quentinhos.'),
+          SizedBox(height: 10.0,),
+          SizedBox(height: 15.0,),
+          textCTRST(
+              stg1: '\u2055 Durante esses momentos aproveite para brincar e '
+                  'cantar para o bebê.  Use a imaginação e criatividade. '
+          ),
+          SizedBox(height: 10.0,),
+          // Radin(UID,'DEV14TASK5'),
+
+                    ],
+                  ),
+                ),
+              )),
+            ),
+          ),
+        ]),
+      ),
+    );
+  }
+}

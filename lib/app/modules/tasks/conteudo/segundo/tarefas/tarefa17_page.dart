@@ -251,7 +251,8 @@ class Tarefa17PageState extends State<Tarefa17Page> {
                                           const SizedBox(height: 30),
                                           TextButton.icon(
                                             onPressed: () {},
-                                            label: const Text("SEGUEM AS TAREFAS"),
+                                            label:
+                                                const Text("SEGUEM AS TAREFAS"),
                                             icon: const Icon(Icons
                                                 .arrow_circle_right_outlined),
                                           )
@@ -266,5 +267,227 @@ class Tarefa17PageState extends State<Tarefa17Page> {
             ],
           ),
         ));
+  }
+}
+
+class TaskSevent extends StatefulWidget {
+  const TaskSevent({super.key});
+
+  @override
+  State<TaskSevent> createState() => _TaskSeventState();
+}
+
+class _TaskSeventState extends State<TaskSevent> {
+  final EditStore store = Modular.get();
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text("Tarefa 16"),
+        centerTitle: true,
+        elevation: 0,
+      ),
+      body: Container(
+        color: Colors.green,
+        width: MediaQuery.of(context).size.width,
+        height: MediaQuery.of(context).size.height,
+        child: Column(children: [
+          Expanded(
+            child: LayoutBuilder(
+              builder: (_, constraints) => SingleChildScrollView(
+                  child: Container(
+                width: MediaQuery.of(context).size.width * .9,
+                height: MediaQuery.of(context).size.height * 3,
+                decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(30),
+                    boxShadow: [
+                      BoxShadow(
+                          color: Colors.black.withOpacity(1),
+                          blurRadius: 8,
+                          offset: const Offset(0, 5))
+                    ]),
+                child: Padding(
+                  padding: const EdgeInsets.all(15.0),
+                  child: Column(
+                    children: [
+                      speechPerson(),
+                      const SizedBox(
+                        height: 40.0,
+                      ),
+                      SizedBox(
+                        height: 60.0,
+                      ),
+                      textCTRST(
+                        stg1:
+                            '\u2055 Com a barriguinha para baixo ajudar ${store.controllerKidName.text} a dobrar os '
+                            'joelhos e apoiar os pês na sua mão deixe ${store.controllerKidName.text} tentar '
+                            'impulsionar-se para frente, fazendo um movimento de deslocamento.',
+                      ),
+                      textCTRST(
+                          stg1:
+                              '\u2055 Cuidado com a utilização de produtos de '
+                              'limpeza com cheiro forte, amaciante entre outros, pode manifestar'
+                              ' sintomas de alergia de pele e respiratória.'),
+                      SizedBox(
+                        height: 15.0,
+                      ),
+                      textCTRST(
+                          stg1:
+                              '\u2055 Aproveitando a posição de barriguinha para baixo, '
+                              'estimule ${store.controllerKidName.text} a levantar a parte superior do tronco com apoio'
+                              ' dos braços. Converse com ${store.controllerKidName.text} para que consiga permanecer um '
+                              'tempinho maior nesta posição de sustentar o peso corporal.'),
+                      textCTRST(
+                          stg1:
+                              '\u2055 Lavar as mãos todas as vezes que for pegar '
+                              '${store.controllerKidName.text} e/ou organizar o seu material e pertences.'),
+                      SizedBox(
+                        height: 10.0,
+                      ),
+                      // Radin(UID,'DEV17TASK1'),
+
+                      SizedBox(
+                        height: 60.0,
+                      ),
+                      textCTRST(
+                          stg1: '\u2055 Deixe ${store.controllerKidName.text} ',
+                          stg2: 'de barriguinha para cima ',
+                          stg3:
+                              'e coloque um brinquedo na lateral dele. Incentive ${store.controllerKidName.text} a '
+                              'rolar para alcançar o brinquedo e deixe ${store.controllerKidName.text} pegar e brincar '
+                              'livremente.'),
+                      textCTRST(
+                          stg1: '\u2055 Tome cuidado com cabos elétricos que '
+                              'estiverem descascados ou desfiados. Evite expor ${store.controllerKidName.text} em ambiente'
+                              ' que possuem esses cabos.  '),
+                      SizedBox(
+                        height: 15.0,
+                      ),
+                      textCTRST(
+                          stg1:
+                              '\u2055 Algumas posições não são de preferência de ${store.controllerKidName.text} e '
+                              'no momento que experimenta a posição logo reclama com '
+                              'chorinho e/ou gritos. Mas é importante que ${store.controllerKidName.text} acostume com'
+                              ' essa posição, pois todas as posições corporais colaboram '
+                              'com ganhos futuros para as novas conquistas (gatinhar, andar'
+                              ' e correr).'),
+                      SizedBox(
+                        height: 10.0,
+                      ),
+                      // Radin(UID,'DEV17TASK2'),
+
+                      SizedBox(
+                        height: 60.0,
+                      ),
+                      textCTRST(
+                        stg1:
+                            '\u2055 Coloque ${store.controllerKidName.text} sentado com apoio e ofereça um brinquedo,'
+                            ' deixe ${store.controllerKidName.text} segurá-lo e retire em seguida, como a brincadeira '
+                            '“da e tira”. Faça isso com brinquedos de diferentes cores, '
+                            'tamanhos e texturas.',
+                      ),
+                      textCTRST(
+                          stg1:
+                              '\u2055 Procure sempre o profissional de saúde para'
+                              ' tirar as dúvidas que forem surgindo com o desenvolvimento e '
+                              'crescimento de ${store.controllerKidName.text}. '),
+                      SizedBox(
+                        height: 15.0,
+                      ),
+                      textCTRST(
+                          stg1:
+                              '\u2055 Estimule ${store.controllerKidName.text} a sentir diferentes texturas, formas,'
+                              ' peso e percepção de cores. Se possível, ofereça brinquedos '
+                              'que reproduzam sons. '),
+                      textCTRST(
+                          stg1:
+                              '\u2055 O carinho dos pais, avós e pessoas queridas'
+                              ' ajudam para o bom desenvolvimento com saúde.'),
+                      SizedBox(
+                        height: 10.0,
+                      ),
+                      // Radin(UID,'DEV17TASK3'),
+
+                      SizedBox(
+                        height: 60.0,
+                      ),
+                      textCTRST(
+                        stg1:
+                            '\u2055 Coloque ${store.controllerKidName.text} sentado com apoio sobre diferentes '
+                            'superfícies (em cima da cama, no chão, na grama) e estimule a '
+                            'se inclinar em varias direções para explorar o espaço e '
+                            'ambiente. As diferentes superfícies irão estimular a força dos'
+                            ' músculos responsáveis por manter a postura do tronco.',
+                      ),
+                      textCTRST(
+                          stg1:
+                              '\u2055 Fique atenta(o) as datas das consultas de '
+                              '${store.controllerKidName.text}, é importante manter o cuidado nessa fase, precisamos '
+                              'cuidar de ${store.controllerKidName.text}.'),
+                      SizedBox(
+                        height: 15.0,
+                      ),
+                      textCTRST(
+                          stg1:
+                              '\u2055 A cada nova descoberta, comemore com ${store.controllerKidName.text} de maneira'
+                              ' festiva, incentivando a curiosidade dos diferentes espaços.'),
+                      textCTRST(
+                          stg1:
+                              '\u2055 O desenvolvimento do elo entre os familiares'
+                              ' e ${store.controllerKidName.text} favorece para o fator de proteção para o desenvolvimento'
+                              ' saudável.'),
+                      SizedBox(
+                        height: 10.0,
+                      ),
+                      // Radin(UID,'DEV17TASK4'),
+
+                      SizedBox(
+                        height: 60.0,
+                      ),
+                      textCTRST(
+                        stg1:
+                            '\u2055 Busque brinquedos que sejam possíveis criar uma '
+                            'história (teatrinho). Faça com que os personagens se movimentem'
+                            ' para as laterais e verbalize com diferentes vozes. Crie '
+                            'músicas para manter a atenção e o foco de ${store.controllerKidName.text}. ',
+                      ),
+                      textCTRST(
+                          stg1:
+                              '\u2055 Não deixe ${store.controllerKidName.text} sem supervisão. ${store.controllerKidName.text} está em'
+                              ' pleno desenvolvimento e todos os dias poderá fazer movimentos '
+                              'novos.'),
+                      SizedBox(
+                        height: 15.0,
+                      ),
+                      textCTRST(
+                          stg1:
+                              '\u2055 Faça com que a história seja dinâmica, sempre se '
+                              'movimentando para que ${store.controllerKidName.text} fique curioso e acompanhe os '
+                              'movimentos (em cima, em baixo, direta, esquerda).'),
+                      textCTRST(
+                          stg1:
+                              '\u2055 Aproveite para descansar um pouco quando '
+                              '${store.controllerKidName.text} estiver dormindo.'),
+                      SizedBox(
+                        height: 15.0,
+                      ),
+                      textCTRST(
+                          stg1:
+                              '\u2055 Vamos estimular os movimentos adquiridos e '
+                              'proporcionar novas experiências e conquistas.'),
+                      SizedBox(
+                        height: 10.0,
+                      ),
+                      // Radin(UID,'DEV17TASK5'),
+                    ],
+                  ),
+                ),
+              )),
+            ),
+          ),
+        ]),
+      ),
+    );
   }
 }
