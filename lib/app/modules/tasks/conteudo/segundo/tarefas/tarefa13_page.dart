@@ -271,7 +271,13 @@ class Tarefa13PageState extends State<Tarefa13Page> {
                                                   Icons.arrow_forward,
                                                   color: Colors.white,
                                                 ),
-                                                onPressed: () {},
+                                                onPressed: () {
+                                                  Navigator.of(context).push(
+                                                    MaterialPageRoute(
+                                                      builder: ((context) => const TaskThirt())
+                                                    )
+                                                  );
+                                                },
                                               ),
                                             ),
                                           ),
@@ -289,234 +295,7 @@ class Tarefa13PageState extends State<Tarefa13Page> {
   }
 }
 
-class Tarefa9Page extends StatefulWidget {
-  final String title;
-  const Tarefa9Page({Key? key, this.title = 'Tarefa9Page'}) : super(key: key);
-  @override
-  Tarefa9PageState createState() => Tarefa9PageState();
-}
 
-class Tarefa9PageState extends State<Tarefa9Page> {
-  final EditStore store = Modular.get();
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-        appBar: AppBar(
-          title: const Text("Tarefa 9"),
-          centerTitle: true,
-          elevation: 0,
-        ),
-        body: Container(
-          color: Colors.green,
-          width: MediaQuery.of(context).size.width,
-          height: MediaQuery.of(context).size.height,
-          child: Column(
-            children: [
-              Expanded(
-                  child: LayoutBuilder(
-                      builder: (_, constraints) => SingleChildScrollView(
-                            child: Column(children: [
-                              const Text(
-                                "SIGA A 9ª TAREFA EM CASA",
-                                style: TextStyle(
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 25),
-                              ),
-                              Padding(
-                                padding: const EdgeInsets.all(8.0),
-                                child: Container(
-                                  width: MediaQuery.of(context).size.width * .9,
-                                  height:
-                                      MediaQuery.of(context).size.height * 1.3,
-                                  decoration: BoxDecoration(
-                                    color: Colors.white,
-                                    borderRadius: BorderRadius.circular(20),
-                                  ),
-                                  child: Column(children: [
-                                    const Padding(
-                                      padding: EdgeInsets.only(top: 20),
-                                      child: Text("MOVIMENTO",
-                                          style: TextStyle(
-                                              color: Colors.green,
-                                              fontSize: 20,
-                                              fontWeight: FontWeight.bold)),
-                                    ),
-                                    GridView.count(
-                                      shrinkWrap: true,
-                                      crossAxisCount: 3,
-                                      children: <Widget>[
-                                        Container(
-                                          //height: 100,
-                                          decoration: BoxDecoration(
-                                              border: Border.all(
-                                                  color: const Color.fromARGB(
-                                                      255, 101, 188, 89),
-                                                  width: 1.0)),
-                                          child: Image.asset(
-                                              'images1/static1.png'),
-                                        ),
-                                        Container(
-                                          //height: 100,
-                                          decoration: BoxDecoration(
-                                              border: Border.all(
-                                                  color: const Color.fromARGB(
-                                                      255, 101, 188, 89),
-                                                  width: 1.0)),
-                                          child: Image.asset(
-                                              'images1/static2.png'),
-                                        ),
-                                        Container(
-                                          //height: 100,
-                                          decoration: BoxDecoration(
-                                              border: Border.all(
-                                                  color: const Color.fromARGB(
-                                                      255, 101, 188, 89),
-                                                  width: 1.0)),
-                                          child: Image.asset(
-                                              'images1/static3.png'),
-                                        ),
-                                        Container(
-                                          //height: 100,
-                                          decoration: BoxDecoration(
-                                              border: Border.all(
-                                                  color: const Color.fromARGB(
-                                                      255, 101, 188, 89),
-                                                  width: 1.0)),
-                                          child:
-                                              Image.asset('images1/Gif1.gif'),
-                                        ),
-                                        Container(
-                                          //height: 100,
-                                          decoration: BoxDecoration(
-                                              border: Border.all(
-                                                  color: const Color.fromARGB(
-                                                      255, 101, 188, 89),
-                                                  width: 1.0)),
-                                          child:
-                                              Image.asset('images1/Gif2.gif'),
-                                        ),
-                                        Container(
-                                          //height: 100,
-                                          decoration: BoxDecoration(
-                                              border: Border.all(
-                                                  color: const Color.fromARGB(
-                                                      255, 101, 188, 89),
-                                                  width: 1.0)),
-                                          child:
-                                              Image.asset('images1/Gif3.gif'),
-                                        ),
-                                        Container(
-                                          //height: 100,
-                                          decoration: BoxDecoration(
-                                              border: Border.all(
-                                                  color: const Color.fromARGB(
-                                                      255, 101, 188, 89),
-                                                  width: 1.0)),
-                                          child:
-                                              Image.asset('images1/Gif4.gif'),
-                                        ),
-                                        Container(
-                                          //height: 100,
-                                          decoration: BoxDecoration(
-                                              border: Border.all(
-                                                  color: const Color.fromARGB(
-                                                      255, 101, 188, 89),
-                                                  width: 1.0)),
-                                          child:
-                                              Image.asset('images1/Gif5.gif'),
-                                        ),
-                                        Container(
-                                          //height: 100,
-                                          decoration: BoxDecoration(
-                                              border: Border.all(
-                                                  color: const Color.fromARGB(
-                                                      255, 101, 188, 89),
-                                                  width: 1.0)),
-                                          child:
-                                              Image.asset('images1/Gif6.gif'),
-                                        ),
-                                      ],
-                                    ),
-                                    const SizedBox(
-                                      height: 20.0,
-                                    ),
-                                    Container(
-                                      margin: const EdgeInsets.only(
-                                          left: 20.0,
-                                          right: 20.0,
-                                          bottom: 20.0),
-                                      padding: const EdgeInsets.fromLTRB(
-                                          20.0, 10.0, 20.0, 40.0),
-                                      decoration: const BoxDecoration(
-                                        image: DecorationImage(
-                                            fit: BoxFit.fill,
-                                            image: AssetImage(
-                                                'images1/ballon9.png')),
-                                      ),
-                                      child: regText(
-                                          '\u25CF Movimento',
-                                          '- Explorar os movimentos, tudo '
-                                              'que já foi alcançado até esse momento. Estamos quase mudando de '
-                                              'etapa, “Parabéns!”.\n\nEstimular as diferentes posições corporais,'
-                                              ' os movimentos de braços e pernas, o pegar o brinquedo, emitir '
-                                              'os sons, sempre olho no olho para aprender mais coisas.'
-                                              '- '
-                                              'Aproveite esse momento, estamos quase mudando de etapa “Parabéns!”.'),
-                                    ),
-                                    Padding(
-                                      padding: const EdgeInsets.all(8.0),
-                                      child: Text(
-                                        "LEMBRE-SE: Todo cuidado com ${store.controllerKidName.text} é muito importante.",
-                                        style: const TextStyle(
-                                            color:
-                                                Color.fromARGB(255, 212, 32, 0),
-                                            fontSize: 18,
-                                            fontWeight: FontWeight.w500,
-                                            fontStyle: FontStyle.italic),
-                                        // textAlign: TextAlign.center,
-                                      ),
-                                    ),
-                                    Padding(
-                                      padding: const EdgeInsets.only(
-                                          left: 20.0,
-                                          right: 20.0,
-                                          bottom: 40.0,
-                                          top: 20.0),
-                                      child: Align(
-                                        alignment: Alignment.bottomRight,
-                                        child: ElevatedButton.icon(
-                                          label: const Text(
-                                            'Seguem as tarefas',
-                                            style: TextStyle(
-                                                fontSize: 24.0,
-                                                fontWeight: FontWeight.w500,
-                                                color: Colors.white),
-                                          ),
-                                          icon: const Icon(
-                                            Icons.arrow_forward,
-                                            color: Colors.white,
-                                          ),
-                                          onPressed: () {
-                                            Navigator.of(context).push(
-                                                    MaterialPageRoute(
-                                                      builder: ((context) => const TaskThirt())
-                                                    )
-                                                  );
-                                          },
-                                        ),
-                                      ),
-                                    ),
-                                  ]),
-                                ),
-                              ),
-                            ]),
-                          )))
-            ],
-          ),
-        ));
-  }
-}
 
 class TaskThirt extends StatefulWidget {
   const TaskThirt({super.key});
@@ -531,7 +310,7 @@ class _TaskThirtState extends State<TaskThirt> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Tarefa 9"),
+        title: const Text("Tarefa 13"),
         centerTitle: true,
         elevation: 0,
       ),
@@ -545,7 +324,7 @@ class _TaskThirtState extends State<TaskThirt> {
               builder: (_, constraints) => SingleChildScrollView(
                   child: Container(
                 width: MediaQuery.of(context).size.width * .9,
-                height: MediaQuery.of(context).size.height * 3,
+                height: MediaQuery.of(context).size.height * 4.9,
                 decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.circular(30),
@@ -575,7 +354,7 @@ class _TaskThirtState extends State<TaskThirt> {
               'fraldas. Mantenha ${store.controllerKidName.text} sempre seco e lembra a limpeza deve seguir'
               ' o movimento de frente para trás finalizando no bumbum, não '
               'repetir o movimento com o mesmo algodão e outros. '),
-          SizedBox(height: 15.0,),
+          const SizedBox(height: 15.0,),
           textCTRST(
             stg1: '\u2055 O estímulo para o rolar deverá acontecer nos sentidos'
                 ': posição lateral para barriguinha para baixo, depois '
@@ -583,23 +362,23 @@ class _TaskThirtState extends State<TaskThirt> {
                 ' difícil mas ficará cada vez mais tranquilo para a execução do'
                 ' movimento.',
           ),
-          SizedBox(height: 15.0,),
+          const SizedBox(height: 15.0,),
           textCTRST(
             stg1: '\u2055 O estímulo para o rolar de lateral para barriguinha '
                 'para cima ocorre como uma tarefa mais fácil de execução quando'
                 ' comparado da lateral para barriguinha para baixo.',
           ),
-          SizedBox(height: 15.0,),
+          const SizedBox(height: 15.0,),
           textCTRST(
             stg1: '\u2055 Todas as brincadeiras e movimentos executados devem '
                 'ser comemorados com palavras de incentivo, cantigas e muita '
                 'festa. Cada conquista do desenvolvimento é para ser comemorado.',
           ),
-          SizedBox(height: 10.0,),
+          const SizedBox(height: 10.0,),
           // Radin(UID,'DEV13TASK1'),
 
 
-          SizedBox(height: 60.0,),
+          const SizedBox(height: 60.0,),
           textCTRST(
             stg1: '\u2055 Vamos brincar! Sente ${store.controllerKidName.text}, sempre com apoio e tire as'
                 ' costas do apoio, trazendo o corpo um pouco para frente '
@@ -608,24 +387,24 @@ class _TaskThirtState extends State<TaskThirt> {
             stg2: 'Serra-serra.'
           ),textCTRST(stg1: '\u2055 Tome cuidado com os banhos de sol. A pele '
               'de ${store.controllerKidName.text} é sensível e necessita de estar sempre amparado. '),
-          SizedBox(height: 15.0,),
+          const SizedBox(height: 15.0,),
           textCTRST(
             stg1: '\u2055 Converse muito com ${store.controllerKidName.text} e estimule ${store.controllerKidName.text} a sorrir e '
                 'imitar os seus sons.'
           ),textCTRST(stg1: '\u2055 Respeite todos os horários da mamada e não '
               'ofereça nada de diferente sem o consentimento do profissional de'
               ' saúde que acompanha ${store.controllerKidName.text} regularmente. '),
-          SizedBox(height: 15.0,),
+          const SizedBox(height: 15.0,),
           textCTRST(
               stg1: '\u2055 Na posição de barriguinha para baixo, estimule ${store.controllerKidName.text}'
                   ' o levantar da cabeça e peito da superfície com apoio do '
                   'próprio braço.'
           ),
-          SizedBox(height: 10.0,),
+          const SizedBox(height: 10.0,),
           // Radin(UID,'DEV13TASK2'),
 
 
-          SizedBox(height: 60.0,),
+          const SizedBox(height: 60.0,),
           textCTRST(
             stg1: '\u2055 Nessa idade, ${store.controllerKidName.text} já consegue levantar as perninhas '
                 'quando estiver de ',
@@ -637,23 +416,23 @@ class _TaskThirtState extends State<TaskThirt> {
               'circulares na região da barriguinha, sentido do peito para as '
               'pernas, pode também dobrar as perninhas e segurar por um tempo '
               'breve. Mantenha sempre as mãos e os pés quentinhos.'),
-          SizedBox(height: 15.0,),
+          const SizedBox(height: 15.0,),
           textCTRST(
             stg1: '\u2055 Ofereça os brinquedos utilizando sons, cores para '
                 'estimular o movimento voluntário de ${store.controllerKidName.text}. Momento de '
                 'estabelecer a própria busca e interação com o meio.',
           ),
-          SizedBox(height: 15.0,),
+          const SizedBox(height: 15.0,),
           textCTRST(
             stg1: '\u2055 Deixar alguns brinquedos próximos de ${store.controllerKidName.text} mas fora do'
                 ' próprio alcance e estimule para o alcance, após as tentativas'
                 ' de busca do brinquedo, colocá-lo mais próximo e deixa pegá-lo.',
           ),
-          SizedBox(height: 10.0,),
+          const SizedBox(height: 10.0,),
           // Radin(UID,'DEV13TASK3'),
 
 
-          SizedBox(height: 60.0,),
+          const SizedBox(height: 60.0,),
           textCTRST(
             stg1: '\u2055 Deixar ${store.controllerKidName.text} de ',
             stg2: 'barriguinha para baixo ',
@@ -662,19 +441,19 @@ class _TaskThirtState extends State<TaskThirt> {
                 'alcançar os brinquedos e pegá-los.',
           ),textCTRST(stg1: '\u2055 Não compre ou ofereça brinquedos que não são'
               ' adequados para a idade de ${store.controllerKidName.text}. Pode gerar riscos. '),
-          SizedBox(height: 15.0,),
+          const SizedBox(height: 15.0,),
           textCTRST(
             stg1: '\u2055 Oferece brincadeira para estimular ${store.controllerKidName.text} a emitir sons'
                 ' agudos (Gritos).',
           ),textCTRST(stg1: '\u2055 Manter a carteirinha de vacinação sempre em'
               ' dia, projeta ${store.controllerKidName.text}.'),
-          SizedBox(height: 15.0,),
+          const SizedBox(height: 15.0,),
           textCTRST(
             stg1: '\u2055 Na posição sentada estimule ${store.controllerKidName.text} com barulhos que '
                 'surgem da lateral para que ${store.controllerKidName.text} busque descobrir girando a sua'
                 ' própria cabeça.',
           ),
-          SizedBox(height: 15.0,),
+          const SizedBox(height: 15.0,),
           textCTRST(
             stg1: '\u2055 Vamos treinar o movimento, segure nas mãozinhas de '
                 '${store.controllerKidName.text} e deixe experimentar a posição sentada sem apoio da '
@@ -684,11 +463,11 @@ class _TaskThirtState extends State<TaskThirt> {
                 'gradativamente conforme a conquista e independência para o '
                 'movimento.',
           ),
-          SizedBox(height: 10.0,),
+          const SizedBox(height: 10.0,),
           // Radin(UID,'DEV13TASK4'),
 
 
-          SizedBox(height: 60.0,),
+          const SizedBox(height: 60.0,),
           textCTRST(
             stg1: '\u2055 Manter o ritmo da rotina diária é importante para o '
                 'desenvolvimento. Momento de estímulos e brincadeiras e '
@@ -699,7 +478,7 @@ class _TaskThirtState extends State<TaskThirt> {
               '${store.controllerKidName.text} em locais de acesso do animal, cuidado com pelos, urina e '
               'fezes dos animais e o contato com ${store.controllerKidName.text}. Não é devido o animal '
               'lamber o rosto e mãos de ${store.controllerKidName.text}.'),
-          SizedBox(height: 15.0,),
+          const SizedBox(height: 15.0,),
           textCTRST(
             stg1: '\u2055 Colocar brinquedos na frente e lateral para o alcance'
                 ' imediato de ${store.controllerKidName.text} e também brinquedos com uma distância para '
@@ -710,7 +489,7 @@ class _TaskThirtState extends State<TaskThirt> {
                 'para os próximos ganhos do desenvolvimento.',
           ),textCTRST(stg1: '\u2055 Os animais domésticos devem estar com a '
               'vacinação em dia para garantir a saúde de todos.'),
-          SizedBox(height: 10.0,),
+          const SizedBox(height: 10.0,),
           // Radin(UID,'DEV13TASK5'),
 
                     ],

@@ -253,7 +253,13 @@ class Tarefa18PageState extends State<Tarefa18Page> {
                                                   Icons.arrow_forward,
                                                   color: Colors.white,
                                                 ),
-                                                onPressed: () {},
+                                                onPressed: () {
+                                                  Navigator.of(context).push(
+                                                    MaterialPageRoute(
+                                                      builder: ((context) => const TaskEighte())
+                                                    )
+                                                  );
+                                                },
                                               ),
                                             ),
                                           ),
@@ -316,10 +322,10 @@ class _TaskEighteState extends State<TaskEighte> {
                       const SizedBox(
                         height: 40.0,
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 60.0,
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 60.0,
                       ),
                       textCTRST(
@@ -332,7 +338,7 @@ class _TaskEighteState extends State<TaskEighte> {
                               '\u2055 Elogie sempre que ${store.controllerKidName.text} responder com algo'
                               ' que você solicitou. Reforço positivo é muito essencial para o'
                               ' desenvolvimento.'),
-                      SizedBox(
+                      const SizedBox(
                         height: 15.0,
                       ),
                       textCTRST(
@@ -340,19 +346,19 @@ class _TaskEighteState extends State<TaskEighte> {
                               '\u2055 Reforço positivo com frases motivadoras é muito '
                               'essencial para o desenvolvimento.'
                               '\nEntão vamos incentivar todas as tarefas que ${store.controllerKidName.text} executar.'),
-                      SizedBox(
+                      const SizedBox(
                         height: 15.0,
                       ),
                       textCTRST(
                           stg1:
                               '\u2055 Explorar as posições corporais (sentado, barriga '
                               'para baixo e rolar) é importante para finalizar essa etapa.'),
-                      SizedBox(
+                      const SizedBox(
                         height: 10.0,
                       ),
                       // Radin(UID,'DEV18TASK1'),
 
-                      SizedBox(
+                      const SizedBox(
                         height: 60.0,
                       ),
                       textCTRST(
@@ -369,19 +375,19 @@ class _TaskEighteState extends State<TaskEighte> {
                               'alimentação, brincadeira e banhos em ${store.controllerKidName.text}? Se não, ainda é hora '
                               'de estabelecer. A rotina domiciliar ajuda para o bom '
                               'desenvolvimento.'),
-                      SizedBox(
+                      const SizedBox(
                         height: 15.0,
                       ),
                       textCTRST(
                           stg1:
                               '\u2055 Durante as tarefas, certifique-se que ${store.controllerKidName.text} está bem '
                               'posicionado e com objetos ao redor que não oferece riscos. '),
-                      SizedBox(
+                      const SizedBox(
                         height: 10.0,
                       ),
                       // Radin(UID,'DEV18TASK2'),
 
-                      SizedBox(
+                      const SizedBox(
                         height: 60.0,
                       ),
                       textCTRST(
@@ -399,7 +405,7 @@ class _TaskEighteState extends State<TaskEighte> {
                               '${store.controllerKidName.text} demonstre, como levar muitos objetos e dedos a boca. Neste '
                               'momento, redobre os cuidados de higiene com a lavagem e '
                               'higienização dos brinquedos.'),
-                      SizedBox(
+                      const SizedBox(
                         height: 15.0,
                       ),
                       textCTRST(
@@ -408,12 +414,12 @@ class _TaskEighteState extends State<TaskEighte> {
                               ' movimentos. Deixe ${store.controllerKidName.text} livre para levantar cada caixa e pegar'
                               ' o brinquedo. Mantenha sempre sons e interações verbais com '
                               '${store.controllerKidName.text}, durante as tarefas.'),
-                      SizedBox(
+                      const SizedBox(
                         height: 10.0,
                       ),
                       // Radin(UID,'DEV18TASK3'),
 
-                      SizedBox(
+                      const SizedBox(
                         height: 60.0,
                       ),
                       textCTRST(
@@ -431,14 +437,14 @@ class _TaskEighteState extends State<TaskEighte> {
                               '\u2055 Cada dia, ${store.controllerKidName.text} adquire novas conquistas. '
                               'Orgulhe-se de ${store.controllerKidName.text} e de todo o suporte e cuidado que vocês estão'
                               ' dedicando.'),
-                      SizedBox(
+                      const SizedBox(
                         height: 15.0,
                       ),
                       Container(),
                       textCTRST(
                           stg1: '\u2055 Vamos entrar em outra'
                               ' fase. Está caminhando tudo bem!'),
-                      SizedBox(
+                      const SizedBox(
                         height: 10.0,
                       ),
                       // Radin(UID,'DEV18TASK4'),

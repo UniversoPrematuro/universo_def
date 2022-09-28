@@ -250,7 +250,11 @@ class Tarefa25PageState extends State<Tarefa25Page> {
                                                   Icons.arrow_forward,
                                                   color: Colors.white,
                                                 ),
-                                                onPressed: () {},
+                                                onPressed: () {Navigator.of(context).push(
+                                                    MaterialPageRoute(
+                                                      builder: ((context) => const TaskTwentFi())
+                                                    )
+                                                  );},
                                               ),
                                             ),
                                           ),
@@ -265,5 +269,190 @@ class Tarefa25PageState extends State<Tarefa25Page> {
             ],
           ),
         ));
+  }
+}
+class TaskTwentFi extends StatefulWidget {
+  const TaskTwentFi({super.key});
+
+  @override
+  State<TaskTwentFi> createState() => _TaskTwentFiState();
+}
+
+class _TaskTwentFiState extends State<TaskTwentFi> {
+  final EditStore store = Modular.get();
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text("Tarefa 25"),
+        centerTitle: true,
+        elevation: 0,
+      ),
+      body: Container(
+        color: Colors.green,
+        width: MediaQuery.of(context).size.width,
+        height: MediaQuery.of(context).size.height,
+        child: Column(children: [
+          Expanded(
+            child: LayoutBuilder(
+              builder: (_, constraints) => SingleChildScrollView(
+                  child: Container(
+                width: MediaQuery.of(context).size.width * .9,
+                height: MediaQuery.of(context).size.height * 4.8,
+                decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(30),
+                    boxShadow: [
+                      BoxShadow(
+                          color: Colors.black.withOpacity(1),
+                          blurRadius: 8,
+                          offset: const Offset(0, 5))
+                    ]),
+                child: Padding(
+                  padding: const EdgeInsets.all(15.0),
+                  child: Column(
+                    children: [
+                      Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: <Widget>[
+                          Column(
+                            children: <Widget>[
+                              Container(
+                                height: 70.0,
+                                color: Colors.red,
+                              ),
+                              Container(
+                                width: 100.0,
+                                child: Image.asset("images1/Personagemai.png"),
+                              ),
+                            ],
+                          ),
+                          Expanded(
+                            child: Container(
+                              //margin: EdgeInsets.only(left: 20.0,right: 20.0,bottom: 20.0),
+                              padding:
+                                  // ignore: prefer_const_constructors
+                                  EdgeInsets.fromLTRB(20.0, 10.0, 0.0, 20.0),
+                              decoration: const BoxDecoration(
+                                image: DecorationImage(
+                                    fit: BoxFit.fill,
+                                    image: AssetImage('images1/ballon9.png')),
+                              ),
+                              child: const Text(
+                                "Seja bem vinda!\nVamos seguir juntas as tarefas a cada dois"
+                                " dias, nestes primeiros meses.\nVamos Começar?",
+                                style: TextStyle(fontSize: 16),
+                              ),
+                            ),
+                          )
+                        ],
+                      ),
+
+                      SizedBox(height: 60.0,),
+          textCTRST(
+              stg1: '\u2055 Estimule a independência de ${store.controllerKidName.text}! Deixe-o(a) brincar livre, de ',
+              stg2: "barriguinha para cima e barriguinha para baixo",
+              stg3: ". Deixe ${store.controllerKidName.text} rolar livremente e buscar com os próprios movimentos os brinquedos ou objetos próximos."
+          ),textCTRST(stg1: '\u2055 Nessa idade, ${store.controllerKidName.text} começa a ficar mais tempo acordado, por isso é importante redobrar a atenção para quedas e acidentes. O ambiente de maior tempo de permanência de ${store.controllerKidName.text} deve ser seguro e bem ventilado, possibilitando os movimentos para as brincadeiras com supervisão de um adulto.'),
+          SizedBox(height: 15.0,),
+          textCTRST(
+              stg1: '\u2055 A brincadeira é encaixe! Vamos estimular ${store.controllerKidName.text} a pegar uma peça de brinquedo ou objeto menor e colocar dentro de um lugar maior. Uma ideia! Vamos pegar algumas bolas pequenas e de diferentes tamanhos e na posição sentada deixe ${store.controllerKidName.text} pegar as bolas de colocar dentro de um pote. O movimento pode ser de guardar as bolas no pote ou ao contrario, tirar as bolas do pote.'
+          ),
+          SizedBox(height: 10.0,),
+          // Radin(UID,'DEV25TASK1'),
+
+          SizedBox(height: 60.0,),
+          textCTRST(
+              stg1: '\u2055 Durante o banho de ${store.controllerKidName.text}, ensine as partes do corpo que você estiver banhando. “Agora vamos lavar a barriguinha”, “agora vamos lavar os braços”, “é hora de lavar o pé” assim por diante. Banho pode ser uma grande brincadeira.'
+          ),textCTRST(stg1: '\u2055 Aprenda a lidar com as ações de ${store.controllerKidName.text}. O desenvolvimento proporciona novos aprendizados, então observe ${store.controllerKidName.text} em novas situações no espaço do ambiente, resposta nas brincadeiras, visualização de um brinquedo e/ou objeto, movimento de deslocamento para alcançar um brinquedo.'),
+          SizedBox(height: 15.0,),
+          textCTRST(
+              stg1: '\u2055 Vá interagindo vocalizando suas ações. Sempre que possível mantenha o contato visual “olho no olho” e sempre que ${store.controllerKidName.text} emitir sons na tentativa de se expressar, responda como se estivem conversando normalmente.'
+          ),
+          SizedBox(height: 15.0,),
+          RichText(
+            textAlign: TextAlign.justify,
+            text: TextSpan(
+              text: 'Deixe ${store.controllerKidName.text} ',
+              style: TextStyle(
+                fontSize: 18,
+                fontWeight: FontWeight.normal,
+                color: Colors.black,
+
+              ),
+              children: <TextSpan>[
+                TextSpan(text: 'sentado (a)', style: TextStyle(fontWeight: FontWeight.bold)),
+                TextSpan(text: ' em cima de uma almofada, ofereça a mão para ${store.controllerKidName.text} e deixe ${store.controllerKidName.text} executar o movimento para a posição em '),
+                TextSpan(text: 'pé', style: TextStyle(fontWeight: FontWeight.bold)),
+                TextSpan(text: '. Repete algumas vezes o movimento de sentar e levantar.'),
+              ],
+            ),
+          ),
+          SizedBox(height: 10.0,),
+          // Radin(UID,'DEV25TASK2'),
+
+          SizedBox(height: 60.0,),
+          textCTRST(
+              stg1: '\u2055 Vamos estimular ${store.controllerKidName.text} a engatinhar! Deixe seus brinquedos favoritos a, pelo menos, um metro de ${store.controllerKidName.text} e incentive para que ${store.controllerKidName.text} os busque, alcançando o brinquedo estimule ${store.controllerKidName.text} para ',
+              stg2: "posição sentada",
+              stg3: " para brincar um pouco."
+          ),textCTRST(stg1: '\u2055 São muitos os afazeres durante o dia, uma boa organização para as tarefas e horários determinados para as atividades de ${store.controllerKidName.text} ajudará a manter uma rotina tranquila e, ${store.controllerKidName.text} permanecerá calmo permitindo o desenvolvimento de novas habilidades.'),
+          SizedBox(height: 15.0,),
+          textCTRST(
+              stg1: '\u2055 Estimule ${store.controllerKidName.text} com diferentes brincadeiras e chama a atenção com palavras, “vem”, “cadê ${store.controllerKidName.text}”, “vêm com a mamãe”.'
+          ),
+          SizedBox(height: 10.0,),
+          // Radin(UID,'DEV25TASK3'),
+
+          SizedBox(height: 60.0,),
+          textCTRST(
+              stg1: '\u2055 Faça cócegas! Desta forma, além de estimular as expressões e a linguagem (ao emitir sons) você irá criar um ambiente leve e saudável para uma conexão interativa saudável entre você e ${store.controllerKidName.text}, o momento deve ser muito agradável para você também!'
+          ),textCTRST(stg1: '\u2055 Sempre elogie ${store.controllerKidName.text} pelos seus aprendizados. Mesmo que erre ou não execute a tarefa como solicitada, ensine novamente a forma apresentada inicialmente. O ambiente para a atividade de aprendizagem deve ser agradável e acolhedor.'),
+          SizedBox(height: 15.0,),
+          textCTRST(
+              stg1: '\u2055 Agora é ideal elogiar! Elogie o sorriso, os movimentos que ${store.controllerKidName.text} está aprendendo, tudo é importante para o desenvolvimento adequado. Você é muito importante neste processo do desenvolvimento!'
+          ),
+          SizedBox(height: 10.0,),
+          // Radin(UID,'DEV25TASK4'),
+
+          SizedBox(height: 60.0,),
+          RichText(
+            textAlign: TextAlign.justify,
+            text: TextSpan(
+              text: 'Deixe algum apoio perto de ${store.controllerKidName.text} e na posição ',
+              style: TextStyle(
+                fontSize: 18,
+                fontWeight: FontWeight.normal,
+                color: Colors.black,
+
+              ),
+              children: <TextSpan>[
+                TextSpan(text: 'barriguinha para baixo', style: TextStyle(fontWeight: FontWeight.bold)),
+                TextSpan(text: ' estimule ${store.controllerKidName.text} arrastar/engatinhar no sentido do apoio e levantar. Se ${store.controllerKidName.text} não conseguir subir sozinho para a '),
+                TextSpan(text: 'posição em pé', style: TextStyle(fontWeight: FontWeight.bold)),
+                TextSpan(text: ', você pode ajudar, mas lembre-se, é importante reduzir as ajudas para concluir os movimentos, deixando independente.'),
+              ],
+            ),
+          ),textCTRST(stg1: '\u2055 Fala às pessoas mais próximas, sobre a rotina e aprendizados que ${store.controllerKidName.text} conquistou até esse momento. Orgulhe-se de sua dedicação, mamãe/papai/avós/irmãos/cuidadores! Cada criança apresenta suas particularidades no desejo de executar tarefas ensinadas no dia a dia. Observe a preferência de ${store.controllerKidName.text} para executar os movimentos e brincadeiras.'),
+          SizedBox(height: 15.0,),
+          textCTRST(
+              stg1: '\u2055 Ensine às pessoas mais próximas sobre a rotina e aprendizados que ${store.controllerKidName.text} conquistou até esse momento. Orgulhe-se de sua dedicação, mamãe/papai/avós/irmãos/cuidadores!'
+          ),
+          SizedBox(height: 15.0,),
+          textCTRST(
+              stg1: '\u2055 Estimule ${store.controllerKidName.text} demostrar seus avanços ao papai e/ou aos familiares, parabenizando e valorizando seus esforços.'
+          ),
+          SizedBox(height: 10.0,),
+          // Radin(UID,'DEV25TASK5'),
+          const SizedBox(height: 10.0,),
+                    ],
+                  ),
+                ),
+              )),
+            ),
+          ),
+        ]),
+      ),
+    );
   }
 }

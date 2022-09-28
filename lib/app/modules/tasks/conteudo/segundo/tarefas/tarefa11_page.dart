@@ -221,7 +221,7 @@ class _TaskElevenState extends State<TaskEleven> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Tarefa 10"),
+        title: const Text("Tarefa 11"),
         centerTitle: true,
         elevation: 0,
       ),
@@ -235,7 +235,7 @@ class _TaskElevenState extends State<TaskEleven> {
               builder: (_, constraints) => SingleChildScrollView(
                   child: Container(
                 width: MediaQuery.of(context).size.width * .9,
-                height: MediaQuery.of(context).size.height * 3,
+                height: MediaQuery.of(context).size.height * 4.4,
                 decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.circular(30),
@@ -268,13 +268,13 @@ class _TaskElevenState extends State<TaskEleven> {
                             child: Container(
                               //margin: EdgeInsets.only(left: 20.0,right: 20.0,bottom: 20.0),
                               padding:
-                                  EdgeInsets.fromLTRB(20.0, 10.0, 0.0, 20.0),
-                              decoration: BoxDecoration(
+                                  const EdgeInsets.fromLTRB(20.0, 10.0, 0.0, 20.0),
+                              decoration: const BoxDecoration(
                                 image: DecorationImage(
                                     fit: BoxFit.fill,
                                     image: AssetImage('images1/ballon9.png')),
                               ),
-                              child: Text(
+                              child: const Text(
                                 "Seja bem vinda!\nVamos seguir juntas as tarefas a cada dois"
                                 " dias, nestes primeiros meses.\nVamos Começar?",
                                 style: TextStyle(fontSize: 16),
@@ -296,13 +296,13 @@ class _TaskElevenState extends State<TaskEleven> {
           ),textCTRST(stg1: '\u2055 Após o banho, quando for vestir ${store.controllerKidName.text}, tome '
               'cuidado! Evite esticar demais seus bracinhos e perninhas, além '
               'de cuidar da cabeça.'),
-          SizedBox(height: 15.0,),
+          const SizedBox(height: 15.0,),
           textCTRST(
             stg1: '\u2055 Após o banho, quando for vestir ${store.controllerKidName.text}, mande beijos, '
                 'faça caretas engraçadas, estimule ${store.controllerKidName.text} a movimentar o rosto. ',
           ),textCTRST(stg1: '\u2055 A criança precisa do carinho, da alegria e '
               'do estímulo para o seu melhor desenvolvimento. Aproveita para '
-              'oferecer!'),SizedBox(height: 15.0,),
+              'oferecer!'),const SizedBox(height: 15.0,),
           textCTRST(
             stg1: '\u2055 Ofereça o brinquedo na lateral da criança e estimule '
                 'o girar do corpo para alcançar e pegar o brinquedo, uma vez do'
@@ -311,11 +311,11 @@ class _TaskElevenState extends State<TaskEleven> {
                 '${store.controllerKidName.text} entenderá que fez algo positivo e estimulará para novas '
                 'conquistas. ',
           ),
-          SizedBox(height: 10.0,),
+          const SizedBox(height: 10.0,),
           // Radin(UID,'DEV11TASK1'),
 
 
-          SizedBox(height: 60.0,),
+          const SizedBox(height: 60.0,),
           textCTRST(
             stg1: '\u2055 Coloque ${store.controllerKidName.text} de ',
             stg2: 'barriguinha para baixo',
@@ -325,24 +325,24 @@ class _TaskElevenState extends State<TaskEleven> {
           ),textCTRST(stg1: '\u2055 Não deixar ${store.controllerKidName.text} sozinho(a) em cima de uma mesa'
               ' ou sofá, nem por um segundo, porque ${store.controllerKidName.text} pode cair. Estão '
               'ficando mais rápidos para o movimento.'),
-          SizedBox(height: 15.0,),
+          const SizedBox(height: 15.0,),
           textCTRST(
             stg1: '\u2055 O brincar e explorar os brinquedos deverão ser '
                 'estimulados na posição barriguinha para baixo e para cima. '
                 'Vamos aprender e treinar o movimento do rolar para alcançar os'
                 ' brinquedos. ',
           ),
-          SizedBox(height: 15.0,),
+          const SizedBox(height: 15.0,),
           textCTRST(
             stg1: '\u2055 Atenção: Escolha um lugar seguro e sem risco de '
                 'quedas, o rolar e o deslocamento vão surgindo com maior '
                 'facilidade e rapidez. Cuidado!',
           ),
-          SizedBox(height: 10.0,),
+          const SizedBox(height: 10.0,),
           // Radin(UID,'DEV11TASK2'),
 
 
-          SizedBox(height: 60.0,),
+          const SizedBox(height: 60.0,),
           textCTRST(
             stg1: '\u2055 Esse momento é para ${store.controllerKidName.text} permanecer com movimentação '
                 'espontânea. Deixa de ',
@@ -352,7 +352,7 @@ class _TaskElevenState extends State<TaskEleven> {
                 ' os movimentos livres.',
           ),textCTRST(stg1: '\u2055 Sempre verifique a temperatura da água do '
               'banho antes de colocar ${store.controllerKidName.text} na banheira.'),
-          SizedBox(height: 15.0,),
+          const SizedBox(height: 15.0,),
           textCTRST(
             stg1: '\u2055 Interaja com ${store.controllerKidName.text} conversando com ele de forma que '
                 '${store.controllerKidName.text} observe suas expressões e gestos que ${store.controllerKidName.text} possa entender '
@@ -360,10 +360,10 @@ class _TaskElevenState extends State<TaskEleven> {
                 'sílabas mama, papa, dada.......',
           ),textCTRST(stg1: '\u2055 Os brinquedos devem ser lavados e '
               'higienizados para garantir a saúde de ${store.controllerKidName.text}.'),
-          SizedBox(height: 10.0,),
+          const SizedBox(height: 10.0,),
           // Radin(UID,'DEV11TASK3'),
 
-          SizedBox(height: 60.0,),
+          const SizedBox(height: 60.0,),
           textCTRST(
             stg1: '\u2055 Coloque ${store.controllerKidName.text} na ',
             stg2: 'posição sentada',
@@ -371,13 +371,13 @@ class _TaskElevenState extends State<TaskEleven> {
                 'frente dele, estimule a fazer igual.',
           ),textCTRST(stg1: '\u2055 ${store.controllerKidName.text} está ficando cada vez mais curiosa(o).'
               ' Não deixe objetos perigosos próximo à ${store.controllerKidName.text}.'),
-          SizedBox(height: 15.0,),
+          const SizedBox(height: 15.0,),
           textCTRST(
             stg1: '\u2055 Cante uma canção para ${store.controllerKidName.text}! Uma música alegre, com um'
                 ' ritmo que incentive a bater palmas. Ótimo para uma interação.',
           ),textCTRST(stg1: '\u2055 Converse com ${store.controllerKidName.text}, mas evite falar '
               'infantilizando, fale com sua tonalidade normal.'),
-          SizedBox(height: 15.0,),
+          const SizedBox(height: 15.0,),
           textCTRST(
             stg1: '\u2055 Deixe a brincadeira acontecer, barriguinha para baixo'
                 ' e na frente e dos lados brinquedos coloridos, macios e '
@@ -387,11 +387,11 @@ class _TaskElevenState extends State<TaskEleven> {
                 ' barriguinha para baixo. Esta posição é importante para '
                 'favorecer as conquistas das novas etapas.',
           ),
-          SizedBox(height: 10.0,),
+          const SizedBox(height: 10.0,),
           // Radin(UID,'DEV11TASK4'),
 
 
-          SizedBox(height: 60.0,),
+          const SizedBox(height: 60.0,),
           textCTRST(
             stg1: '\u2055 Coloque ${store.controllerKidName.text} de ',
             stg2: 'barriguinha pra baixo ',
@@ -400,7 +400,7 @@ class _TaskElevenState extends State<TaskEleven> {
                 'para a brincadeira, sempre sorrindo e olho no olho.',
           ),textCTRST(stg1: '\u2055 A pele de ${store.controllerKidName.text} é muito sensível. Tenha '
               'cuidado nos banhos de sol.'),
-          SizedBox(height: 15.0,),
+          const SizedBox(height: 15.0,),
           textCTRST(
             stg1: '\u2055 Oferecer brinquedo de tamanhos diferentes, ${store.controllerKidName.text} deverá'
                 ' ser capaz de segurar. Os diferentes tamanhos ajuda a percepção'
@@ -409,10 +409,10 @@ class _TaskElevenState extends State<TaskEleven> {
           ),textCTRST(stg1: '\u2055 Manter roupas confortáveis para possibilitar'
               ' os movimentos corporais com boa amplitude, fique atenta na '
               'temperatura do ambiente para escolher a roupa do dia.'),
-          SizedBox(height: 10.0,),
+          const SizedBox(height: 10.0,),
           // Radin(UID,'DEV11TASK5'),
 
-          SizedBox(height: 10.0,),
+          const SizedBox(height: 10.0,),
                     ],
                   ),
                 ),

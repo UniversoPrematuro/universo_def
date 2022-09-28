@@ -269,7 +269,13 @@ class Tarefa15PageState extends State<Tarefa15Page> {
                                                   Icons.arrow_forward,
                                                   color: Colors.white,
                                                 ),
-                                                onPressed: () {},
+                                                onPressed: () {
+                                                  Navigator.of(context).push(
+                                                    MaterialPageRoute(
+                                                      builder: ((context) => const TaskFif())
+                                                    )
+                                                  );
+                                                },
                                               ),
                                             ),
                                           ),
@@ -313,7 +319,7 @@ class _TaskFifState extends State<TaskFif> {
               builder: (_, constraints) => SingleChildScrollView(
                   child: Container(
                 width: MediaQuery.of(context).size.width * .9,
-                height: MediaQuery.of(context).size.height * 3,
+                height: MediaQuery.of(context).size.height * 4.3,
                 decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.circular(30),
@@ -342,7 +348,7 @@ class _TaskFifState extends State<TaskFif> {
           ),textCTRST(stg1: '\u2055 Cuidado com as brincadeiras de crianças mais'
               ' velhas, neste momento sempre deverá ter supervisão do adulto por'
               ' perto.'),
-          SizedBox(height: 15.0,),
+          const SizedBox(height: 15.0,),
           textCTRST(
             stg1: '\u2055 Expressões, quando ${store.controllerKidName.text} sorrir, retorne interagindo '
                 'com um largo sorriso para que entenda que interagiu com você '
@@ -351,11 +357,11 @@ class _TaskFifState extends State<TaskFif> {
           ),textCTRST(stg1: '\u2055 Não permita que ${store.controllerKidName.text} brinque com utensílios'
               ' domésticos, ofereça somente brinquedos próprios para a idade de'
               ' material seguro.'),
-          SizedBox(height: 10.0,),
+          const SizedBox(height: 10.0,),
           // Radin(UID,'DEV15TASK1'),
 
 
-          SizedBox(height: 60.0,),
+          const SizedBox(height: 60.0,),
           textCTRST(
             stg1: '\u2055 Na posição sentado com apoio brinque de face a face e '
                 'de olho no olho, estimule a imitação dos sons (ah..., papa, '
@@ -363,7 +369,7 @@ class _TaskFifState extends State<TaskFif> {
           ),textCTRST(stg1: '\u2055 Nessa fase, ainda é importante esterilizar '
               'adequadamente objetos que ${store.controllerKidName.text} use no seu dia a dia e mesmo os '
               'brinquedos.'),
-          SizedBox(height: 15.0,),
+          const SizedBox(height: 15.0,),
           textCTRST(
             stg1: '\u2055 Segure ${store.controllerKidName.text} no colo de frente para a outra pessoa e '
                 'deixe ${store.controllerKidName.text} inclinar um pouquinho para a frente para controlar '
@@ -374,11 +380,11 @@ class _TaskFifState extends State<TaskFif> {
               'algum tipo de pano solto no berço, proteja ${store.controllerKidName.text} de acidentes. '
               '${store.controllerKidName.text} não deve dormir na cama dos pais, pois pode acontecer '
               'sufocação.'),
-          SizedBox(height: 10.0,),
+          const SizedBox(height: 10.0,),
           // Radin(UID,'DEV15TASK2'),
 
 
-          SizedBox(height: 60.0,),
+          const SizedBox(height: 60.0,),
           textCTRST(
             stg1: '\u2055 Hora de estimular a percepção da criança. Ofereça à '
                 '${store.controllerKidName.text}, de ',
@@ -389,7 +395,7 @@ class _TaskFifState extends State<TaskFif> {
           ),textCTRST(stg1: '\u2055 Crie uma rotina para ${store.controllerKidName.text}. Coloque ${store.controllerKidName.text} '
               'para dormir sempre no mesmo horário, assim será criado uma '
               'rotina de sono mais adequada a você e ${store.controllerKidName.text}.'),
-          SizedBox(height: 15.0,),
+          const SizedBox(height: 15.0,),
           textCTRST(
             stg1: '\u2055 Aproveite esse momento para conversar com ${store.controllerKidName.text}, a '
                 'linguagem é muito estimulada nesse momento. A frequência do '
@@ -397,25 +403,25 @@ class _TaskFifState extends State<TaskFif> {
                 'e nomeada. “Olha o urso (brinquedo) ”, “cadê a bola amarela”, '
                 'entre outras situações da casa.'
           ),
-          SizedBox(height: 10.0,),
+          const SizedBox(height: 10.0,),
           // Radin(UID,'DEV15TASK3'),
 
 
-          SizedBox(height: 60.0,),
+          const SizedBox(height: 60.0,),
           textCTRST(
             stg1: '\u2055 Brinque com ${store.controllerKidName.text} fazendo caretas, abra bem a boca, '
                 'coloque a língua para fora, faça bicos e emita sons parecidos '
                 'com os que ele (a) faz para estimular a imitação. ',
           ),textCTRST(stg1: '\u2055 Fique atenta em ambientes com escadas, '
               'evite quedas e acidentes. '),
-          SizedBox(height: 15.0,),
+          const SizedBox(height: 15.0,),
           textCTRST(
             stg1: '\u2055 Cada movimento da face deverá seguir um som, ruído e '
                 'expressão. Imitar caminhão, caretinha (bichinho)......'
           ),textCTRST(stg1: '\u2055 ${store.controllerKidName.text} deve manter-se distante no momento das'
               ' tarefas no ambiente da cozinha. Não deixe ${store.controllerKidName.text} próximo ao fogão'
               ' e materiais de risco.'),
-          SizedBox(height: 15.0,),
+          const SizedBox(height: 15.0,),
           textCTRST(
               stg1: '\u2055 Vamos lembrar de estimular o rolar. Barriguinha '
                   'para cima, virar para barriguinha para baixo. Barriguinha '
@@ -423,11 +429,11 @@ class _TaskFifState extends State<TaskFif> {
                   'realizados com a sua ajuda. Logo ${store.controllerKidName.text} estará executando '
                   'sozinho, precisamos treinar o movimento.'
           ),
-          SizedBox(height: 10.0,),
+          const SizedBox(height: 10.0,),
           // Radin(UID,'DEV15TASK4'),
 
 
-          SizedBox(height: 60.0,),
+          const SizedBox(height: 60.0,),
           textCTRST(
             stg1: '\u2055 Vamos cantar e estimular todos os movimentos '
                 'corporais, até agora explorados. Na hora de trocar a fralda ou '
@@ -441,7 +447,7 @@ class _TaskFifState extends State<TaskFif> {
               'para o banho, alimentação, para o sono e também para ${store.controllerKidName.text} brincar'
               '. ${store.controllerKidName.text} pode ficar nervoso e inseguro quando há muita alteração no'
               ' seu dia-a-dia.'),
-          SizedBox(height: 15.0,),
+          const SizedBox(height: 15.0,),
           textCTRST(
             stg1: '\u2055 De barriguinha para baixo deixar na frente de ${store.controllerKidName.text} '
                 'brinquedo que emite som e de cores. Observa como será a reação'
@@ -450,7 +456,7 @@ class _TaskFifState extends State<TaskFif> {
                 'brinquedo um pouquinho fora de alcance de ${store.controllerKidName.text} e deixe fazer '
                 'força para alcança-lo.'
           ),
-          SizedBox(height: 10.0,),
+          const SizedBox(height: 10.0,),
           // Radin(UID,'DEV15TASK5'),
 
                     ],

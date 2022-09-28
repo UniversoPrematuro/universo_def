@@ -282,7 +282,7 @@ class _TaskTenState extends State<TaskTen> {
               builder: (_, constraints) => SingleChildScrollView(
                   child: Container(
                 width: MediaQuery.of(context).size.width * .9,
-                height: MediaQuery.of(context).size.height * 3,
+                height: MediaQuery.of(context).size.height * 5,
                 decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.circular(30),
@@ -315,13 +315,13 @@ class _TaskTenState extends State<TaskTen> {
                             child: Container(
                               //margin: EdgeInsets.only(left: 20.0,right: 20.0,bottom: 20.0),
                               padding:
-                                  EdgeInsets.fromLTRB(20.0, 10.0, 0.0, 20.0),
-                              decoration: BoxDecoration(
+                                  const EdgeInsets.fromLTRB(20.0, 10.0, 0.0, 20.0),
+                              decoration: const BoxDecoration(
                                 image: DecorationImage(
                                     fit: BoxFit.fill,
                                     image: AssetImage('images1/ballon9.png')),
                               ),
-                              child: Text(
+                              child: const Text(
                                 "Seja bem vinda!\nVamos seguir juntas as tarefas a cada dois"
                                 " dias, nestes primeiros meses.\nVamos Começar?",
                                 style: TextStyle(fontSize: 16),
@@ -356,7 +356,7 @@ class _TaskTenState extends State<TaskTen> {
                         height: 60.0,
                       ),
 
-                      SizedBox(height: 60.0,),
+                      const SizedBox(height: 60.0,),
           textCTRST(
             stg1: '\u2055 Vamos brincar de esconder! Coloque ${store.controllerKidName.text} deitado(a) no '
                 'seu colo, de ',
@@ -368,22 +368,22 @@ class _TaskTenState extends State<TaskTen> {
               ' acidentes. As quedas podem acontecer, acredite sempre que ${store.controllerKidName.text} '
               'poderá fazer um movimento que você ainda não viu acontecer. '
               'Proteja e evite quedas indesejáveis! Fique sempre de olho em ${store.controllerKidName.text}.'),
-          SizedBox(height: 15.0,),
+          const SizedBox(height: 15.0,),
           textCTRST(
             stg1: '\u2055 Enquanto ${store.controllerKidName.text} estiver no seu colo, ensine-o(a) a mandar '
                 'beijos e fazer caretinha.',
           ),
-          SizedBox(height: 15.0,),
+          const SizedBox(height: 15.0,),
           textCTRST(
             stg1: '\u2055 Brinca de rolar de ',
             stg2: 'barriquinha para cima e para baixo',
             stg3: ', período da manhã e da tarde.'
           ),
-          SizedBox(height: 10.0,),
+          const SizedBox(height: 10.0,),
           // Radin(UID,'DEV10TASK1'),
 
 
-          SizedBox(height: 60.0,),
+          const SizedBox(height: 60.0,),
           textCTRST(
             stg1: '\u2055 Hoje é dia de ensinar cores à ${store.controllerKidName.text}! Com ${store.controllerKidName.text} de ',
             stg2: 'barriguinha para cima',
@@ -393,7 +393,7 @@ class _TaskTenState extends State<TaskTen> {
                 'cabeçinha para os lados.',
           ),textCTRST(stg1: '\u2055 Fique atenta(o)! Se ${store.controllerKidName.text} sujar a fralda, '
               'troque-as o quanto antes para evitar assaduras.'),
-          SizedBox(height: 15.0,),
+          const SizedBox(height: 15.0,),
           textCTRST(
             stg1: '\u2055 Vamos aproveitar o momento de barriguinha para cima e'
                 ' conversar com ${store.controllerKidName.text} suavemente, sempre com olhares fixos deixe'
@@ -402,18 +402,18 @@ class _TaskTenState extends State<TaskTen> {
           ),textCTRST(stg1: '\u2055 Valorize a hora do sono, esse momento é '
               'importante para o desenvolvimento da criança. Hora do silêncio '
               'com pouca luminosidade e muita tranquilidade!'),
-          SizedBox(height: 15.0,),
+          const SizedBox(height: 15.0,),
           textCTRST(
             stg1: '\u2055 Deixe ${store.controllerKidName.text} sentado(a) com apoio na cintura para observar'
                 ' o movimento ao seu arredor, é um bom estímulo para o ganho '
                 'postural, somente manter alguns segundos de cada vez. ',
           ),
-          SizedBox(height: 10.0,),
+          const SizedBox(height: 10.0,),
           // Radin(UID,'DEV10TASK2'),
 
 
 
-          SizedBox(height: 60.0,),
+          const SizedBox(height: 60.0,),
           textCTRST(
             stg1: '\u2055 Com ${store.controllerKidName.text} de ',
             stg2: 'barriguinha para baixo',
@@ -422,23 +422,23 @@ class _TaskTenState extends State<TaskTen> {
           ),textCTRST(stg1: '\u2055 Conforme ${store.controllerKidName.text} cresce, sua audição e visão '
               'vão melhorando. Tenha cuidado sobre o ambiente que ${store.controllerKidName.text} estiver,'
               ' mantenha sempre um ambiente agradável.'),
-          SizedBox(height: 15.0,),
+          const SizedBox(height: 15.0,),
           textCTRST(
             stg1: '\u2055 Brincar de barriguinha para baixo com brinquedos macios'
                 ' e que emitem som na frente de ${store.controllerKidName.text}, ajuda para fortalecer para '
                 'novos ganhos do movimento.',
           ),textCTRST(stg1: '\u2055 Procure não movimentar ${store.controllerKidName.text} após as mamadas,'
               ' evite o retorno do alimento.'),
-          SizedBox(height: 15.0,),
+          const SizedBox(height: 15.0,),
           textCTRST(
             stg1: '\u2055 Valorize a hora do sono, esse momento é importante '
                 'para o desenvolvimento da criança. Hora do silêncio com pouca'
                 ' luminosidade e muita tranquilidade!',
           ),
-          SizedBox(height: 10.0,),
+          const SizedBox(height: 10.0,),
           // Radin(UID,'DEV10TASK3'),
 
-          SizedBox(height: 60.0,),
+          const SizedBox(height: 60.0,),
           textCTRST(
             stg1: '\u2055 Na posição de ',
             stg2: 'barriguinha para cima e depois barriguinha para baixo',
@@ -446,7 +446,7 @@ class _TaskTenState extends State<TaskTen> {
                 'estimule para pegar o brinquedo.',
           ),textCTRST(stg1: '\u2055 É momento de celebrar cada conquista de ${store.controllerKidName.text}!'
               ' Nunca deixe de comemorar cada marco alcançado!'),
-          SizedBox(height: 15.0,),
+          const SizedBox(height: 15.0,),
           textCTRST(
             stg1: '\u2055 É importante você sempre conversar e comemorar cada '
                 'conquista de ${store.controllerKidName.text}, assim ele(a) terá estimulo para continuar a'
@@ -455,17 +455,17 @@ class _TaskTenState extends State<TaskTen> {
               'risco de leva-los a boca e gerar o engasgo e aspiração. Evite o '
               'risco e proteja ${store.controllerKidName.text}! Oferece somente brinquedos correto para a '
               'idade e de resistência própria para a sua criança.'),
-          SizedBox(height: 15.0,),
+          const SizedBox(height: 15.0,),
           textCTRST(
             stg1: '\u2055 É importante que ${store.controllerKidName.text} atenda e se vire para o sentido '
                 'do barulho, então vamos chamar a cada vez de um lado da '
                 'criança para que o movimento de girar a cabeça aconteça.',
           ),
-          SizedBox(height: 10.0,),
+          const SizedBox(height: 10.0,),
           // Radin(UID,'DEV10TASK4'),
 
 
-          SizedBox(height: 60.0,),
+          const SizedBox(height: 60.0,),
           textCTRST(
             stg1: '\u2055 Vamos brincar de aviãozinho com ${store.controllerKidName.text}! Segure-o(a) pelas '
                 'axilas e, com você deitado(a) de barriga para cima, faça '
@@ -473,7 +473,7 @@ class _TaskTenState extends State<TaskTen> {
           ),textCTRST(stg1: '\u2055 Ao transportar ${store.controllerKidName.text}, se atente à maneira '
               'correta que os profissionais da saúde sugerem: no carro, sempre '
               'em uma cadeira própria para a idade.'),
-          SizedBox(height: 15.0,),
+          const SizedBox(height: 15.0,),
           textCTRST(
             stg1: '\u2055 Não esqueça de fazer barulhos e de sorrir para ${store.controllerKidName.text}! '
                 'Sempre com contato visual de olho o olho, dedicação, '
@@ -484,7 +484,7 @@ class _TaskTenState extends State<TaskTen> {
           ),textCTRST(stg1: '\u2055 Escolha um lugar seguro e sem risco de '
               'quedas, os movimentos de ${store.controllerKidName.text} vão surgindo com maior facilidade '
               'e rapidez. Cuidado!'),
-          SizedBox(height: 10.0,),
+          const SizedBox(height: 10.0,),
                     ],
                   ),
                 ),

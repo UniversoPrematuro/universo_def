@@ -256,7 +256,13 @@ class Tarefa23PageState extends State<Tarefa23Page> {
                                                   Icons.arrow_forward,
                                                   color: Colors.white,
                                                 ),
-                                                onPressed: () {},
+                                                onPressed: () {
+                                                  Navigator.of(context).push(
+                                                    MaterialPageRoute(
+                                                      builder: ((context) => const TaskTwentThree())
+                                                    )
+                                                  );
+                                                },
                                               ),
                                             ),
                                           ),
@@ -271,5 +277,197 @@ class Tarefa23PageState extends State<Tarefa23Page> {
             ],
           ),
         ));
+  }
+}
+class TaskTwentThree extends StatefulWidget {
+  const TaskTwentThree({super.key});
+
+  @override
+  State<TaskTwentThree> createState() => _TaskTwentThreeState();
+}
+
+class _TaskTwentThreeState extends State<TaskTwentThree> {
+  final EditStore store = Modular.get();
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text("Tarefa 23"),
+        centerTitle: true,
+        elevation: 0,
+      ),
+      body: Container(
+        color: Colors.green,
+        width: MediaQuery.of(context).size.width,
+        height: MediaQuery.of(context).size.height,
+        child: Column(children: [
+          Expanded(
+            child: LayoutBuilder(
+              builder: (_, constraints) => SingleChildScrollView(
+                  child: Container(
+                width: MediaQuery.of(context).size.width * .9,
+                height: MediaQuery.of(context).size.height * 4.8,
+                decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(30),
+                    boxShadow: [
+                      BoxShadow(
+                          color: Colors.black.withOpacity(1),
+                          blurRadius: 8,
+                          offset: const Offset(0, 5))
+                    ]),
+                child: Padding(
+                  padding: const EdgeInsets.all(15.0),
+                  child: Column(
+                    children: [
+                      Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: <Widget>[
+                          Column(
+                            children: <Widget>[
+                              Container(
+                                height: 70.0,
+                                color: Colors.red,
+                              ),
+                              Container(
+                                width: 100.0,
+                                child: Image.asset("images1/Personagemai.png"),
+                              ),
+                            ],
+                          ),
+                          Expanded(
+                            child: Container(
+                              //margin: EdgeInsets.only(left: 20.0,right: 20.0,bottom: 20.0),
+                              padding:
+                                  const EdgeInsets.fromLTRB(20.0, 10.0, 0.0, 20.0),
+                              decoration: const BoxDecoration(
+                                image: DecorationImage(
+                                    fit: BoxFit.fill,
+                                    image: AssetImage('images1/ballon9.png')),
+                              ),
+                              child: const Text(
+                                "Seja bem vinda!\nVamos seguir juntas as tarefas a cada dois"
+                                " dias, nestes primeiros meses.\nVamos Começar?",
+                                style: TextStyle(fontSize: 16),
+                              ),
+                            ),
+                          )
+                        ],
+                      ),
+
+                      SizedBox(height: 60.0,),
+          textCTRST(
+              stg1: '\u2055 Vamos nos divertir com a brincadeira! Com ${store.controllerKidName.text} na ',
+              stg2: "posição sentado (a)",
+              stg3: ", faça você, primeiramente, a brincadeira o de se esconder "
+                  "atrás de um paninho estimulando ${store.controllerKidName.text} a puxar para te encontrar"
+                  ". Depois ensine ${store.controllerKidName.text} a fazer a mesma brincadeira, do mesmo modo"
+                  " que você ensinou e neste momento você irá puxar o pano,"
+                  " expressando surpresa."
+          ),textCTRST(stg1: '\u2055 Fique atenta! Não falte das consultas de rotina de ${store.controllerKidName.text}, siga todas as orientações para o bom desenvolvimento e crescimento, observe as indicações de cuidados do ambiente, higiene, limpeza da boca e dentinhos que irão surgindo. Acompanhe as informações também na carteirinha da criança.'),
+          SizedBox(height: 15.0,),
+          textCTRST(
+              stg1: '\u2055 Qualquer tentativa é válida, é começando que irá aprimorar. '
+                  'Faça muito elogios expressando sorriso e demonstrando alegria '
+                  'por ${store.controllerKidName.text} cumprir a tarefa ou mesmo pela tentativa e esforço.'
+          ),
+          SizedBox(height: 15.0,),
+          textCTRST(
+              stg1: '\u2055 Para todas as tarefas é importante a repetição. Você'
+                  ' deverá escolher uma tarefa anterior, do bloco 1 ou 2 e repetir.'
+                  ' Observe como ${store.controllerKidName.text} executará, observe o desenvolvimento alcançado! '
+          ),
+          SizedBox(height: 10.0,),
+          // Radin(UID,'DEV23TASK1'),
+
+          SizedBox(height: 60.0,),
+          textCTRST(
+              stg1: '\u2055 Aumentando a velocidade do movimento! Vamos brincar'
+                  ' de engatinhar e aumentar a velocidade do deslocamento, ofereça'
+                  ' o estímulo batendo as mãos e falando “vamos, vamos” ofereça'
+                  ' um brinquedo, aproximando da linha de chegada ${store.controllerKidName.text} deverá sentar'
+                  ' e explorar o brinquedo. Levanta e muda de lugar para repetir'
+                  ' a brincadeira. Se ${store.controllerKidName.text} executar o movimento arrastando,'
+                  ' também é valido.'
+          ),textCTRST(stg1: '\u2055 Observe a reação de ${store.controllerKidName.text} com os barulhos dos brinquedos e da própria casa. ${store.controllerKidName.text} deve reagir com os barulhos de bater a porta, vozes dos familiares e brinquedos que emitem som, alguma reação deve ser apresentada por ${store.controllerKidName.text} com os ruídos, mesmo que ${store.controllerKidName.text} esteja virado (a) para outro lado.'),
+          SizedBox(height: 15.0,),
+          textCTRST(
+              stg1: '\u2055 É momento de conversar com ${store.controllerKidName.text}! Faça barulhos com a'
+                  ' boca e incentive ${store.controllerKidName.text} a repetir (“aaaa”, “angu”, “oi”). Faça'
+                  ' os barulhos com movimentos bem marcados da boca, sempre ensine'
+                  ' ${store.controllerKidName.text} como fazer os movimentos da boca para que ele (a) o imite.'
+          ),
+          SizedBox(height: 15.0,),
+          textCTRST(
+              stg1: '\u2055 Faça sempre primeiro e deixe-o observar você fixamente.'
+                  ' Após qualquer emissão de som de ${store.controllerKidName.text} festeje sua tentativa!'
+                  ' Faça esse exercício sempre que possível.'
+          ),
+          SizedBox(height: 10.0,),
+          // Radin(UID,'DEV23TASK2'),
+
+          SizedBox(height: 60.0,),
+          textCTRST(
+              stg1: '\u2055 Com ${store.controllerKidName.text} na ',
+              stg2: "yposição sentado (a)",
+              stg3: " e com o brinquedo favorito dele (a), brinque de passar o "
+                  "brinquedo de uma mão para outra. Essa tarefa irá exercitar a"
+                  " lateralidade. A cada momento de três repetição troca o brinquedo"
+                  " e formato."
+          ),textCTRST(stg1: '\u2055 Evite o uso de aparelhos eletrônicos para distrair ${store.controllerKidName.text}. Prefira brinquedos do que jogos virtuais. É recomendado que o contato com equipamentos digitais ocorra após dois anos de idade garantindo o melhor desenvolvimento.'),
+          SizedBox(height: 15.0,),
+          textCTRST(
+              stg1: '\u2055 É importante ensinar ${store.controllerKidName.text} a compartilhar também. Em'
+                  ' alguns momentos da brincadeira, peça o brinquedo e faça elogios'
+                  ' à ${store.controllerKidName.text} quando o brinquedo lhe for entregue.'
+          ),
+          SizedBox(height: 10.0,),
+          // Radin(UID,'DEV23TASK3'),
+
+          SizedBox(height: 60.0,),
+          textCTRST(
+              stg1: '\u2055 Com ${store.controllerKidName.text} na ',
+              stg2: "posição sentado (a)",
+              stg3: ", dê dois brinquedos a ele (a) e ensine a batê-los um no outro."
+                  " Isso irá estimular a força nas mãos. Durante a atividade deve"
+                  " oferecer diferentes brinquedos ou objetos."
+          ),textCTRST(stg1: '\u2055 É importante para ${store.controllerKidName.text} o vinculo com pessoas queridas da família, assim poderá construir uma base sólida entre as relações sociais. Vamos estimular as relações com alegria, tranquilidade, sorrisos, carinho e brincadeiras.'),
+          SizedBox(height: 15.0,),
+          textCTRST(
+              stg1: '\u2055 Fale com alegria e dê uma gargalhada, para que perceba'
+                  ' ser algo importante e divertido está acontecendo. Prenda a '
+                  'atenção de ${store.controllerKidName.text} para a brincadeira, sempre sorrindo, '
+                  'alternando tons de voz.'
+          ),
+          SizedBox(height: 10.0,),
+          // Radin(UID,'DEV23TASK4'),
+
+          SizedBox(height: 60.0,),
+          textCTRST(
+              stg1: '\u2055 Vamos deixar ${store.controllerKidName.text} com movimentos livres! Explorar todas '
+                  'as posições corporais e deixar ele brincar com seus pezinhos e '
+                  'mãozinhas e com os brinquedos que estiverem ao seu arredor. A '
+                  'distância você verifica como ${store.controllerKidName.text} irá se comportar nesta situação.'
+                  ' Momentos de interação do ${store.controllerKidName.text} sozinho é importante para a sua formação.'
+          ),textCTRST(stg1: '\u2055 Observe as reações de ${store.controllerKidName.text} na parte visual. ${store.controllerKidName.text} deverá responder com o olhar direcionado ao brinquedo e nas pessoas, a fixação do olhar deverá acontecer com os objetos de interesse mantendo uma distância entre o objeto e o rosto.'),
+          SizedBox(height: 15.0,),
+          textCTRST(
+              stg1: '\u2055 Após um tempo sozinho, em torno de vinte minutos, você '
+                  'aproxima e aproveite para brincar e cantar para o ${store.controllerKidName.text}.  Use a '
+                  'imaginação e criatividade. ${store.controllerKidName.text} perceberá que alguns momentos '
+                  'sozinhos se passaram e logo chegou a pessoa querida. Depois ${store.controllerKidName.text}'
+                  ' tolera períodos um pouco maior.'
+          ),
+          SizedBox(height: 10.0,),
+          // Radin(UID,'DEV23TASK5'),
+                    ],
+                  ),
+                ),
+              )),
+            ),
+          ),
+        ]),
+      ),
+    );
   }
 }

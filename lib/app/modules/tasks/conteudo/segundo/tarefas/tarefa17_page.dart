@@ -249,13 +249,27 @@ class Tarefa17PageState extends State<Tarefa17Page> {
                                                   fontWeight: FontWeight.w500,
                                                   fontStyle: FontStyle.italic)),
                                           const SizedBox(height: 30),
-                                          TextButton.icon(
-                                            onPressed: () {},
-                                            label:
-                                                const Text("SEGUEM AS TAREFAS"),
-                                            icon: const Icon(Icons
-                                                .arrow_circle_right_outlined),
-                                          )
+                                          ElevatedButton.icon(
+                                                label: const Text(
+                                                  'Seguem as tarefas',
+                                                  style: TextStyle(
+                                                      fontSize: 24.0,
+                                                      fontWeight:
+                                                          FontWeight.w500,
+                                                      color: Colors.white),
+                                                ),
+                                                icon: const Icon(
+                                                  Icons.arrow_forward,
+                                                  color: Colors.white,
+                                                ),
+                                                onPressed: () {
+                                                  Navigator.of(context).push(
+                                                    MaterialPageRoute(
+                                                      builder: ((context) => const TaskSevent())
+                                                    )
+                                                  );
+                                                },
+                                              ),
                                         ],
                                       ),
                                     ),
@@ -283,7 +297,7 @@ class _TaskSeventState extends State<TaskSevent> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Tarefa 16"),
+        title: const Text("Tarefa 17"),
         centerTitle: true,
         elevation: 0,
       ),
@@ -297,7 +311,7 @@ class _TaskSeventState extends State<TaskSevent> {
               builder: (_, constraints) => SingleChildScrollView(
                   child: Container(
                 width: MediaQuery.of(context).size.width * .9,
-                height: MediaQuery.of(context).size.height * 3,
+                height: MediaQuery.of(context).size.height * 4,
                 decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.circular(30),
@@ -315,7 +329,7 @@ class _TaskSeventState extends State<TaskSevent> {
                       const SizedBox(
                         height: 40.0,
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 60.0,
                       ),
                       textCTRST(
@@ -329,7 +343,7 @@ class _TaskSeventState extends State<TaskSevent> {
                               '\u2055 Cuidado com a utilização de produtos de '
                               'limpeza com cheiro forte, amaciante entre outros, pode manifestar'
                               ' sintomas de alergia de pele e respiratória.'),
-                      SizedBox(
+                      const SizedBox(
                         height: 15.0,
                       ),
                       textCTRST(
@@ -342,12 +356,12 @@ class _TaskSeventState extends State<TaskSevent> {
                           stg1:
                               '\u2055 Lavar as mãos todas as vezes que for pegar '
                               '${store.controllerKidName.text} e/ou organizar o seu material e pertences.'),
-                      SizedBox(
+                      const SizedBox(
                         height: 10.0,
                       ),
                       // Radin(UID,'DEV17TASK1'),
 
-                      SizedBox(
+                      const SizedBox(
                         height: 60.0,
                       ),
                       textCTRST(
@@ -361,7 +375,7 @@ class _TaskSeventState extends State<TaskSevent> {
                           stg1: '\u2055 Tome cuidado com cabos elétricos que '
                               'estiverem descascados ou desfiados. Evite expor ${store.controllerKidName.text} em ambiente'
                               ' que possuem esses cabos.  '),
-                      SizedBox(
+                      const SizedBox(
                         height: 15.0,
                       ),
                       textCTRST(
@@ -372,12 +386,12 @@ class _TaskSeventState extends State<TaskSevent> {
                               ' essa posição, pois todas as posições corporais colaboram '
                               'com ganhos futuros para as novas conquistas (gatinhar, andar'
                               ' e correr).'),
-                      SizedBox(
+                      const SizedBox(
                         height: 10.0,
                       ),
                       // Radin(UID,'DEV17TASK2'),
 
-                      SizedBox(
+                      const SizedBox(
                         height: 60.0,
                       ),
                       textCTRST(
@@ -392,7 +406,7 @@ class _TaskSeventState extends State<TaskSevent> {
                               '\u2055 Procure sempre o profissional de saúde para'
                               ' tirar as dúvidas que forem surgindo com o desenvolvimento e '
                               'crescimento de ${store.controllerKidName.text}. '),
-                      SizedBox(
+                      const SizedBox(
                         height: 15.0,
                       ),
                       textCTRST(
@@ -404,12 +418,12 @@ class _TaskSeventState extends State<TaskSevent> {
                           stg1:
                               '\u2055 O carinho dos pais, avós e pessoas queridas'
                               ' ajudam para o bom desenvolvimento com saúde.'),
-                      SizedBox(
+                      const SizedBox(
                         height: 10.0,
                       ),
                       // Radin(UID,'DEV17TASK3'),
 
-                      SizedBox(
+                      const SizedBox(
                         height: 60.0,
                       ),
                       textCTRST(
@@ -425,7 +439,7 @@ class _TaskSeventState extends State<TaskSevent> {
                               '\u2055 Fique atenta(o) as datas das consultas de '
                               '${store.controllerKidName.text}, é importante manter o cuidado nessa fase, precisamos '
                               'cuidar de ${store.controllerKidName.text}.'),
-                      SizedBox(
+                      const SizedBox(
                         height: 15.0,
                       ),
                       textCTRST(
@@ -437,12 +451,12 @@ class _TaskSeventState extends State<TaskSevent> {
                               '\u2055 O desenvolvimento do elo entre os familiares'
                               ' e ${store.controllerKidName.text} favorece para o fator de proteção para o desenvolvimento'
                               ' saudável.'),
-                      SizedBox(
+                      const SizedBox(
                         height: 10.0,
                       ),
                       // Radin(UID,'DEV17TASK4'),
 
-                      SizedBox(
+                      const SizedBox(
                         height: 60.0,
                       ),
                       textCTRST(
@@ -457,7 +471,7 @@ class _TaskSeventState extends State<TaskSevent> {
                               '\u2055 Não deixe ${store.controllerKidName.text} sem supervisão. ${store.controllerKidName.text} está em'
                               ' pleno desenvolvimento e todos os dias poderá fazer movimentos '
                               'novos.'),
-                      SizedBox(
+                      const SizedBox(
                         height: 15.0,
                       ),
                       textCTRST(
@@ -469,14 +483,14 @@ class _TaskSeventState extends State<TaskSevent> {
                           stg1:
                               '\u2055 Aproveite para descansar um pouco quando '
                               '${store.controllerKidName.text} estiver dormindo.'),
-                      SizedBox(
+                      const SizedBox(
                         height: 15.0,
                       ),
                       textCTRST(
                           stg1:
                               '\u2055 Vamos estimular os movimentos adquiridos e '
                               'proporcionar novas experiências e conquistas.'),
-                      SizedBox(
+                      const SizedBox(
                         height: 10.0,
                       ),
                       // Radin(UID,'DEV17TASK5'),

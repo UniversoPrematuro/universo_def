@@ -292,7 +292,7 @@ class _TaskTwelveState extends State<TaskTwelve> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Tarefa 10"),
+        title: const Text("Tarefa 12"),
         centerTitle: true,
         elevation: 0,
       ),
@@ -306,7 +306,7 @@ class _TaskTwelveState extends State<TaskTwelve> {
               builder: (_, constraints) => SingleChildScrollView(
                   child: Container(
                 width: MediaQuery.of(context).size.width * .9,
-                height: MediaQuery.of(context).size.height * 3,
+                height: MediaQuery.of(context).size.height * 4.2,
                 decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.circular(30),
@@ -339,13 +339,13 @@ class _TaskTwelveState extends State<TaskTwelve> {
                             child: Container(
                               //margin: EdgeInsets.only(left: 20.0,right: 20.0,bottom: 20.0),
                               padding:
-                                  EdgeInsets.fromLTRB(20.0, 10.0, 0.0, 20.0),
-                              decoration: BoxDecoration(
+                                  const EdgeInsets.fromLTRB(20.0, 10.0, 0.0, 20.0),
+                              decoration: const BoxDecoration(
                                 image: DecorationImage(
                                     fit: BoxFit.fill,
                                     image: AssetImage('images1/ballon9.png')),
                               ),
-                              child: Text(
+                              child: const Text(
                                 "Seja bem vinda!\nVamos seguir juntas as tarefas a cada dois"
                                 " dias, nestes primeiros meses.\nVamos Começar?",
                                 style: TextStyle(fontSize: 16),
@@ -359,7 +359,7 @@ class _TaskTwelveState extends State<TaskTwelve> {
                         height: 40.0,
                       ),
 
-                      SizedBox(height: 60.0,),
+                      const SizedBox(height: 60.0,),
           textCTRST(
             stg1: '\u2055 É hora da história! Pegue dois ursinhos de pelúcia, '
                 'ou dois bonequinhos, ou com fantoches, crie uma história para '
@@ -367,18 +367,18 @@ class _TaskTwelveState extends State<TaskTwelve> {
                 'uma canção na história também.',
           ),textCTRST(stg1: '\u2055 Não colocar fios ou cordões no pescoço de '
               '${store.controllerKidName.text}, nem para pendurar a chupeta.'),
-          SizedBox(height: 15.0,),
+          const SizedBox(height: 15.0,),
           textCTRST(
             stg1: '\u2055 Frases curtas, o tom de voz, gestos e as expressões '
                 'faciais suaves e bem articuladas ajudam ${store.controllerKidName.text} perceber sensações'
                 ' e sentidos da fala do adulto.',
           ),textCTRST(stg1: '\u2055 Mantenha sempre o ambiente lindo, arejado e'
               ' seguro, oferecer somente brinquedos apropriados para a idade.'),
-          SizedBox(height: 10.0,),
+          const SizedBox(height: 10.0,),
           // Radin(UID,'DEV12TASK1'),
 
 
-          SizedBox(height: 60.0,),
+          const SizedBox(height: 60.0,),
           textCTRST(
             stg1: '\u2055 No período da manhã e tarde brincar com ${store.controllerKidName.text} na '
                 'posição sentada, oferecer o apoio somente o necessário, deixa '
@@ -388,35 +388,35 @@ class _TaskTwelveState extends State<TaskTwelve> {
           ),textCTRST(stg1: '\u2055 Nessa idade, tudo para ${store.controllerKidName.text} é uma '
               'brincadeira (tanto na alimentação quanto na hora do banho). '
               'Aproveite esses momentos para interagir! '),
-          SizedBox(height: 15.0,),
+          const SizedBox(height: 15.0,),
           textCTRST(
             stg1: '\u2055 Nas ',
             stg2: 'diferentes posições corporais ',
             stg3: 'deixar ${store.controllerKidName.text} alcançar e pegar o brinquedo. Oferecer objetos '
                 'macios, leves e seguros.',
           ),
-          SizedBox(height: 15.0,),
+          const SizedBox(height: 15.0,),
           textCTRST(
             stg1: '\u2055 Manter atenção ao tom de voz e representação dos '
                 'sentidos da fala com expressões faciais e gestos ao interagir '
                 'com ${store.controllerKidName.text}. Isso ajudará ${store.controllerKidName.text} entender melhor.',
           ),
-          SizedBox(height: 10.0,),
+          const SizedBox(height: 10.0,),
           // Radin(UID,'DEV12TASK2'),
 
 
-          SizedBox(height: 60.0,),
+          const SizedBox(height: 60.0,),
           textCTRST(
             stg1: '\u2055 Após o banho, faça uma massagem com óleo específico '
                 'para criança, provocará o relaxamento e estímulo sensorial. ',
           ),textCTRST(stg1: '\u2055 Após o banho é um momento para relaxar, '
               'deixe o ambiente silencioso, reduz a luz natural do ambiente.'),
-          SizedBox(height: 15.0,),
+          const SizedBox(height: 15.0,),
           textCTRST(
             stg1: '\u2055 Hora do relaxamento. Cante músicas calmas e agradáveis'
                 ' que ajudem no relaxamento, principalmente na hora do soninho. ',
           ),
-          SizedBox(height: 15.0,),
+          const SizedBox(height: 15.0,),
           textCTRST(
             stg1: '\u2055 Hora da brincadeira. Nos momentos de descontração '
                 'abraçar ${store.controllerKidName.text} e brincar de folia com risadas e cocegas, pega o '
@@ -425,11 +425,11 @@ class _TaskTwelveState extends State<TaskTwelve> {
                 'massagear, passar texturas diferentes (algodão, pincel, escova '
                 'macia de cabelo). Lembre, a pele de ${store.controllerKidName.text} é muito delicada.',
           ),
-          SizedBox(height: 10.0,),
+          const SizedBox(height: 10.0,),
           // Radin(UID,'DEV12TASK3'),
 
 
-          SizedBox(height: 60.0,),
+          const SizedBox(height: 60.0,),
           textCTRST(
             stg1: '\u2055 Vamos estimular ${store.controllerKidName.text} da ',
             stg2: 'posição lateral para a posição de barriguinha para baixo',
@@ -437,7 +437,7 @@ class _TaskTwelveState extends State<TaskTwelve> {
                 'movimento sozinho com o brinquedo favorito do ${store.controllerKidName.text}.',
           ),textCTRST(stg1: '\u2055 Acompanhe o peso de ${store.controllerKidName.text}, compareça em '
               'todas as consultas regulares.'),
-          SizedBox(height: 15.0,),
+          const SizedBox(height: 15.0,),
           textCTRST(
             stg1: '\u2055 Neste momento, faça sons, estimule ${store.controllerKidName.text} chacoalhando '
                 'o brinquedo dele, mande beijos, tudo para incentiva-lo(a) a se'
@@ -445,7 +445,7 @@ class _TaskTwelveState extends State<TaskTwelve> {
           ),textCTRST(stg1: '\u2055 Esse período ${store.controllerKidName.text} leva os objetos na boca,'
               ' assim vamos lavar e cuidar da higiene dos objetos que estiverem'
               ' em contato com ${store.controllerKidName.text}. '),
-          SizedBox(height: 15.0,),
+          const SizedBox(height: 15.0,),
           textCTRST(
             stg1: '\u2055 Vamos sentar de frente com ${store.controllerKidName.text}, segure nas mãozinhas'
                 ' e deixa ${store.controllerKidName.text} experimentar a posição sentada sem apoio da '
@@ -454,11 +454,11 @@ class _TaskTwelveState extends State<TaskTwelve> {
                 'executada em período curto, mas aumentando gradativamente '
                 'conforme a conquista e independência para o movimento.',
           ),
-          SizedBox(height: 10.0,),
+          const SizedBox(height: 10.0,),
           // Radin(UID,'DEV12TASK4'),
 
 
-          SizedBox(height: 60.0,),
+          const SizedBox(height: 60.0,),
           textCTRST(
             stg1: '\u2055 Agora vamos ver a ',
             stg2: 'movimentação em todas as posições corporais',
@@ -468,14 +468,14 @@ class _TaskTwelveState extends State<TaskTwelve> {
           ),textCTRST(stg1: '\u2055 O padrão de sono é diferente para cada '
               'criança. É importante conhecer e respeitar as características '
               'de ${store.controllerKidName.text}.'),
-          SizedBox(height: 15.0,),
+          const SizedBox(height: 15.0,),
           textCTRST(
             stg1: '\u2055 Comemore cada conquista dos novos movimentos corporais'
                 ' com sons alegres, ${store.controllerKidName.text} se sentirá o afeto e importância na '
                 'atenção recebida. As conquistas são vitórias!',
           ),textCTRST(stg1: '\u2055 Cada criança desenvolve um ritmo para o '
               'sono, respeite o horário do sono e mantenha o ambiente tranquilo.'),
-          SizedBox(height: 10.0,),
+          const SizedBox(height: 10.0,),
                     ],
                   ),
                 ),

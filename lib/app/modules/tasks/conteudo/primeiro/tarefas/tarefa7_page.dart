@@ -250,7 +250,7 @@ class _TaskSevensState extends State<TaskSevens> {
   Widget build(BuildContext context) {
     return Scaffold(
      appBar: AppBar(
-        title: const Text("Tarefa 6"),
+        title: const Text("Tarefa 7"),
         centerTitle: true,
         elevation: 0,
       ), 

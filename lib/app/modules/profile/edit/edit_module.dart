@@ -11,6 +11,6 @@ class EditModule extends Module {
   @override
   final List<ModularRoute> routes = [
     ChildRoute('/', child: (_, args) => const EditPage()),
-    ChildRoute('/', child: (_, args) => const EditPage()),
+    // ChildRoute('/', child: (_, args) => const EditPage()),
   ];
 }
