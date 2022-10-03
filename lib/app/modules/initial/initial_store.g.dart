@@ -61,13 +61,13 @@ mixin _$InitialStore on _InitialStoreBase, Store {
       Atom(name: '_InitialStoreBase.erro', context: context);
 
   @override
-  String? get erro {
+  String get erro {
     _$erroAtom.reportRead();
     return super.erro;
   }
 
   @override
-  set erro(String? value) {
+  set erro(String value) {
     _$erroAtom.reportWrite(value, super.erro, () {
       super.erro = value;
     });

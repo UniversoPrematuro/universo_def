@@ -1,9 +1,11 @@
+// ignore_for_file: file_names, library_private_types_in_public_api, avoid_print
+
 import 'dart:io';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:firebase_storage/firebase_storage.dart';
-import 'package:image_picker/image_picker.dart';
+import 'package:flutter/foundation.dart';
 import 'package:mobx/mobx.dart';
 // import 'package:file_picker/file_picker.dart';
 
@@ -53,10 +55,14 @@ abstract class _PhotoAlbumStoreBase with Store {
           uploadedTasks.add(task);
         }
       } else {
-        print("Usuario cancelou");
+        if (kDebugMode) {
+          print("Usuario cancelou");
+        }
       }
     } catch (e) {
-      print(e);
+      if (kDebugMode) {
+        print(e);
+      }
     }
   }
    

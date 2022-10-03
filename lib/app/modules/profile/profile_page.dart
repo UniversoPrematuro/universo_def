@@ -1,7 +1,6 @@
 // ignore_for_file: sized_box_for_whitespace
 
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter_mobx/flutter_mobx.dart';
 // import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:universo_def/app/modules/profile/components/profile_components.dart';

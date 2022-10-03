@@ -30,7 +30,7 @@ abstract class _InitialStoreBase with Store {
   String? idLogado;
 
   @observable
-  String? erro;
+  String erro = "";
 
   @observable
   bool loading = false;

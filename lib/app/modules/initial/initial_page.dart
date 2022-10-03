@@ -69,18 +69,29 @@ class InitialPageState extends State<InitialPage> {
                             controllerPass: store.controllerPass,
                             hintText: 'Senha'),
                       ),
-                      
                       Column(
                         children: [
+                          Padding(
+                            padding: const EdgeInsets.all(5.0),
+                            child: Observer(builder: (_) {
+                              return Center(
+                                child: Text(store.erro, 
+                                style: const TextStyle(
+                                  color:  Color.fromARGB(255, 238, 66, 54),
+                                  fontWeight: FontWeight.w500,
+                                ),),
+                              );
+                            }),
+                          ),
                           const SizedBox(height: 30),
                           GradientButtonFb1(
                               onPressed: () async {
                                 store.signIn(UserModel());
                                 editStore.recover();
                                 // editStore.recoverKid();
-                                
                               },
                               text: "Entre Agora!"),
+                          
                           OutlineButtonFb1(
                               onPressed: () {
                                 Modular.to.pushNamed('/auth/');

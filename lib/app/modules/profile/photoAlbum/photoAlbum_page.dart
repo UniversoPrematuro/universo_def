@@ -1,6 +1,6 @@
+// ignore_for_file: file_names
+
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:universo_def/app/modules/profile/photoAlbum/photoAlbum_store.dart';
 import 'package:flutter/material.dart';
