@@ -1,9 +1,13 @@
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
+import '../../../../models/task_model.dart';
 import '../../../../profile/edit/edit_store.dart';
 import '../../../components/components.dart';
+import '../../../components/radin.dart';
+import '../../../tasks_store.dart';
 
 class Tarefa4Page extends StatefulWidget {
   final String title;
@@ -274,8 +278,27 @@ class TaskFour extends StatefulWidget {
 
 class _TaskFourState extends State<TaskFour> {
   final EditStore store = Modular.get();
+  final TasksStore tStore = Modular.get();
   @override
   Widget build(BuildContext context) {
+    FirebaseAuth auth = FirebaseAuth.instance;
+      tStore.getTasksFromFirebase(auth.currentUser!.uid, "DEV4").then((l){
+        if(l.length == 0){
+          for(int i = 1; i<6;i++){
+            Task t = Task();
+            t.user = auth.currentUser!.uid;
+            t.task = 'TASK$i';
+            t.group = 'DEV4';
+            t.status = 'I';
+            tStore.task = 'TASK$i';
+            tStore.group = 'DEV4';
+            tStore.status = 'I';
+            t.date = DateTime.now().toString();
+
+            // tStore.uploadTaskToFirebase(widget.uid!, widget.task!, );
+          }
+        }
+      });
     return Scaffold(
       appBar: AppBar(
         title: const Text("Tarefa 4"),
@@ -293,7 +316,7 @@ class _TaskFourState extends State<TaskFour> {
                 builder: (_, constraints) => SingleChildScrollView(
                   child: Container(
                     width: MediaQuery.of(context).size.width * .9,
-                    height: MediaQuery.of(context).size.height * 3.3,
+                    height: MediaQuery.of(context).size.height * 5,
                     decoration: BoxDecoration(
                         color: Colors.white,
                         borderRadius: BorderRadius.circular(30),
@@ -341,7 +364,7 @@ class _TaskFourState extends State<TaskFour> {
                           const SizedBox(
                             height: 10.0,
                           ),
-                          // Radin(UID, 'DEV4TASK1'),
+                          Radin(task: 'DEV4TASK1'),
                           const SizedBox(
                             height: 60.0,
                           ),
@@ -376,7 +399,7 @@ class _TaskFourState extends State<TaskFour> {
                           const SizedBox(
                             height: 10.0,
                           ),
-                          // Radin(UID, 'DEV4TASK2'),
+                          Radin(task: 'DEV4TASK2'),
                           const SizedBox(
                             height: 60.0,
                           ),
@@ -397,7 +420,7 @@ class _TaskFourState extends State<TaskFour> {
                           const SizedBox(
                             height: 10.0,
                           ),
-                          // Radin(UID, 'DEV4TASK3'),
+                          Radin(task: 'DEV4TASK3'),
                           const SizedBox(
                             height: 60.0,
                           ),
@@ -419,7 +442,7 @@ class _TaskFourState extends State<TaskFour> {
                           const SizedBox(
                             height: 10.0,
                           ),
-                          // Radin(UID, 'DEV4TASK4'),
+                          Radin(task: 'DEV4TASK4'),
 
                           const SizedBox(
                             height: 60.0,
@@ -450,7 +473,7 @@ class _TaskFourState extends State<TaskFour> {
                           const SizedBox(
                             height: 10.0,
                           ),
-                          // Radin(UID, 'DEV4TASK5'),
+                          Radin(task: 'DEV4TASK5'),
                         ],
                       ),
                     ),

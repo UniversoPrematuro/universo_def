@@ -1,16 +1,8 @@
-import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_mobx/flutter_mobx.dart';
-import 'package:flutter_modular/flutter_modular.dart';
 
 
 
 // import '../../models/task_model.dart';
-import '../../models/task_model.dart';
-import '../tasks_store.dart';
 
 Widget regText(String title, String text){
     return Column(
@@ -39,7 +31,7 @@ Widget speechPerson() {
       Column(
         children: <Widget>[
           Container(height: 50.0,color: Colors.red,),
-          Container(
+          SizedBox(
             width: 100.0,
             child: Image.asset("images1/Personagemai.png"),
           ),

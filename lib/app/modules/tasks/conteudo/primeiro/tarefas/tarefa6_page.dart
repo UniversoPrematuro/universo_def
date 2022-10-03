@@ -1,9 +1,12 @@
-import 'package:carousel_slider/carousel_slider.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
+import '../../../../models/task_model.dart';
 import '../../../../profile/edit/edit_store.dart';
 import '../../../components/components.dart';
+import '../../../components/radin.dart';
+import '../../../tasks_store.dart';
 
 class Tarefa6Page extends StatefulWidget {
   final String title;
@@ -249,8 +252,27 @@ class TaskSix extends StatefulWidget {
 
 class _TaskSixState extends State<TaskSix> {
   final EditStore store = Modular.get();
+  final TasksStore tStore = Modular.get();
   @override
   Widget build(BuildContext context) {
+    FirebaseAuth auth = FirebaseAuth.instance;
+      tStore.getTasksFromFirebase(auth.currentUser!.uid, "DEV6").then((l){
+        if(l.length == 0){
+          for(int i = 1; i<6;i++){
+            Task t = Task();
+            t.user = auth.currentUser!.uid;
+            t.task = 'TASK$i';
+            t.group = 'DEV6';
+            t.status = 'I';
+            tStore.task = 'TASK$i';
+            tStore.group = 'DEV6';
+            tStore.status = 'I';
+            t.date = DateTime.now().toString();
+
+            // tStore.uploadTaskToFirebase(widget.uid!, widget.task!, );
+          }
+        }
+      });
     return Scaffold(
      appBar: AppBar(
         title: const Text("Tarefa 6"),
@@ -267,7 +289,7 @@ class _TaskSixState extends State<TaskSix> {
               builder: (_, constraints) => SingleChildScrollView(
                   child: Container(
                 width: MediaQuery.of(context).size.width * .9,
-                height: MediaQuery.of(context).size.height * 3,
+                height: MediaQuery.of(context).size.height * 4.4,
                 decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.circular(30),
@@ -298,7 +320,7 @@ class _TaskSixState extends State<TaskSix> {
                 'parabéns. É uma forma de contato e de interação',
           ),
           const SizedBox(height: 10.0,),
-          // Radin(UID,'DEV6TASK1'),
+          Radin(task:'DEV6TASK1'),
 
 
           const SizedBox(height: 60.0,),
@@ -311,7 +333,7 @@ class _TaskSixState extends State<TaskSix> {
           ),textCTRST(stg1: '\u2055 Não oferecer brinquedos que gera risco a '
               'saúde de bebe (perfumado, pequenos, cortantes, ponte agudos).'),
           const SizedBox(height: 10.0,),
-          // Radin(UID,'DEV6TASK2'),
+          Radin(task:'DEV6TASK2'),
 
 
           const SizedBox(height: 60.0,),
@@ -327,7 +349,7 @@ class _TaskSixState extends State<TaskSix> {
             stg1: '\u2055 Aproveite esse momento para cantar algumas canções.',
           ),
           const SizedBox(height: 10.0,),
-          // Radin(UID,'DEV6TASK3'),
+          Radin(task:'DEV6TASK3'),
 
 
           const SizedBox(height: 60.0,),
@@ -342,7 +364,7 @@ class _TaskSixState extends State<TaskSix> {
                 ' relações de sua fala com as expressões faciais e seus gestos.',
           ),
           const SizedBox(height: 10.0,),
-          // Radin(UID,'DEV6TASK4'),
+          Radin(task:'DEV6TASK4'),
 
 
           const SizedBox(height: 60.0,),
@@ -357,7 +379,7 @@ class _TaskSixState extends State<TaskSix> {
                 ' de alegria',
           ),
           const SizedBox(height: 10.0,),
-          // Radin(UID,'DEV6TASK5'),
+          Radin(task:'DEV6TASK5'),
 
           const SizedBox(height: 60.0,),
           const Text('Parabéns! Estamos indo muito bem com a estimulação.',

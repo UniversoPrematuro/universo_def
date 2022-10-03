@@ -1,9 +1,14 @@
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:universo_def/app/modules/tasks/components/radin.dart';
 
+import '../../../../models/task_model.dart';
 import '../../../../profile/edit/edit_store.dart';
 import '../../../components/components.dart';
+import '../../../tasks_store.dart';
+
 
 class Tarefa2Page extends StatefulWidget {
   final String title;
@@ -258,8 +263,27 @@ class TaskTwo extends StatefulWidget {
 
 class _TaskTwoState extends State<TaskTwo> {
   final EditStore store = Modular.get();
+  final TasksStore tStore = Modular.get();
   @override
   Widget build(BuildContext context) {
+    FirebaseAuth auth = FirebaseAuth.instance;
+      tStore.getTasksFromFirebase(auth.currentUser!.uid, "DEV2").then((l){
+        if(l.length == 0){
+          for(int i = 1; i<6;i++){
+            Task t = Task();
+            t.user = auth.currentUser!.uid;
+            t.task = 'TASK$i';
+            t.group = 'DEV2';
+            t.status = 'I';
+            tStore.task = 'TASK$i';
+            tStore.group = 'DEV2';
+            tStore.status = 'I';
+            t.date = DateTime.now().toString();
+
+            // tStore.uploadTaskToFirebase(widget.uid!, widget.task!, );
+          }
+        }
+      });
     return Scaffold(
       appBar: AppBar(
         title: const Text("Tarefa 2"),
@@ -277,7 +301,7 @@ class _TaskTwoState extends State<TaskTwo> {
                 builder: (_, constraints) => SingleChildScrollView(
                   child: Container(
                     width: MediaQuery.of(context).size.width * .9,
-                    height: MediaQuery.of(context).size.height * 3.215,
+                    height: MediaQuery.of(context).size.height * 5,
                     decoration: BoxDecoration(
                         color: Colors.white,
                         borderRadius: BorderRadius.circular(30),
@@ -344,7 +368,7 @@ class _TaskTwoState extends State<TaskTwo> {
           ),textCTRST(stg1: '\u2055 Cuidado com os engasgos. Manter sempre em '
               'posição segura.'),
           const SizedBox(height: 10.0,),
-          // Radin(UID,'DEV2TASK1'),
+          Radin(task: 'DEV2TASK1'),
 
 
           const SizedBox(height: 60.0,),
@@ -363,7 +387,7 @@ class _TaskTwoState extends State<TaskTwo> {
           ),textCTRST(stg1: '\u2055 Todas as orientações dos profissionais que '
               'acompanham ${store.controllerKidName.text} deverão ser seguidas.'),
           const SizedBox(height: 10.0,),
-          // Radin(UID,'DEV2TASK2'),
+          Radin(task: 'DEV2TASK2'),
 
 
           const SizedBox(height: 60.0,),
@@ -379,7 +403,7 @@ class _TaskTwoState extends State<TaskTwo> {
                 'toque e por olhares acolhendo e conversando.',
           ),textCTRST(stg1: '\u2055 Manter a carteira de vacinação em dia.'),
           const SizedBox(height: 10.0,),
-          // Radin(UID,'DEV2TASK3'),
+          Radin(task: 'DEV2TASK3'),
 
 
           const SizedBox(height: 60.0,),
@@ -399,7 +423,7 @@ class _TaskTwoState extends State<TaskTwo> {
                 'interação.',
           ),textCTRST(stg1: '\u2055 Proporcione a interação com ${store.controllerKidName.text} de forma agradável.'),
           const SizedBox(height: 10.0,),
-          // Radin(UID,'DEV2TASK4'),
+          Radin(task: 'DEV2TASK4'),
 
 
           const SizedBox(height: 60.0,),
@@ -416,7 +440,10 @@ class _TaskTwoState extends State<TaskTwo> {
           ),textCTRST(stg1: '\u2055 Lembre-se da importância da lavagem de mãos'
               ' antes de manipular objetos e executar o cuidado de ${store.controllerKidName.text}.'),
           const SizedBox(height: 10.0,),
-          // Radin(UID,'DEV2TASK5'),
+          Radin(task: 'DEV2TASK5'),
+          // ElevatedButton(onPressed: (){
+          //   tStore.uploadTaskToFirebase();
+          // }, child: Text("enviar")),
 
           const SizedBox(height: 60.0,),
           // redDoubt(context,UID),

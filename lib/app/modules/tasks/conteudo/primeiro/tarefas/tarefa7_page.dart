@@ -1,8 +1,12 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
+import '../../../../models/task_model.dart';
 import '../../../../profile/edit/edit_store.dart';
 import '../../../components/components.dart';
+import '../../../components/radin.dart';
+import '../../../tasks_store.dart';
 
 class Tarefa7Page extends StatefulWidget {
   final String title;
@@ -246,8 +250,27 @@ class TaskSevens extends StatefulWidget {
 
 class _TaskSevensState extends State<TaskSevens> {
   final EditStore store = Modular.get();
+  final TasksStore tStore = Modular.get();
   @override
   Widget build(BuildContext context) {
+    FirebaseAuth auth = FirebaseAuth.instance;
+      tStore.getTasksFromFirebase(auth.currentUser!.uid, "DEV7").then((l){
+        if(l.length == 0){
+          for(int i = 1; i<6;i++){
+            Task t = Task();
+            t.user = auth.currentUser!.uid;
+            t.task = 'TASK$i';
+            t.group = 'DEV7';
+            t.status = 'I';
+            tStore.task = 'TASK$i';
+            tStore.group = 'DEV7';
+            tStore.status = 'I';
+            t.date = DateTime.now().toString();
+
+            // tStore.uploadTaskToFirebase(widget.uid!, widget.task!, );
+          }
+        }
+      });
     return Scaffold(
      appBar: AppBar(
         title: const Text("Tarefa 7"),
@@ -264,7 +287,7 @@ class _TaskSevensState extends State<TaskSevens> {
               builder: (_, constraints) => SingleChildScrollView(
                   child: Container(
                 width: MediaQuery.of(context).size.width * .9,
-                height: MediaQuery.of(context).size.height * 3,
+                height: MediaQuery.of(context).size.height * 4.5,
                 decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.circular(30),
@@ -297,7 +320,7 @@ class _TaskSevensState extends State<TaskSevens> {
                 'alegria e um som.',
           ),
           const SizedBox(height: 10.0,),
-          // Radin(UID,'DEV7TASK1'),
+          Radin(task:'DEV7TASK1'),
 
 
           const SizedBox(height: 60.0,),
@@ -310,7 +333,7 @@ class _TaskSevensState extends State<TaskSevens> {
               'nessa fase com ${store.controllerKidName.text}. Observar sempre as expressões de ${store.controllerKidName.text}, '
               'neste período é a sua forma de comunicação.'),
           const SizedBox(height: 10.0,),
-          // Radin(UID,'DEV7TASK2'),
+          Radin(task:'DEV7TASK2'),
 
 
           const SizedBox(height: 60.0,),
@@ -322,7 +345,7 @@ class _TaskSevensState extends State<TaskSevens> {
               'todos os membros da casa. O ambiente tranquilo ajuda para o'
               ' desenvolvimento. '),
           const SizedBox(height: 10.0,),
-          // Radin(UID,'DEV7TASK3'),
+          Radin(task:'DEV7TASK3'),
 
 
           const SizedBox(height: 60.0,),
@@ -341,7 +364,7 @@ class _TaskSevensState extends State<TaskSevens> {
                 'achou etc..)',
           ),
           const SizedBox(height: 10.0,),
-          // Radin(UID,'DEV7TASK4'),
+          Radin(task:'DEV7TASK4'),
 
 
           const SizedBox(height: 60.0,),

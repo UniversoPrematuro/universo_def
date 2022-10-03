@@ -1,9 +1,13 @@
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
+import '../../../../models/task_model.dart';
 import '../../../../profile/edit/edit_store.dart';
 import '../../../components/components.dart';
+import '../../../components/radin.dart';
+import '../../../tasks_store.dart';
 
 class Tarefa3Page extends StatefulWidget {
   final String title;
@@ -295,8 +299,27 @@ class TaskThree extends StatefulWidget {
 
 class _TaskThreeState extends State<TaskThree> {
   final EditStore store = Modular.get();
+  final TasksStore tStore = Modular.get();
   @override
   Widget build(BuildContext context) {
+    FirebaseAuth auth = FirebaseAuth.instance;
+      tStore.getTasksFromFirebase(auth.currentUser!.uid, "DEV3").then((l){
+        if(l.length == 0){
+          for(int i = 1; i<6;i++){
+            Task t = Task();
+            t.user = auth.currentUser!.uid;
+            t.task = 'TASK$i';
+            t.group = 'DEV3';
+            t.status = 'I';
+            tStore.task = 'TASK$i';
+            tStore.group = 'DEV3';
+            tStore.status = 'I';
+            t.date = DateTime.now().toString();
+
+            // tStore.uploadTaskToFirebase(widget.uid!, widget.task!, );
+          }
+        }
+      });
     return Scaffold(
       appBar: AppBar(
         title: const Text("Tarefa 3"),
@@ -314,7 +337,7 @@ class _TaskThreeState extends State<TaskThree> {
                 builder: (_, constraints) => SingleChildScrollView(
                   child: Container(
                     width: MediaQuery.of(context).size.width * .9,
-                    height: MediaQuery.of(context).size.height * 3.3,
+                    height: MediaQuery.of(context).size.height * 5,
                     decoration: BoxDecoration(
                         color: Colors.white,
                         borderRadius: BorderRadius.circular(30),
@@ -395,7 +418,7 @@ class _TaskThreeState extends State<TaskThree> {
                           const SizedBox(
                             height: 10.0,
                           ),
-                          // Radin(UID,'DEV3TASK1'),
+                          Radin(task:'DEV3TASK1'),
 
                           const SizedBox(
                             height: 60.0,
@@ -425,7 +448,7 @@ class _TaskThreeState extends State<TaskThree> {
                           const SizedBox(
                             height: 10.0,
                           ),
-                          // Radin(UID,'DEV3TASK2'),
+                          Radin(task:'DEV3TASK2'),
 
                           const SizedBox(
                             height: 60.0,
@@ -457,7 +480,7 @@ class _TaskThreeState extends State<TaskThree> {
                           const SizedBox(
                             height: 10.0,
                           ),
-                          // Radin(UID,'DEV3TASK3'),
+                          Radin(task:'DEV3TASK3'),
 
                           const SizedBox(
                             height: 60.0,
@@ -490,7 +513,7 @@ class _TaskThreeState extends State<TaskThree> {
                           const SizedBox(
                             height: 10.0,
                           ),
-                          // Radin(UID,'DEV3TASK4'),
+                          Radin(task:'DEV3TASK4'),
 
                           const SizedBox(
                             height: 60.0,
@@ -519,7 +542,7 @@ class _TaskThreeState extends State<TaskThree> {
                           const SizedBox(
                             height: 10.0,
                           ),
-                          // Radin(UID,'DEV3TASK5'),
+                          Radin(task:'DEV3TASK5'),
 
                           const SizedBox(
                             height: 60.0,

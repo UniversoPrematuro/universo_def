@@ -1,12 +1,13 @@
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:universo_def/app/modules/tasks/components/components.dart';
+import 'package:universo_def/app/modules/tasks/components/radin.dart';
 
 // import '../../../../models/kid_model.dart';
 import '../../../../models/task_model.dart';
 import '../../../../profile/edit/edit_store.dart';
-import '../../../components/radin.dart';
 import '../../../tasks_store.dart';
 
 // TODO: PERGUNTAS ESPECIFICAS PARA AS MAES 
@@ -278,6 +279,12 @@ class TaskOne extends StatefulWidget {
 class _TaskOneState extends State<TaskOne> {
   final EditStore store = Modular.get();
   final TasksStore tStore = Modular.get();
+
+  @override
+  void initState() {
+    // tStore.getTasksFromFirebase();
+    super.initState();
+  }
   @override
   
   Widget build(BuildContext context) {
@@ -293,6 +300,36 @@ class _TaskOneState extends State<TaskOne> {
     //           // taskH.saveTask(t).then((_){});
     //         }
     //       }
+      // for(int i=1;i<6;i++){
+      //         Task t = Task();
+      //         // t.user = UID;
+      //         t.task = 'TASK$i';
+      //         t.group = 'DEV1';
+      //         t.status = 'I';
+      //         tStore.task = 'TASK$i';
+      //         tStore.group = 'DEV1';
+      //         tStore.status = 'I';
+      //         t.date = DateTime.now().toString();}
+    FirebaseAuth auth = FirebaseAuth.instance;
+      tStore.getTasksFromFirebase(auth.currentUser!.uid, "DEV1").then((l){
+        if(l.length == 0){
+          for(int i = 1; i<6;i++){
+            Task t = Task();
+            t.user = auth.currentUser!.uid;
+            t.task = 'TASK$i';
+            t.group = 'DEV1';
+            t.status = 'I';
+            tStore.task = 'TASK$i';
+            tStore.group = 'DEV1';
+            tStore.status = 'I';
+            t.date = DateTime.now().toString();
+
+            // tStore.uploadTaskToFirebase(widget.uid!, widget.task!, );
+          }
+        }
+      });
+
+
     return Scaffold(
       appBar: AppBar(
         title: const Text("Tarefa 1"),
@@ -309,7 +346,7 @@ class _TaskOneState extends State<TaskOne> {
               builder: (_, constraints) => SingleChildScrollView(
                   child: Container(
                 width: MediaQuery.of(context).size.width * .9,
-                height: MediaQuery.of(context).size.height * 3,
+                height: MediaQuery.of(context).size.height * 4.5,
                 decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.circular(30),
@@ -384,7 +421,7 @@ class _TaskOneState extends State<TaskOne> {
                       const SizedBox(
                         height: 10.0,
                       ),
-                      // Radin(UID: store.idLogado, task: "DEV1"),
+                      Radin(task: "DEV1TASK1"),
                       textCTRST(
                         stg1:
                             '\u2055 Hoje é dia de brincadeiras na posição de ',
@@ -406,6 +443,7 @@ class _TaskOneState extends State<TaskOne> {
                       textCTRST(
                           stg1:
                               '\u2055  ${store.controllerKidName.text} não deve dormir em camas com o adulto.'),
+                      Radin(task: "DEV1TASK2"),
                       const SizedBox(
                         height: 10.0,
                       ),
@@ -423,10 +461,7 @@ class _TaskOneState extends State<TaskOne> {
             stg1: '\u2055 Um ambiente tranquilo e horários certos para as '
                 'tarefas, é importante para o desenvolvimento.',
           ),
-          textCTRST(stg1: '\u2055 O ambiente tranquilo e com horários certos '
-              'é importante para o desenvolvimento.'),
-          const SizedBox(height: 10.0,),
-          Radin(),
+          Radin(task: 'DEV1TASK3'),
 
 
           const SizedBox(height: 60.0,),
@@ -445,9 +480,35 @@ class _TaskOneState extends State<TaskOne> {
           textCTRST(stg1: '\u2055 O banho deve ser no horário tranquilo. '
               'Ofereça a hora do banho para ${store.controllerKidName.text} relaxar.'),
           const SizedBox(height: 10.0,),
-          Radin(),
+          Radin(task: "DEV1TASK4"),
 
-                      // Radin(),
+
+          const SizedBox(height: 60.0,),
+          textCTRST(
+            stg1: '\u2055 Agora vamos cantar um pouquinho para ${store.controllerKidName.text}. Escolha '
+                'uma música e verifique como ${store.controllerKidName.text} reage. Atenção: Cante a '
+                'música para ${store.controllerKidName.text} de ',
+            stg2: 'barriguinha para cima e depois',
+            stg3: ' para baixo',
+          ),
+          textCTRST(stg1: '\u2055 Verifique a temperatura do dia para escolher'
+              ' a roupa de ${store.controllerKidName.text}. Dias quentes = roupas leves e Dias frios = '
+              'roupas quentes. Evite deixar ${store.controllerKidName.text} transpirando. '),
+          const SizedBox(height: 15.0,),
+          textCTRST(
+            stg1: '\u2055 Durante o canto de barriguinha para cima deixe-o ver '
+                'os movimentos faciais suaves que geram o som que sai da sua '
+                'boca. Faça isso com contato visual de "olho no olho".',
+          ),
+          textCTRST(stg1: '\u2055 Não dê medicamento sem a orientação médica.'),
+          const SizedBox(height: 10.0,),
+          Radin( task: 'DEV1TASK5'),
+
+          // ElevatedButton(onPressed: (){
+          //   tStore.uploadTaskToFirebase(widget.uid!, widget.task!, );
+          // }, child: Text("enviar"))
+
+
                     ],
                   ),
                 ),
