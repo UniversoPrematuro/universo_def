@@ -1,4 +1,4 @@
-// ignore_for_file: unused_import
+// ignore_for_file: unused_import, file_names
 
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:modular_test/modular_test.dart';

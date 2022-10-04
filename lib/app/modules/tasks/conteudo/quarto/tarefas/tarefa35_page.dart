@@ -1,9 +1,13 @@
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
+import '../../../../models/task_model.dart';
 import '../../../../profile/edit/edit_store.dart';
 import '../../../components/components.dart';
+import '../../../components/radin.dart';
+import '../../../tasks_store.dart';
 
 class Tarefa35Page extends StatefulWidget {
   final String title;
@@ -14,8 +18,27 @@ class Tarefa35Page extends StatefulWidget {
 
 class Tarefa35PageState extends State<Tarefa35Page> {
   final EditStore store = Modular.get();
+final TasksStore tStore = Modular.get();
   @override
   Widget build(BuildContext context) {
+    FirebaseAuth auth = FirebaseAuth.instance;
+      tStore.getTasksFromFirebase(auth.currentUser!.uid, "DEV35").then((l){
+        if(l.length == 0){
+          for(int i = 1; i<6;i++){
+            Task t = Task();
+            t.user = auth.currentUser!.uid;
+            t.task = 'TASK$i';
+            t.group = 'DEV35';
+            t.status = 'I';
+            tStore.task = 'TASK$i';
+            tStore.group = 'DEV35';
+            tStore.status = 'I';
+            t.date = DateTime.now().toString();
+
+            // tStore.uploadTaskToFirebase(widget.uid!, widget.task!, );
+          }
+        }
+      });
     return Scaffold(
         appBar: AppBar(
           title: const Text("Tarefa 35"),
@@ -130,7 +153,7 @@ class Tarefa35PageState extends State<Tarefa35Page> {
                                 child: Container(
                                   width: MediaQuery.of(context).size.width * .9,
                                   height:
-                                      MediaQuery.of(context).size.height * 1.05,
+                                      MediaQuery.of(context).size.height * 1.5,
                                   decoration: BoxDecoration(
                                     color: Colors.white,
                                     borderRadius: BorderRadius.circular(20),
@@ -268,6 +291,7 @@ class TaskThirteenFi extends StatefulWidget {
 
 class _TaskThirteenFiState extends State<TaskThirteenFi> {
   final EditStore store = Modular.get();
+final TasksStore tStore = Modular.get();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -286,7 +310,7 @@ class _TaskThirteenFiState extends State<TaskThirteenFi> {
               builder: (_, constraints) => SingleChildScrollView(
                   child: Container(
                 width: MediaQuery.of(context).size.width * .9,
-                height: MediaQuery.of(context).size.height * 4.8,
+                height: MediaQuery.of(context).size.height * 6.5,
                 decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.circular(30),
@@ -301,158 +325,80 @@ class _TaskThirteenFiState extends State<TaskThirteenFi> {
                   child: Column(
                     children: [
                       speechPerson(),
-                      const SizedBox(
-                        height: 40.0,
-                      ),
-
-                      textCTRST(
-            stg1: '\u2055 Agora, vamos continuar a estimular o rolar!\n'
-                'Coloque ${store.controllerKidName.text} na ',
-            stg2: 'posição lateral (direita e depois esquerda) e estimule para'
-                ' que ${store.controllerKidName.text} role até ficar de barriguinha para cima. ',
-            stg3: 'Utilize um brinquedo que faça sons, irá facilitar para '
-                'realização do movimento.',
-          ),textCTRST(stg1: '\u2055 Lave as suas mãos antes e após a troca das '
-              'fraldas. Mantenha ${store.controllerKidName.text} sempre seco e lembra a limpeza deve seguir'
-              ' o movimento de frente para trás finalizando no bumbum, não '
-              'repetir o movimento com o mesmo algodão e outros. '),
+                      const SizedBox(height: 60.0,),
+          textCTRST(
+              stg1: '\u2055 Outro movimento associado, ${store.controllerKidName.text} ',
+              stg2: 'sentado(a)',
+              stg3: ' estimule o deslocamento, fique um pouco distante de ${store.controllerKidName.text} e chame ${store.controllerKidName.text} para vir até você. Para a ocorrência do movimento terá que mudar da posição sentado para barriga para baixo, gerando o arrastar e/ou engatinhar.'
+          ),textCTRST(stg1: '\u2055 Para ${store.controllerKidName.text} se movimentar com segurança, a família deve organizar um espaço na casa. Tirar do alcance dele (a) os objetos que não pode pegar, bloquear de forma segura o acesso à cozinha ou a outro local perigoso com portãozinho próprio ou mesmo uma cadeira segura.'),
           const SizedBox(height: 15.0,),
           textCTRST(
-            stg1: '\u2055 O estímulo para o rolar deverá acontecer nos sentidos'
-                ': posição lateral para barriguinha para baixo, depois '
-                'barriguinha para baixo para lateral. No início parece um pouco'
-                ' difícil mas ficará cada vez mais tranquilo para a execução do'
-                ' movimento.',
+            stg1: '\u2055 Ofereça brinquedos que fazem barulhos. O ruído, associado ao movimento que ${store.controllerKidName.text} deve fazer para gerar o som, é uma maneira divertida de ensinar que toda ação tem uma reação.',
           ),
           const SizedBox(height: 15.0,),
           textCTRST(
-            stg1: '\u2055 O estímulo para o rolar de lateral para barriguinha '
-                'para cima ocorre como uma tarefa mais fácil de execução quando'
-                ' comparado da lateral para barriguinha para baixo.',
-          ),
-          const SizedBox(height: 15.0,),
-          textCTRST(
-            stg1: '\u2055 Todas as brincadeiras e movimentos executados devem '
-                'ser comemorados com palavras de incentivo, cantigas e muita '
-                'festa. Cada conquista do desenvolvimento é para ser comemorado.',
+            stg1: '\u2055 Por exemplo, um cachorrinho de brinquedo, ensine a imitar e a chamar de “au... au...”. Faça você primeiro, mostre e explique como se faz, sempre identifique as ações verbalizando todas as etapas.',
           ),
           const SizedBox(height: 10.0,),
-          // Radin(UID,'DEV13TASK1'),
-
+          Radin(task:'DEV35TASK1'),
 
           const SizedBox(height: 60.0,),
           textCTRST(
-            stg1: '\u2055 Vamos brincar! Sente ${store.controllerKidName.text}, sempre com apoio e tire as'
-                ' costas do apoio, trazendo o corpo um pouco para frente '
-                '(pequeno deslocamento) e retornar em seguida, como uma '
-                'brincadeira conhecida como ',
-            stg2: 'Serra-serra.'
-          ),textCTRST(stg1: '\u2055 Tome cuidado com os banhos de sol. A pele '
-              'de ${store.controllerKidName.text} é sensível e necessita de estar sempre amparado. '),
+            stg1: '\u2055 Com ${store.controllerKidName.text} na posição ',
+            stg2: 'barriguinha pra baixo',
+            stg3: ', coloque o brinquedo favoritoa sua frente e deixe brincar um pouco e explorar o brinquedo, depois você sentada na cadeira próximo de ${store.controllerKidName.text} pegue o brinquedo e deixe ${store.controllerKidName.text} vir atrás para alcançá-lo. ${store.controllerKidName.text} irá se deslocar no chão, apoiar em suas pernas e subir, você pode apoiar oferecendo a sua mão para ajudar o movimento.'
+          ),textCTRST(stg1: '\u2055 Ajude ${store.controllerKidName.text} a aproveitar a hora do banho ao máximo. Incentive a experimentação com brincadeiras.'),
           const SizedBox(height: 15.0,),
           textCTRST(
-            stg1: '\u2055 Converse muito com ${store.controllerKidName.text} e estimule ${store.controllerKidName.text} a sorrir e '
-                'imitar os seus sons.'
-          ),textCTRST(stg1: '\u2055 Respeite todos os horários da mamada e não '
-              'ofereça nada de diferente sem o consentimento do profissional de'
-              ' saúde que acompanha ${store.controllerKidName.text} regularmente. '),
+            stg1: '\u2055 No momento do movimento acima, interaja com ${store.controllerKidName.text} conversando sobre o brinquedo chamando a atenção e dialogando. ',
+          ),textCTRST(stg1: '\u2055 ${store.controllerKidName.text} está crescendo e consegue fazer muitos movimentos sozinho, deixe-o executar as novas habilidades, assim ${store.controllerKidName.text} sentirá o prazer da conquista e o sucesso da execução.'),
           const SizedBox(height: 15.0,),
           textCTRST(
-              stg1: '\u2055 Na posição de barriguinha para baixo, estimule ${store.controllerKidName.text}'
-                  ' o levantar da cabeça e peito da superfície com apoio do '
-                  'próprio braço.'
+            stg1: '\u2055 Repita essa tarefa para o aprendizado do movimento, fortalecimento dos músculos e melhorando o equilíbrio.',
           ),
           const SizedBox(height: 10.0,),
-          // Radin(UID,'DEV13TASK2'),
-
+          Radin(task:'DEV35TASK2'),
 
           const SizedBox(height: 60.0,),
           textCTRST(
-            stg1: '\u2055 Nessa idade, ${store.controllerKidName.text} já consegue levantar as perninhas '
-                'quando estiver de ',
-            stg2: 'barriguinha pra cima',
-            stg3: '. Estimule esse movimento acariciando os pezinhos de ${store.controllerKidName.text} e '
-                'ajudando a visualizar e pegar o próprio pezinho.',
-          ),textCTRST(stg1: '\u2055 No caso de cólicas, situação comum na '
-              'maioria dos bebês. Então para ajudar é só fazer movimentos '
-              'circulares na região da barriguinha, sentido do peito para as '
-              'pernas, pode também dobrar as perninhas e segurar por um tempo '
-              'breve. Mantenha sempre as mãos e os pés quentinhos.'),
+            stg1: '\u2055 Busque recipientes de plástico na sua casa, que tenham tampa. Com ${store.controllerKidName.text} na posição ',
+              stg2: 'sentado(a)',
+              stg3: ', ensine ${store.controllerKidName.text} a tampar os recipientes, sempre oferecendo ajuda quando necessário.'
+          ),textCTRST(stg1: '\u2055 É importante adaptar a casa para ${store.controllerKidName.text}. Certifique-se de colocar objetos perigosos em locais mais altos e seguros.'),
           const SizedBox(height: 15.0,),
           textCTRST(
-            stg1: '\u2055 Ofereça os brinquedos utilizando sons, cores para '
-                'estimular o movimento voluntário de ${store.controllerKidName.text}. Momento de '
-                'estabelecer a própria busca e interação com o meio.',
-          ),
-          const SizedBox(height: 15.0,),
-          textCTRST(
-            stg1: '\u2055 Deixar alguns brinquedos próximos de ${store.controllerKidName.text} mas fora do'
-                ' próprio alcance e estimule para o alcance, após as tentativas'
-                ' de busca do brinquedo, colocá-lo mais próximo e deixa pegá-lo.',
-          ),
+            stg1: '\u2055 Perto do recipiente de plástico com tampa deixe alguns brinquedos de diferentes tamanhos, formas e cores que possam ser guardados no pote. Mostre a possibilidade de guardar os objetos no pote e tirá-los. Após a demonstração, deixe ${store.controllerKidName.text} brincar sozinho interagindo e observando os detalhes de sua brincadeira.',
+          ),textCTRST(stg1: '\u2055 Proporciona o espaço adequado para os movimentos de ${store.controllerKidName.text}, deixe brincar sozinho mantendo a sua supervisão a distância.'),
           const SizedBox(height: 10.0,),
-          // Radin(UID,'DEV13TASK3'),
-
+          Radin(task:'DEV35TASK3'),
 
           const SizedBox(height: 60.0,),
           textCTRST(
-            stg1: '\u2055 Deixar ${store.controllerKidName.text} de ',
-            stg2: 'barriguinha para baixo ',
-            stg3: 'com alguns brinquedos, próprios para a idade, nas laterais '
-                'dele (a) e ao alcance dos olhos do (a) ${store.controllerKidName.text}. Incentive ${store.controllerKidName.text} a '
-                'alcançar os brinquedos e pegá-los.',
-          ),textCTRST(stg1: '\u2055 Não compre ou ofereça brinquedos que não são'
-              ' adequados para a idade de ${store.controllerKidName.text}. Pode gerar riscos. '),
+            stg1: '\u2055 Vamos brincar de esconder! Guarde o brinquedo favorito de ${store.controllerKidName.text} em um lugar acessível, no local que está ocorrendo a brincadeira, e permita que ${store.controllerKidName.text} veja onde o brinquedo está. Incentive o arrastar e/ou engatinhar para que ${store.controllerKidName.text} busque o brinquedo e aproveite para experimentar a conquista da recuperação do brinquedo.',
+          ),textCTRST(stg1: '\u2055 Nessa fase de desenvolvimento, ${store.controllerKidName.text} fica muito tempo no chão para brincar,portando o ambiente deve estar bem limpoe higienizado, principalmente nos cantos das paredes, embaixo do sofá e locais que os brinquedos fiquem guardados, para evitar algum contratempo com insetos indesejáveis.'),
           const SizedBox(height: 15.0,),
           textCTRST(
-            stg1: '\u2055 Oferece brincadeira para estimular ${store.controllerKidName.text} a emitir sons'
-                ' agudos (Gritos).',
-          ),textCTRST(stg1: '\u2055 Manter a carteirinha de vacinação sempre em'
-              ' dia, projeta ${store.controllerKidName.text}.'),
-          const SizedBox(height: 15.0,),
-          textCTRST(
-            stg1: '\u2055 Na posição sentada estimule ${store.controllerKidName.text} com barulhos que '
-                'surgem da lateral para que ${store.controllerKidName.text} busque descobrir girando a sua'
-                ' própria cabeça.',
-          ),
-          const SizedBox(height: 15.0,),
-          textCTRST(
-            stg1: '\u2055 Vamos treinar o movimento, segure nas mãozinhas de '
-                '${store.controllerKidName.text} e deixe experimentar a posição sentada sem apoio da '
-                'lateral, somente as suas mãos irá apoia-lo(a). Vamos nos '
-                'divertir e cantar uma música de sua preferência. Essa tarefa '
-                'deverá ser executada em período curto, mas aumentando '
-                'gradativamente conforme a conquista e independência para o '
-                'movimento.',
+            stg1: '\u2055 Continuando a brincadeira do esconde-esconde, na posição ',
+              stg2: 'sentado(a)',
+              stg3: ', esconda o brinquedo embaixo de uma almofada e deixe ${store.controllerKidName.text} achar, girando o tronco, apoiando uma mão na lateral... Ao final da brincadeira, achando o brinquedo, vamos comemorar com um “vivaaaa”. As palavras de apoio ajudam o interesse no movimento e estimula para a repetição e aprendizado.'
           ),
           const SizedBox(height: 10.0,),
-          // Radin(UID,'DEV13TASK4'),
-
+          Radin(task:'DEV35TASK4'),
 
           const SizedBox(height: 60.0,),
           textCTRST(
-            stg1: '\u2055 Manter o ritmo da rotina diária é importante para o '
-                'desenvolvimento. Momento de estímulos e brincadeiras e '
-                'momentos de silêncio, tranquilidade e soninho devem ser '
-                'preconizados.',
-          ),textCTRST(stg1: '\u2055 No caso de animais de estimação no ambiente '
-              'de ${store.controllerKidName.text}, mantenha os cuidados de higiene do ambiente, não deixe '
-              '${store.controllerKidName.text} em locais de acesso do animal, cuidado com pelos, urina e '
-              'fezes dos animais e o contato com ${store.controllerKidName.text}. Não é devido o animal '
-              'lamber o rosto e mãos de ${store.controllerKidName.text}.'),
+            stg1: '\u2055 Com ${store.controllerKidName.text} no seu colo, segure-o(a) e faça movimentos de modo que ele(a) pareça estar pulando. Incentive que ${store.controllerKidName.text} faça força nas perninhas.',
+          ),textCTRST(stg1: '\u2055 Ao dormir, ${store.controllerKidName.text} descansa de todos os estímulos que recebeu enquanto acordado (a). Desta forma, ofereça horas com qualidade de sono.'),
           const SizedBox(height: 15.0,),
           textCTRST(
-            stg1: '\u2055 Colocar brinquedos na frente e lateral para o alcance'
-                ' imediato de ${store.controllerKidName.text} e também brinquedos com uma distância para '
-                'visualização, deixa ${store.controllerKidName.text} de barriguinha para baixo e observa '
-                'sua reação, depois barriguinha para cima e observa. Momento de'
-                ' explorar os brinquedos, perceber as cores, cheiros, sons, '
-                'texturas e vivenciar as conquistas dos movimentos e preparar '
-                'para os próximos ganhos do desenvolvimento.',
-          ),textCTRST(stg1: '\u2055 Os animais domésticos devem estar com a '
-              'vacinação em dia para garantir a saúde de todos.'),
+            stg1: '\u2055 A cada tentativa brinque dizendo, por exemplo: “upa”, “ehhh”ou outras pequenas expressões sonoras de interação positiva.',
+          ),textCTRST(stg1: '\u2055 Siga as orientações de todos os profissionais da saúde que estão acompanhando o desenvolvimento de ${store.controllerKidName.text}. Qualquer dúvida, nos envie seus questionamentos e dúvidas acessando a tecla“FALE CONOSCO”.'),
+          const SizedBox(height: 15.0,),
+          textCTRST(
+            stg1: '\u2055 Permita alguns momentos em lugar seguro e de costume de permanência de ${store.controllerKidName.text}, observe e deixe brincar sozinho(a) para explorar com atenção e observação aos brinquedos.',
+          ),
           const SizedBox(height: 10.0,),
-          // Radin(UID,'DEV13TASK5'),
+          Radin(task:'DEV35TASK5'),
 
                     ],
                   ),

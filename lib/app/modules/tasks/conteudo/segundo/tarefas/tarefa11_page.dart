@@ -1,8 +1,12 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
+import '../../../../models/task_model.dart';
 import '../../../../profile/edit/edit_store.dart';
 import '../../../components/components.dart';
+import '../../../components/radin.dart';
+import '../../../tasks_store.dart';
 
 class Tarefa11Page extends StatefulWidget {
   final String title;
@@ -13,6 +17,7 @@ class Tarefa11Page extends StatefulWidget {
 
 class Tarefa11PageState extends State<Tarefa11Page> {
   final EditStore store = Modular.get();
+final TasksStore tStore = Modular.get();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -217,8 +222,27 @@ class TaskEleven extends StatefulWidget {
 
 class _TaskElevenState extends State<TaskEleven> {
   final EditStore store = Modular.get();
+final TasksStore tStore = Modular.get();
   @override
   Widget build(BuildContext context) {
+    FirebaseAuth auth = FirebaseAuth.instance;
+      tStore.getTasksFromFirebase(auth.currentUser!.uid, "DEV11").then((l){
+        if(l.length == 0){
+          for(int i = 1; i<6;i++){
+            Task t = Task();
+            t.user = auth.currentUser!.uid;
+            t.task = 'TASK$i';
+            t.group = 'DEV11';
+            t.status = 'I';
+            tStore.task = 'TASK$i';
+            tStore.group = 'DEV11';
+            tStore.status = 'I';
+            t.date = DateTime.now().toString();
+
+            // tStore.uploadTaskToFirebase(widget.uid!, widget.task!, );
+          }
+        }
+      });
     return Scaffold(
       appBar: AppBar(
         title: const Text("Tarefa 11"),
@@ -235,7 +259,7 @@ class _TaskElevenState extends State<TaskEleven> {
               builder: (_, constraints) => SingleChildScrollView(
                   child: Container(
                 width: MediaQuery.of(context).size.width * .9,
-                height: MediaQuery.of(context).size.height * 4.4,
+                height: MediaQuery.of(context).size.height * 6,
                 decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.circular(30),
@@ -258,7 +282,7 @@ class _TaskElevenState extends State<TaskEleven> {
                                 height: 70.0,
                                 color: Colors.red,
                               ),
-                              Container(
+                              SizedBox(
                                 width: 100.0,
                                 child: Image.asset("images1/Personagemai.png"),
                               ),
@@ -312,7 +336,7 @@ class _TaskElevenState extends State<TaskEleven> {
                 'conquistas. ',
           ),
           const SizedBox(height: 10.0,),
-          // Radin(UID,'DEV11TASK1'),
+          Radin(task:'DEV11TASK1'),
 
 
           const SizedBox(height: 60.0,),
@@ -339,7 +363,7 @@ class _TaskElevenState extends State<TaskEleven> {
                 'facilidade e rapidez. Cuidado!',
           ),
           const SizedBox(height: 10.0,),
-          // Radin(UID,'DEV11TASK2'),
+          Radin(task:'DEV11TASK2'),
 
 
           const SizedBox(height: 60.0,),
@@ -361,7 +385,7 @@ class _TaskElevenState extends State<TaskEleven> {
           ),textCTRST(stg1: '\u2055 Os brinquedos devem ser lavados e '
               'higienizados para garantir a saúde de ${store.controllerKidName.text}.'),
           const SizedBox(height: 10.0,),
-          // Radin(UID,'DEV11TASK3'),
+          Radin(task:'DEV11TASK3'),
 
           const SizedBox(height: 60.0,),
           textCTRST(
@@ -388,7 +412,7 @@ class _TaskElevenState extends State<TaskEleven> {
                 'favorecer as conquistas das novas etapas.',
           ),
           const SizedBox(height: 10.0,),
-          // Radin(UID,'DEV11TASK4'),
+          Radin(task:'DEV11TASK4'),
 
 
           const SizedBox(height: 60.0,),
@@ -410,7 +434,7 @@ class _TaskElevenState extends State<TaskEleven> {
               ' os movimentos corporais com boa amplitude, fique atenta na '
               'temperatura do ambiente para escolher a roupa do dia.'),
           const SizedBox(height: 10.0,),
-          // Radin(UID,'DEV11TASK5'),
+          Radin(task:'DEV11TASK5'),
 
           const SizedBox(height: 10.0,),
                     ],

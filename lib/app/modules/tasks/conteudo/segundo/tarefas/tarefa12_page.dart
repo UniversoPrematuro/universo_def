@@ -1,9 +1,13 @@
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
+import '../../../../models/task_model.dart';
 import '../../../../profile/edit/edit_store.dart';
 import '../../../components/components.dart';
+import '../../../components/radin.dart';
+import '../../../tasks_store.dart';
 
 class Tarefa12Page extends StatefulWidget {
   final String title;
@@ -14,8 +18,27 @@ class Tarefa12Page extends StatefulWidget {
 
 class Tarefa12PageState extends State<Tarefa12Page> {
   final EditStore store = Modular.get();
+final TasksStore tStore = Modular.get();
   @override
   Widget build(BuildContext context) {
+    FirebaseAuth auth = FirebaseAuth.instance;
+      tStore.getTasksFromFirebase(auth.currentUser!.uid, "DEV12").then((l){
+        if(l.length == 0){
+          for(int i = 1; i<6;i++){
+            Task t = Task();
+            t.user = auth.currentUser!.uid;
+            t.task = 'TASK$i';
+            t.group = 'DEV12';
+            t.status = 'I';
+            tStore.task = 'TASK$i';
+            tStore.group = 'DEV12';
+            tStore.status = 'I';
+            t.date = DateTime.now().toString();
+
+            // tStore.uploadTaskToFirebase(widget.uid!, widget.task!, );
+          }
+        }
+      });
     return Scaffold(
         appBar: AppBar(
           title: const Text("Tarefa 12"),
@@ -288,6 +311,7 @@ class TaskTwelve extends StatefulWidget {
 
 class _TaskTwelveState extends State<TaskTwelve> {
   final EditStore store = Modular.get();
+final TasksStore tStore = Modular.get();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -306,7 +330,7 @@ class _TaskTwelveState extends State<TaskTwelve> {
               builder: (_, constraints) => SingleChildScrollView(
                   child: Container(
                 width: MediaQuery.of(context).size.width * .9,
-                height: MediaQuery.of(context).size.height * 4.2,
+                height: MediaQuery.of(context).size.height * 5.5,
                 decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.circular(30),
@@ -329,7 +353,7 @@ class _TaskTwelveState extends State<TaskTwelve> {
                                 height: 70.0,
                                 color: Colors.red,
                               ),
-                              Container(
+                              SizedBox(
                                 width: 100.0,
                                 child: Image.asset("images1/Personagemai.png"),
                               ),
@@ -375,7 +399,7 @@ class _TaskTwelveState extends State<TaskTwelve> {
           ),textCTRST(stg1: '\u2055 Mantenha sempre o ambiente lindo, arejado e'
               ' seguro, oferecer somente brinquedos apropriados para a idade.'),
           const SizedBox(height: 10.0,),
-          // Radin(UID,'DEV12TASK1'),
+          Radin(task:'DEV12TASK1'),
 
 
           const SizedBox(height: 60.0,),
@@ -402,7 +426,7 @@ class _TaskTwelveState extends State<TaskTwelve> {
                 'com ${store.controllerKidName.text}. Isso ajudará ${store.controllerKidName.text} entender melhor.',
           ),
           const SizedBox(height: 10.0,),
-          // Radin(UID,'DEV12TASK2'),
+          Radin(task:'DEV12TASK2'),
 
 
           const SizedBox(height: 60.0,),
@@ -426,7 +450,7 @@ class _TaskTwelveState extends State<TaskTwelve> {
                 'macia de cabelo). Lembre, a pele de ${store.controllerKidName.text} é muito delicada.',
           ),
           const SizedBox(height: 10.0,),
-          // Radin(UID,'DEV12TASK3'),
+          Radin(task:'DEV12TASK3'),
 
 
           const SizedBox(height: 60.0,),
@@ -455,7 +479,7 @@ class _TaskTwelveState extends State<TaskTwelve> {
                 'conforme a conquista e independência para o movimento.',
           ),
           const SizedBox(height: 10.0,),
-          // Radin(UID,'DEV12TASK4'),
+          Radin(task:'DEV12TASK4'),
 
 
           const SizedBox(height: 60.0,),

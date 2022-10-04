@@ -1,9 +1,13 @@
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:universo_def/app/modules/tasks/tasks_store.dart';
 
+import '../../../../models/task_model.dart';
 import '../../../../profile/edit/edit_store.dart';
 import '../../../components/components.dart';
+import '../../../components/radin.dart';
 
 class Tarefa19Page extends StatefulWidget {
   final String title;
@@ -14,8 +18,27 @@ class Tarefa19Page extends StatefulWidget {
 
 class Tarefa19PageState extends State<Tarefa19Page> {
   final EditStore store = Modular.get();
+final TasksStore tStore = Modular.get();
   @override
   Widget build(BuildContext context) {
+    FirebaseAuth auth = FirebaseAuth.instance;
+      tStore.getTasksFromFirebase(auth.currentUser!.uid, "DEV19").then((l){
+        if(l.length == 0){
+          for(int i = 1; i<6;i++){
+            Task t = Task();
+            t.user = auth.currentUser!.uid;
+            t.task = 'TASK$i';
+            t.group = 'DEV19';
+            t.status = 'I';
+            tStore.task = 'TASK$i';
+            tStore.group = 'DEV19';
+            tStore.status = 'I';
+            t.date = DateTime.now().toString();
+
+            // tStore.uploadTaskToFirebase(widget.uid!, widget.task!, );
+          }
+        }
+      });
     return Scaffold(
         appBar: AppBar(
           title: const Text("Tarefa 19"),
@@ -278,6 +301,7 @@ class TaskNinet extends StatefulWidget {
 
 class _TaskNinetState extends State<TaskNinet> {
   final EditStore store = Modular.get();
+final TasksStore tStore = Modular.get();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -296,7 +320,7 @@ class _TaskNinetState extends State<TaskNinet> {
               builder: (_, constraints) => SingleChildScrollView(
                   child: Container(
                 width: MediaQuery.of(context).size.width * .9,
-                height: MediaQuery.of(context).size.height * 5.5,
+                height: MediaQuery.of(context).size.height * 7.5,
                 decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.circular(30),
@@ -319,7 +343,7 @@ class _TaskNinetState extends State<TaskNinet> {
                                 height: 70.0,
                                 color: Colors.red,
                               ),
-                              Container(
+                              SizedBox(
                                 width: 100.0,
                                 child: Image.asset("images1/Personagemai.png"),
                               ),
@@ -352,22 +376,22 @@ class _TaskNinetState extends State<TaskNinet> {
                 'momentos sozinho(a), o espaço da casa e também com os seus '
                 'brinquedos, para perceber todos os objetos do ambiente, não '
                 'esqueça, sempre com supervisão e em um local seguro.'),textCTRST(stg1: '\u2055 A exploração de objetos e do ambiente torna-se uma atividade dominante. Incentive ${store.controllerKidName.text} a explorar com independência todos os ambientes da casa, sempre com supervisão. Observe a reação de ${store.controllerKidName.text} nas brincadeiras!'),
-          SizedBox(height: 15.0,),
+          const SizedBox(height: 15.0,),
           textCTRST(
               stg1: '\u2055 Deixe ${store.controllerKidName.text} um tempinho sozinho de barriguinha para '
                   'baixo, coloque alguns brinquedos na frente e vamos observar o'
                   ' deslocamento de ${store.controllerKidName.text} para o alcance do objeto. Aos poucos a '
                   'distância do brinquedo deve ser maior, para ${store.controllerKidName.text} percorrer o '
                   'maior deslocamento.'),
-          SizedBox(height: 10.0,),
-          // Radin(UID,'DEV19TASK1'),
+          const SizedBox(height: 10.0,),
+          Radin(task:'DEV19TASK1'),
 
-          SizedBox(height: 60.0,),
+          const SizedBox(height: 60.0,),
           textCTRST(
               stg1: '\u2055 Vamos estimular a independência de ${store.controllerKidName.text}! Dê o '
                   'brinquedo favorito.'
           ),textCTRST(stg1: '\u2055 Retire os enfeites, móveis leves que podem cair em cima de ${store.controllerKidName.text}. Lembre-se, com o desenvolvimento a criança explora melhor o ambiente. É incrível! Ontem o movimento não era executado e neste momento o movimento pode aparecer. Observamos que é o marco do primeiro aparecimento do novo movimento.'),
-          SizedBox(height: 15.0,),
+          const SizedBox(height: 15.0,),
           textCTRST(
               stg1: '\u2055 Nessa fase, ${store.controllerKidName.text} responde quando o chama, faz '
                   'imitação de gestos e caretas com a expressão do rosto. '
@@ -376,10 +400,10 @@ class _TaskNinetState extends State<TaskNinet> {
                   'que estiver em seu alcance. É importante sempre falar os '
                   'nomes dos objetos e mostra-los para ${store.controllerKidName.text}.'
           ),
-          SizedBox(height: 10.0,),
-          // Radin(UID,'DEV19TASK2'),
+          const SizedBox(height: 10.0,),
+          Radin(task:'DEV19TASK2'),
 
-          SizedBox(height: 60.0,),
+          const SizedBox(height: 60.0,),
           textCTRST(
               stg1: '\u2055 Brinquedos ou objetos que reproduzem barulho são '
                   'fascinantes para crianças. Vamos aproveitar! Com ${store.controllerKidName.text} ',
@@ -390,17 +414,17 @@ class _TaskNinetState extends State<TaskNinet> {
                   "proporcionando o som, assim conseguiremos estimular ${store.controllerKidName.text} nos"
                   " movimentos laterais."
           ),textCTRST(stg1: '\u2055 Fique atenta(o) a troca de fraldas. Nunca deixe fralda suja por mais tempo além do necessário.'),
-          SizedBox(height: 15.0,),
+          const SizedBox(height: 15.0,),
           textCTRST(
               stg1: '\u2055 Vamos aproveitar esse momento dando-lhe atenção para'
                   ' que sinta segurança e afeto. Fale com ${store.controllerKidName.text} sempre sorrindo '
                   'brincando com expressões faciais de carinho. Momentos alegres'
                   ' e agradáveis colaboram para o melhor aprendizado e desenvolvimento.'
           ),textCTRST(stg1: '\u2055 ${store.controllerKidName.text} está desenvolvendo e crescendo, consegue comunicar com maior independência, mas é hora de redobrar a atenção.\n- Nunca deixe ${store.controllerKidName.text} totalmente sozinho sem supervisão,\n- Não deixe com pessoas desconhecidas, proteja contra os acidentes domésticos.\n- Verifique na casa o que poderia oferecer perigo, algum móvel, objetos pequenos e lembre, essa fase ${store.controllerKidName.text} pode segurar em superfície mais alta para se levantar, cuidado com toalhas de mesa em seu alcance.'),
-          SizedBox(height: 10.0,),
-          // Radin(UID,'DEV19TASK3'),
+          const SizedBox(height: 10.0,),
+          Radin(task:'DEV19TASK3'),
 
-          SizedBox(height: 60.0,),
+          const SizedBox(height: 60.0,),
           textCTRST(
               stg1: '\u2055 É hora de buscar o brinquedo no chão, de barriga '
                   'para baixo ${store.controllerKidName.text} deverá ser estimulado para pegar ou recuperar'
@@ -409,7 +433,7 @@ class _TaskNinetState extends State<TaskNinet> {
                   ' o apoio de suas mãos no pezinho para impulsionar e logo '
                   'estará executando o movimento sem a ajuda.'
           ),textCTRST(stg1: '\u2055 Neste momento do desenvolvimento os objetos menores podem ser alcançados e manuseados pela criança. Não deixe peças pequenas nos locais de acesso (chão, berço), muito cuidado com remédios, principalmente quando acidentalmente caem no chão, objetos pontiagudos também gera risco, os materiais de limpeza devem ser manuseados longe das crianças e armazenados em ambientes seguros.'),
-          SizedBox(height: 15.0,),
+          const SizedBox(height: 15.0,),
           textCTRST(
               stg1: '\u2055 Vamos brincar de esconde/esconde. Para a brincadeira'
                   ', vamos pegar o brinquedo que ${store.controllerKidName.text} gosta, começou a '
@@ -422,23 +446,23 @@ class _TaskNinetState extends State<TaskNinet> {
                   "frente ou para a lateral. Pega novamente o brinquedo e repete"
                   " a brincadeira, é importante também o processo de repetição."
           ),
-          SizedBox(height: 10.0,),
-          // Radin(UID,'DEV19TASK4'),
+          const SizedBox(height: 10.0,),
+          Radin(task:'DEV19TASK4'),
 
-          SizedBox(height: 60.0,),
+          const SizedBox(height: 60.0,),
           textCTRST(
               stg1: '\u2055 Nessa fase, ${store.controllerKidName.text} começa a dialogar e se torna mais '
                   'conversador. Fale como foi o seu dia para ${store.controllerKidName.text}, estimulando o'
                   ' diálogo, pega objetos e nomeia, canta música infantil.'
           ),textCTRST(stg1: '\u2055 Não compra ou ofereça brinquedos que não são adequados para a idade de ${store.controllerKidName.text}. Pode gerar riscos. Observa as mudanças no desenvolvimento de ${store.controllerKidName.text} e registre. Compartilha as conquistas! Deixe as fotos no álbum do aplicativo.'),
-          SizedBox(height: 15.0,),
+          const SizedBox(height: 15.0,),
           textCTRST(
               stg1: '\u2055 Lembre-se sempre, estimule o olhar fixo face a face'
                   ' e deixe ${store.controllerKidName.text} ouvir sua voz, dando-lhe atenção, para que se '
                   'sinta seguro em fazer parte do diálogo. Fale com ${store.controllerKidName.text} sempre'
                   ' sorrindo brincando com expressões faciais de carinho.'
           ),
-          SizedBox(height: 15.0,),
+          const SizedBox(height: 15.0,),
           textCTRST(
               stg1: '\u2055 Nesta etapa, teremos que estimular as brincadeiras '
                   'de barriga para baixo de ${store.controllerKidName.text}, para conseguir o movimento '
@@ -449,7 +473,7 @@ class _TaskNinetState extends State<TaskNinet> {
                   'arrastar e engatinhar, é muito importante para alcançar as '
                   'próximas etapas.'
           ),
-          SizedBox(height: 15.0,),
+          const SizedBox(height: 15.0,),
           textCTRST(
               stg1: '\u2055 A brincadeira no chão com bolas pequenas de '
                   'diferentes cores ajuda nesta conquista. Deixe ${store.controllerKidName.text} de barriga'
@@ -458,8 +482,8 @@ class _TaskNinetState extends State<TaskNinet> {
                   ' Vamos ver como ${store.controllerKidName.text} reage com essa brincadeira! ${store.controllerKidName.text} foi na'
                   ' direção da bola?'
           ),
-          SizedBox(height: 10.0,),
-          // Radin(UID,'DEV19TASK5'),
+          const SizedBox(height: 10.0,),
+          Radin(task:'DEV19TASK5'),
                     ],
                   ),
                 ),

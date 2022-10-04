@@ -1,9 +1,13 @@
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
+import '../../../../models/task_model.dart';
 import '../../../../profile/edit/edit_store.dart';
 import '../../../components/components.dart';
+import '../../../components/radin.dart';
+import '../../../tasks_store.dart';
 
 class Tarefa17Page extends StatefulWidget {
   final String title;
@@ -14,8 +18,27 @@ class Tarefa17Page extends StatefulWidget {
 
 class Tarefa17PageState extends State<Tarefa17Page> {
   final EditStore store = Modular.get();
+final TasksStore tStore = Modular.get();
   @override
   Widget build(BuildContext context) {
+    FirebaseAuth auth = FirebaseAuth.instance;
+      tStore.getTasksFromFirebase(auth.currentUser!.uid, "DEV17").then((l){
+        if(l.length == 0){
+          for(int i = 1; i<6;i++){
+            Task t = Task();
+            t.user = auth.currentUser!.uid;
+            t.task = 'TASK$i';
+            t.group = 'DEV17';
+            t.status = 'I';
+            tStore.task = 'TASK$i';
+            tStore.group = 'DEV17';
+            tStore.status = 'I';
+            t.date = DateTime.now().toString();
+
+            // tStore.uploadTaskToFirebase(widget.uid!, widget.task!, );
+          }
+        }
+      });
     return Scaffold(
         appBar: AppBar(
           title: const Text("Tarefa 17"),
@@ -293,6 +316,7 @@ class TaskSevent extends StatefulWidget {
 
 class _TaskSeventState extends State<TaskSevent> {
   final EditStore store = Modular.get();
+final TasksStore tStore = Modular.get();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -311,7 +335,7 @@ class _TaskSeventState extends State<TaskSevent> {
               builder: (_, constraints) => SingleChildScrollView(
                   child: Container(
                 width: MediaQuery.of(context).size.width * .9,
-                height: MediaQuery.of(context).size.height * 4,
+                height: MediaQuery.of(context).size.height * 6,
                 decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.circular(30),
@@ -359,7 +383,7 @@ class _TaskSeventState extends State<TaskSevent> {
                       const SizedBox(
                         height: 10.0,
                       ),
-                      // Radin(UID,'DEV17TASK1'),
+                      Radin(task:'DEV17TASK1'),
 
                       const SizedBox(
                         height: 60.0,
@@ -389,7 +413,7 @@ class _TaskSeventState extends State<TaskSevent> {
                       const SizedBox(
                         height: 10.0,
                       ),
-                      // Radin(UID,'DEV17TASK2'),
+                      Radin(task:'DEV17TASK2'),
 
                       const SizedBox(
                         height: 60.0,
@@ -421,7 +445,7 @@ class _TaskSeventState extends State<TaskSevent> {
                       const SizedBox(
                         height: 10.0,
                       ),
-                      // Radin(UID,'DEV17TASK3'),
+                      Radin(task:'DEV17TASK3'),
 
                       const SizedBox(
                         height: 60.0,
@@ -454,7 +478,7 @@ class _TaskSeventState extends State<TaskSevent> {
                       const SizedBox(
                         height: 10.0,
                       ),
-                      // Radin(UID,'DEV17TASK4'),
+                      Radin(task:'DEV17TASK4'),
 
                       const SizedBox(
                         height: 60.0,
@@ -493,7 +517,7 @@ class _TaskSeventState extends State<TaskSevent> {
                       const SizedBox(
                         height: 10.0,
                       ),
-                      // Radin(UID,'DEV17TASK5'),
+                      Radin(task:'DEV17TASK5'),
                     ],
                   ),
                 ),

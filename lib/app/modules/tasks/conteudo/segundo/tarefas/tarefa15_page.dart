@@ -1,9 +1,13 @@
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
+import '../../../../models/task_model.dart';
 import '../../../../profile/edit/edit_store.dart';
 import '../../../components/components.dart';
+import '../../../components/radin.dart';
+import '../../../tasks_store.dart';
 
 class Tarefa15Page extends StatefulWidget {
   final String title;
@@ -14,8 +18,27 @@ class Tarefa15Page extends StatefulWidget {
 
 class Tarefa15PageState extends State<Tarefa15Page> {
   final EditStore store = Modular.get();
+final TasksStore tStore = Modular.get();
   @override
   Widget build(BuildContext context) {
+    FirebaseAuth auth = FirebaseAuth.instance;
+      tStore.getTasksFromFirebase(auth.currentUser!.uid, "DEV15").then((l){
+        if(l.length == 0){
+          for(int i = 1; i<6;i++){
+            Task t = Task();
+            t.user = auth.currentUser!.uid;
+            t.task = 'TASK$i';
+            t.group = 'DEV15';
+            t.status = 'I';
+            tStore.task = 'TASK$i';
+            tStore.group = 'DEV15';
+            tStore.status = 'I';
+            t.date = DateTime.now().toString();
+
+            // tStore.uploadTaskToFirebase(widget.uid!, widget.task!, );
+          }
+        }
+      });
     return Scaffold(
         appBar: AppBar(
           title: const Text("Tarefa 15"),
@@ -301,6 +324,7 @@ class TaskFif extends StatefulWidget {
 
 class _TaskFifState extends State<TaskFif> {
   final EditStore store = Modular.get();
+final TasksStore tStore = Modular.get();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -319,7 +343,7 @@ class _TaskFifState extends State<TaskFif> {
               builder: (_, constraints) => SingleChildScrollView(
                   child: Container(
                 width: MediaQuery.of(context).size.width * .9,
-                height: MediaQuery.of(context).size.height * 4.3,
+                height: MediaQuery.of(context).size.height * 6.2,
                 decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.circular(30),
@@ -358,7 +382,7 @@ class _TaskFifState extends State<TaskFif> {
               ' domésticos, ofereça somente brinquedos próprios para a idade de'
               ' material seguro.'),
           const SizedBox(height: 10.0,),
-          // Radin(UID,'DEV15TASK1'),
+          Radin(task:'DEV15TASK1'),
 
 
           const SizedBox(height: 60.0,),
@@ -381,7 +405,7 @@ class _TaskFifState extends State<TaskFif> {
               '${store.controllerKidName.text} não deve dormir na cama dos pais, pois pode acontecer '
               'sufocação.'),
           const SizedBox(height: 10.0,),
-          // Radin(UID,'DEV15TASK2'),
+          Radin(task:'DEV15TASK2'),
 
 
           const SizedBox(height: 60.0,),
@@ -404,7 +428,7 @@ class _TaskFifState extends State<TaskFif> {
                 'entre outras situações da casa.'
           ),
           const SizedBox(height: 10.0,),
-          // Radin(UID,'DEV15TASK3'),
+          Radin(task:'DEV15TASK3'),
 
 
           const SizedBox(height: 60.0,),
@@ -430,7 +454,7 @@ class _TaskFifState extends State<TaskFif> {
                   'sozinho, precisamos treinar o movimento.'
           ),
           const SizedBox(height: 10.0,),
-          // Radin(UID,'DEV15TASK4'),
+          Radin(task:'DEV15TASK4'),
 
 
           const SizedBox(height: 60.0,),
@@ -457,7 +481,7 @@ class _TaskFifState extends State<TaskFif> {
                 'força para alcança-lo.'
           ),
           const SizedBox(height: 10.0,),
-          // Radin(UID,'DEV15TASK5'),
+          Radin(task:'DEV15TASK5'),
 
                     ],
                   ),

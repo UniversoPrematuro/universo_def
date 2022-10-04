@@ -1,9 +1,13 @@
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
+import '../../../../models/task_model.dart';
 import '../../../../profile/edit/edit_store.dart';
 import '../../../components/components.dart';
+import '../../../components/radin.dart';
+import '../../../tasks_store.dart';
 
 class Tarefa27Page extends StatefulWidget {
   final String title;
@@ -14,8 +18,27 @@ class Tarefa27Page extends StatefulWidget {
 
 class Tarefa27PageState extends State<Tarefa27Page> {
   final EditStore store = Modular.get();
+final TasksStore tStore = Modular.get();
   @override
   Widget build(BuildContext context) {
+    FirebaseAuth auth = FirebaseAuth.instance;
+      tStore.getTasksFromFirebase(auth.currentUser!.uid, "DEV27").then((l){
+        if(l.length == 0){
+          for(int i = 1; i<6;i++){
+            Task t = Task();
+            t.user = auth.currentUser!.uid;
+            t.task = 'TASK$i';
+            t.group = 'DEV27';
+            t.status = 'I';
+            tStore.task = 'TASK$i';
+            tStore.group = 'DEV27';
+            tStore.status = 'I';
+            t.date = DateTime.now().toString();
+
+            // tStore.uploadTaskToFirebase(widget.uid!, widget.task!, );
+          }
+        }
+      });
     return Scaffold(
         appBar: AppBar(
           title: const Text("Tarefa 27"),
@@ -288,6 +311,7 @@ class TaskTwentSe extends StatefulWidget {
 
 class _TaskTwentSeState extends State<TaskTwentSe> {
   final EditStore store = Modular.get();
+final TasksStore tStore = Modular.get();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -306,7 +330,7 @@ class _TaskTwentSeState extends State<TaskTwentSe> {
               builder: (_, constraints) => SingleChildScrollView(
                   child: Container(
                 width: MediaQuery.of(context).size.width * .9,
-                height: MediaQuery.of(context).size.height * 4.8,
+                height: MediaQuery.of(context).size.height * 6,
                 decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.circular(30),
@@ -329,7 +353,7 @@ class _TaskTwentSeState extends State<TaskTwentSe> {
                                 height: 70.0,
                                 color: Colors.red,
                               ),
-                              Container(
+                              SizedBox(
                                 width: 100.0,
                                 child: Image.asset("images1/Personagemai.png"),
                               ),
@@ -355,7 +379,7 @@ class _TaskTwentSeState extends State<TaskTwentSe> {
                         ],
                       ),
 
-                      SizedBox(
+                      const SizedBox(
                         height: 60.0,
                       ),
                       textCTRST(
@@ -365,26 +389,26 @@ class _TaskTwentSeState extends State<TaskTwentSe> {
                       textCTRST(
                           stg1:
                               '\u2055 Evite expor ${store.controllerKidName.text} a objetos que possam gerar curiosidade e que possam machucar. Uma gaveta aberta sem supervisão pode ser perigosa. ${store.controllerKidName.text} pode começar a se movimentar pela casa, seja arrastando ou engatinhando. Coloque tampas plásticas nas tomadas que não estiverem em uso.'),
-                      SizedBox(
+                      const SizedBox(
                         height: 15.0,
                       ),
                       textCTRST(
                         stg1:
                             '\u2055 Aproveite para incentivá-lo a imitar os sons dos brinquedos disponíveis, a apontar e a pedir “me dá” ou “dá” demonstrando os que mais agrade. Ensina ${store.controllerKidName.text} a fazer “tchau” para um brinquedo e logo ofereça o brinquedo novamente, pois vai entender que desaparecerá e depois retornará.',
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 15.0,
                       ),
                       textCTRST(
                         stg1:
                             '\u2055 Escolha um exercício que associa movimentos das tarefas anteriores para repetir o estimulo neste momento. Observe se a execução do movimento de ${store.controllerKidName.text} está melhor, mais rápido, com maior independência e domínio.',
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 10.0,
                       ),
-                      // Radin(UID,'DEV27TASK1'),
+                      Radin(task:'DEV27TASK1'),
 
-                      SizedBox(
+                      const SizedBox(
                         height: 60.0,
                       ),
                       textCTRST(
@@ -393,7 +417,7 @@ class _TaskTwentSeState extends State<TaskTwentSe> {
                       textCTRST(
                           stg1:
                               '\u2055 É importante manter uma rotina de atividades de ${store.controllerKidName.text}, mantenha os horários de sono. ${store.controllerKidName.text} expressa cada vez mais os sentimentos com o meio ambiente (sorri, chora, grita, compreende os sons que ouve). Assim, você poderá interagir com ${store.controllerKidName.text}, nas expressões de alegria com um sorriso e nas expressões de irritabilidade com o seu aconchego para acalmar.'),
-                      SizedBox(
+                      const SizedBox(
                         height: 15.0,
                       ),
                       textCTRST(
@@ -402,12 +426,12 @@ class _TaskTwentSeState extends State<TaskTwentSe> {
                           stg2: 'em pé com apoio',
                           stg3:
                               ' do sofá estimule a fazer o movimento de dobrar os joelhos e esticar. É um ótimo exercício!'),
-                      SizedBox(
+                      const SizedBox(
                         height: 10.0,
                       ),
-                      // Radin(UID,'DEV27TASK2'),
+                      Radin(task:'DEV27TASK2'),
 
-                      SizedBox(
+                      const SizedBox(
                         height: 60.0,
                       ),
                       textCTRST(
@@ -416,27 +440,27 @@ class _TaskTwentSeState extends State<TaskTwentSe> {
                       textCTRST(
                           stg1:
                               '\u2055 Aproveita o horário do banho para deixar ${store.controllerKidName.text} relaxado usando uma forma divertida, que é o contato com a água e com o próprio corpo. O banho pode representar o momento para acalmar e logo após a hora do sono. Cuidado com produtos inapropriados para a criança, perfumes e materiais para adultos podem provocar reações alérgicas.'),
-                      SizedBox(
+                      const SizedBox(
                         height: 15.0,
                       ),
                       textCTRST(
                           stg1:
                               '\u2055 Um dos melhores jeitos de desenvolver a coordenação motora é ensinar ritmo a ${store.controllerKidName.text}, mesmo que no inicio ele(a) faça a tarefa de maneira desengonçada.'),
-                      SizedBox(
+                      const SizedBox(
                         height: 15.0,
                       ),
                       textCTRST(
                           stg1:
                               '\u2055 Cante uma canção para ${store.controllerKidName.text}! Uma música alegre, com um ritmo que incentive a bater palmas. Faça sempre primeiro e deixe-o observar você.  Faça isso sempre estimulando ${store.controllerKidName.text} a fixar a atenção em você.'),
-                      SizedBox(
+                      const SizedBox(
                         height: 15.0,
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 10.0,
                       ),
-                      // Radin(UID,'DEV27TASK3'),
+                      Radin(task:'DEV27TASK3'),
 
-                      SizedBox(
+                      const SizedBox(
                         height: 60.0,
                       ),
                       textCTRST(
@@ -449,18 +473,18 @@ class _TaskTwentSeState extends State<TaskTwentSe> {
                           stg1:
                               '\u2055 Estamos finalizando mais uma etapa, parabéns! O seu papel com ${store.controllerKidName.text} tem sido fundamental para obter o desenvolvimento e crescimento. Vamos passar para a outra etapa de 10 a 12 meses, chegamos na última tarefa desta idade de 6 a 9 meses. Vamos preparar para chegar e comemorar o primeiro ano de vida. PARABÉNS!!!'
                               '\n\u2055 Registre com fotos e filmagem de ${store.controllerKidName.text} e coloque na galeria de fotos do aplicativo Universo Prematuro. Queremos compartilhar essa alegria da conquista.'),
-                      SizedBox(
+                      const SizedBox(
                         height: 15.0,
                       ),
                       textCTRST(
                           stg1:
                               '\u2055 Tire alguns minutos desse momento e aproveite para praticar a linguagem perguntando “Cadê ${store.controllerKidName.text}”, Cadê mamãe”, “Cadê o au-au” e assim por diante. Espere ${store.controllerKidName.text} responder, não responda por ${store.controllerKidName.text}. Estimule a expressão de ${store.controllerKidName.text}.'),
-                      SizedBox(
+                      const SizedBox(
                         height: 15.0,
                       ),
                       RichText(
                         textAlign: TextAlign.justify,
-                        text: TextSpan(
+                        text: const TextSpan(
                           text:
                               'Vamos estimular os movimentos associativos: de ',
                           style: TextStyle(
@@ -488,10 +512,10 @@ class _TaskTwentSeState extends State<TaskTwentSe> {
                           ],
                         ),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 10.0,
                       ),
-                      // Radin(UID,'DEV27TASK4'),
+                      Radin(task:'DEV27TASK4'),
 
                       const Padding(
                         padding: EdgeInsets.only(

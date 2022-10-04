@@ -21,6 +21,13 @@ class Tarefa1Page extends StatefulWidget {
 
 class Tarefa1PageState extends State<Tarefa1Page> {
   final EditStore store = Modular.get();
+  final TasksStore tStore = Modular.get();
+  @override
+  void initState() {
+    FirebaseAuth auth = FirebaseAuth.instance;
+    tStore.getTasksFromFirebase(auth.currentUser!.uid, tStore.group);
+    super.initState();
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -253,6 +260,9 @@ class Tarefa1PageState extends State<Tarefa1Page> {
                                               ),
                                             ),
                                           ),
+                                          Container(
+                                            child: Text('Suas respostas: ${tStore.answer}'),
+                                          ),
                                         ],
                                       ),
                                     ),
@@ -282,7 +292,8 @@ class _TaskOneState extends State<TaskOne> {
 
   @override
   void initState() {
-    // tStore.getTasksFromFirebase();
+    FirebaseAuth auth = FirebaseAuth.instance;
+    tStore.getTasksFromFirebase(auth.currentUser!.uid, tStore.group);
     super.initState();
   }
   @override
@@ -310,6 +321,10 @@ class _TaskOneState extends State<TaskOne> {
       //         tStore.group = 'DEV1';
       //         tStore.status = 'I';
       //         t.date = DateTime.now().toString();}
+
+
+    // bool evaluate;
+
     FirebaseAuth auth = FirebaseAuth.instance;
       tStore.getTasksFromFirebase(auth.currentUser!.uid, "DEV1").then((l){
         if(l.length == 0){

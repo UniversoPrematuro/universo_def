@@ -1,9 +1,13 @@
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
+import '../../../../models/task_model.dart';
 import '../../../../profile/edit/edit_store.dart';
 import '../../../components/components.dart';
+import '../../../components/radin.dart';
+import '../../../tasks_store.dart';
 
 class Tarefa16Page extends StatefulWidget {
   final String title;
@@ -14,8 +18,27 @@ class Tarefa16Page extends StatefulWidget {
 
 class Tarefa16PageState extends State<Tarefa16Page> {
   final EditStore store = Modular.get();
+final TasksStore tStore = Modular.get();
   @override
   Widget build(BuildContext context) {
+    FirebaseAuth auth = FirebaseAuth.instance;
+      tStore.getTasksFromFirebase(auth.currentUser!.uid, "DEV16").then((l){
+        if(l.length == 0){
+          for(int i = 1; i<6;i++){
+            Task t = Task();
+            t.user = auth.currentUser!.uid;
+            t.task = 'TASK$i';
+            t.group = 'DEV16';
+            t.status = 'I';
+            tStore.task = 'TASK$i';
+            tStore.group = 'DEV16';
+            tStore.status = 'I';
+            t.date = DateTime.now().toString();
+
+            // tStore.uploadTaskToFirebase(widget.uid!, widget.task!, );
+          }
+        }
+      });
     return Scaffold(
         appBar: AppBar(
           title: const Text("Tarefa 16"),
@@ -284,6 +307,7 @@ class TaskSixt extends StatefulWidget {
 
 class _TaskSixtState extends State<TaskSixt> {
   final EditStore store = Modular.get();
+final TasksStore tStore = Modular.get();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -302,7 +326,7 @@ class _TaskSixtState extends State<TaskSixt> {
               builder: (_, constraints) => SingleChildScrollView(
                   child: Container(
                 width: MediaQuery.of(context).size.width * .9,
-                height: MediaQuery.of(context).size.height * 4.3,
+                height: MediaQuery.of(context).size.height * 6,
                 decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.circular(30),
@@ -340,7 +364,7 @@ class _TaskSixtState extends State<TaskSixt> {
                 ' na hora de trabalhar a função da posição de pé.'
           ),
           const SizedBox(height: 10.0,),
-          // Radin(UID,'DEV16TASK1'),
+          Radin(task:'DEV16TASK1'),
 
 
           const SizedBox(height: 60.0,),
@@ -361,7 +385,7 @@ class _TaskSixtState extends State<TaskSixt> {
                   ' o brinquedo cair no alcance de ${store.controllerKidName.text} deixe pegar sozinho.'
           ),
           const SizedBox(height: 10,),
-          // Radin(UID,'DEV16TASK2'),
+          Radin(task:'DEV16TASK2'),
 
 
           const SizedBox(height: 60.0,),
@@ -387,7 +411,7 @@ class _TaskSixtState extends State<TaskSixt> {
                   ' explore as próprias mãos e pés.'
           ),
           const SizedBox(height: 10.0,),
-          // Radin(UID,'DEV16TASK3'),
+          Radin(task:'DEV16TASK3'),
 
 
           const SizedBox(height: 60.0,),
@@ -408,7 +432,7 @@ class _TaskSixtState extends State<TaskSixt> {
               ' as crianças precisam de tranquilidade e rotina para os hábitos'
               ' de vida.'),
           const SizedBox(height: 10.0,),
-          // Radin(UID,'DEV16TASK4'),
+          Radin(task:'DEV16TASK4'),
 
 
           const SizedBox(height: 60.0,),
@@ -434,7 +458,7 @@ class _TaskSixtState extends State<TaskSixt> {
             stg2: '\n- Parabéns pelo seu empenho, isso faz a diferença.'
           ),
           const SizedBox(height: 10.0,),
-          // Radin(UID,'DEV16TASK5'),
+          Radin(task:'DEV16TASK5'),
 
                     ],
                   ),

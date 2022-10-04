@@ -1,9 +1,13 @@
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
+import '../../../../models/task_model.dart';
 import '../../../../profile/edit/edit_store.dart';
 import '../../../components/components.dart';
+import '../../../components/radin.dart';
+import '../../../tasks_store.dart';
 
 class Tarefa10Page extends StatefulWidget {
   final String title;
@@ -14,6 +18,7 @@ class Tarefa10Page extends StatefulWidget {
 
 class Tarefa10PageState extends State<Tarefa10Page> {
   final EditStore store = Modular.get();
+final TasksStore tStore = Modular.get();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -264,8 +269,27 @@ class TaskTen extends StatefulWidget {
 
 class _TaskTenState extends State<TaskTen> {
   final EditStore store = Modular.get();
+final TasksStore tStore = Modular.get();
   @override
   Widget build(BuildContext context) {
+    FirebaseAuth auth = FirebaseAuth.instance;
+      tStore.getTasksFromFirebase(auth.currentUser!.uid, "DEV10").then((l){
+        if(l.length == 0){
+          for(int i = 1; i<6;i++){
+            Task t = Task();
+            t.user = auth.currentUser!.uid;
+            t.task = 'TASK$i';
+            t.group = 'DEV10';
+            t.status = 'I';
+            tStore.task = 'TASK$i';
+            tStore.group = 'DEV10';
+            tStore.status = 'I';
+            t.date = DateTime.now().toString();
+
+            // tStore.uploadTaskToFirebase(widget.uid!, widget.task!, );
+          }
+        }
+      });
     return Scaffold(
       appBar: AppBar(
         title: const Text("Tarefa 10"),
@@ -282,7 +306,7 @@ class _TaskTenState extends State<TaskTen> {
               builder: (_, constraints) => SingleChildScrollView(
                   child: Container(
                 width: MediaQuery.of(context).size.width * .9,
-                height: MediaQuery.of(context).size.height * 5,
+                height: MediaQuery.of(context).size.height * 6.5,
                 decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.circular(30),
@@ -305,7 +329,7 @@ class _TaskTenState extends State<TaskTen> {
                                 height: 70.0,
                                 color: Colors.red,
                               ),
-                              Container(
+                              SizedBox(
                                 width: 100.0,
                                 child: Image.asset("images1/Personagemai.png"),
                               ),
@@ -351,7 +375,7 @@ class _TaskTenState extends State<TaskTen> {
                       const SizedBox(
                         height: 10.0,
                       ),
-                      // Radin(UID, 'DEV9TASK1'),
+                      Radin(task: 'DEV9TASK1'),
                       const SizedBox(
                         height: 60.0,
                       ),
@@ -380,7 +404,7 @@ class _TaskTenState extends State<TaskTen> {
             stg3: ', período da manhã e da tarde.'
           ),
           const SizedBox(height: 10.0,),
-          // Radin(UID,'DEV10TASK1'),
+          Radin(task:'DEV10TASK1'),
 
 
           const SizedBox(height: 60.0,),
@@ -409,7 +433,7 @@ class _TaskTenState extends State<TaskTen> {
                 'postural, somente manter alguns segundos de cada vez. ',
           ),
           const SizedBox(height: 10.0,),
-          // Radin(UID,'DEV10TASK2'),
+          Radin(task:'DEV10TASK2'),
 
 
 
@@ -436,7 +460,7 @@ class _TaskTenState extends State<TaskTen> {
                 ' luminosidade e muita tranquilidade!',
           ),
           const SizedBox(height: 10.0,),
-          // Radin(UID,'DEV10TASK3'),
+          Radin(task:'DEV10TASK3'),
 
           const SizedBox(height: 60.0,),
           textCTRST(
@@ -462,7 +486,7 @@ class _TaskTenState extends State<TaskTen> {
                 'criança para que o movimento de girar a cabeça aconteça.',
           ),
           const SizedBox(height: 10.0,),
-          // Radin(UID,'DEV10TASK4'),
+          Radin(task:'DEV10TASK4'),
 
 
           const SizedBox(height: 60.0,),

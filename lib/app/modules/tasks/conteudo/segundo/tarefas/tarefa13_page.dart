@@ -1,9 +1,13 @@
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
+import '../../../../models/task_model.dart';
 import '../../../../profile/edit/edit_store.dart';
 import '../../../components/components.dart';
+import '../../../components/radin.dart';
+import '../../../tasks_store.dart';
 
 class Tarefa13Page extends StatefulWidget {
   final String title;
@@ -14,8 +18,27 @@ class Tarefa13Page extends StatefulWidget {
 
 class Tarefa13PageState extends State<Tarefa13Page> {
   final EditStore store = Modular.get();
+final TasksStore tStore = Modular.get();
   @override
   Widget build(BuildContext context) {
+    FirebaseAuth auth = FirebaseAuth.instance;
+      tStore.getTasksFromFirebase(auth.currentUser!.uid, "DEV13").then((l){
+        if(l.length == 0){
+          for(int i = 1; i<6;i++){
+            Task t = Task();
+            t.user = auth.currentUser!.uid;
+            t.task = 'TASK$i';
+            t.group = 'DEV13';
+            t.status = 'I';
+            tStore.task = 'TASK$i';
+            tStore.group = 'DEV13';
+            tStore.status = 'I';
+            t.date = DateTime.now().toString();
+
+            // tStore.uploadTaskToFirebase(widget.uid!, widget.task!, );
+          }
+        }
+      });
     return Scaffold(
         appBar: AppBar(
           title: const Text("Tarefa 13"),
@@ -306,6 +329,7 @@ class TaskThirt extends StatefulWidget {
 
 class _TaskThirtState extends State<TaskThirt> {
   final EditStore store = Modular.get();
+final TasksStore tStore = Modular.get();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -324,7 +348,7 @@ class _TaskThirtState extends State<TaskThirt> {
               builder: (_, constraints) => SingleChildScrollView(
                   child: Container(
                 width: MediaQuery.of(context).size.width * .9,
-                height: MediaQuery.of(context).size.height * 4.9,
+                height: MediaQuery.of(context).size.height * 6.5,
                 decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.circular(30),
@@ -375,7 +399,7 @@ class _TaskThirtState extends State<TaskThirt> {
                 'festa. Cada conquista do desenvolvimento é para ser comemorado.',
           ),
           const SizedBox(height: 10.0,),
-          // Radin(UID,'DEV13TASK1'),
+          Radin(task:'DEV13TASK1'),
 
 
           const SizedBox(height: 60.0,),
@@ -401,7 +425,7 @@ class _TaskThirtState extends State<TaskThirt> {
                   'próprio braço.'
           ),
           const SizedBox(height: 10.0,),
-          // Radin(UID,'DEV13TASK2'),
+          Radin(task:'DEV13TASK2'),
 
 
           const SizedBox(height: 60.0,),
@@ -429,7 +453,7 @@ class _TaskThirtState extends State<TaskThirt> {
                 ' de busca do brinquedo, colocá-lo mais próximo e deixa pegá-lo.',
           ),
           const SizedBox(height: 10.0,),
-          // Radin(UID,'DEV13TASK3'),
+          Radin(task:'DEV13TASK3'),
 
 
           const SizedBox(height: 60.0,),
@@ -464,7 +488,7 @@ class _TaskThirtState extends State<TaskThirt> {
                 'movimento.',
           ),
           const SizedBox(height: 10.0,),
-          // Radin(UID,'DEV13TASK4'),
+          Radin(task:'DEV13TASK4'),
 
 
           const SizedBox(height: 60.0,),
@@ -490,7 +514,7 @@ class _TaskThirtState extends State<TaskThirt> {
           ),textCTRST(stg1: '\u2055 Os animais domésticos devem estar com a '
               'vacinação em dia para garantir a saúde de todos.'),
           const SizedBox(height: 10.0,),
-          // Radin(UID,'DEV13TASK5'),
+          Radin(task:'DEV13TASK5'),
 
                     ],
                   ),

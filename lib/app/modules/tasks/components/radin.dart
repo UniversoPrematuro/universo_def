@@ -62,7 +62,7 @@ class _RadinState extends State<Radin> {
     // List<Task> tsk;
     // Task fst = Task();
     // bool x = false;
-  
+    bool evaluate = false;
   
   
 
@@ -82,13 +82,17 @@ class _RadinState extends State<Radin> {
               groupValue: op,
               value: Options.sim,
               title: const Text("Sim"),
+              toggleable: false,
               onChanged: (Options? value) {
                 setState(() {
                   op = value;
                   tStore.answer = value.toString();
                 });
                 tStore.uploadTaskToFirebase(widget.uid, widget.task, "SIM");
-              }),
+                
+              },
+              
+              ),
           RadioListTile(
               groupValue: op,
               value: Options.nao,
@@ -99,6 +103,7 @@ class _RadinState extends State<Radin> {
                   tStore.answer = value.toString();
                 });
                 tStore.uploadTaskToFirebase(widget.uid, widget.task, "NAO");
+                
               }),
           RadioListTile(
               groupValue: op,

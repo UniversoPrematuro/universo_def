@@ -71,6 +71,22 @@ mixin _$TasksStore on _TasksStoreBase, Store {
     });
   }
 
+  late final _$statusAtom =
+      Atom(name: '_TasksStoreBase.status', context: context);
+
+  @override
+  String? get status {
+    _$statusAtom.reportRead();
+    return super.status;
+  }
+
+  @override
+  set status(String? value) {
+    _$statusAtom.reportWrite(value, super.status, () {
+      super.status = value;
+    });
+  }
+
   late final _$answerAtom =
       Atom(name: '_TasksStoreBase.answer', context: context);
 
@@ -139,16 +155,16 @@ mixin _$TasksStore on _TasksStoreBase, Store {
       AsyncAction('_TasksStoreBase.uploadTaskToFirebase', context: context);
 
   @override
-  Future<void> uploadTaskToFirebase() {
+  Future<void> uploadTaskToFirebase(String? uid, String? task, String? answer) {
     return _$uploadTaskToFirebaseAsyncAction
-        .run(() => super.uploadTaskToFirebase());
+        .run(() => super.uploadTaskToFirebase(uid, task, answer));
   }
 
   late final _$getTasksFromFirebaseAsyncAction =
       AsyncAction('_TasksStoreBase.getTasksFromFirebase', context: context);
 
   @override
-  Future<void> getTasksFromFirebase(String uid, String group) {
+  Future getTasksFromFirebase(String uid, String group) {
     return _$getTasksFromFirebaseAsyncAction
         .run(() => super.getTasksFromFirebase(uid, group));
   }
@@ -160,6 +176,7 @@ escolhaUser: ${escolhaUser},
 uid: ${uid},
 group: ${group},
 task: ${task},
+status: ${status},
 answer: ${answer},
 character: ${character},
 escolhaU: ${escolhaU},

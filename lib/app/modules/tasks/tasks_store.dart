@@ -4,7 +4,6 @@ import 'dart:async';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/material.dart';
 import 'package:mobx/mobx.dart';
 
 import '../models/task_model.dart';
@@ -32,6 +31,9 @@ abstract class _TasksStoreBase with Store {
   String? task;
 
   @observable
+  String? status;
+
+  @observable
   String? answer;
 
   @observable
@@ -47,9 +49,9 @@ abstract class _TasksStoreBase with Store {
   Stream<List<Task>> get outTask => taskController.stream.asBroadcastStream();
 
   @action
-  Future<void> uploadTaskToFirebase() async {
+  Future<void> uploadTaskToFirebase(String? uid, String? task, String? answer) async {
     uid = auth.currentUser!.uid;
-    await db.collection("users").doc(uid).collection("tasks").doc(task).set({
+    await db.collection("users").doc(uid).collection("Tasks").doc(task).set({
       "Date" : Timestamp.now(),
       "Answer" : answer
     });
@@ -57,15 +59,20 @@ abstract class _TasksStoreBase with Store {
   }
 
   @action
-  Future<void> getTasksFromFirebase(String uid, String group) async {
+  getTasksFromFirebase(String uid, String group) async {
     User? usuarioLogado = auth.currentUser!;
     uid = usuarioLogado.uid;
 
-    DocumentSnapshot snap = await db.collection("users").doc(uid).collection("tasks").doc(task).get();
+    DocumentSnapshot snap = await db.collection("users").doc(uid).collection("Tasks").doc(task).get();
+    // List<Task> listTask = [];
     Map? dados = snap.data() as Map?;
     // uid = dados!["uid"];
-    task = dados!["task"];
-    group = dados["group"];
+    
+      answer = dados!["Answer"];
+      // group = dados["group"];
+    
+    
+    // return getTasksFromFirebase(uid, group);
   }
   
 

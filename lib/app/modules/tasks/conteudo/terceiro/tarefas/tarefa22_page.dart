@@ -1,9 +1,13 @@
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
+import '../../../../models/task_model.dart';
 import '../../../../profile/edit/edit_store.dart';
 import '../../../components/components.dart';
+import '../../../components/radin.dart';
+import '../../../tasks_store.dart';
 
 class Tarefa22Page extends StatefulWidget {
   final String title;
@@ -14,8 +18,27 @@ class Tarefa22Page extends StatefulWidget {
 
 class Tarefa22PageState extends State<Tarefa22Page> {
   final EditStore store = Modular.get();
+final TasksStore tStore = Modular.get();
   @override
   Widget build(BuildContext context) {
+    FirebaseAuth auth = FirebaseAuth.instance;
+      tStore.getTasksFromFirebase(auth.currentUser!.uid, "DEV22").then((l){
+        if(l.length == 0){
+          for(int i = 1; i<6;i++){
+            Task t = Task();
+            t.user = auth.currentUser!.uid;
+            t.task = 'TASK$i';
+            t.group = 'DEV22';
+            t.status = 'I';
+            tStore.task = 'TASK$i';
+            tStore.group = 'DEV22';
+            tStore.status = 'I';
+            t.date = DateTime.now().toString();
+
+            // tStore.uploadTaskToFirebase(widget.uid!, widget.task!, );
+          }
+        }
+      });
     return Scaffold(
         appBar: AppBar(
           title: const Text("Tarefa 22"),
@@ -301,6 +324,7 @@ class TaskTwentT extends StatefulWidget {
 
 class _TaskTwentTState extends State<TaskTwentT> {
   final EditStore store = Modular.get();
+final TasksStore tStore = Modular.get();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -319,7 +343,7 @@ class _TaskTwentTState extends State<TaskTwentT> {
               builder: (_, constraints) => SingleChildScrollView(
                   child: Container(
                 width: MediaQuery.of(context).size.width * .9,
-                height: MediaQuery.of(context).size.height * 5,
+                height: MediaQuery.of(context).size.height * 6.8,
                 decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.circular(30),
@@ -342,7 +366,7 @@ class _TaskTwentTState extends State<TaskTwentT> {
                                 height: 70.0,
                                 color: Colors.red,
                               ),
-                              Container(
+                              SizedBox(
                                 width: 100.0,
                                 child: Image.asset("images1/Personagemai.png"),
                               ),
@@ -368,7 +392,7 @@ class _TaskTwentTState extends State<TaskTwentT> {
                         ],
                       ),
 
-                      SizedBox(height: 60.0,),
+                      const SizedBox(height: 60.0,),
           textCTRST(
               stg1: '\u2055 Coloque ${store.controllerKidName.text} para engatinhar em cima de diferentes '
                   'texturas, de maneira segura. Em cima de cobertores, toalhas,'
@@ -377,30 +401,30 @@ class _TaskTwentTState extends State<TaskTwentT> {
               stg3: ", tudo vale para deixar ${store.controllerKidName.text} com melhor equilíbrio e"
                   " agilidade no movimento."
           ),textCTRST(stg1: '\u2055 Mantenha a carteirinha da criança em dia e não falte às consultas regulares de acompanhamento. Acompanhe a vacinação e verifique se está em dia! Siga somente orientações do cuidado da criança com profissionais da saúde e de sua confiança. Cuidado com quedas em lugares altos, cadeirinha, carrinho... Evite!'),
-          SizedBox(height: 15.0,),
+          const SizedBox(height: 15.0,),
           textCTRST(
               stg1: '\u2055 Durante essas descobertas, narre e converse sobre '
                   'essas diferentes texturas, divirtam-se, afinal tudo é novo '
                   'para ${store.controllerKidName.text}. Faça isso, sempre que possível! Converse com ${store.controllerKidName.text}'
                   ' as coisas boas do dia, aproveita para você relaxar.'
           ),
-          SizedBox(height: 15.0,),
+          const SizedBox(height: 15.0,),
           textCTRST(
               stg1: '\u2055 Toda semana procure trocar os brinquedos/objetos, como'
                   ' exemplo, se ${store.controllerKidName.text} brincar com seis objetos, você poderá trocar'
                   ' três ou dois, então fará um rodizio dos brinquedos tornando '
                   'aquele movimento gostoso e de distração.'
           ),
-          SizedBox(height: 10.0,),
-          // Radin(UID,'DEV22TASK1'),
+          const SizedBox(height: 10.0,),
+          Radin(task:'DEV22TASK1'),
 
-          SizedBox(height: 60.0,),
+          const SizedBox(height: 60.0,),
           textCTRST(
               stg1: '\u2055 Conte uma história para ${store.controllerKidName.text}! A história se passa em'
                   ' uma fazenda e os personagens principais são os bichinhos que'
                   ' vivem nela, como vaca, boi, cachorro, gatinho, porquinho.'
           ),textCTRST(stg1: '\u2055 ${store.controllerKidName.text} está crescendo e consegue fazer movimentos novos a cada dia. Deixe todos os produtos de limpeza, tesouras, pregos e todo material que pode ser um risco para ${store.controllerKidName.text} bem guardados. Observe as mudanças no desenvolvimento de ${store.controllerKidName.text}. O registro permitirá a observação dessas mudanças.'),
-          SizedBox(height: 15.0,),
+          const SizedBox(height: 15.0,),
           textCTRST(
               stg1: '\u2055 A cada vez que falar de um animalzinho, ensine ${store.controllerKidName.text} '
                   'o barulho que o bichinho faz, direcionando-se face a face com'
@@ -408,23 +432,23 @@ class _TaskTwentTState extends State<TaskTwentT> {
                   'Faz os ruídos dos animais e se possível mostre a figura e/ou '
                   'mesmo um desenho produzido.'
           ),
-          SizedBox(height: 10.0,),
-          // Radin(UID,'DEV22TASK2'),
+          const SizedBox(height: 10.0,),
+          Radin(task:'DEV22TASK2'),
 
-          SizedBox(height: 60.0,),
+          const SizedBox(height: 60.0,),
           textCTRST(
               stg1: '\u2055 Cante uma canção para ${store.controllerKidName.text}! Busque uma música infantil'
                   ' que agrade ${store.controllerKidName.text} e cante para ele (a). Tente ensinar pequenas '
                   'silabas das palavras que aparecem na música.'
           ),textCTRST(stg1: '\u2055 Lembre! ${store.controllerKidName.text} está desenvolvendo e novos movimentos estão surgindo, então vamos assegurar que o berço fique longe da janela do quarto e mantenha as proteções laterais (grades) do berço.'),
-          SizedBox(height: 15.0,),
+          const SizedBox(height: 15.0,),
           textCTRST(
               stg1: '\u2055 Canções infantis são ótimas para a familiarização de'
                   ' frases e palavras, facilitando a aquisição de linguagem e '
                   'compreensão das crianças. Qualquer tentativa de vocalização '
                   'de ${store.controllerKidName.text} deve ser estimulada.'
           ),
-          SizedBox(height: 15.0,),
+          const SizedBox(height: 15.0,),
           textCTRST(
               stg1: '\u2055 Um movimento para combinar, deixe um brinquedo ou objeto '
                   'que ${store.controllerKidName.text} goste em cima do sofá, mostre e estimule ${store.controllerKidName.text} para pega-lo'
@@ -434,11 +458,11 @@ class _TaskTwentTState extends State<TaskTwentT> {
                   " chão (pode deixar o brinquedo cair no chão para ficar mais divertido"
                   " e interessante), vamos treinar o levantar e o agachamento."
           ),
-          SizedBox(height: 15.0,),
-          SizedBox(height: 10.0,),
-          // Radin(UID,'DEV22TASK3'),
+          const SizedBox(height: 15.0,),
+          const SizedBox(height: 10.0,),
+          Radin(task:'DEV22TASK3'),
 
-          SizedBox(height: 60.0,),
+          const SizedBox(height: 60.0,),
           textCTRST(
               stg1: '\u2055 Vamos construir uma torre. Com ${store.controllerKidName.text} na ',
               stg2: "posição sentado (a)",
@@ -448,7 +472,7 @@ class _TaskTwentTState extends State<TaskTwentT> {
                   " no alto você poderá ajudar com o apoio das mãos. A brincadeira"
                   " também pode acontecer com ${store.controllerKidName.text} em pé de frente ao sofá ou cadeira."
           ),textCTRST(stg1: '\u2055 Para a memorização de ${store.controllerKidName.text}, você deverá repetir as atividades. Não se espante se ${store.controllerKidName.text} não aprender uma lição logo na primeira tentativa. Seja persistente. Em caso de dúvidas sobre o crescimento e desenvolvimento de ${store.controllerKidName.text}, entre em contato conosco na aba dúvidas do aplicativo.'),
-          SizedBox(height: 15.0,),
+          const SizedBox(height: 15.0,),
           textCTRST(
               stg1: '\u2055 Encoraje ${store.controllerKidName.text} a realizar os movimentos com os cubos '
                   'e vá conversando sobre as cores, formas e parabenize qualquer'
@@ -458,22 +482,22 @@ class _TaskTwentTState extends State<TaskTwentT> {
                   " 3x3cm....... diferentes tamanhos e se quiser pintar ficará"
                   " colorido e mais interessante."
           ),
-          SizedBox(height: 10.0,),
-          // Radin(UID,'DEV22TASK4'),
+          const SizedBox(height: 10.0,),
+          Radin(task:'DEV22TASK4'),
 
-          SizedBox(height: 60.0,),
+          const SizedBox(height: 60.0,),
           RichText(
             textAlign: TextAlign.justify,
             text: TextSpan(
               text: '\u2055 Os movimentos deverão ser associados, processo de evolução '
                   'no desenvolvimento. Com ${store.controllerKidName.text} deitado de ',
-              style: TextStyle(
+              style: const TextStyle(
                 fontSize: 18,
                 fontWeight: FontWeight.normal,
                 color: Colors.black,
 
               ),
-              children: <TextSpan>[
+              children: const <TextSpan>[
                 TextSpan(text: 'barriguinha para cima', style: TextStyle(fontWeight: FontWeight.bold)),
                 TextSpan(text: ' estimule para sentar, se estiver de '),
                 TextSpan(text: 'barriguinha para baixo', style: TextStyle(fontWeight: FontWeight.bold)),
@@ -494,7 +518,7 @@ class _TaskTwentTState extends State<TaskTwentT> {
               stg3: " no colo, de frente a você, ensine a cantar parabéns,"
                   " batendo as palminhas e levantando os braços."
           ),
-          SizedBox(height: 15.0,),
+          const SizedBox(height: 15.0,),
           textCTRST(
               stg1: '\u2055 Sempre que ${store.controllerKidName.text} emitir sons na tentativa de se expressar,'
                   ' interaja com ${store.controllerKidName.text} conversando de forma tranquila e calma para '
@@ -502,8 +526,8 @@ class _TaskTwentTState extends State<TaskTwentT> {
                   'esse tempo de exercício para também conversar com ${store.controllerKidName.text} e'
                   ' observar suas reações.'
           ),
-          SizedBox(height: 10.0,),
-          // Radin(UID,'DEV22TASK5'),
+          const SizedBox(height: 10.0,),
+          Radin(task:'DEV22TASK5'),
 
           const SizedBox(height: 10.0,),
                     ],
