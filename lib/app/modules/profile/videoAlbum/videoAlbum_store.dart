@@ -10,10 +10,10 @@ import 'package:flutter/foundation.dart';
 import 'package:mobx/mobx.dart';
 // import 'package:file_picker/file_picker.dart';
 
-part 'photoAlbum_store.g.dart';
+part 'videoAlbum_store.g.dart';
 
-class PhotoAlbumStore = _PhotoAlbumStoreBase with _$PhotoAlbumStore;
-abstract class _PhotoAlbumStoreBase with Store {
+class VideoAlbumStore = _VideoAlbumStoreBase with _$VideoAlbumStore;
+abstract class _VideoAlbumStoreBase with Store {
 
   FirebaseStorage storage = FirebaseStorage.instance;
   FirebaseFirestore db = FirebaseFirestore.instance;
@@ -32,27 +32,27 @@ abstract class _PhotoAlbumStoreBase with Store {
   uploadFiles(File file) { 
     UploadTask task = storage
       .ref()
-      .child("images/${DateTime.now().toString()}")
+      .child("video/${DateTime.now().toString()}")
       .putFile(file);
     return task;
   }
 
   @action
-  Future recoverPhotos() async {
+  Future recoverVideos() async {
     FirebaseAuth auth = FirebaseAuth.instance;
     User? usuarioLogado = auth.currentUser;
     idLogado = usuarioLogado!.uid;
 
-    QuerySnapshot<Map<String, dynamic>> snap = await db.collection("users").doc(idLogado).collection("images").get();
+    QuerySnapshot<Map<String, dynamic>> snap = await db.collection("users").doc(idLogado).collection("video").get();
     Map dados = snap.docs as Map;
-    selectedFiles = dados["images"];
+    selectedFiles = dados["video"];
   }
 
   @action
   Future selectFile() async {
     // ImagePicker picker = ImagePicker();
     try {
-      FilePickerResult? result = await FilePicker.platform.pickFiles(allowMultiple: true, type: FileType.any);
+      FilePickerResult? result = await FilePicker.platform.pickFiles(allowMultiple: true, type: FileType.video);
 
       if(result != null) {
         selectedFiles.clear();
@@ -83,24 +83,16 @@ abstract class _PhotoAlbumStoreBase with Store {
   saveImageUrlDB(UploadTask task) {
     task.snapshotEvents.listen((snapShot) {
       if(snapShot.state == TaskState.success) {
-        snapShot
-        .ref
-        .getDownloadURL()
-        .then((imageUrl) => writeImageToFireStore(imageUrl));
+        snapShot.ref.getDownloadURL().then((videoUrl) => writeImageToFireStore(videoUrl));
       }
     });
   }
 
   @action
-  writeImageToFireStore(imageUrl) {
+  writeImageToFireStore(videoUrl) {
     FirebaseAuth auth = FirebaseAuth.instance;
     idLogado = auth.currentUser!.uid;
-    db
-    .collection("users")
-    .doc(idLogado)
-    .collection("images")
-    .add({"url": imageUrl})
-    .whenComplete(() => print("$imageUrl is save"));
+    db.collection("users").doc(idLogado).collection("video").add({"url": videoUrl}).whenComplete(() => print("$videoUrl is save"));
   }
 
   

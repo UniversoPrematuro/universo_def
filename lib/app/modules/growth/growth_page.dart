@@ -2,6 +2,8 @@ import 'package:flutter_modular/flutter_modular.dart';
 import 'package:universo_def/app/modules/growth/growth_store.dart';
 import 'package:flutter/material.dart';
 
+import '../initial/auth/auth_store.dart';
+
 class GrowthPage extends StatefulWidget {
   final String title;
   const GrowthPage({Key? key, this.title = 'GrowthPage'}) : super(key: key);
@@ -10,6 +12,7 @@ class GrowthPage extends StatefulWidget {
 }
 class GrowthPageState extends State<GrowthPage> {
   final GrowthStore store = Modular.get();
+  final AuthStore aStore = Modular.get();
 
   @override
   Widget build(BuildContext context) {
@@ -46,16 +49,16 @@ class GrowthPageState extends State<GrowthPage> {
                  Center(
                   child: SizedBox(
                     width: 350,
-                    height: MediaQuery.of(context).size.height * .5,
+                    height: MediaQuery.of(context).size.height * .64,
                     child: Card(
                       shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(20)),
                       elevation: 20,
                       color: Colors.white,
-                      child: const Padding(
-                        padding: EdgeInsets.all(15.0),
+                      child:Padding(
+                        padding: EdgeInsets.all(25.0),
                         child: Text(
-                            // '' '${/*reg.controllerName.text*/}! \n'
+                            '' '${aStore.controllerNameMom.text}! \n'
                                 'O crescimento saudável é alcançado com uma alimentação adequada  '
                                 'principalmente nos dois primeiros anos de vida. O aleitamento '
                                 'materno surge como uma estratégia eficiente de nutrição, proteção,'

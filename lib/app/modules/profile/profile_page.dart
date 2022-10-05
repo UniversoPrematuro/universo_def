@@ -81,6 +81,7 @@ class ProfilePageState extends State<ProfilePage> {
             phStore.selectFile();
           },
           child: const Icon(Icons.camera_alt_outlined)),
+          
     );
   }
 }

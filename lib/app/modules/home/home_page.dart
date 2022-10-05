@@ -86,11 +86,11 @@ Widget bottomNavigationBar() {
           label: "Dicas",
               
           ),
-        BottomNavigationBarItem(
-          icon: Icon(Icons.settings_rounded),
-          label: "Mais",
+        // BottomNavigationBarItem(
+        //   icon: Icon(Icons.settings_rounded),
+        //   label: "Mais",
               
-          ),
+        //   ),
       ]
       
       );

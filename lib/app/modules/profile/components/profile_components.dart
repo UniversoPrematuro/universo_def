@@ -9,6 +9,7 @@ import 'package:universo_def/app/modules/profile/profile_store.dart';
 import '../../initial/auth/auth_store.dart';
 import '../edit/edit_store.dart';
 import '../photoAlbum/photoAlbum_page.dart';
+import '../videoAlbum/videoAlbum_page.dart';
 
 class ProfileCard extends StatelessWidget {
   ProfileCard({Key? key}) : super(key: key);
@@ -159,38 +160,13 @@ class GalleryTabs extends StatelessWidget {
                       builder: (_) => const PhotoAlbumPage()
                     ),
                     
-                    // GridView.count(
-                    //   primary: false,
-                    //   padding: const EdgeInsets.all(20),
-                    //   crossAxisSpacing: 10,
-                    //   mainAxisSpacing: 10,
-                    //   crossAxisCount: 4,
-                    //   children: <Widget>[
-                    //     Observer(builder: (_) {
-                    //       return PhotoAlbumPage();
-                    //     })
-                    //   ],
-                    // ),
-                    Container(
-                      height: MediaQuery.of(context).size.height * .8,
-                      child: TabBarView(
-                        controller: store.tabController,
-                        children: [
-                          // PhotoAlbumPage(),
-                          GridView.count(
-                            primary: false,
-                            padding: const EdgeInsets.all(20),
-                            crossAxisSpacing: 10,
-                            mainAxisSpacing: 10,
-                            crossAxisCount: 4,
-                            children: const <Widget>[PhotoAlbumPage()],
-                          ),
-                        ],
-                      ),
+                    Observer(
+                      builder: (_) => const VideoAlbumPage()
                     ),
                   ],
                 ),
-              )
+              ),
+              
             ]
           )
         )

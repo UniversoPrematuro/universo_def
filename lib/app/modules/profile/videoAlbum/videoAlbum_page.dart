@@ -1,26 +1,22 @@
-// ignore_for_file: file_names
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:universo_def/app/modules/profile/photoAlbum/photoAlbum_store.dart';
+import 'package:universo_def/app/modules/profile/videoAlbum/videoAlbum_store.dart';
 import 'package:flutter/material.dart';
 
-class PhotoAlbumPage extends StatefulWidget {
+class VideoAlbumPage extends StatefulWidget {
   final String title;
-  const PhotoAlbumPage({Key? key, this.title = 'PhotoAlbumPage'})
-      : super(key: key);
+  const VideoAlbumPage({Key? key, this.title = 'VideoAlbumPage'}) : super(key: key);
   @override
-  PhotoAlbumPageState createState() => PhotoAlbumPageState();
+  VideoAlbumPageState createState() => VideoAlbumPageState();
 }
-
-class PhotoAlbumPageState extends State<PhotoAlbumPage> {
-  final PhotoAlbumStore store = Modular.get();
+class VideoAlbumPageState extends State<VideoAlbumPage> {
+  final VideoAlbumStore store = Modular.get();
   FirebaseFirestore db = FirebaseFirestore.instance;
   // final auth = FirebaseAuth.instance;
   // String idLogado = FirebaseAuth.instance.currentUser!.uid;
   @override
   void initState() {
-    store.recoverPhotos();
+    store.recoverVideos();
     super.initState();
   }
   @override
@@ -29,7 +25,7 @@ class PhotoAlbumPageState extends State<PhotoAlbumPage> {
       body: Container(
             padding: const EdgeInsets.all(8),
             child: StreamBuilder<QuerySnapshot>(
-                stream: db.collection("users").doc(store.idLogado).collection("images").snapshots(),
+                stream: db.collection("users").doc(store.idLogado).collection("video").snapshots(),
                 builder: (context, snapshots) {
                   return snapshots.hasError
                       ? const Center(child: Text("error"))

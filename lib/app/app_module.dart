@@ -19,6 +19,7 @@ import 'modules/profile/photoAlbum/photoAlbum_module.dart';
 import 'modules/profile/photoAlbum/photoAlbum_store.dart';
 import 'modules/profile/profile_module.dart';
 import 'modules/profile/profile_store.dart';
+import 'modules/profile/videoAlbum/videoAlbum_store.dart';
 import 'modules/projeto/projeto_module.dart';
 import 'modules/tasks/conteudo/conteudo_module.dart';
 import 'modules/tasks/conteudo/primeiro/primeiro_store.dart';
@@ -48,6 +49,7 @@ class AppModule extends Module {
     Bind.lazySingleton((i) => TerceiroStore()),
     Bind.lazySingleton((i) => QuartoStore()),
     Bind.singleton((i) => PhotoAlbumStore()),
+    Bind.singleton((i) => VideoAlbumStore()),
   ];
 
   @override

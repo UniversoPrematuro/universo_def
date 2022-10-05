@@ -2,6 +2,9 @@ import 'package:flutter_modular/flutter_modular.dart';
 import 'package:universo_def/app/modules/tasks/tasks_store.dart';
 import 'package:flutter/material.dart';
 
+import '../initial/auth/auth_store.dart';
+import '../profile/edit/edit_store.dart';
+
 class TasksPage extends StatefulWidget {
   final String title;
   const TasksPage({Key? key, this.title = 'TasksPage'}) : super(key: key);
@@ -12,6 +15,8 @@ class TasksPage extends StatefulWidget {
 //   ## R: 101, G: 187, B: 88
 class TasksPageState extends State<TasksPage> {
   final TasksStore store = Modular.get();
+  final EditStore eStore = Modular.get();
+  final AuthStore aStore = Modular.get();
 // ## LARANJA MEIO ESCURO
 //   ## R: 239, G: 121, B: 91
   @override
@@ -31,13 +36,13 @@ class TasksPageState extends State<TasksPage> {
           child: SingleChildScrollView(
             child: Column(
               children: [
-                const Padding(
-                  padding: EdgeInsets.all(5.0),
+                Padding(
+                  padding: const EdgeInsets.all(5.0),
                   child: Padding(
-                           padding: EdgeInsets.only(top: 50),
+                           padding: const EdgeInsets.only(top: 50),
                            child:  Text(
-                        "Dicas inicias para as mamães!",
-                        style: TextStyle(
+                        "Exercicios para ${eStore.controllerKidName.text}",
+                        style: const TextStyle(
                             fontSize: 20,
                             color: Colors.white,
                             fontWeight: FontWeight.w700,
@@ -49,27 +54,19 @@ class TasksPageState extends State<TasksPage> {
                  Center(
                   child: SizedBox(
                     width: 350,
-                    height: MediaQuery.of(context).size.height * .6,
+                    height: MediaQuery.of(context).size.height * .72,
                     child: Card(
                       shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(20)),
                       elevation: 20,
                       color: Colors.white,
-                      child: const Padding(
-                        padding: EdgeInsets.all(15.0),
+                      child: Padding(
+                        padding: const EdgeInsets.all(25.0),
                         child: Text(
-                            // '' '${/*reg.controllerName.text*/}! \n'
-                                'O crescimento saudável é alcançado com uma alimentação adequada  '
-                                'principalmente nos dois primeiros anos de vida. O aleitamento '
-                                'materno surge como uma estratégia eficiente de nutrição, proteção,'
-                                ' vínculo e afeto. O leite materno contém todos os nutrientes '
-                                'essenciais para o crescimento e o desenvolvimento da criança. '
-                                'Mesmo quando a amamentação não é possível, algumas estratégias '
-                                'podem servir de aliadas neste processo de transição para a fórmula'
-                                ' infantil.''O crescimento saudável é alcançado com uma alimentação adequada  '
-                                'principalmente nos dois primeiros anos de vida. Preparamos um material para auxiliá-la nesse processo.',
+                            '' '${aStore.controllerNameMom.text}! \n'
+                                'Para um desenvolvimento integral da criança é'' necessário estimular às diferentes áreas da linguagem motora global e fina e também a área social, para o alcance do melhor potencial de desenvolvimento garantindo que sua fase adulta seja mais produtiva.\n\nO melhor período para gerar os estímulos de aprendizado é entre o nascimento e três anos de idade. Após este período continua ocorrendo o aprendizado mas com um potencial gradativamente menor.\n\nO ambiente saudável, estímulos direcionados e as novas oportunidades de novas vivências garante a criança o cuidado para que o seu desenvolvimento seja mais favoravel e protegido!',
                                 textAlign: TextAlign.justify,
-                                style: TextStyle(
+                                style: const TextStyle(
                                   fontSize: 16,
                                   fontWeight: FontWeight.w500,
                                   color: Color.fromARGB(255, 35, 85, 24)

@@ -4,6 +4,7 @@ import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter/material.dart';
 import 'package:universo_def/app/modules/initial/components/buttons.dart';
 import 'package:universo_def/app/modules/initial/components/fields.dart';
+import 'package:universo_def/app/modules/profile/photoAlbum/photoAlbum_store.dart';
 
 import '../models/user_model.dart';
 import '../profile/edit/edit_store.dart';
@@ -21,6 +22,7 @@ class InitialPageState extends State<InitialPage> {
 
   final EditStore editStore = Modular.get();
 
+  final PhotoAlbumStore pStore = Modular.get();
   @override
   void initState() {
     editStore.recover();
@@ -84,13 +86,26 @@ class InitialPageState extends State<InitialPage> {
                             }),
                           ),
                           const SizedBox(height: 30),
-                          GradientButtonFb1(
-                              onPressed: () async {
-                                store.signIn(UserModel());
-                                editStore.recover();
-                                // editStore.recoverKid();
-                              },
-                              text: "Entre Agora!"),
+
+                          LoadingAnimatedButton(
+                            child: Text(
+                              "Entre",
+                              style: TextStyle(
+                                color: Colors.green,
+                                fontWeight: FontWeight.w600
+                              ),
+                              ), onTap: (){
+                            store.signIn(UserModel());
+                            editStore.recover();
+                          }),
+                          // GradientButtonFb1(
+                          //     onPressed: () async {
+                          //       store.signIn(UserModel());
+                          //       editStore.recover();
+                                
+                          //       // editStore.recoverKid();
+                          //     },
+                          //     text: "Entre Agora!"),
                           
                           OutlineButtonFb1(
                               onPressed: () {

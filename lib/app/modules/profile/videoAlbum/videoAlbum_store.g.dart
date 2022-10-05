@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'photoAlbum_store.dart';
+part of 'videoAlbum_store.dart';
 
 // **************************************************************************
 // StoreGenerator
@@ -8,9 +8,9 @@ part of 'photoAlbum_store.dart';
 
 // ignore_for_file: non_constant_identifier_names, unnecessary_brace_in_string_interps, unnecessary_lambdas, prefer_expression_function_bodies, lines_longer_than_80_chars, avoid_as, avoid_annotating_with_dynamic, no_leading_underscores_for_local_identifiers
 
-mixin _$PhotoAlbumStore on _PhotoAlbumStoreBase, Store {
+mixin _$VideoAlbumStore on _VideoAlbumStoreBase, Store {
   late final _$uploadedTasksAtom =
-      Atom(name: '_PhotoAlbumStoreBase.uploadedTasks', context: context);
+      Atom(name: '_VideoAlbumStoreBase.uploadedTasks', context: context);
 
   @override
   List<UploadTask> get uploadedTasks {
@@ -26,7 +26,7 @@ mixin _$PhotoAlbumStore on _PhotoAlbumStoreBase, Store {
   }
 
   late final _$selectedFilesAtom =
-      Atom(name: '_PhotoAlbumStoreBase.selectedFiles', context: context);
+      Atom(name: '_VideoAlbumStoreBase.selectedFiles', context: context);
 
   @override
   List<File> get selectedFiles {
@@ -42,7 +42,7 @@ mixin _$PhotoAlbumStore on _PhotoAlbumStoreBase, Store {
   }
 
   late final _$idLogadoAtom =
-      Atom(name: '_PhotoAlbumStoreBase.idLogado', context: context);
+      Atom(name: '_VideoAlbumStoreBase.idLogado', context: context);
 
   @override
   String? get idLogado {
@@ -57,55 +57,55 @@ mixin _$PhotoAlbumStore on _PhotoAlbumStoreBase, Store {
     });
   }
 
-  late final _$recoverPhotosAsyncAction =
-      AsyncAction('_PhotoAlbumStoreBase.recoverPhotos', context: context);
+  late final _$recoverVideosAsyncAction =
+      AsyncAction('_VideoAlbumStoreBase.recoverVideos', context: context);
 
   @override
-  Future<dynamic> recoverPhotos() {
-    return _$recoverPhotosAsyncAction.run(() => super.recoverPhotos());
+  Future<dynamic> recoverVideos() {
+    return _$recoverVideosAsyncAction.run(() => super.recoverVideos());
   }
 
   late final _$selectFileAsyncAction =
-      AsyncAction('_PhotoAlbumStoreBase.selectFile', context: context);
+      AsyncAction('_VideoAlbumStoreBase.selectFile', context: context);
 
   @override
   Future<dynamic> selectFile() {
     return _$selectFileAsyncAction.run(() => super.selectFile());
   }
 
-  late final _$_PhotoAlbumStoreBaseActionController =
-      ActionController(name: '_PhotoAlbumStoreBase', context: context);
+  late final _$_VideoAlbumStoreBaseActionController =
+      ActionController(name: '_VideoAlbumStoreBase', context: context);
 
   @override
   dynamic uploadFiles(File file) {
-    final _$actionInfo = _$_PhotoAlbumStoreBaseActionController.startAction(
-        name: '_PhotoAlbumStoreBase.uploadFiles');
+    final _$actionInfo = _$_VideoAlbumStoreBaseActionController.startAction(
+        name: '_VideoAlbumStoreBase.uploadFiles');
     try {
       return super.uploadFiles(file);
     } finally {
-      _$_PhotoAlbumStoreBaseActionController.endAction(_$actionInfo);
+      _$_VideoAlbumStoreBaseActionController.endAction(_$actionInfo);
     }
   }
 
   @override
   dynamic saveImageUrlDB(UploadTask task) {
-    final _$actionInfo = _$_PhotoAlbumStoreBaseActionController.startAction(
-        name: '_PhotoAlbumStoreBase.saveImageUrlDB');
+    final _$actionInfo = _$_VideoAlbumStoreBaseActionController.startAction(
+        name: '_VideoAlbumStoreBase.saveImageUrlDB');
     try {
       return super.saveImageUrlDB(task);
     } finally {
-      _$_PhotoAlbumStoreBaseActionController.endAction(_$actionInfo);
+      _$_VideoAlbumStoreBaseActionController.endAction(_$actionInfo);
     }
   }
 
   @override
-  dynamic writeImageToFireStore(dynamic imageUrl) {
-    final _$actionInfo = _$_PhotoAlbumStoreBaseActionController.startAction(
-        name: '_PhotoAlbumStoreBase.writeImageToFireStore');
+  dynamic writeImageToFireStore(dynamic videoUrl) {
+    final _$actionInfo = _$_VideoAlbumStoreBaseActionController.startAction(
+        name: '_VideoAlbumStoreBase.writeImageToFireStore');
     try {
-      return super.writeImageToFireStore(imageUrl);
+      return super.writeImageToFireStore(videoUrl);
     } finally {
-      _$_PhotoAlbumStoreBaseActionController.endAction(_$actionInfo);
+      _$_VideoAlbumStoreBaseActionController.endAction(_$actionInfo);
     }
   }
 
