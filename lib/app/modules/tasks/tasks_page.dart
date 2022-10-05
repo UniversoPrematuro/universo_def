@@ -103,7 +103,7 @@ class TasksPageState extends State<TasksPage> {
                     
                   ),
                   onPressed: (){
-                    Navigator.pushReplacementNamed(context, '/conteudo');
+                    Navigator.pushReplacementNamed(context, '/conteudo/');
                   }, 
                   child: const Text(
                     "Navegar até o material!",

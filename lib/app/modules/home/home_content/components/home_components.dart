@@ -174,7 +174,7 @@ class MomCard extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Padding(
-                padding: const EdgeInsets.all(2.0),
+                padding: const EdgeInsets.only(top: 0, bottom: 05, left: 10, right: 0,),
                 child: Text('Mãe: ${storeA.controllerNameMom.text}',
                     textAlign: TextAlign.start,
                     style: const TextStyle(
@@ -184,7 +184,7 @@ class MomCard extends StatelessWidget {
                   ),
               ),
               Padding(
-                padding: const EdgeInsets.all(2.0),
+                padding: const EdgeInsets.only(top: 0, bottom: 05, left: 10, right: 0,),
                 child: Text('Filho: ${storeE.controllerKidName.text}',
                     textAlign: TextAlign.start,
                     style: const TextStyle(
@@ -193,7 +193,7 @@ class MomCard extends StatelessWidget {
                     )),
               ),
               Padding(
-                padding: const EdgeInsets.all(2.0),
+                padding: const EdgeInsets.only(top: 0, bottom: 05, left: 10, right: 0,),
                 child: Text('Celular: ${storeE.controllerPhone.text}',
                     textAlign: TextAlign.start,
                     style: const TextStyle(

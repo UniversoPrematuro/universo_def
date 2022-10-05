@@ -17,6 +17,7 @@ class noticiaContent extends StatelessWidget {
       //height: 250.0,
       decoration: BoxDecoration(
         shape: BoxShape.rectangle,
+        borderRadius: BorderRadius.circular(30),
           border: Border.all(
               color: const Color.fromARGB(255, 101, 188, 89),
               width: 3.0,
@@ -24,7 +25,7 @@ class noticiaContent extends StatelessWidget {
       ),
       child: Column(
         children: <Widget>[
-          Image.asset(figure),
+          Image.asset(figure, fit: BoxFit.scaleDown),
           Padding(
             padding: const EdgeInsets.all(10.0),
             child: descript,

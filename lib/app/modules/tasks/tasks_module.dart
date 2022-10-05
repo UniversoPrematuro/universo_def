@@ -28,7 +28,7 @@ class TasksModule extends Module {
 
   @override
   final List<ModularRoute> routes = [
-    ChildRoute('/', child: (_, args) => TasksPage()),
+    ChildRoute('/task', child: (_, args) => TasksPage()),
     ChildRoute('/conteudo', child: (_, args) => ConteudoPage()),
     ChildRoute('/primeiro', child: (_, args) => PrimeiroPage()),
     ChildRoute('/segundo', child: (_, args) => SegundoPage()),

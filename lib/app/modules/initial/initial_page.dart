@@ -56,7 +56,7 @@ class InitialPageState extends State<InitialPage> {
                     children: [
                       Center(
                         child:
-                            Image.asset('images/logo/LogoMov.gif', width: 350),
+                            Image.asset('images/logo/LogoMov.gif', width: 300),
                       ),
                       Observer(builder: (_) {
                         return Padding(
@@ -66,52 +66,50 @@ class InitialPageState extends State<InitialPage> {
                         );
                       }),
                       Padding(
-                        padding: const EdgeInsets.fromLTRB(20, 20, 20, 0),
+                        padding: const EdgeInsets.fromLTRB(20, 10, 20, 0),
                         child: PasswordInput(
                             controllerPass: store.controllerPass,
                             hintText: 'Senha'),
                       ),
+                      Align(
+                        alignment: Alignment.centerLeft,
+                        child: Padding(
+                          padding: const EdgeInsets.only(top: 0, right: 0, bottom: 0, left: 18),
+                          child: TextButton(
+                            onPressed: () {
+                              Modular.to.pushNamed("/reset");
+                            },
+                            child: const Text(
+                              "Esqueceu sua senha?",
+                              style: TextStyle(color: Colors.white),
+                            ),
+                          ),
+                        ),
+                      ),
                       Column(
                         children: [
-                          Padding(
-                            padding: const EdgeInsets.all(5.0),
-                            child: Observer(builder: (_) {
-                              return Center(
-                                child: Text(store.erro, 
+                          Observer(builder: (_) {
+                            return Center(
+                              child: Text(
+                                store.erro,
                                 style: const TextStyle(
-                                  color:  Color.fromARGB(255, 238, 66, 54),
+                                  color: Color.fromARGB(255, 238, 66, 54),
                                   fontWeight: FontWeight.w500,
-                                ),),
-                              );
-                            }),
-                          ),
-                          const SizedBox(height: 30),
-
-                          LoadingAnimatedButton(
-                            child: Text(
-                              "Entre",
-                              style: TextStyle(
-                                color: Colors.green,
-                                fontWeight: FontWeight.w600
+                                ),
                               ),
-                              ), onTap: (){
-                            store.signIn(UserModel());
-                            editStore.recover();
+                            );
                           }),
-                          // GradientButtonFb1(
-                          //     onPressed: () async {
-                          //       store.signIn(UserModel());
-                          //       editStore.recover();
-                                
-                          //       // editStore.recoverKid();
-                          //     },
-                          //     text: "Entre Agora!"),
-                          
+                          GradientButtonFb1(
+                              onPressed: () async {
+                                store.signIn(UserModel());
+                                editStore.recover();
+                              },
+                              text: "Entre Agora!"),
                           OutlineButtonFb1(
                               onPressed: () {
                                 Modular.to.pushNamed('/auth/');
                               },
-                              text: "Primeira vez no Universo Prematuro?")
+                              text: "Primeira vez no Universo Prematuro?"),
                         ],
                       )
                     ],

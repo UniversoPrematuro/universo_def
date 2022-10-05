@@ -2,6 +2,7 @@ import 'package:universo_def/app/modules/initial/error_store.dart';
 import 'package:universo_def/app/modules/initial/initial_Page.dart';
 import 'package:universo_def/app/modules/initial/initial_store.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:universo_def/app/modules/initial/resetpass.dart';
 
 class InitialModule extends Module {
   @override
@@ -13,5 +14,6 @@ class InitialModule extends Module {
   @override
   final List<ModularRoute> routes = [
     ChildRoute('/', child: (_, args) => const InitialPage()),
+    ChildRoute('/reset', child: (_, args) => const ResetPassword()),
   ];
 }
