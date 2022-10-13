@@ -1,4 +1,5 @@
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:universo_def/app/modules/tasks/denverII.dart';
 
 import 'modules/cartilha/cartilha_module.dart';
 import 'modules/growth/growth_module.dart';
@@ -72,6 +73,7 @@ class AppModule extends Module {
     ModuleRoute('/terceiro', module: TerceiroModule()),
     ModuleRoute('/quarto', module: QuartoModule()),
     ModuleRoute('/photo', module: PhotoAlbumModule()),
+    // ModuleRoute('/denver', module: DenverII()),
   ];
 
 }

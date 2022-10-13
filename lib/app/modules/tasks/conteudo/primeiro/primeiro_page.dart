@@ -1,6 +1,7 @@
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:universo_def/app/modules/tasks/conteudo/primeiro/primeiro_store.dart';
 import 'package:flutter/material.dart';
+import 'package:universo_def/app/modules/tasks/denverII.dart';
 
 class PrimeiroPage extends StatefulWidget {
   final String title;
@@ -142,7 +143,10 @@ class PrimeiroPageState extends State<PrimeiroPage> {
                     
                     )),
                 ElevatedButton(
-                  onPressed: (){Modular.to.pushNamed("/tip/tip10");}, 
+                  onPressed: (){Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => DenverII()),
+            );}, 
                   child: const Text(
                     "Avaliacao de desenvolvimento",
                     textAlign: TextAlign.center,

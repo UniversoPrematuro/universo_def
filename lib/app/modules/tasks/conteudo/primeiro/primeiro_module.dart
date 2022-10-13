@@ -10,6 +10,7 @@ import 'package:universo_def/app/modules/tasks/conteudo/primeiro/tarefas/tarefa6
 import 'package:universo_def/app/modules/tasks/conteudo/primeiro/tarefas/tarefa7_page.dart';
 import 'package:universo_def/app/modules/tasks/conteudo/primeiro/tarefas/tarefa8_page.dart';
 import 'package:universo_def/app/modules/tasks/conteudo/primeiro/tarefas/tarefa9_page.dart';
+import 'package:universo_def/app/modules/tasks/denverII.dart';
 
 class PrimeiroModule extends Module {
   @override
@@ -24,6 +25,7 @@ class PrimeiroModule extends Module {
     Bind.singleton((i) => const Tarefa7Page() ),
     Bind.singleton((i) => const Tarefa8Page() ),
     Bind.singleton((i) => const Tarefa9Page() ),
+    Bind.singleton((i) => DenverII() ),
   ];
 
   @override
@@ -38,6 +40,7 @@ class PrimeiroModule extends Module {
     ChildRoute('/t7', child: (_, args) => const Tarefa7Page()),
     ChildRoute('/t8', child: (_, args) => const Tarefa8Page()),
     ChildRoute('/t9', child: (_, args) => const Tarefa9Page()),
+    ChildRoute('/denver', child: (_, args) => DenverII()),
     // ChildRoute('/t9', child: (_, args) => AvaliacaoPage()),
   ];
 }

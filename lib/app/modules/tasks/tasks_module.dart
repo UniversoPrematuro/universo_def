@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_constructors
 
+import 'package:universo_def/app/modules/tasks/denverII.dart';
 import 'package:universo_def/app/modules/tasks/tasks_Page.dart';
 import 'package:universo_def/app/modules/tasks/tasks_store.dart';
 import 'package:flutter_modular/flutter_modular.dart';
@@ -23,6 +24,7 @@ class TasksModule extends Module {
     Bind.lazySingleton((i) => SegundoStore()),
     Bind.lazySingleton((i) => TerceiroStore()),
     Bind.lazySingleton((i) => QuartoStore()),
+    Bind.lazySingleton((i) => DenverII())
 
   ];
 
@@ -34,6 +36,7 @@ class TasksModule extends Module {
     ChildRoute('/segundo', child: (_, args) => SegundoPage()),
     ChildRoute('/terceiro', child: (_, args) => TerceiroPage()),
     ChildRoute('/quarto', child: (_, args) => QuartoPage()),
+    ChildRoute('/denver', child: (_, args) => DenverII())
     // ChildRoute('/t1', child: (_, args) => Tarefa1Page()),
   ];
 }
