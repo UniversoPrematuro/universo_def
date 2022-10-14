@@ -6,10 +6,13 @@ class DenverIIStore = _DenverIIStoreBase with _$DenverIIStore;
 abstract class _DenverIIStoreBase with Store {
 
   @observable
-  int value = 0;
+  int? page;
 
-  @action
-  void increment() {
-    value++;
-  } 
+  @observable
+  int? fase;
+
+  @observable
+  Map? answers;
+
+  
 }
