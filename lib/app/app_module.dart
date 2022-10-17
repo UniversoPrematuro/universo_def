@@ -1,4 +1,5 @@
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:universo_def/app/modules/models/channel_model.dart';
 import 'package:universo_def/app/modules/tasks/denverII.dart';
 import 'package:universo_def/app/modules/tasks/denverII/denverII_module.dart';
 
@@ -52,6 +53,7 @@ class AppModule extends Module {
     Bind.lazySingleton((i) => QuartoStore()),
     Bind.singleton((i) => PhotoAlbumStore()),
     Bind.singleton((i) => VideoAlbumStore()),
+    // Bind.singleton((i) => Channel())
   ];
 
   @override

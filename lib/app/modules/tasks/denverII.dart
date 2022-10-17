@@ -66,7 +66,7 @@
 //                   padding: EdgeInsets.only(left: 20.0,right: 20.0,top: 30.0),
 //                   child: Text(
 //                     'Avaliação Pessoal - Social',
-//                     style: TextStyle(
+//                     // style: TextStyle(
 //                         fontSize: 20.0,
 //                         fontWeight: FontWeight.bold,
 //                         color: Colors.black54

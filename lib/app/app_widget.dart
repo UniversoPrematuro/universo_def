@@ -9,6 +9,7 @@ class AppWidget extends StatelessWidget {
     return MaterialApp.router(
       title: 'Universo Prematuro',
       theme: ThemeData(primarySwatch: Colors.green),
+      
        
       routeInformationParser: Modular.routeInformationParser, 
       routerDelegate: Modular.routerDelegate,
