@@ -8,10 +8,7 @@ class SegundoStore = _SegundoStoreBase with _$SegundoStore;
 abstract class _SegundoStoreBase with Store {
 
   @observable
-  int value = 0;
+  String? uid;
 
-  @action
-  void increment() {
-    value++;
-  } 
+  
 }

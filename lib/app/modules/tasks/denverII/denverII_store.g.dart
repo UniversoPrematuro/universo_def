@@ -13,13 +13,13 @@ mixin _$DenverIIStore on _DenverIIStoreBase, Store {
       Atom(name: '_DenverIIStoreBase.page', context: context);
 
   @override
-  int? get page {
+  int get page {
     _$pageAtom.reportRead();
     return super.page;
   }
 
   @override
-  set page(int? value) {
+  set page(int value) {
     _$pageAtom.reportWrite(value, super.page, () {
       super.page = value;
     });

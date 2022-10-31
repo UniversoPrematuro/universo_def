@@ -6,7 +6,8 @@ import '../models/video_model.dart';
 class VideoScreen extends StatefulWidget {
 
   final String id;
-  const VideoScreen({super.key, required this.id});
+
+  const VideoScreen({super.key, required this.id,});
 
 
   @override
@@ -14,9 +15,7 @@ class VideoScreen extends StatefulWidget {
 }
 
 class _VideoScreenState extends State<VideoScreen> {
-
-  Video video = Video();
-  YoutubePlayerController? _controller;
+  late YoutubePlayerController _controller;
 
   @override
   void initState() {
@@ -24,8 +23,8 @@ class _VideoScreenState extends State<VideoScreen> {
     _controller = YoutubePlayerController(
       initialVideoId: widget.id,
       flags: YoutubePlayerFlags(
-        mute: false,
-        autoPlay: true,
+        mute: true,
+        autoPlay: false,
       ),
     );
   }
@@ -35,7 +34,7 @@ class _VideoScreenState extends State<VideoScreen> {
     return Scaffold(
       appBar: AppBar(),
       body: YoutubePlayer(
-        controller: _controller!,
+        controller: _controller,
         showVideoProgressIndicator: true,
         onReady: () {
           print('Player is ready.');

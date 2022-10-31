@@ -25,7 +25,7 @@ class InitialPageState extends State<InitialPage> {
   final PhotoAlbumStore pStore = Modular.get();
   @override
   void initState() {
-    editStore.recover();
+    // editStore.recover();
     // editStore.recoverKid();
     // editStore.calculoIdadeCrono();
     // store.initReactions();

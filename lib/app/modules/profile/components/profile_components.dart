@@ -24,18 +24,16 @@ class ProfileCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Observer(
-      builder: (_) {
-        return Container(
+    return Container(
           width: MediaQuery.of(context).size.width,
           height: MediaQuery.of(context).size.height * .25,
           decoration: BoxDecoration(
               boxShadow: [
                 BoxShadow(
-                    color: Colors.grey.withOpacity(0.5),
+                    color: Colors.grey.withOpacity(0.6),
                     spreadRadius: 5,
                     blurRadius: 7,
-                    offset: const Offset(0, 5))
+                    offset: const Offset(0, 1))
               ],
               borderRadius: const BorderRadius.only(
                 bottomLeft: Radius.circular(20),
@@ -91,19 +89,31 @@ class ProfileCard extends StatelessWidget {
                             fontWeight: FontWeight.w500,
                           ));
                     }),
-                    Observer(builder: (_) {
-                      return Text('idade corrigida: ${store.idadeCorrigida}');
-                    }),
-                    ElevatedButton(
-                        onPressed: () => Modular.to.pushNamed("/edit"),
-                        child: const Text("Editar"))
+                    // Observer(builder: (_) {
+                    //   return Text('idade corrigida: ${store.idadeCorrigida}');
+                    // }),
+                    TextButton(onPressed: (() => Modular.to.pushNamed("/edit/")), 
+                    child: const Padding(
+                      padding:  EdgeInsets.only(left: 150.0, top: 30),
+                      child:  Text(
+                        "Editar perfil",
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.w600,
+                        ),
+                        
+                        ),
+                    )
+                    
+                    )
+                   
                   ],
                   // FIM DADOS CRIANÇA //
                 ),
               ),
 
               Padding(
-                  padding: const EdgeInsets.only(right: 8.0),
+                  padding: const EdgeInsets.only(right: 15.0, bottom: 40),
                   child: Observer(builder: (_) {
                     return CircleAvatar(
                       radius: 45,
@@ -114,8 +124,7 @@ class ProfileCard extends StatelessWidget {
             ],
           ),
         );
-      },
-    );
+     
   }
 }
 
@@ -138,8 +147,8 @@ class GalleryTabs extends StatelessWidget {
                 controller: store.tabController,
                 labelColor: Colors.green,
                 indicator: const UnderlineTabIndicator(
-                  borderSide: BorderSide(width: 2.5, color: Colors.green),
-                  insets: EdgeInsets.symmetric(horizontal: 30.0),
+                  borderSide: BorderSide(width: 1.5, color: Colors.green,),
+                  insets: EdgeInsets.symmetric(horizontal: 10.0),
                 ),
                 indicatorColor: Colors.green,
                 tabs: const [
@@ -155,14 +164,12 @@ class GalleryTabs extends StatelessWidget {
                 height: MediaQuery.of(context).size.height * .8,
                 child: TabBarView(
                   controller: store.tabController,
-                  children: [
-                    Observer(
-                      builder: (_) => const PhotoAlbumPage()
-                    ),
+                  children: const [
+                    PhotoAlbumPage(),
                     
-                    Observer(
-                      builder: (_) => const VideoAlbumPage()
-                    ),
+                    
+                    VideoAlbumPage()
+                    
                   ],
                 ),
               ),

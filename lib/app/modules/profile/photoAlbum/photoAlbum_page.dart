@@ -16,8 +16,8 @@ class PhotoAlbumPage extends StatefulWidget {
 class PhotoAlbumPageState extends State<PhotoAlbumPage> {
   final PhotoAlbumStore store = Modular.get();
   FirebaseFirestore db = FirebaseFirestore.instance;
-  // final auth = FirebaseAuth.instance;
-  // String idLogado = FirebaseAuth.instance.currentUser!.uid;
+
+
   @override
   void initState() {
     store.recoverPhotos();

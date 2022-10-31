@@ -1,4 +1,5 @@
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:universo_def/app/modules/tasks/conteudo/terceiro/tarefas/denver/avaliacao_page.dart';
 import 'package:universo_def/app/modules/tasks/conteudo/terceiro/terceiro_store.dart';
 import 'package:flutter/material.dart';
 
@@ -143,7 +144,9 @@ class TerceiroPageState extends State<TerceiroPage> {
                     )),
                 
                 ElevatedButton(
-                  onPressed: (){Modular.to.pushNamed("/tip/tip10");}, 
+                  onPressed: (){Navigator.push(
+                      context, MaterialPageRoute(builder: ((context) => AvaliacaoPage()))
+                    );}, 
                   child: const Text(
                     "Avaliacao de desenvolvimento",
                     textAlign: TextAlign.center,

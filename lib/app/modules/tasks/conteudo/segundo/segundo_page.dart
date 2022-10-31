@@ -1,6 +1,7 @@
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:universo_def/app/modules/tasks/conteudo/segundo/segundo_store.dart';
 import 'package:flutter/material.dart';
+import 'package:universo_def/app/modules/tasks/conteudo/segundo/tarefas/denver/avaliacao_page.dart';
 
 class SegundoPage extends StatefulWidget {
   final String title;
@@ -142,7 +143,11 @@ class SegundoPageState extends State<SegundoPage> {
                     
                     )),
                 ElevatedButton(
-                  onPressed: (){Modular.to.pushNamed("/tip/tip10");}, 
+                  onPressed: (){
+                    Navigator.push(
+                      context, MaterialPageRoute(builder: ((context) => AvaliacaoPage()))
+                    );
+                  }, 
                   child: const Text(
                     "Avaliacao de desenvolvimento",
                     textAlign: TextAlign.center,

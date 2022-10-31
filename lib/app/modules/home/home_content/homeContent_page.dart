@@ -32,7 +32,7 @@ class HomeContentPageState extends State<HomeContentPage> {
                   padding: const EdgeInsets.all(8.0),
                   child: ElevatedButton(
                     onPressed: () {
-                      FirebaseAuth.instance.signOut();
+                      FirebaseAuth.instance.signOut().then((value) => Modular.to.pushNamed('/'),);
                     },
                     style: ButtonStyle(
                       elevation: MaterialStateProperty.all(0),
@@ -69,7 +69,7 @@ class HomeContentPageState extends State<HomeContentPage> {
                       SizedBox(height: 30),
                       GraphHolder(),
                       SizedBox(
-                        height: 100,
+                        height: 10,
                       )
                     ],
                   ),

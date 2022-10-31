@@ -12,8 +12,8 @@ class VideoAlbumPage extends StatefulWidget {
 class VideoAlbumPageState extends State<VideoAlbumPage> {
   final VideoAlbumStore store = Modular.get();
   FirebaseFirestore db = FirebaseFirestore.instance;
-  // final auth = FirebaseAuth.instance;
-  // String idLogado = FirebaseAuth.instance.currentUser!.uid;
+
+
   @override
   void initState() {
     store.recoverVideos();

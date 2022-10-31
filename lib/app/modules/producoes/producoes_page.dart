@@ -37,16 +37,16 @@ class ProducoesPageState extends State<ProducoesPage> {
   }
 
   _buildVideo(Video video) {
-
+    // String id = video.id!;
     return GestureDetector(
       onTap: () => Navigator.push(context, MaterialPageRoute(
-        builder: (_) => VideoScreen(id: video.id!),
+        builder: (_) => VideoScreen(id: "https://${video.id}"),
       )),
       child: Container(
-        margin: EdgeInsets.symmetric(horizontal: 20, vertical: 5),
-        padding: EdgeInsets.all(10),
+        margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
+        padding: const EdgeInsets.all(10),
         height: 140,
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           color: Colors.white,
           boxShadow: [BoxShadow(
             color: Colors.black12,
@@ -60,11 +60,11 @@ class ProducoesPageState extends State<ProducoesPage> {
               image: NetworkImage(video.thumbnailUrl!),
               width: 150,
             ),
-            SizedBox(width: 10),
+            const SizedBox(width: 10),
             Expanded(
               child: Text(
                 video.title!,
-                style: TextStyle(
+                style: const TextStyle(
                   color: Colors.black
                 ),
               ),
@@ -95,7 +95,7 @@ class ProducoesPageState extends State<ProducoesPage> {
             radius: 35,
             backgroundImage: NetworkImage(_channel!.profilePictureUrl!),
           ),
-          SizedBox(width: 12),
+          const SizedBox(width: 12),
           Expanded(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -103,7 +103,7 @@ class ProducoesPageState extends State<ProducoesPage> {
               children: [
                 Text(
                   _channel!.title!,
-                  style: TextStyle(
+                  style: const TextStyle(
                     color: Colors.black,
                     fontSize: 20,
                     fontWeight: FontWeight.w600,
@@ -136,7 +136,7 @@ class ProducoesPageState extends State<ProducoesPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Produções YouTube"),
+        title: const Text("Produções YouTube"),
       ),
       body: _channel != null ? 
          NotificationListener<ScrollNotification>(

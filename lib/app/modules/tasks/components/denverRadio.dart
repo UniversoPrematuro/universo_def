@@ -33,12 +33,12 @@ Widget denverRadio ({int? index, String? text, Map? answers}){
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        SizedBox(height: 40.0,),
+        const SizedBox(height: 40.0,),
         textCTRST(
           stg1: 'Habilidade $index: ',
           stg2: text,
         ),
-        SizedBox(height: 10.0,),
+        const SizedBox(height: 10.0,),
         Row(
           mainAxisSize: MainAxisSize.max,
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -55,7 +55,7 @@ Widget denverRadio ({int? index, String? text, Map? answers}){
                       ).then((value) => null);
                     }
                 ),
-                Text('Sim')
+                const Text('Sim')
               ],
             ),
             Column(
@@ -70,7 +70,7 @@ Widget denverRadio ({int? index, String? text, Map? answers}){
                       ).then((value) => null);
                     }
                 ),
-                Text('Não')
+                const Text('Não')
               ],
             ),
             Column(
@@ -85,12 +85,12 @@ Widget denverRadio ({int? index, String? text, Map? answers}){
                       ).then((value) => null);
                     }
                 ),
-                Text('Parcial')
+                const Text('Parcial')
               ],
             )
           ],
         ),
-        SizedBox(height: 15.0,),
+        const SizedBox(height: 15.0,),
       ],
     );
 
@@ -100,7 +100,7 @@ Widget denverRadio ({int? index, String? text, Map? answers}){
     return RichText(
       textAlign: TextAlign.justify,
       text: TextSpan(
-        style: TextStyle(
+        style: const TextStyle(
           fontSize: 18,
           fontWeight: FontWeight.normal,
           color: Colors.black,
@@ -108,7 +108,7 @@ Widget denverRadio ({int? index, String? text, Map? answers}){
         ),
         children: <TextSpan>[
           TextSpan(text: stg1),
-          TextSpan(text: stg2, style: TextStyle(fontWeight: FontWeight.bold)),
+          TextSpan(text: stg2, style: const TextStyle(fontWeight: FontWeight.bold)),
         ],
       ),
     );

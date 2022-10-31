@@ -1,6 +1,7 @@
 import 'package:universo_def/app/modules/tasks/conteudo/segundo/segundo_page.dart';
 import 'package:universo_def/app/modules/tasks/conteudo/segundo/segundo_store.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:universo_def/app/modules/tasks/conteudo/segundo/tarefas/denver/avaliacao_page.dart';
 import 'package:universo_def/app/modules/tasks/conteudo/segundo/tarefas/tarefa10_page.dart';
 import 'package:universo_def/app/modules/tasks/conteudo/segundo/tarefas/tarefa11_page.dart';
 import 'package:universo_def/app/modules/tasks/conteudo/segundo/tarefas/tarefa12_page.dart';
@@ -29,5 +30,6 @@ class SegundoModule extends Module {
     ChildRoute('/t16', child: (_, args) => const Tarefa16Page()),
     ChildRoute('/t17', child: (_, args) => const Tarefa17Page()),
     ChildRoute('/t18', child: (_, args) => const Tarefa18Page()),
+    ChildRoute('/av', child: (_, args) => const AvaliacaoPage()),
   ];
 }

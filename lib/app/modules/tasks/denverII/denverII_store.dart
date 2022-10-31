@@ -6,7 +6,7 @@ class DenverIIStore = _DenverIIStoreBase with _$DenverIIStore;
 abstract class _DenverIIStoreBase with Store {
 
   @observable
-  int? page;
+  late int page;
 
   @observable
   int? fase;

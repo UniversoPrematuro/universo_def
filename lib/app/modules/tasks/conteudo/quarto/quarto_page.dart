@@ -1,6 +1,7 @@
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:universo_def/app/modules/tasks/conteudo/quarto/quarto_store.dart';
 import 'package:flutter/material.dart';
+import 'package:universo_def/app/modules/tasks/conteudo/quarto/tarefas/denver/avaliacao_page.dart';
 
 class QuartoPage extends StatefulWidget {
   final String title;
@@ -145,7 +146,9 @@ class QuartoPageState extends State<QuartoPage> {
                     )),
                 
                 ElevatedButton(
-                  onPressed: (){Modular.to.pushNamed("/tip/tip10");}, 
+                  onPressed: (){Navigator.push(
+                      context, MaterialPageRoute(builder: ((context) => AvaliacaoPage()))
+                    );}, 
                   child: const Text(
                     "Avaliacao de desenvolvimento",
                     textAlign: TextAlign.center,

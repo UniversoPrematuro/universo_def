@@ -38,10 +38,10 @@ class CustomCarouselFB2 extends StatelessWidget {
                   height: MediaQuery.of(context).size.height * .2,
                   
                   child: Column(children: [
-                    const SizedBox(height: 15),
+                    const SizedBox(height: 5),
                     Image.asset("images/buttons/BotaoUP.png",
                         width: 100, height: 100),
-                    const SizedBox(height: 5),
+                    const SizedBox(height: 05),
                     const Text(
                       "Cartilha",
                       style: TextStyle(color: Colors.green),
@@ -136,9 +136,9 @@ class GraphHolder extends StatelessWidget {
             borderRadius: BorderRadius.circular(20),
             boxShadow: [
               BoxShadow(
-                  color: Colors.black.withOpacity(1),
+                  color: Colors.black.withOpacity(.5),
                   blurRadius: 8,
-                  offset: const Offset(0, 5))
+                  offset: const Offset(0, 1))
             ]),
         width: MediaQuery.of(context).size.width * .9,
         height: MediaQuery.of(context).size.height * .7,
@@ -160,10 +160,10 @@ class MomCard extends StatelessWidget {
       height: MediaQuery.of(context).size.height / 4,
       decoration: BoxDecoration(boxShadow: [
         BoxShadow(
-            offset: const Offset(05, 7),
+            offset: const Offset(0, 2),
             blurRadius: 8,
             spreadRadius: 0,
-            color: Colors.black.withOpacity(.3)),
+            color: Colors.black.withOpacity(.5)),
       ], color: Colors.white, borderRadius: BorderRadius.circular(20)),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -204,7 +204,7 @@ class MomCard extends StatelessWidget {
             ],
           ),
           Padding(
-            padding: const EdgeInsets.all(5.0),
+            padding: const EdgeInsets.only(right: 10.0),
             child: Observer(builder: (_) {
               return CircleAvatar(
                 radius: 45,

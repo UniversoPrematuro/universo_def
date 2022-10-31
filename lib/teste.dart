@@ -1,6 +1,9 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'dart:collection';
+
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'dart:core';
 // import 'package:charts_flutter/flutter.dart' as charts;
 import 'package:charts_flutter/flutter.dart' as charts;
 
@@ -8,12 +11,13 @@ import 'teste2.dart';
 // import 'package:up_prttp_v4/teste2.dart';
 
 class StackedBarTargetLineChart extends StatelessWidget {
-  //final List<charts.Series> seriesList;
+  // final List<charts.Series> seriesList;
   //final bool animate;
-  String UID;
+  // String UID;
   String area;
+  FirebaseAuth auth = FirebaseAuth.instance;
 
-  StackedBarTargetLineChart(this.UID, this.area);
+  StackedBarTargetLineChart(this.auth, this.area, {super.key});
 
   /// Creates a stacked [BarChart] with sample data and no transition.
   /*factory StackedBarTargetLineChart.withSampleData() {
@@ -30,14 +34,14 @@ class StackedBarTargetLineChart extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        actions: <Widget>[
-          Image.asset("images/LogoTop.png"),
+        actions: const <Widget>[
+          // Image.asset("images/LogoTop.png"),
           SizedBox(
             width: 10.0,
           )
         ],
         centerTitle: true,
-        title: Text(
+        title: const Text(
           'Desenvolvimento',
           style: TextStyle(
               fontSize: 24.0, fontWeight: FontWeight.bold, color: Colors.white),
@@ -45,12 +49,12 @@ class StackedBarTargetLineChart extends StatelessWidget {
         elevation: 1.5,
       ),
       body: ListView(
-        padding: EdgeInsets.all(20.0),
+        padding: const EdgeInsets.all(20.0),
         children: [
 
-          SizedBox(height: 20.0,),
-          Padding(
-            padding: const EdgeInsets.only(left: 20.0,right: 20.0),
+          const SizedBox(height: 20.0,),
+          const Padding(
+            padding: EdgeInsets.only(left: 20.0,right: 20.0),
             child: Text(
               'Resultados',
               style: TextStyle(
@@ -61,18 +65,19 @@ class StackedBarTargetLineChart extends StatelessWidget {
               textAlign: TextAlign.center,
             ),
           ),
-          SizedBox(height: 20.0,),
+          const SizedBox(height: 20.0,),
 
           FutureBuilder<QuerySnapshot>(
-            future: FirebaseFirestore.instance.collection('users').doc(UID)
+            future: FirebaseFirestore.instance.collection('users').doc(auth.currentUser!.uid)
                 .collection('denver').get(),
             builder: (context, snapshot) {
-              if(snapshot.hasData) return SizedBox(
+              if(snapshot.hasData) {
+                return SizedBox(
                 height: 400.0,
                 child: charts.BarChart(_createDenverData(snapshot.data!.docs,area),
                     animate: true,
                     barGroupingType: charts.BarGroupingType.stacked,
-                  primaryMeasureAxis: charts.NumericAxisSpec(
+                  primaryMeasureAxis: const charts.NumericAxisSpec(
                       tickProviderSpec: charts.BasicNumericTickProviderSpec(
                         // Make sure we don't have values less than 1 as ticks
                         // (ie: counts).
@@ -81,7 +86,7 @@ class StackedBarTargetLineChart extends StatelessWidget {
                           // generating ticks [0, 1, 2, 3, 4].
                           desiredTickCount: 10),
                     ),
-                    animationDuration: Duration(seconds: 2),
+                    animationDuration: const Duration(seconds: 2),
                     customSeriesRenderers: [
                       charts.BarTargetLineRendererConfig<String>(
                         // ID used to link series to this renderer.
@@ -94,11 +99,11 @@ class StackedBarTargetLineChart extends StatelessWidget {
                       type: charts.SelectionModelType.info,
                       updatedListener: (model){
                         if(model.selectedDatum.isNotEmpty){
-                          //print(model.selectedDatum.first.datum.year);
+                          print(model.selectedDatum.first.datum.year);
                           Navigator.of(context).push(
                               MaterialPageRoute(
                                   builder: (
-                                          (context) => StackedBarTargetLineChart(UID,model.selectedDatum.first.datum.year)
+                                          (context) => StackedBarTargetLineChart(auth, model.selectedDatum.first.datum.year)
                                   )
                               )
                           );
@@ -108,17 +113,19 @@ class StackedBarTargetLineChart extends StatelessWidget {
                   ],
                 ),
               );
-              else return Center(
+              } else {
+                return const Center(
                 child: CircularProgressIndicator(
                   valueColor: AlwaysStoppedAnimation<Color>(Colors.blueAccent),
                 ),
               );
+              }
             }
           ),
-          SizedBox(height: 10.0,),
+          const SizedBox(height: 10.0,),
 
           RichText(
-            text: TextSpan(
+            text: const TextSpan(
                 style: TextStyle(
                   fontSize: 16,
                   fontWeight: FontWeight.bold,
@@ -142,12 +149,14 @@ class StackedBarTargetLineChart extends StatelessWidget {
               ]
             ),
           ),
-          SizedBox(height: 20.0,),
+          const SizedBox(height: 20.0,),
           MaterialButton(
             child: Card(
               elevation: 10.0,
+              // ignore: sort_child_properties_last
               child: Container(
-                child: Text(
+                padding: const EdgeInsets.all(20.0),
+                child:  const Text(
                   'Resultado profissional',
                   style: TextStyle(
                     fontSize: 18,
@@ -155,11 +164,10 @@ class StackedBarTargetLineChart extends StatelessWidget {
                     color: Colors.white,
                   ),
                 ),
-                padding: EdgeInsets.all(20.0),
               ),
-              color: Color.fromARGB(255, 102, 188, 89),
+              color: const Color.fromARGB(255, 102, 188, 89),
             ),
-            onPressed: (){Navigator.of(context).push(MaterialPageRoute(builder: ((context) => AreaAndLineChart(UID,area))));},
+            onPressed: (){Navigator.of(context).push(MaterialPageRoute(builder: ((context) => AreaAndLineChart(auth.currentUser!.uid,area))));},
           )
         ],
       ),
@@ -172,23 +180,25 @@ class StackedBarTargetLineChart extends StatelessWidget {
     int x = 0;
     int y = 0;
     bool fail = false;
-    Map m = Map();
+    Map m = {};
 
     final List<resultData> yesData = [];
     final List<resultData> parData = [];
     final List<resultData> noData = [];
     final List<resultData> midData = [];
 
-    docs.forEach((doc){
+    for (var doc in docs) {
       if(doc.id != "result"){
 
-        //print("\n\nRespostas de ${doc.id}: ${doc.data()}");
+        print("\n\nRespostas de ${doc.id}: ${doc.data()}");
         var map = Map();
-        // doc.data()!.value.toList().forEach((x) => map[x] = !map.containsKey(x) ? (1) : (map[x] + 1));
+        // doc.data().values.toList().forEach((x) => map[x] = !map.containsKey(x) ? (1) : (map[x] + 1));
+        
 
-        if(!map.containsKey('sim'))map['sim']=0;
-        if(!map.containsKey('par'))map['par']=0;
-        if(!map.containsKey('nao'))map['nao']=0;
+
+        if(!map.containsKey('sim'))map['sim']=5;
+        if(!map.containsKey('par'))map['par']=2;
+        if(!map.containsKey('nao'))map['nao']=3;
 
         // m = SplayTreeMap.from(doc.data(), (a, b) => int.parse(a.substring(3)).compareTo(int.parse(b.substring(3))));
 
@@ -202,7 +212,7 @@ class StackedBarTargetLineChart extends StatelessWidget {
         );
 
         if(area == "GR") {
-          //print('${doc.id}: $map');
+          print('${doc.id}: $map');
           yesData.add(resultData(doc.id, map['sim'].toDouble()));
           noData.add(resultData(doc.id, map['nao'].toDouble()));
           parData.add(resultData(doc.id, map['par'].toDouble()));
@@ -213,7 +223,9 @@ class StackedBarTargetLineChart extends StatelessWidget {
             midData.add(resultData(doc.id,map["nao"]+map["par"]+map["sim"]/2));
           }else if(map["sim"] == map["par"]){
             midData.add(resultData(doc.id,(map["nao"].toDouble()+map["par"]).toDouble()));
-          } else midData.add(resultData(doc.id,map["nao"]+map["par"]/2));
+          } else {
+            midData.add(resultData(doc.id,map["nao"]+map["par"]/2));
+          }
 
         } else if(doc.id == area){
           yesData.add(resultData(doc.id, map['sim'].toDouble()));
@@ -226,11 +238,13 @@ class StackedBarTargetLineChart extends StatelessWidget {
             midData.add(resultData(doc.id,map["nao"]+map["par"]+map["sim"]/2));
           }else if(map["sim"] == map["par"]){
             midData.add(resultData(doc.id,(map["nao"].toDouble()+map["par"]).toDouble()));
-          } else midData.add(resultData(doc.id,map["nao"]+map["par"]/2));
+          } else {
+            midData.add(resultData(doc.id,map["nao"]+map["par"]/2));
+          }
         }
 
       }
-    });
+    }
 
     return [
       charts.Series<resultData, String>(

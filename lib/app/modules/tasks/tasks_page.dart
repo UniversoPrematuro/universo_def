@@ -58,7 +58,7 @@ class TasksPageState extends State<TasksPage> {
                     child: Card(
                       shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(20)),
-                      elevation: 20,
+                      elevation: 10,
                       color: Colors.white,
                       child: Padding(
                         padding: const EdgeInsets.all(25.0),
@@ -87,7 +87,7 @@ class TasksPageState extends State<TasksPage> {
                       "oferecimento da fórmula!",
                       textAlign: TextAlign.center,
                       style: TextStyle(
-                        fontSize: 18,
+                        fontSize: 16,
                         color: Colors.white,
                         fontWeight: FontWeight.w600
                         ),

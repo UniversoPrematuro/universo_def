@@ -59,9 +59,7 @@ class _RadinState extends State<Radin> {
 
   @override
   Widget build(BuildContext context) {
-    // List<Task> tsk;
-    // Task fst = Task();
-    // bool x = false;
+
     bool evaluate = false;
   
   
@@ -70,7 +68,7 @@ class _RadinState extends State<Radin> {
       padding: const EdgeInsets.only(top: 10.0, left: 10.0, right: 10.0),
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(30.0),
-          border: Border.all(color: Theme.of(context).accentColor, width: 3.0)),
+          border: Border.all(color: Theme.of(context).colorScheme.secondary, width: 3.0)),
       child: Column(
         children: <Widget>[
           const Text('Responder ao final de dois dias sobre a execução das tarefas',

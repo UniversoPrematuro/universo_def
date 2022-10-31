@@ -2,16 +2,24 @@
 /// Line chart example
 import 'package:charts_flutter/flutter.dart' as charts;
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_modular/flutter_modular.dart';
 import 'dart:collection';
+
+import 'app/modules/tasks/tasks_store.dart';
 
 class AreaAndLineChart extends StatelessWidget {
 
-  String UID;
+  // String auth.currentUser!.uid;
+  FirebaseAuth auth = FirebaseAuth.instance;
   String area;
-
-  AreaAndLineChart(this.UID, this.area);
-
+  String uid;
+  TasksStore tStore = Modular.get();
+  AreaAndLineChart(this.area, this.uid);
+  
+  @override
+  
 
   @override
   Widget build(BuildContext context) {
@@ -19,12 +27,12 @@ class AreaAndLineChart extends StatelessWidget {
       appBar: AppBar(
         actions: <Widget>[
           Image.asset("images/LogoTop.png"),
-          SizedBox(
+          const SizedBox(
             width: 10.0,
           )
         ],
         centerTitle: true,
-        title: Text(
+        title: const Text(
           'Desenvolvimento',
           style: TextStyle(
               fontSize: 24.0, fontWeight: FontWeight.bold, color: Colors.white),
@@ -32,16 +40,17 @@ class AreaAndLineChart extends StatelessWidget {
         elevation: 1.5,
       ),
       body: FutureBuilder<QuerySnapshot>(
-        future: FirebaseFirestore.instance.collection('users').doc(UID)
+        future: FirebaseFirestore.instance.collection('users').doc(tStore.uid)
             .collection('denver').get(),
         builder: (context, snapshot) {
-          if(snapshot.hasData)return ListView(
-            padding: EdgeInsets.all(20.0),
+          if(snapshot.hasData) {
+            return ListView(
+            padding: const EdgeInsets.all(20.0),
             children: [
 
-              SizedBox(height: 20.0,),
-              Padding(
-                padding: const EdgeInsets.only(left: 20.0,right: 20.0),
+              const SizedBox(height: 20.0,),
+              const Padding(
+                padding: EdgeInsets.only(left: 20.0,right: 20.0),
                 child: Text(
                   'Resultado Profissioal',
                   style: TextStyle(
@@ -52,11 +61,11 @@ class AreaAndLineChart extends StatelessWidget {
                   textAlign: TextAlign.center,
                 ),
               ),
-              SizedBox(height: 40.0,),
+              const SizedBox(height: 40.0,),
 
               RichText(
                 textAlign: TextAlign.justify,
-                text: TextSpan(
+                text: const TextSpan(
                     style: TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.normal,
@@ -82,9 +91,9 @@ class AreaAndLineChart extends StatelessWidget {
                 ),
               ),
 
-              SizedBox(height: 40.0,),
-              Padding(
-                padding: const EdgeInsets.only(left: 20.0,right: 20.0),
+              const SizedBox(height: 40.0,),
+              const Padding(
+                padding: EdgeInsets.only(left: 20.0,right: 20.0),
                 child: Text(
                   'LINGUAGEM',
                   style: TextStyle(
@@ -97,7 +106,7 @@ class AreaAndLineChart extends StatelessWidget {
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
-                children: [
+                children: const [
                   Text('-',style: TextStyle(fontSize: 40,color: Colors.blueAccent,fontWeight: FontWeight.w900),),
                   Text(' Resultado   ',style: TextStyle(fontSize: 16,)),
                   Text('-',style: TextStyle(fontSize: 40,color: Colors.amberAccent,fontWeight: FontWeight.w900),),
@@ -108,7 +117,7 @@ class AreaAndLineChart extends StatelessWidget {
                 height: 400.0,
                 child: charts.LineChart(_createDenverLineData(snapshot.data!.docs,'LG'),
                     animate: true,
-                    animationDuration: Duration(seconds: 2),
+                    animationDuration: const Duration(seconds: 2),
                     customSeriesRenderers: [
                       charts.LineRendererConfig(
                         // ID used to link series to this renderer.
@@ -117,10 +126,10 @@ class AreaAndLineChart extends StatelessWidget {
                           stacked: true),
                     ]),
               ),
-              SizedBox(height: 40.0,),
+              const SizedBox(height: 40.0,),
 
-              Padding(
-                padding: const EdgeInsets.only(left: 20.0,right: 20.0),
+              const Padding(
+                padding: EdgeInsets.only(left: 20.0,right: 20.0),
                 child: Text(
                   'MOTOR FINO-ADAPTATIVO',
                   style: TextStyle(
@@ -133,7 +142,7 @@ class AreaAndLineChart extends StatelessWidget {
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
-                children: [
+                children: const [
                   Text('-',style: TextStyle(fontSize: 40,color: Colors.blueAccent,fontWeight: FontWeight.w900),),
                   Text(' Resultado   ',style: TextStyle(fontSize: 16,)),
                   Text('-',style: TextStyle(fontSize: 40,color: Colors.amberAccent,fontWeight: FontWeight.w900),),
@@ -144,7 +153,7 @@ class AreaAndLineChart extends StatelessWidget {
                 height: 400.0,
                 child: charts.LineChart(_createDenverLineData(snapshot.data!.docs,"MF"),
                     animate: true,
-                    animationDuration: Duration(seconds: 2),
+                    animationDuration: const Duration(seconds: 2),
                     customSeriesRenderers: [
                       charts.LineRendererConfig(
                         // ID used to link series to this renderer.
@@ -153,10 +162,10 @@ class AreaAndLineChart extends StatelessWidget {
                           stacked: true),
                     ]),
               ),
-              SizedBox(height: 40.0,),
+              const SizedBox(height: 40.0,),
 
-              Padding(
-                padding: const EdgeInsets.only(left: 20.0,right: 20.0),
+              const Padding(
+                padding: EdgeInsets.only(left: 20.0,right: 20.0),
                 child: Text(
                   'MOTOR-GROSSO',
                   style: TextStyle(
@@ -169,7 +178,7 @@ class AreaAndLineChart extends StatelessWidget {
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
-                children: [
+                children: const [
                   Text('-',style: TextStyle(fontSize: 40,color: Colors.blueAccent,fontWeight: FontWeight.w900),),
                   Text(' Resultado   ',style: TextStyle(fontSize: 16,)),
                   Text('-',style: TextStyle(fontSize: 40,color: Colors.amberAccent,fontWeight: FontWeight.w900),),
@@ -180,7 +189,7 @@ class AreaAndLineChart extends StatelessWidget {
                 height: 400.0,
                 child: charts.LineChart(_createDenverLineData(snapshot.data!.docs,"MG"),
                     animate: true,
-                    animationDuration: Duration(seconds: 2),
+                    animationDuration: const Duration(seconds: 2),
                     customSeriesRenderers: [
                       charts.LineRendererConfig(
                         // ID used to link series to this renderer.
@@ -189,10 +198,10 @@ class AreaAndLineChart extends StatelessWidget {
                           stacked: true),
                     ]),
               ),
-              SizedBox(height: 40.0,),
+              const SizedBox(height: 40.0,),
 
-              Padding(
-                padding: const EdgeInsets.only(left: 20.0,right: 20.0),
+              const Padding(
+                padding: EdgeInsets.only(left: 20.0,right: 20.0),
                 child: Text(
                   'PESSOAL-SOCIAL',
                   style: TextStyle(
@@ -205,7 +214,7 @@ class AreaAndLineChart extends StatelessWidget {
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
-                children: [
+                children: const [
                   Text('-',style: TextStyle(fontSize: 40,color: Colors.blueAccent,fontWeight: FontWeight.w900),),
                   Text(' Resultado   ',style: TextStyle(fontSize: 16,)),
                   Text('-',style: TextStyle(fontSize: 40,color: Colors.amberAccent,fontWeight: FontWeight.w900),),
@@ -216,7 +225,7 @@ class AreaAndLineChart extends StatelessWidget {
                 height: 400.0,
                 child: charts.LineChart(_createDenverLineData(snapshot.data!.docs,"PS"),
                     animate: true,
-                    animationDuration: Duration(seconds: 2),
+                    animationDuration: const Duration(seconds: 2),
                     customSeriesRenderers: [
                       charts.LineRendererConfig(
                         // ID used to link series to this renderer.
@@ -225,14 +234,16 @@ class AreaAndLineChart extends StatelessWidget {
                           stacked: true),
                     ],),
               ),
-              SizedBox(height: 20.0,),
+              const SizedBox(height: 20.0,),
             ],
           );
-          else return Center(
+          } else {
+            return const Center(
             child: CircularProgressIndicator(
               valueColor: AlwaysStoppedAnimation<Color>(Colors.blueAccent),
             ),
           );
+          }
         }
       ),
     );
@@ -275,8 +286,16 @@ class AreaAndLineChart extends StatelessWidget {
 
     int min = lvl.lastIndexWhere((i) => i < int.parse(m.keys.first.substring(3)));
     int max = lvl.lastIndexWhere((i) => i <= int.parse(m.keys.last.substring(3)));
-    if(min < 0) min = 0;else min = min + 1;
-    if(max < 0) max = 4;else max = max + 1;
+    if(min < 0) {
+      min = 0;
+    } else {
+      min = min + 1;
+    }
+    if(max < 0) {
+      max = 4;
+    } else {
+      max = max + 1;
+    }
     months = months.sublist(min,max);
     lvl =  lvl.sublist(min,max);
 
@@ -311,7 +330,7 @@ class AreaAndLineChart extends StatelessWidget {
       if(u + lvl[i].toDouble() < 0) u=-lvl[i].toDouble();
 
 
-      fails.indexOf(3)<0?
+      !fails.contains(3)?
           minData.add(LinearData(months[i], u)):
           minData.add(LinearData(months[i], res[i]+1.toDouble()-lvl[i].toDouble()));
 
